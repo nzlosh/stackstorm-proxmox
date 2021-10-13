@@ -13,4 +13,3 @@ parameters:
       - versions
     type: string
     required: false
-    secret: false

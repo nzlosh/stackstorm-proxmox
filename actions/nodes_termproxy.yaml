@@ -14,15 +14,12 @@ parameters:
       - upgrade
     type: string
     required: false
-    secret: false
   cmd_opts:
     description: "Add parameters to a command. Encoded as null terminated strings."
     default: ""
     type: string
     required: false
-    secret: false
   node:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false

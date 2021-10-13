@@ -9,35 +9,28 @@ parameters:
     description: "Remove permissions (instead of adding it)."
     type: boolean
     required: false
-    secret: false
   groups:
     description: "List of groups."
     type: string
     required: false
-    secret: false
   path:
     description: "Access control path"
     type: string
     required: true
-    secret: false
   propagate:
     description: "Allow to propagate (inherit) permissions."
     default: 1
     type: boolean
     required: false
-    secret: false
   roles:
     description: "List of roles."
     type: string
     required: true
-    secret: false
   tokens:
     description: "List of API tokens."
     type: string
     required: false
-    secret: false
   users:
     description: "List of users."
     type: string
     required: false
-    secret: false

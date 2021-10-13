@@ -9,9 +9,7 @@ parameters:
     description: "Network/IP specification in CIDR format."
     type: string
     required: true
-    secret: false
   name:
     description: "IP set name."
     type: string
     required: true
-    secret: false

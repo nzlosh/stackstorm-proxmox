@@ -9,7 +9,6 @@ parameters:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false
   service:
     description: "Service ID"
     enum:
@@ -33,4 +32,3 @@ parameters:
       - chrony
     type: string
     required: true
-    secret: false

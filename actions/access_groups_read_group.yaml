@@ -9,4 +9,3 @@ parameters:
     description: "Description unavailable."
     type: string
     required: true
-    secret: false

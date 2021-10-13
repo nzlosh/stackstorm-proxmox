@@ -9,19 +9,15 @@ parameters:
     description: "Network/IP specification in CIDR format."
     type: string
     required: true
-    secret: false
   name:
     description: "IP set name."
     type: string
     required: true
-    secret: false
   node:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false
   vmid:
     description: "The (unique) ID of the VM."
     type: integer
     required: true
-    secret: false

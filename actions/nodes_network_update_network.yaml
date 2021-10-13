@@ -9,22 +9,18 @@ parameters:
     description: "IP address."
     type: string
     required: false
-    secret: false
   address6:
     description: "IP address."
     type: string
     required: false
-    secret: false
   autostart:
     description: "Automatically start interface on boot."
     type: boolean
     required: false
-    secret: false
   bond_primary:
     description: "Specify the primary interface for active-backup bond."
     type: string
     required: false
-    secret: false
   bond_mode:
     description: "Bonding mode."
     enum:
@@ -40,7 +36,6 @@ parameters:
       - lacp-balance-tcp
     type: string
     required: false
-    secret: false
   bond_xmit_hash_policy:
     description: "Selects the transmit hash policy to use for slave selection in balance-xor and 802.3ad modes."
     enum:
@@ -49,107 +44,86 @@ parameters:
       - layer3+4
     type: string
     required: false
-    secret: false
   bridge_ports:
     description: "Specify the interfaces you want to add to your bridge."
     type: string
     required: false
-    secret: false
   bridge_vlan_aware:
     description: "Enable bridge vlan support."
     type: boolean
     required: false
-    secret: false
   cidr:
     description: "IPv4 CIDR."
     type: string
     required: false
-    secret: false
   cidr6:
     description: "IPv6 CIDR."
     type: string
     required: false
-    secret: false
   comments:
     description: "Comments"
     type: string
     required: false
-    secret: false
   comments6:
     description: "Comments"
     type: string
     required: false
-    secret: false
   delete:
     description: "A list of settings you want to delete."
     type: string
     required: false
-    secret: false
   gateway:
     description: "Default gateway address."
     type: string
     required: false
-    secret: false
   gateway6:
     description: "Default ipv6 gateway address."
     type: string
     required: false
-    secret: false
   iface:
     description: "Network interface name."
     type: string
     required: true
-    secret: false
   mtu:
     description: "MTU."
     type: integer
     required: false
-    secret: false
   netmask:
     description: "Network mask."
     type: string
     required: false
-    secret: false
   netmask6:
     description: "Network mask."
     type: integer
     required: false
-    secret: false
   node:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false
   ovs_bonds:
     description: "Specify the interfaces used by the bonding device."
     type: string
     required: false
-    secret: false
   ovs_bridge:
     description: "The OVS bridge associated with a OVS port. This is required when you create an OVS port."
     type: string
     required: false
-    secret: false
   ovs_options:
     description: "OVS interface options."
     type: string
     required: false
-    secret: false
   ovs_ports:
     description: "Specify the interfaces you want to add to your bridge."
     type: string
     required: false
-    secret: false
   ovs_tag:
     description: "Specify a VLan tag (used by OVSPort, OVSIntPort, OVSBond)"
     type: integer
     required: false
-    secret: false
   slaves:
     description: "Specify the interfaces used by the bonding device."
     type: string
     required: false
-    secret: false
   type:
     description: "Network interface type"
     enum:
@@ -165,14 +139,11 @@ parameters:
       - unknown
     type: string
     required: true
-    secret: false
   vlan_id:
     description: "vlan-id for a custom named vlan interface (ifupdown2 only)."
     type: integer
     required: false
-    secret: false
   vlan_raw_device:
     description: "Specify the raw interface for the vlan interface."
     type: string
     required: false
-    secret: false

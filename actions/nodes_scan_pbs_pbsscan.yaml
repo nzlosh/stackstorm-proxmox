@@ -9,30 +9,25 @@ parameters:
     description: "Certificate SHA 256 fingerprint."
     type: string
     required: false
-    secret: false
   node:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false
   password:
     description: "User password or API token secret."
+    secret: true
     type: string
     required: true
-    secret: true
   port:
     description: "Optional port."
     default: 8007
     type: integer
     required: false
-    secret: false
   server:
     description: "The server address (name or IP)."
     type: string
     required: true
-    secret: false
   username:
     description: "User-name or API token-ID."
     type: string
     required: true
-    secret: false

@@ -9,25 +9,20 @@ parameters:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false
   skiplock:
     description: "Ignore locks - only root is allowed to use this option."
     type: boolean
     required: false
-    secret: false
   statestorage:
     description: "The storage for the VM state"
     type: string
     required: false
-    secret: false
   todisk:
     description: "If set, suspends the VM to disk. Will be resumed on next VM start."
     default: 0
     type: boolean
     required: false
-    secret: false
   vmid:
     description: "The (unique) ID of the VM."
     type: integer
     required: true
-    secret: false

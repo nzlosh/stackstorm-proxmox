@@ -9,29 +9,23 @@ parameters:
     description: "Description unavailable."
     type: integer
     required: false
-    secret: false
   node:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false
   service:
     description: "Service ID"
     type: string
     required: false
-    secret: false
   since:
     description: "Display all log since this date-time string."
     type: string
     required: false
-    secret: false
   start:
     description: "Description unavailable."
     type: integer
     required: false
-    secret: false
   until:
     description: "Display all log until this date-time string."
     type: string
     required: false
-    secret: false

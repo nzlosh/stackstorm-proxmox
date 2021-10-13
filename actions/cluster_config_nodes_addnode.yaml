@@ -9,34 +9,27 @@ parameters:
     description: "The JOIN_API_VERSION of the new node."
     type: integer
     required: false
-    secret: false
   force:
     description: "Do not throw error if node already exists."
     type: boolean
     required: false
-    secret: false
   link:
     description: "Address and priority information of a single corosync link. (up to 8 links supported; link0..link7)"
     type: string
     required: false
-    secret: false
   new_node_ip:
     description: "IP Address of node to add. Used as fallback if no links are given."
     type: string
     required: false
-    secret: false
   node:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false
   nodeid:
     description: "Node id for this node."
     type: integer
     required: false
-    secret: false
   votes:
     description: "Number of votes for this node"
     type: integer
     required: false
-    secret: false

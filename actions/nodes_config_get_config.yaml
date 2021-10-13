@@ -9,7 +9,6 @@ parameters:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false
   property:
     description: "Return only a specific property from the node configuration."
     default: "all"
@@ -26,4 +25,3 @@ parameters:
       - wakeonlan
     type: string
     required: false
-    secret: false

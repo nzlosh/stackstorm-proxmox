@@ -9,10 +9,8 @@ parameters:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false
   service:
     description: "Ceph service name."
     default: "ceph.target"
     type: string
     required: false
-    secret: false

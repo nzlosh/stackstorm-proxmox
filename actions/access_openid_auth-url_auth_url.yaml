@@ -9,9 +9,7 @@ parameters:
     description: "Authentication domain ID"
     type: string
     required: true
-    secret: false
   redirect_url:
     description: "Redirection Url. The client should set this to the used server url (location.origin)."
     type: string
     required: true
-    secret: false

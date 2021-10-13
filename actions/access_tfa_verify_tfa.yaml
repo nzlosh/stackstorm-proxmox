@@ -9,4 +9,3 @@ parameters:
     description: "The response to the current authentication challenge."
     type: string
     required: true
-    secret: false

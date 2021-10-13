@@ -12,17 +12,14 @@ parameters:
       - MAX
     type: string
     required: false
-    secret: false
   node:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false
   storage:
     description: "The storage identifier."
     type: string
     required: true
-    secret: false
   timeframe:
     description: "Specify the time frame you are interested in."
     enum:
@@ -33,4 +30,3 @@ parameters:
       - year
     type: string
     required: true
-    secret: false

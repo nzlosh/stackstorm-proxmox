@@ -21,9 +21,7 @@ parameters:
       - pause
     type: string
     required: true
-    secret: false
   value:
     description: "The new value of the flag"
     type: boolean
     required: true
-    secret: false

@@ -9,9 +9,7 @@ parameters:
     description: "Only dump this specific path, not the whole tree."
     type: string
     required: false
-    secret: false
   userid:
     description: "User ID or full API token ID"
     type: string
     required: false
-    secret: false

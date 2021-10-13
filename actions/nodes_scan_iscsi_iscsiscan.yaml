@@ -9,9 +9,7 @@ parameters:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false
   portal:
     description: "The iSCSI portal (IP or DNS name with optional port)."
     type: string
     required: true
-    secret: false

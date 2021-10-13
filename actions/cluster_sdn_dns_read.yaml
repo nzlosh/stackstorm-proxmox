@@ -9,4 +9,3 @@ parameters:
     description: "The SDN dns object identifier."
     type: string
     required: true
-    secret: false

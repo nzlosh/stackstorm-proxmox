@@ -13,29 +13,25 @@ parameters:
       - confirm
     type: string
     required: true
-    secret: false
   config:
     description: "A TFA configuration. This must currently be of type TOTP of not set at all."
     type: string
     required: false
-    secret: false
   key:
     description: "When adding TOTP, the shared secret value."
+    secret: true
     type: string
     required: false
-    secret: true
   password:
     description: "The current password."
+    secret: true
     type: string
     required: false
-    secret: true
   response:
     description: "Either the the response to the current u2f registration challenge, or, when adding TOTP, the currently valid TOTP value."
     type: string
     required: false
-    secret: false
   userid:
     description: "User ID"
     type: string
     required: true
-    secret: false

@@ -9,9 +9,7 @@ parameters:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false
   storage:
     description: "The storage identifier."
     type: string
     required: true
-    secret: false

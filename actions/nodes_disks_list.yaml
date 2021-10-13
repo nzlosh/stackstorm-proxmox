@@ -10,18 +10,15 @@ parameters:
     default: 0
     type: boolean
     required: false
-    secret: false
   node:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false
   skipsmart:
     description: "Skip smart checks."
     default: 0
     type: boolean
     required: false
-    secret: false
   type:
     description: "Only list specific types of disks."
     enum:
@@ -29,4 +26,3 @@ parameters:
       - journal_disks
     type: string
     required: false
-    secret: false

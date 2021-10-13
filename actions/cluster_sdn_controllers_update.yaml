@@ -9,44 +9,35 @@ parameters:
     description: "autonomous system number"
     type: integer
     required: false
-    secret: false
   controller:
     description: "The SDN controller object identifier."
     type: string
     required: true
-    secret: false
   delete:
     description: "A list of settings you want to delete."
     type: string
     required: false
-    secret: false
   digest:
     description: "Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications."
     type: string
     required: false
-    secret: false
   ebgp:
     description: "Enable ebgp. (remote-as external)"
     type: boolean
     required: false
-    secret: false
   ebgp_multihop:
     description: "Description unavailable."
     type: integer
     required: false
-    secret: false
   loopback:
     description: "source loopback interface."
     type: string
     required: false
-    secret: false
   node:
     description: "The cluster node name."
     type: string
     required: false
-    secret: false
   peers:
     description: "peers address list."
     type: string
     required: false
-    secret: false

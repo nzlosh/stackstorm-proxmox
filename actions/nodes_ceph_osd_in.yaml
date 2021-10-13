@@ -9,9 +9,7 @@ parameters:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false
   osdid:
     description: "OSD ID"
     type: integer
     required: true
-    secret: false

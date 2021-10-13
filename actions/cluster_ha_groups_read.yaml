@@ -9,4 +9,3 @@ parameters:
     description: "The HA group identifier."
     type: string
     required: true
-    secret: false

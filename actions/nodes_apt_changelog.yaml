@@ -9,14 +9,11 @@ parameters:
     description: "Package name."
     type: string
     required: true
-    secret: false
   node:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false
   version:
     description: "Package version."
     type: string
     required: false
-    secret: false

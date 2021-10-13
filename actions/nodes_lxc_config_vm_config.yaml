@@ -10,19 +10,15 @@ parameters:
     default: 0
     type: boolean
     required: false
-    secret: false
   node:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false
   snapshot:
     description: "Fetch config values from given snapshot."
     type: string
     required: false
-    secret: false
   vmid:
     description: "The (unique) ID of the VM."
     type: integer
     required: true
-    secret: false

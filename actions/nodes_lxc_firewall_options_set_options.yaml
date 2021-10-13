@@ -9,29 +9,24 @@ parameters:
     description: "A list of settings you want to delete."
     type: string
     required: false
-    secret: false
   dhcp:
     description: "Enable DHCP."
     default: 0
     type: boolean
     required: false
-    secret: false
   digest:
     description: "Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications."
     type: string
     required: false
-    secret: false
   enable:
     description: "Enable/disable firewall rules."
     default: 0
     type: boolean
     required: false
-    secret: false
   ipfilter:
     description: "Enable default IP filters. This is equivalent to adding an empty ipfilter-net<id> ipset for every interface. Such ipsets implicitly contain sane default restrictions such as restricting IPv6 link local addresses to the one derived from the interface's MAC address. For containers the configured IP addresses will be implicitly added."
     type: boolean
     required: false
-    secret: false
   log_level_in:
     description: "Log level for incoming traffic."
     enum:
@@ -46,7 +41,6 @@ parameters:
       - nolog
     type: string
     required: false
-    secret: false
   log_level_out:
     description: "Log level for outgoing traffic."
     enum:
@@ -61,24 +55,20 @@ parameters:
       - nolog
     type: string
     required: false
-    secret: false
   macfilter:
     description: "Enable/disable MAC address filter."
     default: 0
     type: boolean
     required: false
-    secret: false
   ndp:
     description: "Enable NDP (Neighbor Discovery Protocol)."
     default: 0
     type: boolean
     required: false
-    secret: false
   node:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false
   policy_in:
     description: "Input policy."
     enum:
@@ -87,7 +77,6 @@ parameters:
       - DROP
     type: string
     required: false
-    secret: false
   policy_out:
     description: "Output policy."
     enum:
@@ -96,14 +85,11 @@ parameters:
       - DROP
     type: string
     required: false
-    secret: false
   radv:
     description: "Allow sending Router Advertisement."
     type: boolean
     required: false
-    secret: false
   vmid:
     description: "The (unique) ID of the VM."
     type: integer
     required: true
-    secret: false

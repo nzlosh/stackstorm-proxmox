@@ -9,9 +9,7 @@ parameters:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false
   pos:
     description: "Update rule at position <pos>."
     type: integer
     required: false
-    secret: false

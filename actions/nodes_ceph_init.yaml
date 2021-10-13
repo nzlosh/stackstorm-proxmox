@@ -9,38 +9,31 @@ parameters:
     description: "Declare a separate cluster network, OSDs will routeheartbeat, object replication and recovery traffic over it"
     type: string
     required: false
-    secret: false
   disable_cephx:
     description: "Disable cephx authentication.\n\nWARNING: cephx is a security feature protecting against man-in-the-middle attacks. Only consider disabling cephx if your network is private!"
     default: 0
     type: boolean
     required: false
-    secret: false
   min_size:
     description: "Minimum number of available replicas per object to allow I/O"
     default: 2
     type: integer
     required: false
-    secret: false
   network:
     description: "Use specific network for all ceph related traffic"
     type: string
     required: false
-    secret: false
   node:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false
   pg_bits:
     description: "Placement group bits, used to specify the default number of placement groups.\n\nNOTE: 'osd pool default pg num' does not work for default pools."
     default: 6
     type: integer
     required: false
-    secret: false
   size:
     description: "Targeted number of replicas per object"
     default: 3
     type: integer
     required: false
-    secret: false

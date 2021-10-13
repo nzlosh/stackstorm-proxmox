@@ -9,26 +9,22 @@ parameters:
     description: "PEM encoded certificate (chain)."
     type: string
     required: true
-    secret: false
   force:
     description: "Overwrite existing custom or ACME certificate files."
     default: 0
     type: boolean
     required: false
-    secret: false
   key:
     description: "PEM encoded private key."
+    secret: true
     type: string
     required: false
-    secret: true
   node:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false
   restart:
     description: "Restart pveproxy."
     default: 0
     type: boolean
     required: false
-    secret: false

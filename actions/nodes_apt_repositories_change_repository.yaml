@@ -9,24 +9,19 @@ parameters:
     description: "Digest to detect modifications."
     type: string
     required: false
-    secret: false
   enabled:
     description: "Whether the repository should be enabled or not."
     type: boolean
     required: false
-    secret: false
   index:
     description: "Index within the file (starting from 0)."
     type: integer
     required: true
-    secret: false
   node:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false
   path:
     description: "Path to the containing file."
     type: string
     required: true
-    secret: false

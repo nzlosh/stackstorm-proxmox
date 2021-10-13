@@ -9,9 +9,7 @@ parameters:
     description: "User-specific token identifier."
     type: string
     required: true
-    secret: false
   userid:
     description: "User ID"
     type: string
     required: true
-    secret: false

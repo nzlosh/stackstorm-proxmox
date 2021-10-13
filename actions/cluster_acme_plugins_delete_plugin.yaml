@@ -9,4 +9,3 @@ parameters:
     description: "Unique identifier for ACME plugin instance."
     type: string
     required: true
-    secret: false

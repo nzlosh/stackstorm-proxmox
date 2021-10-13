@@ -9,9 +9,7 @@ parameters:
     description: "Description unavailable."
     type: string
     required: false
-    secret: false
   groupid:
     description: "Description unavailable."
     type: string
     required: true
-    secret: false

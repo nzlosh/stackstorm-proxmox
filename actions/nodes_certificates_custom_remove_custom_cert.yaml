@@ -9,10 +9,8 @@ parameters:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false
   restart:
     description: "Restart pveproxy."
     default: 0
     type: boolean
     required: false
-    secret: false

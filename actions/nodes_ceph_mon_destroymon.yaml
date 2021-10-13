@@ -9,9 +9,7 @@ parameters:
     description: "Monitor ID"
     type: string
     required: true
-    secret: false
   node:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false

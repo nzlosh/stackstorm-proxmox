@@ -9,14 +9,11 @@ parameters:
     description: "Overwrites autodetected monitor IP address(es). Must be in the public network(s) of Ceph."
     type: string
     required: false
-    secret: false
   monid:
     description: "The ID for the monitor, when omitted the same as the nodename"
     type: string
     required: false
-    secret: false
   node:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false

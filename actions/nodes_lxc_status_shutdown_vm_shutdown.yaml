@@ -10,20 +10,16 @@ parameters:
     default: 0
     type: boolean
     required: false
-    secret: false
   node:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false
   timeout:
     description: "Wait maximal timeout seconds."
     default: 60
     type: integer
     required: false
-    secret: false
   vmid:
     description: "The (unique) ID of the VM."
     type: integer
     required: true
-    secret: false

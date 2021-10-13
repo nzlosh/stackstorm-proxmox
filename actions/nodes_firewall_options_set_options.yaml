@@ -9,17 +9,14 @@ parameters:
     description: "A list of settings you want to delete."
     type: string
     required: false
-    secret: false
   digest:
     description: "Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications."
     type: string
     required: false
-    secret: false
   enable:
     description: "Enable host firewall rules."
     type: boolean
     required: false
-    secret: false
   log_level_in:
     description: "Log level for incoming traffic."
     enum:
@@ -34,7 +31,6 @@ parameters:
       - nolog
     type: string
     required: false
-    secret: false
   log_level_out:
     description: "Log level for outgoing traffic."
     enum:
@@ -49,71 +45,59 @@ parameters:
       - nolog
     type: string
     required: false
-    secret: false
   log_nf_conntrack:
     description: "Enable logging of conntrack information."
     default: 0
     type: boolean
     required: false
-    secret: false
   ndp:
     description: "Enable NDP (Neighbor Discovery Protocol)."
     default: 0
     type: boolean
     required: false
-    secret: false
   nf_conntrack_allow_invalid:
     description: "Allow invalid packets on connection tracking."
     default: 0
     type: boolean
     required: false
-    secret: false
   nf_conntrack_max:
     description: "Maximum number of tracked connections."
     default: 262144
     type: integer
     required: false
-    secret: false
   nf_conntrack_tcp_timeout_established:
     description: "Conntrack established timeout."
     default: 432000
     type: integer
     required: false
-    secret: false
   nf_conntrack_tcp_timeout_syn_recv:
     description: "Conntrack syn recv timeout."
     default: 60
     type: integer
     required: false
-    secret: false
   node:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false
   nosmurfs:
     description: "Enable SMURFS filter."
     type: boolean
     required: false
-    secret: false
   protection_synflood:
     description: "Enable synflood protection"
     default: 0
     type: boolean
     required: false
-    secret: false
   protection_synflood_burst:
     description: "Synflood protection rate burst by ip src."
     default: 1000
     type: integer
     required: false
-    secret: false
   protection_synflood_rate:
     description: "Synflood protection rate syn/sec by ip src."
     default: 200
     type: integer
     required: false
-    secret: false
   smurf_log_level:
     description: "Log level for SMURFS filter."
     enum:
@@ -128,7 +112,6 @@ parameters:
       - nolog
     type: string
     required: false
-    secret: false
   tcp_flags_log_level:
     description: "Log level for illegal tcp flags filter."
     enum:
@@ -143,10 +126,8 @@ parameters:
       - nolog
     type: string
     required: false
-    secret: false
   tcpflags:
     description: "Filter illegal combinations of TCP flags."
     default: 0
     type: boolean
     required: false
-    secret: false

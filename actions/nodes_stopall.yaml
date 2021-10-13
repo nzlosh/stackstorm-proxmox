@@ -9,9 +9,7 @@ parameters:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false
   vms:
     description: "Only consider Guests with these IDs."
     type: string
     required: false
-    secret: false

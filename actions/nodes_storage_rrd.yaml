@@ -12,22 +12,18 @@ parameters:
       - MAX
     type: string
     required: false
-    secret: false
   ds:
     description: "The list of datasources you want to display."
     type: string
     required: true
-    secret: false
   node:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false
   storage:
     description: "The storage identifier."
     type: string
     required: true
-    secret: false
   timeframe:
     description: "Specify the time frame you are interested in."
     enum:
@@ -38,4 +34,3 @@ parameters:
       - year
     type: string
     required: true
-    secret: false

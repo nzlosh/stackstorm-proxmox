@@ -10,30 +10,24 @@ parameters:
     default: 0
     type: boolean
     required: false
-    secret: false
   keepActive:
     description: "Do not deactivate storage volumes."
     default: 0
     type: boolean
     required: false
-    secret: false
   node:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false
   skiplock:
     description: "Ignore locks - only root is allowed to use this option."
     type: boolean
     required: false
-    secret: false
   timeout:
     description: "Wait maximal timeout seconds."
     type: integer
     required: false
-    secret: false
   vmid:
     description: "The (unique) ID of the VM."
     type: integer
     required: true
-    secret: false

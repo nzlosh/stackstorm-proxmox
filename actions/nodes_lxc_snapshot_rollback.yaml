@@ -9,14 +9,11 @@ parameters:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false
   snapname:
     description: "The name of the snapshot."
     type: string
     required: true
-    secret: false
   vmid:
     description: "The (unique) ID of the VM."
     type: integer
     required: true
-    secret: false

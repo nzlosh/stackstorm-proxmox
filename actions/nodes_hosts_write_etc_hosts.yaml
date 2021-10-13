@@ -9,14 +9,11 @@ parameters:
     description: "The target content of /etc/hosts."
     type: string
     required: true
-    secret: false
   digest:
     description: "Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications."
     type: string
     required: false
-    secret: false
   node:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false

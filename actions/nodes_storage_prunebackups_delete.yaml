@@ -9,17 +9,14 @@ parameters:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false
   prune_backups:
     description: "Use these retention options instead of those from the storage configuration."
     type: string
     required: false
-    secret: false
   storage:
     description: "The storage identifier."
     type: string
     required: true
-    secret: false
   type:
     description: "Either 'qemu' or 'lxc'. Only consider backups for guests of this type."
     enum:
@@ -27,9 +24,7 @@ parameters:
       - lxc
     type: string
     required: false
-    secret: false
   vmid:
     description: "Only prune backups for this VM."
     type: integer
     required: false
-    secret: false

@@ -10,14 +10,11 @@ parameters:
     default: off
     type: boolean
     required: false
-    secret: false
   node:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false
   vms:
     description: "Only consider guests from this comma separated list of VMIDs."
     type: string
     required: false
-    secret: false

@@ -9,40 +9,32 @@ parameters:
     description: "Node specific ACME settings."
     type: string
     required: false
-    secret: false
   acmedomain:
     description: "ACME domain and validation plugin"
     type: string
     required: false
-    secret: false
   delete:
     description: "A list of settings you want to delete."
     type: string
     required: false
-    secret: false
   description:
     description: "Description for the Node. Shown in the web-interface node notes panel. This is saved as comment inside the configuration file."
     type: string
     required: false
-    secret: false
   digest:
     description: "Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications."
     type: string
     required: false
-    secret: false
   node:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false
   startall_onboot_delay:
     description: "Initial delay in seconds, before starting all the Virtual Guests with on-boot enabled."
     default: 0
     type: integer
     required: false
-    secret: false
   wakeonlan:
     description: "MAC address for wake on LAN"
     type: string
     required: false
-    secret: false

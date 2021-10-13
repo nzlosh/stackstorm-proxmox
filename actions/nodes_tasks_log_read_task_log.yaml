@@ -10,20 +10,16 @@ parameters:
     default: 50
     type: integer
     required: false
-    secret: false
   node:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false
   start:
     description: "Description unavailable."
     default: 0
     type: integer
     required: false
-    secret: false
   upid:
     description: "Description unavailable."
     type: string
     required: true
-    secret: false

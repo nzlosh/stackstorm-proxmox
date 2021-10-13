@@ -9,14 +9,11 @@ parameters:
     description: "Display pending config."
     type: boolean
     required: false
-    secret: false
   running:
     description: "Display running config."
     type: boolean
     required: false
-    secret: false
   zone:
     description: "The SDN zone object identifier."
     type: string
     required: true
-    secret: false

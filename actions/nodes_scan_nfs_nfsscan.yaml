@@ -9,9 +9,7 @@ parameters:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false
   server:
     description: "The server address (name or IP)."
     type: string
     required: true
-    secret: false

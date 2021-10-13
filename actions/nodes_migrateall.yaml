@@ -9,24 +9,19 @@ parameters:
     description: "Maximal number of parallel migration job. If not set use 'max_workers' from datacenter.cfg, one of both must be set!"
     type: integer
     required: false
-    secret: false
   node:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false
   target:
     description: "Target node."
     type: string
     required: true
-    secret: false
   vms:
     description: "Only consider Guests with these IDs."
     type: string
     required: false
-    secret: false
   with_local_disks:
     description: "Enable live storage migration for local disk"
     type: boolean
     required: false
-    secret: false

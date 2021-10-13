@@ -9,4 +9,3 @@ parameters:
     description: "The storage identifier."
     type: string
     required: true
-    secret: false

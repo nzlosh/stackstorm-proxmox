@@ -10,12 +10,10 @@ parameters:
     default: clone limit from datacenter or storage config
     type: integer
     required: false
-    secret: false
   description:
     description: "Description for the new VM."
     type: string
     required: false
-    secret: false
   format:
     description: "Target format for file storage. Only valid for full clone."
     enum:
@@ -24,49 +22,39 @@ parameters:
       - vmdk
     type: string
     required: false
-    secret: false
   full:
     description: "Create a full copy of all disks. This is always done when you clone a normal VM. For VM templates, we try to create a linked clone by default."
     type: boolean
     required: false
-    secret: false
   name:
     description: "Set a name for the new VM."
     type: string
     required: false
-    secret: false
   newid:
     description: "VMID for the clone."
     type: integer
     required: true
-    secret: false
   node:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false
   pool:
     description: "Add the new VM to the specified pool."
     type: string
     required: false
-    secret: false
   snapname:
     description: "The name of the snapshot."
     type: string
     required: false
-    secret: false
   storage:
     description: "Target storage for full clone."
     type: string
     required: false
-    secret: false
   target:
     description: "Target node. Only allowed if the original VM is on shared storage."
     type: string
     required: false
-    secret: false
   vmid:
     description: "The (unique) ID of the VM."
     type: integer
     required: true
-    secret: false

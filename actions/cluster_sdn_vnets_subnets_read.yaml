@@ -9,19 +9,15 @@ parameters:
     description: "Display pending config."
     type: boolean
     required: false
-    secret: false
   running:
     description: "Display running config."
     type: boolean
     required: false
-    secret: false
   subnet:
     description: "The SDN subnet object identifier."
     type: string
     required: true
-    secret: false
   vnet:
     description: "The SDN vnet object identifier."
     type: string
     required: true
-    secret: false

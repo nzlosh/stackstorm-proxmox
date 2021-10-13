@@ -9,14 +9,11 @@ parameters:
     description: "Block device name"
     type: string
     required: true
-    secret: false
   node:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false
   uuid:
     description: "UUID for the GPT table"
     type: string
     required: false
-    secret: false

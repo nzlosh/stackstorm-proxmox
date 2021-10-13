@@ -9,9 +9,7 @@ parameters:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false
   upid:
     description: "Description unavailable."
     type: string
     required: true
-    secret: false

@@ -9,14 +9,11 @@ parameters:
     description: "Description unavailable."
     type: boolean
     required: false
-    secret: false
   privs:
     description: "Description unavailable."
     type: string
     required: false
-    secret: false
   roleid:
     description: "Description unavailable."
     type: string
     required: true
-    secret: false

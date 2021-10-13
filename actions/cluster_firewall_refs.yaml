@@ -12,4 +12,3 @@ parameters:
       - ipset
     type: string
     required: false
-    secret: false

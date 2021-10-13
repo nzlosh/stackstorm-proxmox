@@ -9,29 +9,23 @@ parameters:
     description: "End before the given Cursor. Conflicts with 'until'"
     type: string
     required: false
-    secret: false
   lastentries:
     description: "Limit to the last X lines. Conflicts with a range."
     type: integer
     required: false
-    secret: false
   node:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false
   since:
     description: "Display all log since this UNIX epoch. Conflicts with 'startcursor'."
     type: integer
     required: false
-    secret: false
   startcursor:
     description: "Start after the given Cursor. Conflicts with 'since'"
     type: string
     required: false
-    secret: false
   until:
     description: "Display all log until this UNIX epoch. Conflicts with 'endcursor'."
     type: integer
     required: false
-    secret: false

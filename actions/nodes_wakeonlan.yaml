@@ -9,4 +9,3 @@ parameters:
     description: "target node for wake on LAN packet"
     type: string
     required: true
-    secret: false

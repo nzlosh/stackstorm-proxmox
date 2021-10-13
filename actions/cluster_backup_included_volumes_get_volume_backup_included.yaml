@@ -9,4 +9,3 @@ parameters:
     description: "The job ID."
     type: string
     required: true
-    secret: false

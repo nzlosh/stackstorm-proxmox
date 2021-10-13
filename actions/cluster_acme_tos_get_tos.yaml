@@ -10,4 +10,3 @@ parameters:
     default: "https://acme-v02.api.letsencrypt.org/directory"
     type: string
     required: false
-    secret: false

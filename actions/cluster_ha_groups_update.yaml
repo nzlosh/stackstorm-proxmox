@@ -9,36 +9,29 @@ parameters:
     description: "Description."
     type: string
     required: false
-    secret: false
   delete:
     description: "A list of settings you want to delete."
     type: string
     required: false
-    secret: false
   digest:
     description: "Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications."
     type: string
     required: false
-    secret: false
   group:
     description: "The HA group identifier."
     type: string
     required: true
-    secret: false
   nodes:
     description: "List of cluster node names with optional priority."
     type: string
     required: false
-    secret: false
   nofailback:
     description: "The CRM tries to run services on the node with the highest priority. If a node with higher priority comes online, the CRM migrates the service to that node. Enabling nofailback prevents that behavior."
     default: 0
     type: boolean
     required: false
-    secret: false
   restricted:
     description: "Resources bound to restricted groups may only run on nodes defined by the group."
     default: 0
     type: boolean
     required: false
-    secret: false

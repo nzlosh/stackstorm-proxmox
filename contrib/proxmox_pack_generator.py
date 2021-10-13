@@ -37,6 +37,9 @@ parameters:
     {% if "default" in p -%}
     default: {{ p.default }}
     {% endif -%}
+    {% if "st2_secret" in p-%}
+    secret: {{ p.st2_secret }}
+    {% endif -%}
     {% if "enum" in p -%}
     enum:
     {% for i in p.enum -%}
@@ -45,9 +48,6 @@ parameters:
     {% endif -%}
     type: {{ p.type }}
     required: {{ (p.optional | default(0) == 0) | lower }}
-    {% set is_secret = "true" if param in ["key", "password", "secret"] -%}
-    {% set is_secret = is_secret | default("false") -%}
-    secret: {{ is_secret }}
 {% endfor -%}
 {% else %}
 parameters: {}
@@ -108,6 +108,10 @@ def cleanup_node(node):
             # '-' is not a valid character for StackStorm action parameters.
             # [n] is stripped, but might need to create a way to communicate this through another parameter.
             method_meta["parameters"]["properties"][param]["st2_param"] = param.rsplit('[')[0].replace("-", "_")
+
+            # mark certain fields as secret.
+            if param in ["key", "password", "secret"]:
+                method_meta["parameters"]["properties"][param]["st2_secret"] = "true"
 
         node["info"][http_verb] = method_meta
 

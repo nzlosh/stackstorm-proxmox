@@ -9,29 +9,24 @@ parameters:
     description: "One-time password for Two-factor authentication."
     type: string
     required: false
-    secret: false
   password:
     description: "The secret password. This can also be a valid ticket."
+    secret: true
     type: string
     required: true
-    secret: true
   path:
     description: "Verify ticket, and check if user have access 'privs' on 'path'"
     type: string
     required: false
-    secret: false
   privs:
     description: "Verify ticket, and check if user have access 'privs' on 'path'"
     type: string
     required: false
-    secret: false
   realm:
     description: "You can optionally pass the realm using this parameter. Normally the realm is simply added to the username <username>@<relam>."
     type: string
     required: false
-    secret: false
   username:
     description: "User name"
     type: string
     required: true
-    secret: false

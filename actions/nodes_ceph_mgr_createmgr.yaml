@@ -9,9 +9,7 @@ parameters:
     description: "The ID for the manager, when omitted the same as the nodename"
     type: string
     required: false
-    secret: false
   node:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false

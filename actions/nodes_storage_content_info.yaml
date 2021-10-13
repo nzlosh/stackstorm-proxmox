@@ -9,14 +9,11 @@ parameters:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false
   storage:
     description: "The storage identifier."
     type: string
     required: false
-    secret: false
   volume:
     description: "Volume identifier"
     type: string
     required: true
-    secret: false

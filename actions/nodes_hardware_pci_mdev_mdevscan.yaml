@@ -9,9 +9,7 @@ parameters:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false
   pciid:
     description: "The PCI ID to list the mdev types for."
     type: string
     required: true
-    secret: false

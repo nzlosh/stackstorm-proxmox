@@ -9,14 +9,11 @@ parameters:
     description: "Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications."
     type: string
     required: false
-    secret: false
   group:
     description: "Security Group name."
     type: string
     required: true
-    secret: false
   pos:
     description: "Update rule at position <pos>."
     type: integer
     required: false
-    secret: false

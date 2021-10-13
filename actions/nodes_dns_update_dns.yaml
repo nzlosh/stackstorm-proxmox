@@ -9,24 +9,19 @@ parameters:
     description: "First name server IP address."
     type: string
     required: false
-    secret: false
   dns2:
     description: "Second name server IP address."
     type: string
     required: false
-    secret: false
   dns3:
     description: "Third name server IP address."
     type: string
     required: false
-    secret: false
   node:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false
   search:
     description: "Search domain for host-name lookup."
     type: string
     required: true
-    secret: false

@@ -9,14 +9,11 @@ parameters:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false
   timeout:
     description: "Wait maximal timeout seconds for the shutdown."
     type: integer
     required: false
-    secret: false
   vmid:
     description: "The (unique) ID of the VM."
     type: integer
     required: true
-    secret: false

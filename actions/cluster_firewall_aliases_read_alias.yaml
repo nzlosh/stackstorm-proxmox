@@ -9,4 +9,3 @@ parameters:
     description: "Alias name."
     type: string
     required: true
-    secret: false

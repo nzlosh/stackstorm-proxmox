@@ -14,4 +14,3 @@ parameters:
       - sdn
     type: string
     required: false
-    secret: false

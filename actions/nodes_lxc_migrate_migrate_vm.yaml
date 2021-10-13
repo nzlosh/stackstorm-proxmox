@@ -10,35 +10,28 @@ parameters:
     default: migrate limit from datacenter or storage config
     type: number
     required: false
-    secret: false
   node:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false
   online:
     description: "Use online/live migration."
     type: boolean
     required: false
-    secret: false
   restart:
     description: "Use restart migration"
     type: boolean
     required: false
-    secret: false
   target:
     description: "Target node."
     type: string
     required: true
-    secret: false
   timeout:
     description: "Timeout in seconds for shutdown for restart migration"
     default: 180
     type: integer
     required: false
-    secret: false
   vmid:
     description: "The (unique) ID of the VM."
     type: integer
     required: true
-    secret: false

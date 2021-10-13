@@ -9,14 +9,11 @@ parameters:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false
   storage:
     description: "The storage where the template will be stored"
     type: string
     required: true
-    secret: false
   template:
     description: "The template which will downloaded"
     type: string
     required: true
-    secret: false

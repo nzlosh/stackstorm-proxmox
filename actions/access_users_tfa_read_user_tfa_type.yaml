@@ -9,4 +9,3 @@ parameters:
     description: "User ID"
     type: string
     required: true
-    secret: false

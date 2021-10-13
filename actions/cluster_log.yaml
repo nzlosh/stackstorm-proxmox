@@ -9,4 +9,3 @@ parameters:
     description: "Maximum number of entries."
     type: integer
     required: false
-    secret: false

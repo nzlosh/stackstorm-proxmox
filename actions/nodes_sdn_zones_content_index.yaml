@@ -9,9 +9,7 @@ parameters:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false
   zone:
     description: "The SDN zone object identifier."
     type: string
     required: true
-    secret: false

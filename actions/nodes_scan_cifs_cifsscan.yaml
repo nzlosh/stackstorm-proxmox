@@ -9,24 +9,20 @@ parameters:
     description: "SMB domain (Workgroup)."
     type: string
     required: false
-    secret: false
   node:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false
   password:
     description: "User password."
+    secret: true
     type: string
     required: false
-    secret: true
   server:
     description: "The server address (name or IP)."
     type: string
     required: true
-    secret: false
   username:
     description: "User name."
     type: string
     required: false
-    secret: false

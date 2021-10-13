@@ -10,33 +10,27 @@ parameters:
     default: clone limit from datacenter or storage config
     type: number
     required: false
-    secret: false
   delete:
     description: "Delete the original volume after successful copy. By default the original is kept as an unused volume entry."
     default: 0
     type: boolean
     required: false
-    secret: false
   digest:
     description: "Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications."
     type: string
     required: false
-    secret: false
   node:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false
   storage:
     description: "Target Storage."
     type: string
     required: true
-    secret: false
   vmid:
     description: "The (unique) ID of the VM."
     type: integer
     required: true
-    secret: false
   volume:
     description: "Volume which will be moved."
     enum:
@@ -299,4 +293,3 @@ parameters:
       - mp255
     type: string
     required: true
-    secret: false

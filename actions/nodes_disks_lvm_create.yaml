@@ -10,19 +10,15 @@ parameters:
     default: 0
     type: boolean
     required: false
-    secret: false
   device:
     description: "The block device you want to create the volume group on"
     type: string
     required: true
-    secret: false
   name:
     description: "The storage identifier."
     type: string
     required: true
-    secret: false
   node:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false

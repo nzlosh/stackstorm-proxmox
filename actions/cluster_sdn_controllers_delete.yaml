@@ -9,4 +9,3 @@ parameters:
     description: "The SDN controller object identifier."
     type: string
     required: true
-    secret: false

@@ -9,14 +9,11 @@ parameters:
     description: "OpenId authorization code."
     type: string
     required: true
-    secret: false
   redirect_url:
     description: "Redirection Url. The client should set this to the used server url (location.origin)."
     type: string
     required: true
-    secret: false
   state:
     description: "OpenId state."
     type: string
     required: true
-    secret: false

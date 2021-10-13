@@ -9,9 +9,7 @@ parameters:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false
   timezone:
     description: "Time zone. The file '/usr/share/zoneinfo/zone.tab' contains the list of valid names."
     type: string
     required: true
-    secret: false

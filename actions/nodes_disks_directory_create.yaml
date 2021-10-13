@@ -10,12 +10,10 @@ parameters:
     default: 0
     type: boolean
     required: false
-    secret: false
   device:
     description: "The block device you want to create the filesystem on."
     type: string
     required: true
-    secret: false
   filesystem:
     description: "The desired filesystem."
     default: "ext4"
@@ -24,14 +22,11 @@ parameters:
       - xfs
     type: string
     required: false
-    secret: false
   name:
     description: "The storage identifier."
     type: string
     required: true
-    secret: false
   node:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false

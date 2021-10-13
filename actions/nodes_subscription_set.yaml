@@ -7,11 +7,10 @@ entry_point: "nodes_subscription_set.py"
 parameters:
   key:
     description: "Proxmox VE subscription key"
+    secret: true
     type: string
     required: true
-    secret: true
   node:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false

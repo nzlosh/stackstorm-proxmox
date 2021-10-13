@@ -9,14 +9,11 @@ parameters:
     description: "Description unavailable."
     type: integer
     required: false
-    secret: false
   node:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false
   start:
     description: "Description unavailable."
     type: integer
     required: false
-    secret: false

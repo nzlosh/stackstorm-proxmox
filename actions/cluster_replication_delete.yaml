@@ -10,15 +10,12 @@ parameters:
     default: 0
     type: boolean
     required: false
-    secret: false
   id:
     description: "Replication Job ID. The ID is composed of a Guest ID and a job number, separated by a hyphen, i.e. '<GUEST>-<JOBNUM>'."
     type: string
     required: true
-    secret: false
   keep:
     description: "Keep replicated data at target (do not remove)."
     default: 0
     type: boolean
     required: false
-    secret: false

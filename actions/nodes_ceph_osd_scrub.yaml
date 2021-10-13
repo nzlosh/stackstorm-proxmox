@@ -10,14 +10,11 @@ parameters:
     default: 0
     type: boolean
     required: false
-    secret: false
   node:
     description: "The cluster node name."
     type: string
     required: true
-    secret: false
   osdid:
     description: "OSD ID"
     type: integer
     required: true
-    secret: false

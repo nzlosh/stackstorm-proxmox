@@ -9,24 +9,19 @@ parameters:
     description: "Description unavailable."
     type: string
     required: false
-    secret: false
   delete:
     description: "Remove vms/storage (instead of adding it)."
     type: boolean
     required: false
-    secret: false
   poolid:
     description: "Description unavailable."
     type: string
     required: true
-    secret: false
   storage:
     description: "List of storage IDs."
     type: string
     required: false
-    secret: false
   vms:
     description: "List of virtual machines."
     type: string
     required: false
-    secret: false

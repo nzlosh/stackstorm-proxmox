@@ -9,10 +9,8 @@ parameters:
     description: "Contact email addresses."
     type: string
     required: false
-    secret: false
   name:
     description: "ACME account config file name."
     default: "default"
     type: string
     required: false
-    secret: false
