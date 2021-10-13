@@ -106,7 +106,8 @@ def cleanup_node(node):
                 )
 
             # '-' is not a valid character for StackStorm action parameters.
-            method_meta["parameters"]["properties"][param]["st2_param"] = param.replace("-", "_")
+            # [n] is stripped, but might need to create a way to communicate this through another parameter.
+            method_meta["parameters"]["properties"][param]["st2_param"] = param.rsplit('[')[0].replace("-", "_")
 
         node["info"][http_verb] = method_meta
 

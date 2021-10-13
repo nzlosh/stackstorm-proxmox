@@ -20,7 +20,7 @@ parameters:
     type: string
     required: true
     secret: false
-  link[n]:
+  link:
     description: "Address and priority information of a single corosync link. (up to 8 links supported; link0..link7)"
     type: string
     required: false

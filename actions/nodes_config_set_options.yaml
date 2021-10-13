@@ -10,7 +10,7 @@ parameters:
     type: string
     required: false
     secret: false
-  acmedomain[n]:
+  acmedomain:
     description: "ACME domain and validation plugin"
     type: string
     required: false
