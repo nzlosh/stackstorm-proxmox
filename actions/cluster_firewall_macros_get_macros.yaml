@@ -1,0 +1,8 @@
+name: cluster_firewall_macros_get_macros
+pack: proxmox
+runner_type: python-script
+description: "List available macros"
+enabled: true
+entry_point: "cluster_firewall_macros_get_macros.py"
+
+parameters: {}

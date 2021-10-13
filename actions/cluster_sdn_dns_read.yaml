@@ -1,0 +1,12 @@
+name: cluster_sdn_dns_read
+pack: proxmox
+runner_type: python-script
+description: "Read sdn dns configuration."
+enabled: true
+entry_point: "cluster_sdn_dns_read.py"
+parameters:
+  dns:
+    description: "The SDN dns object identifier."
+    type: string
+    required: true
+    secret: false

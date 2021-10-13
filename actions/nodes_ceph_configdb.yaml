@@ -1,0 +1,12 @@
+name: nodes_ceph_configdb
+pack: proxmox
+runner_type: python-script
+description: "Get Ceph configuration database."
+enabled: true
+entry_point: "nodes_ceph_configdb.py"
+parameters:
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+    secret: false

@@ -1,0 +1,12 @@
+name: nodes_ceph_rules
+pack: proxmox
+runner_type: python-script
+description: "List ceph rules."
+enabled: true
+entry_point: "nodes_ceph_rules.py"
+parameters:
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+    secret: false

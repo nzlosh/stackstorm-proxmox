@@ -1,0 +1,12 @@
+name: pools_read_pool
+pack: proxmox
+runner_type: python-script
+description: "Get pool configuration."
+enabled: true
+entry_point: "pools_read_pool.py"
+parameters:
+  poolid:
+    description: "Description unavailable."
+    type: string
+    required: true
+    secret: false

@@ -1,0 +1,12 @@
+name: access_tfa_verify_tfa
+pack: proxmox
+runner_type: python-script
+description: "Finish a u2f challenge."
+enabled: true
+entry_point: "access_tfa_verify_tfa.py"
+parameters:
+  response:
+    description: "The response to the current authentication challenge."
+    type: string
+    required: true
+    secret: false

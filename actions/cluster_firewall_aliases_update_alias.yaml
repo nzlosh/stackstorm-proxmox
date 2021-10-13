@@ -1,0 +1,32 @@
+name: cluster_firewall_aliases_update_alias
+pack: proxmox
+runner_type: python-script
+description: "Update IP or Network alias."
+enabled: true
+entry_point: "cluster_firewall_aliases_update_alias.py"
+parameters:
+  cidr:
+    description: "Network/IP specification in CIDR format."
+    type: string
+    required: true
+    secret: false
+  comment:
+    description: "Description unavailable."
+    type: string
+    required: false
+    secret: false
+  digest:
+    description: "Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications."
+    type: string
+    required: false
+    secret: false
+  name:
+    description: "Alias name."
+    type: string
+    required: true
+    secret: false
+  rename:
+    description: "Rename an existing alias."
+    type: string
+    required: false
+    secret: false

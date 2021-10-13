@@ -1,0 +1,18 @@
+name: nodes_certificates_custom_remove_custom_cert
+pack: proxmox
+runner_type: python-script
+description: "DELETE custom certificate chain and key."
+enabled: true
+entry_point: "nodes_certificates_custom_remove_custom_cert.py"
+parameters:
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+    secret: false
+  restart:
+    description: "Restart pveproxy."
+    default: 0
+    type: boolean
+    required: false
+    secret: false

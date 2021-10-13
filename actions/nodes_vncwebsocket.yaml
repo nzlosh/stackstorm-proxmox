@@ -1,0 +1,22 @@
+name: nodes_vncwebsocket
+pack: proxmox
+runner_type: python-script
+description: "Opens a websocket for VNC traffic."
+enabled: true
+entry_point: "nodes_vncwebsocket.py"
+parameters:
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+    secret: false
+  port:
+    description: "Port number returned by previous vncproxy call."
+    type: integer
+    required: true
+    secret: false
+  vncticket:
+    description: "Ticket from previous call to vncproxy."
+    type: string
+    required: true
+    secret: false

@@ -1,0 +1,15 @@
+name: cluster_firewall_refs
+pack: proxmox
+runner_type: python-script
+description: "Lists possible IPSet/Alias reference which are allowed in source/dest properties."
+enabled: true
+entry_point: "cluster_firewall_refs.py"
+parameters:
+  type:
+    description: "Only list references of specified type."
+    enum:
+      - alias
+      - ipset
+    type: string
+    required: false
+    secret: false

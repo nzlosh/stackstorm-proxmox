@@ -1,0 +1,8 @@
+name: cluster_acme_directories_get_directories
+pack: proxmox
+runner_type: python-script
+description: "Get named known ACME directory endpoints."
+enabled: true
+entry_point: "cluster_acme_directories_get_directories.py"
+
+parameters: {}

@@ -1,0 +1,17 @@
+name: nodes_scan_iscsi_iscsiscan
+pack: proxmox
+runner_type: python-script
+description: "Scan remote iSCSI server."
+enabled: true
+entry_point: "nodes_scan_iscsi_iscsiscan.py"
+parameters:
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+    secret: false
+  portal:
+    description: "The iSCSI portal (IP or DNS name with optional port)."
+    type: string
+    required: true
+    secret: false

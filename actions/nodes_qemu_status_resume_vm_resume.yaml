@@ -1,0 +1,27 @@
+name: nodes_qemu_status_resume_vm_resume
+pack: proxmox
+runner_type: python-script
+description: "Resume virtual machine."
+enabled: true
+entry_point: "nodes_qemu_status_resume_vm_resume.py"
+parameters:
+  nocheck:
+    description: "Description unavailable."
+    type: boolean
+    required: false
+    secret: false
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+    secret: false
+  skiplock:
+    description: "Ignore locks - only root is allowed to use this option."
+    type: boolean
+    required: false
+    secret: false
+  vmid:
+    description: "The (unique) ID of the VM."
+    type: integer
+    required: true
+    secret: false

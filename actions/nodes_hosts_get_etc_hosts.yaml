@@ -1,0 +1,12 @@
+name: nodes_hosts_get_etc_hosts
+pack: proxmox
+runner_type: python-script
+description: "Get the content of /etc/hosts."
+enabled: true
+entry_point: "nodes_hosts_get_etc_hosts.py"
+parameters:
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+    secret: false

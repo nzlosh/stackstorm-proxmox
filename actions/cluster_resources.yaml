@@ -1,0 +1,17 @@
+name: cluster_resources
+pack: proxmox
+runner_type: python-script
+description: "Resources index (cluster wide)."
+enabled: true
+entry_point: "cluster_resources.py"
+parameters:
+  type:
+    description: "Description unavailable."
+    enum:
+      - vm
+      - storage
+      - node
+      - sdn
+    type: string
+    required: false
+    secret: false

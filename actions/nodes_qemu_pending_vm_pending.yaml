@@ -1,0 +1,17 @@
+name: nodes_qemu_pending_vm_pending
+pack: proxmox
+runner_type: python-script
+description: "Get the virtual machine configuration with both current and pending values."
+enabled: true
+entry_point: "nodes_qemu_pending_vm_pending.py"
+parameters:
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+    secret: false
+  vmid:
+    description: "The (unique) ID of the VM."
+    type: integer
+    required: true
+    secret: false

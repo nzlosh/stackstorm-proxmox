@@ -1,0 +1,22 @@
+name: cluster_sdn_zones_read
+pack: proxmox
+runner_type: python-script
+description: "Read sdn zone configuration."
+enabled: true
+entry_point: "cluster_sdn_zones_read.py"
+parameters:
+  pending:
+    description: "Display pending config."
+    type: boolean
+    required: false
+    secret: false
+  running:
+    description: "Display running config."
+    type: boolean
+    required: false
+    secret: false
+  zone:
+    description: "The SDN zone object identifier."
+    type: string
+    required: true
+    secret: false

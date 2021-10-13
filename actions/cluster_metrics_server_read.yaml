@@ -1,0 +1,12 @@
+name: cluster_metrics_server_read
+pack: proxmox
+runner_type: python-script
+description: "Read metric server configuration."
+enabled: true
+entry_point: "cluster_metrics_server_read.py"
+parameters:
+  id:
+    description: "Description unavailable."
+    type: string
+    required: true
+    secret: false

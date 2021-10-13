@@ -1,0 +1,12 @@
+name: cluster_sdn_ipams_read
+pack: proxmox
+runner_type: python-script
+description: "Read sdn ipam configuration."
+enabled: true
+entry_point: "cluster_sdn_ipams_read.py"
+parameters:
+  ipam:
+    description: "The SDN ipam object identifier."
+    type: string
+    required: true
+    secret: false

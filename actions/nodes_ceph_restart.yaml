@@ -1,0 +1,18 @@
+name: nodes_ceph_restart
+pack: proxmox
+runner_type: python-script
+description: "Restart ceph services."
+enabled: true
+entry_point: "nodes_ceph_restart.py"
+parameters:
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+    secret: false
+  service:
+    description: "Ceph service name."
+    default: "ceph.target"
+    type: string
+    required: false
+    secret: false

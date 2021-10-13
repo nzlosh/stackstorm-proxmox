@@ -1,0 +1,27 @@
+name: cluster_sdn_vnets_subnets_read
+pack: proxmox
+runner_type: python-script
+description: "Read sdn subnet configuration."
+enabled: true
+entry_point: "cluster_sdn_vnets_subnets_read.py"
+parameters:
+  pending:
+    description: "Display pending config."
+    type: boolean
+    required: false
+    secret: false
+  running:
+    description: "Display running config."
+    type: boolean
+    required: false
+    secret: false
+  subnet:
+    description: "The SDN subnet object identifier."
+    type: string
+    required: true
+    secret: false
+  vnet:
+    description: "The SDN vnet object identifier."
+    type: string
+    required: true
+    secret: false

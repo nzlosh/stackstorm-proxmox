@@ -1,0 +1,17 @@
+name: nodes_ceph_mgr_destroymgr
+pack: proxmox
+runner_type: python-script
+description: "Destroy Ceph Manager."
+enabled: true
+entry_point: "nodes_ceph_mgr_destroymgr.py"
+parameters:
+  id:
+    description: "The ID of the manager"
+    type: string
+    required: true
+    secret: false
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+    secret: false

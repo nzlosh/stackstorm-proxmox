@@ -1,0 +1,12 @@
+name: cluster_log
+pack: proxmox
+runner_type: python-script
+description: "Read cluster log"
+enabled: true
+entry_point: "cluster_log.py"
+parameters:
+  max:
+    description: "Maximum number of entries."
+    type: integer
+    required: false
+    secret: false

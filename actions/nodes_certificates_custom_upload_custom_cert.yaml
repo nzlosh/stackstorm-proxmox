@@ -1,0 +1,34 @@
+name: nodes_certificates_custom_upload_custom_cert
+pack: proxmox
+runner_type: python-script
+description: "Upload or update custom certificate chain and key."
+enabled: true
+entry_point: "nodes_certificates_custom_upload_custom_cert.py"
+parameters:
+  certificates:
+    description: "PEM encoded certificate (chain)."
+    type: string
+    required: true
+    secret: false
+  force:
+    description: "Overwrite existing custom or ACME certificate files."
+    default: 0
+    type: boolean
+    required: false
+    secret: false
+  key:
+    description: "PEM encoded private key."
+    type: string
+    required: false
+    secret: true
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+    secret: false
+  restart:
+    description: "Restart pveproxy."
+    default: 0
+    type: boolean
+    required: false
+    secret: false

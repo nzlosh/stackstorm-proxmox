@@ -1,0 +1,27 @@
+name: nodes_qemu_unlink
+pack: proxmox
+runner_type: python-script
+description: "Unlink/delete disk images."
+enabled: true
+entry_point: "nodes_qemu_unlink.py"
+parameters:
+  force:
+    description: "Force physical removal. Without this, we simple remove the disk from the config file and create an additional configuration entry called 'unused[n]', which contains the volume ID. Unlink of unused[n] always cause physical removal."
+    type: boolean
+    required: false
+    secret: false
+  idlist:
+    description: "A list of disk IDs you want to delete."
+    type: string
+    required: true
+    secret: false
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+    secret: false
+  vmid:
+    description: "The (unique) ID of the VM."
+    type: integer
+    required: true
+    secret: false

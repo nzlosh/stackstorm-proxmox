@@ -1,0 +1,22 @@
+name: access_openid_login
+pack: proxmox
+runner_type: python-script
+description: " Verify OpenID authorization code and create a ticket."
+enabled: true
+entry_point: "access_openid_login.py"
+parameters:
+  code:
+    description: "OpenId authorization code."
+    type: string
+    required: true
+    secret: false
+  redirect_url:
+    description: "Redirection Url. The client should set this to the used server url (location.origin)."
+    type: string
+    required: true
+    secret: false
+  state:
+    description: "OpenId state."
+    type: string
+    required: true
+    secret: false

@@ -1,0 +1,42 @@
+name: cluster_config_join
+pack: proxmox
+runner_type: python-script
+description: "Joins this node into an existing cluster. If no links are given, default to IP resolved by node's hostname on single link (fallback fails for clusters with multiple links)."
+enabled: true
+entry_point: "cluster_config_join.py"
+parameters:
+  fingerprint:
+    description: "Certificate SHA 256 fingerprint."
+    type: string
+    required: true
+    secret: false
+  force:
+    description: "Do not throw error if node already exists."
+    type: boolean
+    required: false
+    secret: false
+  hostname:
+    description: "Hostname (or IP) of an existing cluster member."
+    type: string
+    required: true
+    secret: false
+  link[n]:
+    description: "Address and priority information of a single corosync link. (up to 8 links supported; link0..link7)"
+    type: string
+    required: false
+    secret: false
+  nodeid:
+    description: "Node id for this node."
+    type: integer
+    required: false
+    secret: false
+  password:
+    description: "Superuser (root) password of peer node."
+    type: string
+    required: true
+    secret: true
+  votes:
+    description: "Number of votes for this node"
+    type: integer
+    required: false
+    secret: false

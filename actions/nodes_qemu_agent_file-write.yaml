@@ -1,0 +1,27 @@
+name: nodes_qemu_agent_file-write
+pack: proxmox
+runner_type: python-script
+description: "Writes the given file via guest agent."
+enabled: true
+entry_point: "nodes_qemu_agent_file-write.py"
+parameters:
+  content:
+    description: "The content to write into the file."
+    type: string
+    required: true
+    secret: false
+  file:
+    description: "The path to the file."
+    type: string
+    required: true
+    secret: false
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+    secret: false
+  vmid:
+    description: "The (unique) ID of the VM."
+    type: integer
+    required: true
+    secret: false

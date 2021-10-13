@@ -1,0 +1,27 @@
+name: nodes_qemu_firewall_log
+pack: proxmox
+runner_type: python-script
+description: "Read firewall log"
+enabled: true
+entry_point: "nodes_qemu_firewall_log.py"
+parameters:
+  limit:
+    description: "Description unavailable."
+    type: integer
+    required: false
+    secret: false
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+    secret: false
+  start:
+    description: "Description unavailable."
+    type: integer
+    required: false
+    secret: false
+  vmid:
+    description: "The (unique) ID of the VM."
+    type: integer
+    required: true
+    secret: false

@@ -1,0 +1,17 @@
+name: access_users_token_read_token
+pack: proxmox
+runner_type: python-script
+description: "Get specific API token information."
+enabled: true
+entry_point: "access_users_token_read_token.py"
+parameters:
+  tokenid:
+    description: "User-specific token identifier."
+    type: string
+    required: true
+    secret: false
+  userid:
+    description: "User ID"
+    type: string
+    required: true
+    secret: false

@@ -1,0 +1,22 @@
+name: cluster_sdn_controllers_read
+pack: proxmox
+runner_type: python-script
+description: "Read sdn controller configuration."
+enabled: true
+entry_point: "cluster_sdn_controllers_read.py"
+parameters:
+  controller:
+    description: "The SDN controller object identifier."
+    type: string
+    required: true
+    secret: false
+  pending:
+    description: "Display pending config."
+    type: boolean
+    required: false
+    secret: false
+  running:
+    description: "Display running config."
+    type: boolean
+    required: false
+    secret: false

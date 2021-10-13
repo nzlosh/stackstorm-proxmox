@@ -1,0 +1,12 @@
+name: nodes_disks_directory_index
+pack: proxmox
+runner_type: python-script
+description: "PVE Managed Directory storages."
+enabled: true
+entry_point: "nodes_disks_directory_index.py"
+parameters:
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+    secret: false

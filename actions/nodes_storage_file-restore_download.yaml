@@ -1,0 +1,27 @@
+name: nodes_storage_file-restore_download
+pack: proxmox
+runner_type: python-script
+description: "Extract a file or directory (as zip archive) from a PBS backup."
+enabled: true
+entry_point: "nodes_storage_file-restore_download.py"
+parameters:
+  filepath:
+    description: "base64-path to the directory or file to download."
+    type: string
+    required: true
+    secret: false
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+    secret: false
+  storage:
+    description: "The storage identifier."
+    type: string
+    required: true
+    secret: false
+  volume:
+    description: "Backup volume ID or name. Currently only PBS snapshots are supported."
+    type: string
+    required: true
+    secret: false

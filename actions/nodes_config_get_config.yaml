@@ -1,0 +1,29 @@
+name: nodes_config_get_config
+pack: proxmox
+runner_type: python-script
+description: "Get node configuration options."
+enabled: true
+entry_point: "nodes_config_get_config.py"
+parameters:
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+    secret: false
+  property:
+    description: "Return only a specific property from the node configuration."
+    default: "all"
+    enum:
+      - acme
+      - acmedomain0
+      - acmedomain1
+      - acmedomain2
+      - acmedomain3
+      - acmedomain4
+      - acmedomain5
+      - description
+      - startall-onboot-delay
+      - wakeonlan
+    type: string
+    required: false
+    secret: false

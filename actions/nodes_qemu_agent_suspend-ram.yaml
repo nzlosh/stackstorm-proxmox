@@ -1,0 +1,17 @@
+name: nodes_qemu_agent_suspend-ram
+pack: proxmox
+runner_type: python-script
+description: "Execute suspend-ram."
+enabled: true
+entry_point: "nodes_qemu_agent_suspend-ram.py"
+parameters:
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+    secret: false
+  vmid:
+    description: "The (unique) ID of the VM."
+    type: integer
+    required: true
+    secret: false

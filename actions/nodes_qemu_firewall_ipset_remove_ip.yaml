@@ -1,0 +1,32 @@
+name: nodes_qemu_firewall_ipset_remove_ip
+pack: proxmox
+runner_type: python-script
+description: "Remove IP or Network from IPSet."
+enabled: true
+entry_point: "nodes_qemu_firewall_ipset_remove_ip.py"
+parameters:
+  cidr:
+    description: "Network/IP specification in CIDR format."
+    type: string
+    required: true
+    secret: false
+  digest:
+    description: "Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications."
+    type: string
+    required: false
+    secret: false
+  name:
+    description: "IP set name."
+    type: string
+    required: true
+    secret: false
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+    secret: false
+  vmid:
+    description: "The (unique) ID of the VM."
+    type: integer
+    required: true
+    secret: false

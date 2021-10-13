@@ -1,0 +1,8 @@
+name: version
+pack: proxmox
+runner_type: python-script
+description: "API version details. The result also includes the global datacenter confguration."
+enabled: true
+entry_point: "version.py"
+
+parameters: {}

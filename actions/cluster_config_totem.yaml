@@ -1,0 +1,8 @@
+name: cluster_config_totem
+pack: proxmox
+runner_type: python-script
+description: "Get corosync totem protocol settings."
+enabled: true
+entry_point: "cluster_config_totem.py"
+
+parameters: {}

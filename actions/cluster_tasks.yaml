@@ -1,0 +1,8 @@
+name: cluster_tasks
+pack: proxmox
+runner_type: python-script
+description: "List recent tasks (cluster wide)."
+enabled: true
+entry_point: "cluster_tasks.py"
+
+parameters: {}

@@ -1,0 +1,17 @@
+name: nodes_qemu_agent_info
+pack: proxmox
+runner_type: python-script
+description: "Execute info."
+enabled: true
+entry_point: "nodes_qemu_agent_info.py"
+parameters:
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+    secret: false
+  vmid:
+    description: "The (unique) ID of the VM."
+    type: integer
+    required: true
+    secret: false

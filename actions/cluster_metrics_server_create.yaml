@@ -1,0 +1,96 @@
+name: cluster_metrics_server_create
+pack: proxmox
+runner_type: python-script
+description: "Create a new external metric server config"
+enabled: true
+entry_point: "cluster_metrics_server_create.py"
+parameters:
+  api_path_prefix:
+    description: "An API path prefix inserted between '<host>:<port>/' and '/api2/'. Can be useful if the InfluxDB service runs behind a reverse proxy."
+    type: string
+    required: false
+    secret: false
+  bucket:
+    description: "The InfluxDB bucket/db. Only necessary when using the http v2 api."
+    type: string
+    required: false
+    secret: false
+  disable:
+    description: "Flag to disable the plugin."
+    type: boolean
+    required: false
+    secret: false
+  id:
+    description: "The ID of the entry."
+    type: string
+    required: true
+    secret: false
+  influxdbproto:
+    description: "Description unavailable."
+    default: "udp"
+    enum:
+      - udp
+      - http
+      - https
+    type: string
+    required: false
+    secret: false
+  max_body_size:
+    description: "InfluxDB max-body-size in bytes. Requests are batched up to this size."
+    default: 25000000
+    type: integer
+    required: false
+    secret: false
+  mtu:
+    description: "MTU for metrics transmission over UDP"
+    default: 1500
+    type: integer
+    required: false
+    secret: false
+  organization:
+    description: "The InfluxDB organization. Only necessary when using the http v2 api. Has no meaning when using v2 compatibility api."
+    type: string
+    required: false
+    secret: false
+  path:
+    description: "root graphite path (ex: proxmox.mycluster.mykey)"
+    type: string
+    required: false
+    secret: false
+  port:
+    description: "server network port"
+    type: integer
+    required: true
+    secret: false
+  proto:
+    description: "Protocol to send graphite data. TCP or UDP (default)"
+    enum:
+      - udp
+      - tcp
+    type: string
+    required: false
+    secret: false
+  server:
+    description: "server dns name or IP address"
+    type: string
+    required: true
+    secret: false
+  timeout:
+    description: "graphite TCP socket timeout (default=1)"
+    default: 1
+    type: integer
+    required: false
+    secret: false
+  token:
+    description: "The InfluxDB access token. Only necessary when using the http v2 api. If the v2 compatibility api is used, use 'user:password' instead."
+    type: string
+    required: false
+    secret: false
+  type:
+    description: "Plugin type."
+    enum:
+      - graphite
+      - influxdb
+    type: string
+    required: true
+    secret: false

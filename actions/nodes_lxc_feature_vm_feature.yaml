@@ -1,0 +1,31 @@
+name: nodes_lxc_feature_vm_feature
+pack: proxmox
+runner_type: python-script
+description: "Check if feature for virtual machine is available."
+enabled: true
+entry_point: "nodes_lxc_feature_vm_feature.py"
+parameters:
+  feature:
+    description: "Feature to check."
+    enum:
+      - snapshot
+      - clone
+      - copy
+    type: string
+    required: true
+    secret: false
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+    secret: false
+  snapname:
+    description: "The name of the snapshot."
+    type: string
+    required: false
+    secret: false
+  vmid:
+    description: "The (unique) ID of the VM."
+    type: integer
+    required: true
+    secret: false

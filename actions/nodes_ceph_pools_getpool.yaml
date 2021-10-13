@@ -1,0 +1,23 @@
+name: nodes_ceph_pools_getpool
+pack: proxmox
+runner_type: python-script
+description: "List pool settings."
+enabled: true
+entry_point: "nodes_ceph_pools_getpool.py"
+parameters:
+  name:
+    description: "The name of the pool. It must be unique."
+    type: string
+    required: true
+    secret: false
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+    secret: false
+  verbose:
+    description: "If enabled, will display additional data(eg. statistics)."
+    default: 0
+    type: boolean
+    required: false
+    secret: false

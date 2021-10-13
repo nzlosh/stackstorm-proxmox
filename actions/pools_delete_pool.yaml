@@ -1,0 +1,12 @@
+name: pools_delete_pool
+pack: proxmox
+runner_type: python-script
+description: "Delete pool."
+enabled: true
+entry_point: "pools_delete_pool.py"
+parameters:
+  poolid:
+    description: "Description unavailable."
+    type: string
+    required: true
+    secret: false

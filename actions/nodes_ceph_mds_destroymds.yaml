@@ -1,0 +1,17 @@
+name: nodes_ceph_mds_destroymds
+pack: proxmox
+runner_type: python-script
+description: "Destroy Ceph Metadata Server"
+enabled: true
+entry_point: "nodes_ceph_mds_destroymds.py"
+parameters:
+  name:
+    description: "The name (ID) of the mds"
+    type: string
+    required: true
+    secret: false
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+    secret: false

@@ -1,0 +1,8 @@
+name: cluster_ha_status_manager_status
+pack: proxmox
+runner_type: python-script
+description: "Get full HA manger status, including LRM status."
+enabled: true
+entry_point: "cluster_ha_status_manager_status.py"
+
+parameters: {}

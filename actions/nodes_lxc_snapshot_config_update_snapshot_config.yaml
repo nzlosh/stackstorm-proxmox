@@ -1,0 +1,27 @@
+name: nodes_lxc_snapshot_config_update_snapshot_config
+pack: proxmox
+runner_type: python-script
+description: "Update snapshot metadata."
+enabled: true
+entry_point: "nodes_lxc_snapshot_config_update_snapshot_config.py"
+parameters:
+  description:
+    description: "A textual description or comment."
+    type: string
+    required: false
+    secret: false
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+    secret: false
+  snapname:
+    description: "The name of the snapshot."
+    type: string
+    required: true
+    secret: false
+  vmid:
+    description: "The (unique) ID of the VM."
+    type: integer
+    required: true
+    secret: false

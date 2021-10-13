@@ -1,0 +1,42 @@
+name: cluster_sdn_dns_update
+pack: proxmox
+runner_type: python-script
+description: "Update sdn dns object configuration."
+enabled: true
+entry_point: "cluster_sdn_dns_update.py"
+parameters:
+  delete:
+    description: "A list of settings you want to delete."
+    type: string
+    required: false
+    secret: false
+  digest:
+    description: "Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications."
+    type: string
+    required: false
+    secret: false
+  dns:
+    description: "The SDN dns object identifier."
+    type: string
+    required: true
+    secret: false
+  key:
+    description: "Description unavailable."
+    type: string
+    required: false
+    secret: true
+  reversemaskv6:
+    description: "Description unavailable."
+    type: integer
+    required: false
+    secret: false
+  ttl:
+    description: "Description unavailable."
+    type: integer
+    required: false
+    secret: false
+  url:
+    description: "Description unavailable."
+    type: string
+    required: false
+    secret: false

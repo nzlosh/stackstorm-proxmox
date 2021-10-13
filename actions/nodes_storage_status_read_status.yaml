@@ -1,0 +1,17 @@
+name: nodes_storage_status_read_status
+pack: proxmox
+runner_type: python-script
+description: "Read storage status."
+enabled: true
+entry_point: "nodes_storage_status_read_status.py"
+parameters:
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+    secret: false
+  storage:
+    description: "The storage identifier."
+    type: string
+    required: true
+    secret: false

@@ -1,0 +1,8 @@
+name: access_ticket_get_ticket
+pack: proxmox
+runner_type: python-script
+description: "Dummy. Useful for formatters which want to provide a login page."
+enabled: true
+entry_point: "access_ticket_get_ticket.py"
+
+parameters: {}

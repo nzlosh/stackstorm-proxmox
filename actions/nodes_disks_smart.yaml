@@ -1,0 +1,22 @@
+name: nodes_disks_smart
+pack: proxmox
+runner_type: python-script
+description: "Get SMART Health of a disk."
+enabled: true
+entry_point: "nodes_disks_smart.py"
+parameters:
+  disk:
+    description: "Block device name"
+    type: string
+    required: true
+    secret: false
+  healthonly:
+    description: "If true returns only the health status"
+    type: boolean
+    required: false
+    secret: false
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+    secret: false

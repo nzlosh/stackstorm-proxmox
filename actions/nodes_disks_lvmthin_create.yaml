@@ -1,0 +1,28 @@
+name: nodes_disks_lvmthin_create
+pack: proxmox
+runner_type: python-script
+description: "Create an LVM thinpool"
+enabled: true
+entry_point: "nodes_disks_lvmthin_create.py"
+parameters:
+  add_storage:
+    description: "Configure storage using the thinpool."
+    default: 0
+    type: boolean
+    required: false
+    secret: false
+  device:
+    description: "The block device you want to create the thinpool on."
+    type: string
+    required: true
+    secret: false
+  name:
+    description: "The storage identifier."
+    type: string
+    required: true
+    secret: false
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+    secret: false

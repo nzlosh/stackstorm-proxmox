@@ -1,0 +1,36 @@
+name: nodes_services_start_service_start
+pack: proxmox
+runner_type: python-script
+description: "Start service."
+enabled: true
+entry_point: "nodes_services_start_service_start.py"
+parameters:
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+    secret: false
+  service:
+    description: "Service ID"
+    enum:
+      - pveproxy
+      - pvedaemon
+      - spiceproxy
+      - pvestatd
+      - pve-cluster
+      - corosync
+      - pve-firewall
+      - pvefw-logger
+      - pve-ha-crm
+      - pve-ha-lrm
+      - sshd
+      - syslog
+      - systemd-journald
+      - cron
+      - postfix
+      - ksmtuned
+      - systemd-timesyncd
+      - chrony
+    type: string
+    required: true
+    secret: false

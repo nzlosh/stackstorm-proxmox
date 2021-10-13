@@ -1,0 +1,12 @@
+name: nodes_certificates_acme_certificate_revoke_certificate
+pack: proxmox
+runner_type: python-script
+description: "Revoke existing certificate from CA."
+enabled: true
+entry_point: "nodes_certificates_acme_certificate_revoke_certificate.py"
+parameters:
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+    secret: false

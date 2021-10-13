@@ -1,0 +1,12 @@
+name: access_users_tfa_read_user_tfa_type
+pack: proxmox
+runner_type: python-script
+description: "Get user TFA types (Personal and Realm)."
+enabled: true
+entry_point: "access_users_tfa_read_user_tfa_type.py"
+parameters:
+  userid:
+    description: "User ID"
+    type: string
+    required: true
+    secret: false

@@ -1,0 +1,63 @@
+name: nodes_lxc_clone_clone_vm
+pack: proxmox
+runner_type: python-script
+description: "Create a container clone/copy"
+enabled: true
+entry_point: "nodes_lxc_clone_clone_vm.py"
+parameters:
+  bwlimit:
+    description: "Override I/O bandwidth limit (in KiB/s)."
+    default: clone limit from datacenter or storage config
+    type: number
+    required: false
+    secret: false
+  description:
+    description: "Description for the new CT."
+    type: string
+    required: false
+    secret: false
+  full:
+    description: "Create a full copy of all disks. This is always done when you clone a normal CT. For CT templates, we try to create a linked clone by default."
+    type: boolean
+    required: false
+    secret: false
+  hostname:
+    description: "Set a hostname for the new CT."
+    type: string
+    required: false
+    secret: false
+  newid:
+    description: "VMID for the clone."
+    type: integer
+    required: true
+    secret: false
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+    secret: false
+  pool:
+    description: "Add the new CT to the specified pool."
+    type: string
+    required: false
+    secret: false
+  snapname:
+    description: "The name of the snapshot."
+    type: string
+    required: false
+    secret: false
+  storage:
+    description: "Target storage for full clone."
+    type: string
+    required: false
+    secret: false
+  target:
+    description: "Target node. Only allowed if the original VM is on shared storage."
+    type: string
+    required: false
+    secret: false
+  vmid:
+    description: "The (unique) ID of the VM."
+    type: integer
+    required: true
+    secret: false

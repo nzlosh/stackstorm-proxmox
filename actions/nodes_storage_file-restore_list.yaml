@@ -1,0 +1,27 @@
+name: nodes_storage_file-restore_list
+pack: proxmox
+runner_type: python-script
+description: "List files and directories for single file restore under the given path."
+enabled: true
+entry_point: "nodes_storage_file-restore_list.py"
+parameters:
+  filepath:
+    description: "base64-path to the directory or file being listed, or \"/\"."
+    type: string
+    required: true
+    secret: false
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+    secret: false
+  storage:
+    description: "The storage identifier."
+    type: string
+    required: true
+    secret: false
+  volume:
+    description: "Backup volume ID or name. Currently only PBS snapshots are supported."
+    type: string
+    required: true
+    secret: false

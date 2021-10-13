@@ -1,0 +1,12 @@
+name: nodes_scan_lvm_lvmscan
+pack: proxmox
+runner_type: python-script
+description: "List local LVM volume groups."
+enabled: true
+entry_point: "nodes_scan_lvm_lvmscan.py"
+parameters:
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+    secret: false

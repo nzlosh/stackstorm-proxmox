@@ -1,0 +1,24 @@
+name: nodes_apt_update_update_database
+pack: proxmox
+runner_type: python-script
+description: "This is used to resynchronize the package index files from their sources (apt-get update)."
+enabled: true
+entry_point: "nodes_apt_update_update_database.py"
+parameters:
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+    secret: false
+  notify:
+    description: "Send notification mail about new packages (to email address specified for user 'root@pam')."
+    default: 0
+    type: boolean
+    required: false
+    secret: false
+  quiet:
+    description: "Only produces output suitable for logging, omitting progress indicators."
+    default: 0
+    type: boolean
+    required: false
+    secret: false

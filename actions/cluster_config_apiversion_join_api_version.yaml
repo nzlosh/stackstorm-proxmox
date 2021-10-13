@@ -1,0 +1,8 @@
+name: cluster_config_apiversion_join_api_version
+pack: proxmox
+runner_type: python-script
+description: "Return the version of the cluster join API available on this node."
+enabled: true
+entry_point: "cluster_config_apiversion_join_api_version.py"
+
+parameters: {}

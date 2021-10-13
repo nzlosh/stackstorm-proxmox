@@ -1,0 +1,17 @@
+name: nodes_lxc_firewall_options_get_options
+pack: proxmox
+runner_type: python-script
+description: "Get VM firewall options."
+enabled: true
+entry_point: "nodes_lxc_firewall_options_get_options.py"
+parameters:
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+    secret: false
+  vmid:
+    description: "The (unique) ID of the VM."
+    type: integer
+    required: true
+    secret: false

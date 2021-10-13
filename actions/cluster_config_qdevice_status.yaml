@@ -1,0 +1,8 @@
+name: cluster_config_qdevice_status
+pack: proxmox
+runner_type: python-script
+description: "Get QDevice status"
+enabled: true
+entry_point: "cluster_config_qdevice_status.py"
+
+parameters: {}

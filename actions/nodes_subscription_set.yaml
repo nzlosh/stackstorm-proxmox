@@ -1,0 +1,17 @@
+name: nodes_subscription_set
+pack: proxmox
+runner_type: python-script
+description: "Set subscription key."
+enabled: true
+entry_point: "nodes_subscription_set.py"
+parameters:
+  key:
+    description: "Proxmox VE subscription key"
+    type: string
+    required: true
+    secret: true
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+    secret: false

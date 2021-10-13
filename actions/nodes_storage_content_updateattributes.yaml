@@ -1,0 +1,27 @@
+name: nodes_storage_content_updateattributes
+pack: proxmox
+runner_type: python-script
+description: "Update volume attributes"
+enabled: true
+entry_point: "nodes_storage_content_updateattributes.py"
+parameters:
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+    secret: false
+  notes:
+    description: "The new notes."
+    type: string
+    required: false
+    secret: false
+  storage:
+    description: "The storage identifier."
+    type: string
+    required: false
+    secret: false
+  volume:
+    description: "Volume identifier"
+    type: string
+    required: true
+    secret: false

@@ -1,0 +1,32 @@
+name: nodes_lxc_vncproxy
+pack: proxmox
+runner_type: python-script
+description: "Creates a TCP VNC proxy connections."
+enabled: true
+entry_point: "nodes_lxc_vncproxy.py"
+parameters:
+  height:
+    description: "sets the height of the console in pixels."
+    type: integer
+    required: false
+    secret: false
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+    secret: false
+  vmid:
+    description: "The (unique) ID of the VM."
+    type: integer
+    required: true
+    secret: false
+  websocket:
+    description: "use websocket instead of standard VNC."
+    type: boolean
+    required: false
+    secret: false
+  width:
+    description: "sets the width of the console in pixels."
+    type: integer
+    required: false
+    secret: false

@@ -1,0 +1,12 @@
+name: nodes_hardware_usb_usbscan
+pack: proxmox
+runner_type: python-script
+description: "List local USB devices."
+enabled: true
+entry_point: "nodes_hardware_usb_usbscan.py"
+parameters:
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+    secret: false

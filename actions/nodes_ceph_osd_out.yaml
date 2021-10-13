@@ -1,0 +1,17 @@
+name: nodes_ceph_osd_out
+pack: proxmox
+runner_type: python-script
+description: "ceph osd out"
+enabled: true
+entry_point: "nodes_ceph_osd_out.py"
+parameters:
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+    secret: false
+  osdid:
+    description: "OSD ID"
+    type: integer
+    required: true
+    secret: false

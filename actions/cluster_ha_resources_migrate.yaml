@@ -1,0 +1,17 @@
+name: cluster_ha_resources_migrate
+pack: proxmox
+runner_type: python-script
+description: "Request resource migration (online) to another node."
+enabled: true
+entry_point: "cluster_ha_resources_migrate.py"
+parameters:
+  node:
+    description: "Target node."
+    type: string
+    required: true
+    secret: false
+  sid:
+    description: "HA resource ID. This consists of a resource type followed by a resource specific name, separated with colon (example: vm:100 / ct:100). For virtual machines and containers, you can simply use the VM or CT id as a shortcut (example: 100)."
+    type: string
+    required: true
+    secret: false

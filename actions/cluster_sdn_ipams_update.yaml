@@ -1,0 +1,37 @@
+name: cluster_sdn_ipams_update
+pack: proxmox
+runner_type: python-script
+description: "Update sdn ipam object configuration."
+enabled: true
+entry_point: "cluster_sdn_ipams_update.py"
+parameters:
+  delete:
+    description: "A list of settings you want to delete."
+    type: string
+    required: false
+    secret: false
+  digest:
+    description: "Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications."
+    type: string
+    required: false
+    secret: false
+  ipam:
+    description: "The SDN ipam object identifier."
+    type: string
+    required: true
+    secret: false
+  section:
+    description: "Description unavailable."
+    type: integer
+    required: false
+    secret: false
+  token:
+    description: "Description unavailable."
+    type: string
+    required: false
+    secret: false
+  url:
+    description: "Description unavailable."
+    type: string
+    required: false
+    secret: false

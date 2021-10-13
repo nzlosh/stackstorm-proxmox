@@ -1,0 +1,8 @@
+name: cluster_status_get_status
+pack: proxmox
+runner_type: python-script
+description: "Get cluster status information."
+enabled: true
+entry_point: "cluster_status_get_status.py"
+
+parameters: {}

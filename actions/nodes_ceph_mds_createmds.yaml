@@ -1,0 +1,24 @@
+name: nodes_ceph_mds_createmds
+pack: proxmox
+runner_type: python-script
+description: "Create Ceph Metadata Server (MDS)"
+enabled: true
+entry_point: "nodes_ceph_mds_createmds.py"
+parameters:
+  hotstandby:
+    description: "Determines whether a ceph-mds daemon should poll and replay the log of an active MDS. Faster switch on MDS failure, but needs more idle resources."
+    default: 0
+    type: boolean
+    required: false
+    secret: false
+  name:
+    description: "The ID for the mds, when omitted the same as the nodename"
+    default: "nodename"
+    type: string
+    required: false
+    secret: false
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+    secret: false

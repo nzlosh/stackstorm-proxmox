@@ -1,0 +1,12 @@
+name: access_groups_delete_group
+pack: proxmox
+runner_type: python-script
+description: "Delete group."
+enabled: true
+entry_point: "access_groups_delete_group.py"
+parameters:
+  groupid:
+    description: "Description unavailable."
+    type: string
+    required: true
+    secret: false

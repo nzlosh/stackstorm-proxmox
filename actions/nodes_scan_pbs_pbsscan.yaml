@@ -1,0 +1,38 @@
+name: nodes_scan_pbs_pbsscan
+pack: proxmox
+runner_type: python-script
+description: "Scan remote Proxmox Backup Server."
+enabled: true
+entry_point: "nodes_scan_pbs_pbsscan.py"
+parameters:
+  fingerprint:
+    description: "Certificate SHA 256 fingerprint."
+    type: string
+    required: false
+    secret: false
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+    secret: false
+  password:
+    description: "User password or API token secret."
+    type: string
+    required: true
+    secret: true
+  port:
+    description: "Optional port."
+    default: 8007
+    type: integer
+    required: false
+    secret: false
+  server:
+    description: "The server address (name or IP)."
+    type: string
+    required: true
+    secret: false
+  username:
+    description: "User-name or API token-ID."
+    type: string
+    required: true
+    secret: false

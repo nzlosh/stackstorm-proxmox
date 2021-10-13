@@ -1,0 +1,16 @@
+name: cluster_ceph_metadata
+pack: proxmox
+runner_type: python-script
+description: "Get ceph metadata."
+enabled: true
+entry_point: "cluster_ceph_metadata.py"
+parameters:
+  scope:
+    description: "Description unavailable."
+    default: "all"
+    enum:
+      - all
+      - versions
+    type: string
+    required: false
+    secret: false

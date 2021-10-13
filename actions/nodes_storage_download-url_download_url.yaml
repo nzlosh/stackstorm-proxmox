@@ -1,0 +1,58 @@
+name: nodes_storage_download-url_download_url
+pack: proxmox
+runner_type: python-script
+description: "Download templates and ISO images by using an URL."
+enabled: true
+entry_point: "nodes_storage_download-url_download_url.py"
+parameters:
+  checksum:
+    description: "The expected checksum of the file."
+    type: string
+    required: false
+    secret: false
+  checksum_algorithm:
+    description: "The algorithm to calculate the checksum of the file."
+    enum:
+      - md5
+      - sha1
+      - sha224
+      - sha256
+      - sha384
+      - sha512
+    type: string
+    required: false
+    secret: false
+  content:
+    description: "Content type."
+    enum:
+      - iso
+      - vztmpl
+    type: string
+    required: true
+    secret: false
+  filename:
+    description: "The name of the file to create. Caution: This will be normalized!"
+    type: string
+    required: true
+    secret: false
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+    secret: false
+  storage:
+    description: "The storage identifier."
+    type: string
+    required: true
+    secret: false
+  url:
+    description: "The URL to download the file from."
+    type: string
+    required: true
+    secret: false
+  verify_certificates:
+    description: "If false, no SSL/TLS certificates will be verified."
+    default: 1
+    type: boolean
+    required: false
+    secret: false

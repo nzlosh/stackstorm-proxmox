@@ -1,0 +1,34 @@
+name: access_users_token_update_token_info
+pack: proxmox
+runner_type: python-script
+description: "Update API token for a specific user."
+enabled: true
+entry_point: "access_users_token_update_token_info.py"
+parameters:
+  comment:
+    description: "Description unavailable."
+    type: string
+    required: false
+    secret: false
+  expire:
+    description: "API token expiration date (seconds since epoch). '0' means no expiration date."
+    default: same as user
+    type: integer
+    required: false
+    secret: false
+  privsep:
+    description: "Restrict API token privileges with separate ACLs (default), or give full privileges of corresponding user."
+    default: 1
+    type: boolean
+    required: false
+    secret: false
+  tokenid:
+    description: "User-specific token identifier."
+    type: string
+    required: true
+    secret: false
+  userid:
+    description: "User ID"
+    type: string
+    required: true
+    secret: false

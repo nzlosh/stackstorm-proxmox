@@ -1,0 +1,12 @@
+name: cluster_acme_plugins_delete_plugin
+pack: proxmox
+runner_type: python-script
+description: "Delete ACME plugin configuration."
+enabled: true
+entry_point: "cluster_acme_plugins_delete_plugin.py"
+parameters:
+  id:
+    description: "Unique identifier for ACME plugin instance."
+    type: string
+    required: true
+    secret: false

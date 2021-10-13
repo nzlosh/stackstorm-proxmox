@@ -1,0 +1,8 @@
+name: cluster_options_get_options
+pack: proxmox
+runner_type: python-script
+description: "Get datacenter options."
+enabled: true
+entry_point: "cluster_options_get_options.py"
+
+parameters: {}

@@ -1,0 +1,27 @@
+name: nodes_storage_content_delete
+pack: proxmox
+runner_type: python-script
+description: "Delete volume"
+enabled: true
+entry_point: "nodes_storage_content_delete.py"
+parameters:
+  delay:
+    description: "Time to wait for the task to finish. We return 'null' if the task finish within that time."
+    type: integer
+    required: false
+    secret: false
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+    secret: false
+  storage:
+    description: "The storage identifier."
+    type: string
+    required: false
+    secret: false
+  volume:
+    description: "Volume identifier"
+    type: string
+    required: true
+    secret: false

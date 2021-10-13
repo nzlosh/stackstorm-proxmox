@@ -1,0 +1,12 @@
+name: cluster_sdn_ipams_delete
+pack: proxmox
+runner_type: python-script
+description: "Delete sdn ipam object configuration."
+enabled: true
+entry_point: "cluster_sdn_ipams_delete.py"
+parameters:
+  ipam:
+    description: "The SDN ipam object identifier."
+    type: string
+    required: true
+    secret: false

@@ -1,0 +1,12 @@
+name: nodes_aplinfo
+pack: proxmox
+runner_type: python-script
+description: "Get list of appliances."
+enabled: true
+entry_point: "nodes_aplinfo.py"
+parameters:
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+    secret: false

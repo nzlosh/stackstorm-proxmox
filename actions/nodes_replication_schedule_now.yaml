@@ -1,0 +1,17 @@
+name: nodes_replication_schedule_now
+pack: proxmox
+runner_type: python-script
+description: "Schedule replication job to start as soon as possible."
+enabled: true
+entry_point: "nodes_replication_schedule_now.py"
+parameters:
+  id:
+    description: "Replication Job ID. The ID is composed of a Guest ID and a job number, separated by a hyphen, i.e. '<GUEST>-<JOBNUM>'."
+    type: string
+    required: true
+    secret: false
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+    secret: false

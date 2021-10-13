@@ -1,0 +1,50 @@
+---
+default_profile:
+  description: "The default profile to use in actions when none is given."
+  type: string
+  required: true
+profiles:
+  description: "A profile describing environment and credentials require to establish a connection."
+  type: "array"
+  required: true
+  items:
+    type: "object"
+    required: true
+    additionalProperties: false
+    properties:
+      name:
+        description: "Name of the profile."
+        type: "string"
+        secret: false
+        required: true
+      host:
+        description: "Server IP/name the API is available on."
+        type: "string"
+        secret: false
+        required: true
+      port:
+        description: "Server port the API is listening on."
+        type: "integer"
+        secret: false
+        required: true
+        default: 8006
+      username:
+        description: "Username with authorisation to connect to API."
+        type: "string"
+        secret: false
+        required: true
+      password:
+        description: "User's password."
+        type: "string"
+        secret: true
+        required: true
+      realm:
+        description: "Authentication realm the credentials are for."
+        type: "string"
+        secret: false
+        required: true
+      verify_tls:
+        description: "Verify the TLS certificate for the server."
+        type: "boolean"
+        required: false
+        default: true

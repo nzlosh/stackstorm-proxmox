@@ -1,0 +1,32 @@
+name: nodes_storage_content_copy
+pack: proxmox
+runner_type: python-script
+description: "Copy a volume. This is experimental code - do not use."
+enabled: true
+entry_point: "nodes_storage_content_copy.py"
+parameters:
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+    secret: false
+  storage:
+    description: "The storage identifier."
+    type: string
+    required: false
+    secret: false
+  target:
+    description: "Target volume identifier"
+    type: string
+    required: true
+    secret: false
+  target_node:
+    description: "Target node. Default is local node."
+    type: string
+    required: false
+    secret: false
+  volume:
+    description: "Source volume identifier"
+    type: string
+    required: true
+    secret: false

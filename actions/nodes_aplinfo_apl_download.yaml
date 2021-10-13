@@ -1,0 +1,22 @@
+name: nodes_aplinfo_apl_download
+pack: proxmox
+runner_type: python-script
+description: "Download appliance templates."
+enabled: true
+entry_point: "nodes_aplinfo_apl_download.py"
+parameters:
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+    secret: false
+  storage:
+    description: "The storage where the template will be stored"
+    type: string
+    required: true
+    secret: false
+  template:
+    description: "The template which will downloaded"
+    type: string
+    required: true
+    secret: false

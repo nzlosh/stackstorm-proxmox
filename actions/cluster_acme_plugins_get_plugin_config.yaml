@@ -1,0 +1,12 @@
+name: cluster_acme_plugins_get_plugin_config
+pack: proxmox
+runner_type: python-script
+description: "Get ACME plugin configuration."
+enabled: true
+entry_point: "cluster_acme_plugins_get_plugin_config.py"
+parameters:
+  id:
+    description: "Unique identifier for ACME plugin instance."
+    type: string
+    required: true
+    secret: false

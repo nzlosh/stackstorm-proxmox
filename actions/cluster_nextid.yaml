@@ -1,0 +1,12 @@
+name: cluster_nextid
+pack: proxmox
+runner_type: python-script
+description: "Get next free VMID. If you pass an VMID it will raise an error if the ID is already used."
+enabled: true
+entry_point: "cluster_nextid.py"
+parameters:
+  vmid:
+    description: "The (unique) ID of the VM."
+    type: integer
+    required: false
+    secret: false

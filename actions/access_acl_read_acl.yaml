@@ -1,0 +1,8 @@
+name: access_acl_read_acl
+pack: proxmox
+runner_type: python-script
+description: "Get Access Control List (ACLs)."
+enabled: true
+entry_point: "access_acl_read_acl.py"
+
+parameters: {}

@@ -1,0 +1,101 @@
+name: cluster_sdn_zones_update
+pack: proxmox
+runner_type: python-script
+description: "Update sdn zone object configuration."
+enabled: true
+entry_point: "cluster_sdn_zones_update.py"
+parameters:
+  bridge:
+    description: "Description unavailable."
+    type: string
+    required: false
+    secret: false
+  controller:
+    description: "Frr router name"
+    type: string
+    required: false
+    secret: false
+  delete:
+    description: "A list of settings you want to delete."
+    type: string
+    required: false
+    secret: false
+  digest:
+    description: "Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications."
+    type: string
+    required: false
+    secret: false
+  dns:
+    description: "dns api server"
+    type: string
+    required: false
+    secret: false
+  dnszone:
+    description: "dns domain zone  ex: mydomain.com"
+    type: string
+    required: false
+    secret: false
+  dp_id:
+    description: "Faucet dataplane id"
+    type: integer
+    required: false
+    secret: false
+  exitnodes:
+    description: "List of cluster node names."
+    type: string
+    required: false
+    secret: false
+  ipam:
+    description: "use a specific ipam"
+    type: string
+    required: false
+    secret: false
+  mac:
+    description: "Anycast logical router mac address"
+    type: string
+    required: false
+    secret: false
+  mtu:
+    description: "MTU"
+    type: integer
+    required: false
+    secret: false
+  nodes:
+    description: "List of cluster node names."
+    type: string
+    required: false
+    secret: false
+  peers:
+    description: "peers address list."
+    type: string
+    required: false
+    secret: false
+  reversedns:
+    description: "reverse dns api server"
+    type: string
+    required: false
+    secret: false
+  tag:
+    description: "Service-VLAN Tag"
+    type: integer
+    required: false
+    secret: false
+  vlan_protocol:
+    description: "Description unavailable."
+    default: "802.1q"
+    enum:
+      - 802.1q
+      - 802.1ad
+    type: string
+    required: false
+    secret: false
+  vrf_vxlan:
+    description: "l3vni."
+    type: integer
+    required: false
+    secret: false
+  zone:
+    description: "The SDN zone object identifier."
+    type: string
+    required: true
+    secret: false

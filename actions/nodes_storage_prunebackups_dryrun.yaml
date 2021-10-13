@@ -1,0 +1,35 @@
+name: nodes_storage_prunebackups_dryrun
+pack: proxmox
+runner_type: python-script
+description: "Get prune information for backups. NOTE: this is only a preview and might not be what a subsequent prune call does if backups are removed/added in the meantime."
+enabled: true
+entry_point: "nodes_storage_prunebackups_dryrun.py"
+parameters:
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+    secret: false
+  prune_backups:
+    description: "Use these retention options instead of those from the storage configuration."
+    type: string
+    required: false
+    secret: false
+  storage:
+    description: "The storage identifier."
+    type: string
+    required: true
+    secret: false
+  type:
+    description: "Either 'qemu' or 'lxc'. Only consider backups for guests of this type."
+    enum:
+      - qemu
+      - lxc
+    type: string
+    required: false
+    secret: false
+  vmid:
+    description: "Only consider backups for this guest."
+    type: integer
+    required: false
+    secret: false

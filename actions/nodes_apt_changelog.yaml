@@ -1,0 +1,22 @@
+name: nodes_apt_changelog
+pack: proxmox
+runner_type: python-script
+description: "Get package changelogs."
+enabled: true
+entry_point: "nodes_apt_changelog.py"
+parameters:
+  name:
+    description: "Package name."
+    type: string
+    required: true
+    secret: false
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+    secret: false
+  version:
+    description: "Package version."
+    type: string
+    required: false
+    secret: false

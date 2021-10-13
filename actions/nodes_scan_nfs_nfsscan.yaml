@@ -1,0 +1,17 @@
+name: nodes_scan_nfs_nfsscan
+pack: proxmox
+runner_type: python-script
+description: "Scan remote NFS server."
+enabled: true
+entry_point: "nodes_scan_nfs_nfsscan.py"
+parameters:
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+    secret: false
+  server:
+    description: "The server address (name or IP)."
+    type: string
+    required: true
+    secret: false
