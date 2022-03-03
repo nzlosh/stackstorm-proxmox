@@ -19,7 +19,7 @@ parameters:
     required: true
   propagate:
     description: "Allow to propagate (inherit) permissions."
-    default: 1
+    default: True
     type: boolean
     required: false
   roles:
@@ -32,5 +32,9 @@ parameters:
     required: false
   users:
     description: "List of users."
+    type: string
+    required: false
+  profile_name:
+    description: "The profile to use to run the action."
     type: string
     required: false

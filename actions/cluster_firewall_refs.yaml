@@ -5,10 +5,14 @@ description: "Lists possible IPSet/Alias reference which are allowed in source/d
 enabled: true
 entry_point: "cluster_firewall_refs.py"
 parameters:
-  type:
+  prox_type:
     description: "Only list references of specified type."
     enum:
       - alias
       - ipset
+    type: string
+    required: false
+  profile_name:
+    description: "The profile to use to run the action."
     type: string
     required: false

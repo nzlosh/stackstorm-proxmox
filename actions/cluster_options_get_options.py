@@ -1,4 +1,5 @@
-from lib.base import ProxmoxAction
+import json
+from packlib.base import ProxmoxAction
 
 
 class ClusterOptionsGetOptionsAction(ProxmoxAction):
@@ -6,6 +7,9 @@ class ClusterOptionsGetOptionsAction(ProxmoxAction):
     Get datacenter options.
     """
 
-    def run(self, _):
-        super().run(response_timeout)
-        raise NotImplementedError
+    def run(self, profile_name=None):
+        super().run(profile_name)
+
+        # Only include non None arguments to pass through to proxmox api.
+        proxmox_kwargs = {}
+        return self.proxmox.get(f"cluster/options")

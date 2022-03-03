@@ -1,0 +1,38 @@
+name: nodes_node_services_service_srvcmdidx
+pack: proxmox
+runner_type: python-script
+description: "Directory index"
+enabled: true
+entry_point: "nodes_node_services_service_srvcmdidx.py"
+parameters:
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  service:
+    description: "Service ID"
+    enum:
+      - pveproxy
+      - pvedaemon
+      - spiceproxy
+      - pvestatd
+      - pve-cluster
+      - corosync
+      - pve-firewall
+      - pvefw-logger
+      - pve-ha-crm
+      - pve-ha-lrm
+      - sshd
+      - syslog
+      - systemd-journald
+      - cron
+      - postfix
+      - ksmtuned
+      - systemd-timesyncd
+      - chrony
+    type: string
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

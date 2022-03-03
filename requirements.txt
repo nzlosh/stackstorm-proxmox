@@ -1,4 +1,1 @@
-requests
-esprima
-proxmoxer
-jinja2
+proxmoxer>=1.2.0

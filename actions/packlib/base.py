@@ -11,12 +11,19 @@ class ProxmoxAction(Action):
         super().__init__(config)
         self.config = config
 
-    def run(self, profile_name):
+    def run(self, profile_name=None):
         super().run()
-        profile = self.config.get("default_profile")
 
-        if not profile:
-            raise ValueError("A default profile must be set in the pack configuration.")
+        if not profile_name:
+            profile_name = self.config.get("default_profile")
+            if not profile_name:
+                raise ValueError(f"No profile in pack configuration or supplied in action.")
+
+        for profile in self.config.get("profiles", {}):
+            if profile["name"] == profile_name:
+                break
+        else:
+            raise ValueError(f"Profile '{profile_name}' can't be found in pack configuration.")
 
         self.proxmox = ProxmoxAPI(
             profile.get("host"),
@@ -24,5 +31,3 @@ class ProxmoxAction(Action):
             password=profile.get("password"),
             verify_ssl=profile.get("verify_tls"),
         )
-
-        raise NotImplementedError

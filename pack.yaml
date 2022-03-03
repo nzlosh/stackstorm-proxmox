@@ -1,9 +1,10 @@
 ---
 name: proxmox
-description: StackStorm integration for Proxmox APIv2.
+description: Enable StackStorm to interact with the Proxmox APIv2.
 version: 0.0.1
 author: Carlos
 email: nzlosh@yahoo.com
-Contributors: []
+contributors:
+  - "Carlos @nzlosh"
 python_versions:
   - "3"

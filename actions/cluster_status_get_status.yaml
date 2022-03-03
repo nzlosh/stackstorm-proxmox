@@ -4,5 +4,8 @@ runner_type: python-script
 description: "Get cluster status information."
 enabled: true
 entry_point: "cluster_status_get_status.py"
-
-parameters: {}
+parameters:
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

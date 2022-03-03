@@ -17,7 +17,7 @@ parameters:
     description: "Hostname (or IP) of an existing cluster member."
     type: string
     required: true
-  link:
+  link_list:
     description: "Address and priority information of a single corosync link. (up to 8 links supported; link0..link7)"
     type: string
     required: false
@@ -33,4 +33,8 @@ parameters:
   votes:
     description: "Number of votes for this node"
     type: integer
+    required: false
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
     required: false

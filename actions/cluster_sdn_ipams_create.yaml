@@ -1,0 +1,35 @@
+name: cluster_sdn_ipams_create
+pack: proxmox
+runner_type: python-script
+description: "Create a new sdn ipam object."
+enabled: true
+entry_point: "cluster_sdn_ipams_create.py"
+parameters:
+  ipam:
+    description: "The SDN ipam object identifier."
+    type: string
+    required: true
+  section:
+    description: "Description unavailable."
+    type: integer
+    required: false
+  token:
+    description: "Description unavailable."
+    type: string
+    required: false
+  prox_type:
+    description: "Plugin type."
+    enum:
+      - netbox
+      - phpipam
+      - pve
+    type: string
+    required: true
+  url:
+    description: "Description unavailable."
+    type: string
+    required: false
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

@@ -17,3 +17,7 @@ parameters:
     description: "OpenId state."
     type: string
     required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

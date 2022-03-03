@@ -38,7 +38,7 @@ profiles:
         type: "string"
         secret: true
         required: true
-      realm:
+      auth_realm:
         description: "Authentication realm the credentials are for."
         type: "string"
         secret: false

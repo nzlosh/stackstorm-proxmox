@@ -27,7 +27,7 @@ parameters:
     type: string
     required: false
   fencing:
-    description: "Set the fencing mode of the HA cluster. Hardware mode needs a valid configuration of fence devices in /etc/pve/ha/fence.cfg. With both all two modes are used.\n\nWARNING: 'hardware' and 'both' are EXPERIMENTAL & WIP"
+    description: "Set the fencing mode of the HA cluster. Hardware mode needs a valid configuration of fence devices in /etc/pve/ha/fence.cfg. With both all two modes are used.  WARNING: 'hardware' and 'both' are EXPERIMENTAL & WIP"
     default: "watchdog"
     enum:
       - watchdog
@@ -117,5 +117,9 @@ parameters:
     required: false
   u2f:
     description: "u2f"
+    type: string
+    required: false
+  profile_name:
+    description: "The profile to use to run the action."
     type: string
     required: false

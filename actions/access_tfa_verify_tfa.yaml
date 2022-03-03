@@ -9,3 +9,7 @@ parameters:
     description: "The response to the current authentication challenge."
     type: string
     required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

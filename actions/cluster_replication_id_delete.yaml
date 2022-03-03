@@ -1,0 +1,25 @@
+name: cluster_replication_id_delete
+pack: proxmox
+runner_type: python-script
+description: "Mark replication job for removal."
+enabled: true
+entry_point: "cluster_replication_id_delete.py"
+parameters:
+  force:
+    description: "Will remove the jobconfig entry, but will not cleanup."
+    default: False
+    type: boolean
+    required: false
+  prox_id:
+    description: "Replication Job ID. The ID is composed of a Guest ID and a job number, separated by a hyphen, i.e. '<GUEST>-<JOBNUM>'."
+    type: string
+    required: true
+  keep:
+    description: "Keep replicated data at target (do not remove)."
+    default: False
+    type: boolean
+    required: false
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

@@ -1,0 +1,432 @@
+name: nodes_node_qemu_vmid_config_update_vm
+pack: proxmox
+runner_type: python-script
+description: "Set virtual machine options (synchrounous API) - You should consider using the POST method instead for any actions involving hotplug or storage allocation."
+enabled: true
+entry_point: "nodes_node_qemu_vmid_config_update_vm.py"
+parameters:
+  acpi:
+    description: "Enable/disable ACPI."
+    default: True
+    type: boolean
+    required: false
+  agent:
+    description: "Enable/disable Qemu GuestAgent and its properties."
+    type: string
+    required: false
+  arch:
+    description: "Virtual processor architecture. Defaults to the host."
+    enum:
+      - x86_64
+      - aarch64
+    type: string
+    required: false
+  args:
+    description: "Arbitrary arguments passed to kvm."
+    type: string
+    required: false
+  audio0:
+    description: "Configure a audio device, useful in combination with QXL/Spice."
+    type: string
+    required: false
+  autostart:
+    description: "Automatic restart after crash (currently ignored)."
+    default: False
+    type: boolean
+    required: false
+  balloon:
+    description: "Amount of target RAM for the VM in MB. Using zero disables the ballon driver."
+    type: integer
+    required: false
+  bios:
+    description: "Select BIOS implementation."
+    default: "seabios"
+    enum:
+      - seabios
+      - ovmf
+    type: string
+    required: false
+  boot:
+    description: "Specify guest boot order. Use with 'order=', usage with no key or 'legacy=' is deprecated."
+    type: string
+    required: false
+  bootdisk:
+    description: "Enable booting from specified disk. Deprecated: Use 'boot: order=foo;bar' instead."
+    type: string
+    required: false
+  cdrom:
+    description: "This is an alias for option -ide2"
+    type: string
+    required: false
+  cicustom:
+    description: "cloud-init: Specify custom files to replace the automatically generated ones at start."
+    type: string
+    required: false
+  cipassword:
+    description: "cloud-init: Password to assign the user. Using this is generally not recommended. Use ssh keys instead. Also note that older cloud-init versions do not support hashed passwords."
+    type: string
+    required: false
+  citype:
+    description: "Specifies the cloud-init configuration format. The default depends on the configured operating system type (`ostype`. We use the `nocloud` format for Linux, and `configdrive2` for windows."
+    enum:
+      - configdrive2
+      - nocloud
+      - opennebula
+    type: string
+    required: false
+  ciuser:
+    description: "cloud-init: User name to change ssh keys and password for instead of the image's configured default user."
+    type: string
+    required: false
+  cores:
+    description: "The number of cores per socket."
+    default: 1
+    type: integer
+    required: false
+  cpu:
+    description: "Emulated CPU type."
+    type: string
+    required: false
+  cpulimit:
+    description: "Limit of CPU usage."
+    default: 0
+    type: number
+    required: false
+  cpuunits:
+    description: "CPU weight for a VM."
+    default: 1024
+    type: integer
+    required: false
+  delete:
+    description: "A list of settings you want to delete."
+    type: string
+    required: false
+  description:
+    description: "Description for the VM. Shown in the web-interface VM's summary. This is saved as comment inside the configuration file."
+    type: string
+    required: false
+  digest:
+    description: "Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications."
+    type: string
+    required: false
+  efidisk0:
+    description: "Configure a Disk for storing EFI vars. Use the special syntax STORAGE_ID:SIZE_IN_GiB to allocate a new volume. Note that SIZE_IN_GiB is ignored here and that the default EFI vars are copied to the volume instead."
+    type: string
+    required: false
+  force:
+    description: "Force physical removal. Without this, we simple remove the disk from the config file and create an additional configuration entry called 'unused[n]', which contains the volume ID. Unlink of unused[n] always cause physical removal."
+    type: boolean
+    required: false
+  freeze:
+    description: "Freeze CPU at startup (use 'c' monitor command to start execution)."
+    type: boolean
+    required: false
+  hookscript:
+    description: "Script that will be executed during various steps in the vms lifetime."
+    type: string
+    required: false
+  hostpci_list:
+    description: "Map host PCI devices into guest."
+    type: string
+    required: false
+  hotplug:
+    description: "Selectively enable hotplug features. This is a comma separated list of hotplug features: 'network', 'disk', 'cpu', 'memory' and 'usb'. Use '0' to disable hotplug completely. Value '1' is an alias for the default 'network,disk,usb'."
+    default: "network,disk,usb"
+    type: string
+    required: false
+  hugepages:
+    description: "Enable/disable hugepages memory."
+    enum:
+      - any
+      - 2
+      - 1024
+    type: string
+    required: false
+  ide_list:
+    description: "Use volume as IDE hard disk or CD-ROM (n is 0 to 3). Use the special syntax STORAGE_ID:SIZE_IN_GiB to allocate a new volume."
+    type: string
+    required: false
+  ipconfig_list:
+    description: "cloud-init: Specify IP addresses and gateways for the corresponding interface.  IP addresses use CIDR notation, gateways are optional but need an IP of the same type specified.  The special string 'dhcp' can be used for IP addresses to use DHCP, in which case no explicit gateway should be provided. For IPv6 the special string 'auto' can be used to use stateless autoconfiguration. This requires cloud-init 19.4 or newer.  If cloud-init is enabled and neither an IPv4 nor an IPv6 address is specified, it defaults to using dhcp on IPv4. "
+    type: string
+    required: false
+  ivshmem:
+    description: "Inter-VM shared memory. Useful for direct communication between VMs, or to the host."
+    type: string
+    required: false
+  keephugepages:
+    description: "Use together with hugepages. If enabled, hugepages will not not be deleted after VM shutdown and can be used for subsequent starts."
+    default: False
+    type: boolean
+    required: false
+  keyboard:
+    description: "Keybord layout for vnc server. Default is read from the '/etc/pve/datacenter.cfg' configuration file.It should not be necessary to set it."
+    default: "en-us"
+    enum:
+      - de
+      - de-ch
+      - da
+      - en-gb
+      - en-us
+      - es
+      - fi
+      - fr
+      - fr-be
+      - fr-ca
+      - fr-ch
+      - hu
+      - is
+      - it
+      - ja
+      - lt
+      - mk
+      - nl
+      - no
+      - pl
+      - pt
+      - pt-br
+      - sv
+      - sl
+      - tr
+    type: string
+    required: false
+  kvm:
+    description: "Enable/disable KVM hardware virtualization."
+    default: True
+    type: boolean
+    required: false
+  localtime:
+    description: "Set the real time clock to local time. This is enabled by default if ostype indicates a Microsoft OS."
+    type: boolean
+    required: false
+  lock:
+    description: "Lock/unlock the VM."
+    enum:
+      - backup
+      - clone
+      - create
+      - migrate
+      - rollback
+      - snapshot
+      - snapshot-delete
+      - suspending
+      - suspended
+    type: string
+    required: false
+  machine:
+    description: "Specifies the Qemu machine type."
+    type: string
+    required: false
+  memory:
+    description: "Amount of RAM for the VM in MB. This is the maximum available memory when you use the balloon device."
+    default: 512
+    type: integer
+    required: false
+  migrate_downtime:
+    description: "Set maximum tolerated downtime (in seconds) for migrations."
+    default: 0.1
+    type: number
+    required: false
+  migrate_speed:
+    description: "Set maximum speed (in MB/s) for migrations. Value 0 is no limit."
+    default: 0
+    type: integer
+    required: false
+  name:
+    description: "Set a name for the VM. Only used on the configuration web interface."
+    type: string
+    required: false
+  nameserver:
+    description: "cloud-init: Sets DNS server IP address for a container. Create will'     .' automatically use the setting from the host if neither searchdomain nor nameserver'     .' are set."
+    type: string
+    required: false
+  net_list:
+    description: "Specify network devices."
+    type: string
+    required: false
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  numa:
+    description: "Enable/disable NUMA."
+    default: False
+    type: boolean
+    required: false
+  numa_list:
+    description: "NUMA topology."
+    type: string
+    required: false
+  onboot:
+    description: "Specifies whether a VM will be started during system bootup."
+    default: False
+    type: boolean
+    required: false
+  ostype:
+    description: "Specify guest operating system."
+    enum:
+      - other
+      - wxp
+      - w2k
+      - w2k3
+      - w2k8
+      - wvista
+      - win7
+      - win8
+      - win10
+      - l24
+      - l26
+      - solaris
+    type: string
+    required: false
+  parallel_list:
+    description: "Map host parallel devices (n is 0 to 2)."
+    type: string
+    required: false
+  protection:
+    description: "Sets the protection flag of the VM. This will disable the remove VM and remove disk operations."
+    default: False
+    type: boolean
+    required: false
+  reboot:
+    description: "Allow reboot. If set to '0' the VM exit on reboot."
+    default: True
+    type: boolean
+    required: false
+  revert:
+    description: "Revert a pending change."
+    type: string
+    required: false
+  rng0:
+    description: "Configure a VirtIO-based Random Number Generator."
+    type: string
+    required: false
+  sata_list:
+    description: "Use volume as SATA hard disk or CD-ROM (n is 0 to 5). Use the special syntax STORAGE_ID:SIZE_IN_GiB to allocate a new volume."
+    type: string
+    required: false
+  scsi_list:
+    description: "Use volume as SCSI hard disk or CD-ROM (n is 0 to 30). Use the special syntax STORAGE_ID:SIZE_IN_GiB to allocate a new volume."
+    type: string
+    required: false
+  scsihw:
+    description: "SCSI controller model"
+    default: "lsi"
+    enum:
+      - lsi
+      - lsi53c810
+      - virtio-scsi-pci
+      - virtio-scsi-single
+      - megasas
+      - pvscsi
+    type: string
+    required: false
+  searchdomain:
+    description: "cloud-init: Sets DNS search domains for a container. Create will'     .' automatically use the setting from the host if neither searchdomain nor nameserver'     .' are set."
+    type: string
+    required: false
+  serial_list:
+    description: "Create a serial device inside the VM (n is 0 to 3)"
+    type: string
+    required: false
+  shares:
+    description: "Amount of memory shares for auto-ballooning. The larger the number is, the more memory this VM gets. Number is relative to weights of all other running VMs. Using zero disables auto-ballooning. Auto-ballooning is done by pvestatd."
+    default: 1000
+    type: integer
+    required: false
+  skiplock:
+    description: "Ignore locks - only root is allowed to use this option."
+    type: boolean
+    required: false
+  smbios1:
+    description: "Specify SMBIOS type 1 fields."
+    type: string
+    required: false
+  smp:
+    description: "The number of CPUs. Please use option -sockets instead."
+    default: 1
+    type: integer
+    required: false
+  sockets:
+    description: "The number of CPU sockets."
+    default: 1
+    type: integer
+    required: false
+  spice_enhancements:
+    description: "Configure additional enhancements for SPICE."
+    type: string
+    required: false
+  sshkeys:
+    description: "cloud-init: Setup public SSH keys (one key per line, OpenSSH format)."
+    type: string
+    required: false
+  startdate:
+    description: "Set the initial date of the real time clock. Valid format for date are:'now' or '2006-06-17T16:01:21' or '2006-06-17'."
+    default: "now"
+    type: string
+    required: false
+  startup:
+    description: "Startup and shutdown behavior. Order is a non-negative number defining the general startup order. Shutdown in done with reverse ordering. Additionally you can set the 'up' or 'down' delay in seconds, which specifies a delay to wait before the next VM is started or stopped."
+    type: string
+    required: false
+  tablet:
+    description: "Enable/disable the USB tablet device."
+    default: True
+    type: boolean
+    required: false
+  tags:
+    description: "Tags of the VM. This is only meta information."
+    type: string
+    required: false
+  tdf:
+    description: "Enable/disable time drift fix."
+    default: False
+    type: boolean
+    required: false
+  template:
+    description: "Enable/disable Template."
+    default: False
+    type: boolean
+    required: false
+  unused_list:
+    description: "Reference to unused volumes. This is used internally, and should not be modified manually."
+    type: string
+    required: false
+  usb_list:
+    description: "Configure an USB device (n is 0 to 4)."
+    type: string
+    required: false
+  vcpus:
+    description: "Number of hotplugged vcpus."
+    default: 1
+    type: integer
+    required: false
+  vga:
+    description: "Configure the VGA hardware."
+    type: string
+    required: false
+  virtio_list:
+    description: "Use volume as VIRTIO hard disk (n is 0 to 15). Use the special syntax STORAGE_ID:SIZE_IN_GiB to allocate a new volume."
+    type: string
+    required: false
+  vmgenid:
+    description: "Set VM Generation ID. Use '1' to autogenerate on create or update, pass '0' to disable explicitly."
+    default: "1"
+    type: string
+    required: false
+  vmid:
+    description: "The (unique) ID of the VM."
+    type: integer
+    required: true
+  vmstatestorage:
+    description: "Default storage for VM state volumes/files."
+    type: string
+    required: false
+  watchdog:
+    description: "Create a virtual hardware watchdog device."
+    type: string
+    required: false
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

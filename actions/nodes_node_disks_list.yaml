@@ -1,0 +1,32 @@
+name: nodes_node_disks_list
+pack: proxmox
+runner_type: python-script
+description: "List local disks."
+enabled: true
+entry_point: "nodes_node_disks_list.py"
+parameters:
+  include_partitions:
+    description: "Also include partitions."
+    default: False
+    type: boolean
+    required: false
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  skipsmart:
+    description: "Skip smart checks."
+    default: False
+    type: boolean
+    required: false
+  prox_type:
+    description: "Only list specific types of disks."
+    enum:
+      - unused
+      - journal_disks
+    type: string
+    required: false
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

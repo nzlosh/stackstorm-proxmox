@@ -1,0 +1,15 @@
+name: cluster_ha_resources_sid_delete
+pack: proxmox
+runner_type: python-script
+description: "Delete resource configuration."
+enabled: true
+entry_point: "cluster_ha_resources_sid_delete.py"
+parameters:
+  sid:
+    description: "HA resource ID. This consists of a resource type followed by a resource specific name, separated with colon (example: vm:100 / ct:100). For virtual machines and containers, you can simply use the VM or CT id as a shortcut (example: 100)."
+    type: string
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

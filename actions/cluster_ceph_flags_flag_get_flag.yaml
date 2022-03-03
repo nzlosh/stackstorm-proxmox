@@ -1,0 +1,27 @@
+name: cluster_ceph_flags_flag_get_flag
+pack: proxmox
+runner_type: python-script
+description: "Get the status of a specific ceph flag."
+enabled: true
+entry_point: "cluster_ceph_flags_flag_get_flag.py"
+parameters:
+  flag:
+    description: "The name of the flag name to get."
+    enum:
+      - nobackfill
+      - nodeep-scrub
+      - nodown
+      - noin
+      - noout
+      - norebalance
+      - norecover
+      - noscrub
+      - notieragent
+      - noup
+      - pause
+    type: string
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

@@ -15,7 +15,7 @@ parameters:
     required: false
   ebtables:
     description: "Enable ebtables rules cluster wide."
-    default: 1
+    default: True
     type: boolean
     required: false
   enable:
@@ -40,5 +40,9 @@ parameters:
       - ACCEPT
       - REJECT
       - DROP
+    type: string
+    required: false
+  profile_name:
+    description: "The profile to use to run the action."
     type: string
     required: false
