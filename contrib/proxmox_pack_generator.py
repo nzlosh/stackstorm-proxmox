@@ -14,8 +14,15 @@ import esprima
 from jinja2.sandbox import SandboxedEnvironment
 from urllib.parse import urlparse
 
+log = logging.getLogger(__name__)
+log.setLevel(logging.DEBUG)
 
-log = logging.getLogger()
+console_log = logging.StreamHandler()
+console_log.setLevel(logging.DEBUG)
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+console_log.setFormatter(formatter)
+
+log.addHandler(console_log)
 
 RE_SPLIT_FUNC_NAME = re.compile(r"-|_")
 HTTP_METHODS = [
@@ -137,104 +144,8 @@ PYTHON_KEYWORDS = [
     "pass",
 ]
 
-# Proxmox API documentation needs a few corrections so they're defined
-# here in the format of a dictionary to override the library data.
-PROXMOX_OVERRIDE = {
-    "nodes_node_qemu_create_vm": {
-        "bwlimit": {
-            "default": 0,
-        },
-        "keyboard": {
-            "default": "en-us",
-        },
-        "vcpus": {
-            "default": "1",
-        },
-        "vmgenid": {
-            "default": "1",
-        },
-    },
-    "nodes_node_qemu_vmid_config_update_vm_async": {
-        "keyboard": {
-            "default": "en-us",
-        },
-        "vcpus": {
-            "default": "1",
-        },
-        "vmgenid": {
-            "default": "1",
-        },
-    },
-    "nodes_node_qemu_vmid_config_update_vm": {
-        "keyboard": {
-            "default": "en-us",
-        },
-        "vcpus": {
-            "default": "1",
-        },
-        "vmgenid": {
-            "default": "1",
-        },
-    },
-    "nodes_node_lxc_create_vm": {
-        "bwlimit": {
-            "default": 0,
-        },
-    },
-    "nodes_node_lxc_vmid_clone_clone_vm": {
-        "bwlimit": {
-            "default": 0,
-        },
-    },
-    "nodes_node_lxc_vmid_migrate_migrate_vm": {
-        "bwlimit": {
-            "default": 0,
-        },
-    },
-    "nodes_node_lxc_vmid_move_volume": {
-        "bwlimit": {
-            "default": 0,
-        },
-    },
-    "nodes_node_qemu_vmid_clone_clone_vm": {
-        "bwlimit": {
-            "default": 0,
-        },
-    },
-    "nodes_node_qemu_vmid_migrate_migrate_vm": {
-        "bwlimit": {
-            "default": 0,
-        },
-    },
-    "nodes_node_qemu_vmid_move_disk_move_vm_disk": {
-        "bwlimit": {
-            "default": 0,
-        },
-    },
-    "nodes_node_qemu_vmid_status_start_vm_start": {
-        "timeout": {
-            "default": 10,
-        },
-    },
-    "nodes_node_ceph_osd_createosd": {
-        "wal_dev_size": {
-            "default": 1,
-        },
-        "db_dev_size": {
-            "default": 0.5,
-        },
-    },
-    "access_users_userid_token_tokenid_update_token_info": {
-        "expire": {
-            "default": 1,
-        },
-    },
-    "access_users_userid_token_tokenid_generate_token": {
-        "expire": {
-            "default": 1,
-        },
-    },
-}
+# global populated by load_overrides function.
+PROXMOX_OVERRIDE = None
 
 
 action_meta_jinja = r"""name: {{ action_name }}
@@ -573,18 +484,41 @@ def extract_schema_from_js(data):
     """
     tokens = esprima.parseScript(data, {"tokens": True}).tokens
 
+    v6x_token = "pveapi"
+    v72_token = "apiSchema"
+
     end = start = 0
     for (i, t) in enumerate(tokens):
-        if t.value == "apiSchema" and tokens[i + 1].value == "=":
+        if t.value in [v6x_token, v72_token] and tokens[i + 1].value == "=":
+            log.debug("API schema variable start found!")
             start = i + 2
         if t.value == "]" and tokens[i + 1].value == ";":
             end = i + 1
+            log.debug("API schema variable end found!")
             break
         if i > len(tokens) - 3:
-            log.debug("Failed to find apiSchema")
+            log.debug("Failed to find the API schema variable")
             break
 
-    return json.loads((" ".join([t.value for t in tokens[start:end]])))
+    s = ""
+    for i in range(start, end):
+        s += tokens[i].value.strip()
+
+    return json.loads(s)
+
+def load_overrides(filename=None):
+    """
+    filename: a filename to a JSON formatted file.
+    """
+    overrides = {}
+    # return an empty
+    if not filename:
+        return overrides
+
+    with open(filename, "r") as f:
+        overrides = json.loads(f.read())
+
+    return overrides
 
 
 def load_schema(source, username=None, password=None, realm=None):
@@ -669,8 +603,16 @@ if __name__ == "__main__":
         dest="pack_path",
         help="Path to pack where files will be written.",
     )
+    parser.add_argument(
+        "--overrides",
+        type=str,
+        required=False,
+        dest="overrides",
+        help="Filename for overrides in JSON format.",
+    )
 
     args = parser.parse_args()
+    PROXMOX_OVERRIDE = load_overrides(args.overrides)
     generate_pack_contents(
         args.api_source, args.pack_path, args.username, args.password, args.realm
     )
