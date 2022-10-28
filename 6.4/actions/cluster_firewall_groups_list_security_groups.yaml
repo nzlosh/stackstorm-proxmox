@@ -1,0 +1,11 @@
+name: cluster_firewall_groups_list_security_groups
+pack: proxmox
+runner_type: python-script
+description: "List security groups."
+enabled: true
+entry_point: "cluster_firewall_groups_list_security_groups.py"
+parameters:
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

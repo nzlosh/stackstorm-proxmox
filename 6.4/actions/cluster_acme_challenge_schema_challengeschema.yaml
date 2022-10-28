@@ -1,0 +1,11 @@
+name: cluster_acme_challenge_schema_challengeschema
+pack: proxmox
+runner_type: python-script
+description: "Get schema of ACME challenge types."
+enabled: true
+entry_point: "cluster_acme_challenge_schema_challengeschema.py"
+parameters:
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

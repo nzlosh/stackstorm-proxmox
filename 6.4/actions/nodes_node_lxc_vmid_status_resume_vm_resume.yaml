@@ -1,0 +1,19 @@
+name: nodes_node_lxc_vmid_status_resume_vm_resume
+pack: proxmox
+runner_type: python-script
+description: "Resume the container."
+enabled: true
+entry_point: "nodes_node_lxc_vmid_status_resume_vm_resume.py"
+parameters:
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  vmid:
+    description: "The (unique) ID of the VM."
+    type: integer
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

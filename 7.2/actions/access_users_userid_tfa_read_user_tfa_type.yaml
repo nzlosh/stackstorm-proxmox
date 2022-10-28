@@ -1,0 +1,20 @@
+name: access_users_userid_tfa_read_user_tfa_type
+pack: proxmox
+runner_type: python-script
+description: "Get user TFA types (Personal and Realm)."
+enabled: true
+entry_point: "access_users_userid_tfa_read_user_tfa_type.py"
+parameters:
+  multiple:
+    description: "Request all entries as an array."
+    default: False
+    type: boolean
+    required: false
+  userid:
+    description: "User ID"
+    type: string
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

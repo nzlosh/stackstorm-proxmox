@@ -1,0 +1,226 @@
+name: nodes_node_lxc_create_vm
+pack: proxmox
+runner_type: python-script
+description: "Create or restore a container."
+enabled: true
+entry_point: "nodes_node_lxc_create_vm.py"
+parameters:
+  arch:
+    description: "OS architecture type."
+    default: "amd64"
+    enum:
+      - amd64
+      - i386
+      - arm64
+      - armhf
+    type: string
+    required: false
+  bwlimit:
+    description: "Override I/O bandwidth limit (in KiB/s)."
+    default: restore limit from datacenter or storage config
+    type: number
+    required: false
+  cmode:
+    description: "Console mode. By default, the console command tries to open a connection to one of the available tty devices. By setting cmode to 'console' it tries to attach to /dev/console instead. If you set cmode to 'shell', it simply invokes a shell inside the container (no login)."
+    default: "tty"
+    enum:
+      - shell
+      - console
+      - tty
+    type: string
+    required: false
+  console:
+    description: "Attach a console device (/dev/console) to the container."
+    default: True
+    type: boolean
+    required: false
+  cores:
+    description: "The number of cores assigned to the container. A container can use all available cores by default."
+    type: integer
+    required: false
+  cpulimit:
+    description: "Limit of CPU usage.  NOTE: If the computer has 2 CPUs, it has a total of '2' CPU time. Value '0' indicates no CPU limit."
+    default: 0
+    type: number
+    required: false
+  cpuunits:
+    description: "CPU weight for a VM. Argument is used in the kernel fair scheduler. The larger the number is, the more CPU time this VM gets. Number is relative to the weights of all the other running VMs.  NOTE: You can disable fair-scheduler configuration by setting this to 0."
+    default: 1024
+    type: integer
+    required: false
+  debug:
+    description: "Try to be more verbose. For now this only enables debug log-level on start."
+    default: False
+    type: boolean
+    required: false
+  description:
+    description: "Container description. Only used on the configuration web interface."
+    type: string
+    required: false
+  features:
+    description: "Allow containers access to advanced features."
+    type: string
+    required: false
+  force:
+    description: "Allow to overwrite existing container."
+    type: boolean
+    required: false
+  hookscript:
+    description: "Script that will be exectued during various steps in the containers lifetime."
+    type: string
+    required: false
+  hostname:
+    description: "Set a host name for the container."
+    type: string
+    required: false
+  ignore_unpack_errors:
+    description: "Ignore errors when extracting the template."
+    type: boolean
+    required: false
+  lock:
+    description: "Lock/unlock the VM."
+    enum:
+      - backup
+      - create
+      - destroyed
+      - disk
+      - fstrim
+      - migrate
+      - mounted
+      - rollback
+      - snapshot
+      - snapshot-delete
+    type: string
+    required: false
+  memory:
+    description: "Amount of RAM for the VM in MB."
+    default: 512
+    type: integer
+    required: false
+  mp_list:
+    description: "Use volume as container mount point."
+    type: string
+    required: false
+  nameserver:
+    description: "Sets DNS server IP address for a container. Create will automatically use the setting from the host if you neither set searchdomain nor nameserver."
+    type: string
+    required: false
+  net_list:
+    description: "Specifies network interfaces for the container."
+    type: string
+    required: false
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  onboot:
+    description: "Specifies whether a VM will be started during system bootup."
+    default: False
+    type: boolean
+    required: false
+  ostemplate:
+    description: "The OS template or backup file."
+    type: string
+    required: true
+  ostype:
+    description: "OS type. This is used to setup configuration inside the container, and corresponds to lxc setup scripts in /usr/share/lxc/config/<ostype>.common.conf. Value 'unmanaged' can be used to skip and OS specific setup."
+    enum:
+      - debian
+      - ubuntu
+      - centos
+      - fedora
+      - opensuse
+      - archlinux
+      - alpine
+      - gentoo
+      - unmanaged
+    type: string
+    required: false
+  password:
+    description: "Sets root password inside container."
+    secret: true
+    type: string
+    required: false
+  pool:
+    description: "Add the VM to the specified pool."
+    type: string
+    required: false
+  protection:
+    description: "Sets the protection flag of the container. This will prevent the CT or CT's disk remove/update operation."
+    default: False
+    type: boolean
+    required: false
+  restore:
+    description: "Mark this as restore task."
+    type: boolean
+    required: false
+  rootfs:
+    description: "Use volume as container root."
+    type: string
+    required: false
+  searchdomain:
+    description: "Sets DNS search domains for a container. Create will automatically use the setting from the host if you neither set searchdomain nor nameserver."
+    type: string
+    required: false
+  ssh_public_keys:
+    description: "Setup public SSH keys (one key per line, OpenSSH format)."
+    type: string
+    required: false
+  start:
+    description: "Start the CT after its creation finished successfully."
+    default: False
+    type: boolean
+    required: false
+  startup:
+    description: "Startup and shutdown behavior. Order is a non-negative number defining the general startup order. Shutdown in done with reverse ordering. Additionally you can set the 'up' or 'down' delay in seconds, which specifies a delay to wait before the next VM is started or stopped."
+    type: string
+    required: false
+  storage:
+    description: "Default Storage."
+    default: "local"
+    type: string
+    required: false
+  swap:
+    description: "Amount of SWAP for the VM in MB."
+    default: 512
+    type: integer
+    required: false
+  tags:
+    description: "Tags of the Container. This is only meta information."
+    type: string
+    required: false
+  template:
+    description: "Enable/disable Template."
+    default: False
+    type: boolean
+    required: false
+  timezone:
+    description: "Time zone to use in the container. If option isn't set, then nothing will be done. Can be set to 'host' to match the host time zone, or an arbitrary time zone option from /usr/share/zoneinfo/zone.tab"
+    type: string
+    required: false
+  tty:
+    description: "Specify the number of tty available to the container"
+    default: 2
+    type: integer
+    required: false
+  unique:
+    description: "Assign a unique random ethernet address."
+    type: boolean
+    required: false
+  unprivileged:
+    description: "Makes the container run as unprivileged user. (Should not be modified manually.)"
+    default: False
+    type: boolean
+    required: false
+  unused_list:
+    description: "Reference to unused volumes. This is used internally, and should not be modified manually."
+    type: string
+    required: false
+  vmid:
+    description: "The (unique) ID of the VM."
+    type: integer
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

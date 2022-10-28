@@ -1,0 +1,37 @@
+name: nodes_node_qemu_vmid_status_shutdown_vm_shutdown
+pack: proxmox
+runner_type: python-script
+description: "Shutdown virtual machine. This is similar to pressing the power button on a physical machine.This will send an ACPI event for the guest OS, which should then proceed to a clean shutdown."
+enabled: true
+entry_point: "nodes_node_qemu_vmid_status_shutdown_vm_shutdown.py"
+parameters:
+  forceStop:
+    description: "Make sure the VM stops."
+    default: False
+    type: boolean
+    required: false
+  keepActive:
+    description: "Do not deactivate storage volumes."
+    default: False
+    type: boolean
+    required: false
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  skiplock:
+    description: "Ignore locks - only root is allowed to use this option."
+    type: boolean
+    required: false
+  timeout:
+    description: "Wait maximal timeout seconds."
+    type: integer
+    required: false
+  vmid:
+    description: "The (unique) ID of the VM."
+    type: integer
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

@@ -1,0 +1,22 @@
+name: nodes_node_ceph_disks
+pack: proxmox
+runner_type: python-script
+description: "List local disks."
+enabled: true
+entry_point: "nodes_node_ceph_disks.py"
+parameters:
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  prox_type:
+    description: "Only list specific types of disks."
+    enum:
+      - unused
+      - journal_disks
+    type: string
+    required: false
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

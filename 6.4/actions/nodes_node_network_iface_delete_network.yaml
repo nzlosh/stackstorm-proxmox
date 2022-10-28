@@ -1,0 +1,19 @@
+name: nodes_node_network_iface_delete_network
+pack: proxmox
+runner_type: python-script
+description: "Delete network device configuration"
+enabled: true
+entry_point: "nodes_node_network_iface_delete_network.py"
+parameters:
+  iface:
+    description: "Network interface name."
+    type: string
+    required: true
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

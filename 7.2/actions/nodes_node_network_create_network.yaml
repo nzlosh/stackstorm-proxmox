@@ -1,0 +1,149 @@
+name: nodes_node_network_create_network
+pack: proxmox
+runner_type: python-script
+description: "Create network device configuration"
+enabled: true
+entry_point: "nodes_node_network_create_network.py"
+parameters:
+  address:
+    description: "IP address."
+    type: string
+    required: false
+  address6:
+    description: "IP address."
+    type: string
+    required: false
+  autostart:
+    description: "Automatically start interface on boot."
+    type: boolean
+    required: false
+  bond_primary:
+    description: "Specify the primary interface for active-backup bond."
+    type: string
+    required: false
+  bond_mode:
+    description: "Bonding mode."
+    enum:
+      - balance-rr
+      - active-backup
+      - balance-xor
+      - broadcast
+      - 802.3ad
+      - balance-tlb
+      - balance-alb
+      - balance-slb
+      - lacp-balance-slb
+      - lacp-balance-tcp
+    type: string
+    required: false
+  bond_xmit_hash_policy:
+    description: "Selects the transmit hash policy to use for slave selection in balance-xor and 802.3ad modes."
+    enum:
+      - layer2
+      - layer2+3
+      - layer3+4
+    type: string
+    required: false
+  bridge_ports:
+    description: "Specify the interfaces you want to add to your bridge."
+    type: string
+    required: false
+  bridge_vlan_aware:
+    description: "Enable bridge vlan support."
+    type: boolean
+    required: false
+  cidr:
+    description: "IPv4 CIDR."
+    type: string
+    required: false
+  cidr6:
+    description: "IPv6 CIDR."
+    type: string
+    required: false
+  comments:
+    description: "Comments"
+    type: string
+    required: false
+  comments6:
+    description: "Comments"
+    type: string
+    required: false
+  gateway:
+    description: "Default gateway address."
+    type: string
+    required: false
+  gateway6:
+    description: "Default ipv6 gateway address."
+    type: string
+    required: false
+  iface:
+    description: "Network interface name."
+    type: string
+    required: true
+  mtu:
+    description: "MTU."
+    type: integer
+    required: false
+  netmask:
+    description: "Network mask."
+    type: string
+    required: false
+  netmask6:
+    description: "Network mask."
+    type: integer
+    required: false
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  ovs_bonds:
+    description: "Specify the interfaces used by the bonding device."
+    type: string
+    required: false
+  ovs_bridge:
+    description: "The OVS bridge associated with a OVS port. This is required when you create an OVS port."
+    type: string
+    required: false
+  ovs_options:
+    description: "OVS interface options."
+    type: string
+    required: false
+  ovs_ports:
+    description: "Specify the interfaces you want to add to your bridge."
+    type: string
+    required: false
+  ovs_tag:
+    description: "Specify a VLan tag (used by OVSPort, OVSIntPort, OVSBond)"
+    type: integer
+    required: false
+  slaves:
+    description: "Specify the interfaces used by the bonding device."
+    type: string
+    required: false
+  prox_type:
+    description: "Network interface type"
+    enum:
+      - bridge
+      - bond
+      - eth
+      - alias
+      - vlan
+      - OVSBridge
+      - OVSBond
+      - OVSPort
+      - OVSIntPort
+      - unknown
+    type: string
+    required: true
+  vlan_id:
+    description: "vlan-id for a custom named vlan interface (ifupdown2 only)."
+    type: integer
+    required: false
+  vlan_raw_device:
+    description: "Specify the raw interface for the vlan interface."
+    type: string
+    required: false
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

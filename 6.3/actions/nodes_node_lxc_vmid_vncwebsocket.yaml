@@ -1,0 +1,27 @@
+name: nodes_node_lxc_vmid_vncwebsocket
+pack: proxmox
+runner_type: python-script
+description: "Opens a weksocket for VNC traffic."
+enabled: true
+entry_point: "nodes_node_lxc_vmid_vncwebsocket.py"
+parameters:
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  port:
+    description: "Port number returned by previous vncproxy call."
+    type: integer
+    required: true
+  vmid:
+    description: "The (unique) ID of the VM."
+    type: integer
+    required: true
+  vncticket:
+    description: "Ticket from previous call to vncproxy."
+    type: string
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

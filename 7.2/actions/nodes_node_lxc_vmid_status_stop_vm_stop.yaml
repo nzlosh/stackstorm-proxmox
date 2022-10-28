@@ -1,0 +1,23 @@
+name: nodes_node_lxc_vmid_status_stop_vm_stop
+pack: proxmox
+runner_type: python-script
+description: "Stop the container. This will abruptly stop all processes running in the container."
+enabled: true
+entry_point: "nodes_node_lxc_vmid_status_stop_vm_stop.py"
+parameters:
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  skiplock:
+    description: "Ignore locks - only root is allowed to use this option."
+    type: boolean
+    required: false
+  vmid:
+    description: "The (unique) ID of the VM."
+    type: integer
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

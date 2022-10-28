@@ -1,0 +1,22 @@
+name: nodes_node_status_node_cmd
+pack: proxmox
+runner_type: python-script
+description: "Reboot or shutdown a node."
+enabled: true
+entry_point: "nodes_node_status_node_cmd.py"
+parameters:
+  command:
+    description: "Specify the command."
+    enum:
+      - reboot
+      - shutdown
+    type: string
+    required: true
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

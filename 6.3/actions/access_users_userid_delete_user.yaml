@@ -1,0 +1,15 @@
+name: access_users_userid_delete_user
+pack: proxmox
+runner_type: python-script
+description: "Delete user."
+enabled: true
+entry_point: "access_users_userid_delete_user.py"
+parameters:
+  userid:
+    description: "User ID"
+    type: string
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

@@ -1,0 +1,19 @@
+name: access_users_userid_token_tokenid_remove_token
+pack: proxmox
+runner_type: python-script
+description: "Remove API token for a specific user."
+enabled: true
+entry_point: "access_users_userid_token_tokenid_remove_token.py"
+parameters:
+  tokenid:
+    description: "User-specific token identifier."
+    type: string
+    required: true
+  userid:
+    description: "User ID"
+    type: string
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

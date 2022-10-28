@@ -1,0 +1,35 @@
+name: nodes_node_lxc_vmid_firewall_ipset_name_create_ip
+pack: proxmox
+runner_type: python-script
+description: "Add IP or Network to IPSet."
+enabled: true
+entry_point: "nodes_node_lxc_vmid_firewall_ipset_name_create_ip.py"
+parameters:
+  cidr:
+    description: "Network/IP specification in CIDR format."
+    type: string
+    required: true
+  comment:
+    description: "Description unavailable."
+    type: string
+    required: false
+  name:
+    description: "IP set name."
+    type: string
+    required: true
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  nomatch:
+    description: "Description unavailable."
+    type: boolean
+    required: false
+  vmid:
+    description: "The (unique) ID of the VM."
+    type: integer
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

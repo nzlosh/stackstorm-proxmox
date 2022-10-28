@@ -1,0 +1,18 @@
+name: cluster_acme_plugins_index
+pack: proxmox
+runner_type: python-script
+description: "ACME plugin index."
+enabled: true
+entry_point: "cluster_acme_plugins_index.py"
+parameters:
+  prox_type:
+    description: "Only list ACME plugins of a specific type"
+    enum:
+      - dns
+      - standalone
+    type: string
+    required: false
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

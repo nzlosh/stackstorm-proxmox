@@ -1,0 +1,27 @@
+name: nodes_node_replication_id_log_read_job_log
+pack: proxmox
+runner_type: python-script
+description: "Read replication job log."
+enabled: true
+entry_point: "nodes_node_replication_id_log_read_job_log.py"
+parameters:
+  prox_id:
+    description: "Replication Job ID. The ID is composed of a Guest ID and a job number, separated by a hyphen, i.e. '<GUEST>-<JOBNUM>'."
+    type: string
+    required: true
+  limit:
+    description: "Description unavailable."
+    type: integer
+    required: false
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  start:
+    description: "Description unavailable."
+    type: integer
+    required: false
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

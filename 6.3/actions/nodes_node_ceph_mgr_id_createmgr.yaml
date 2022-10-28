@@ -1,0 +1,19 @@
+name: nodes_node_ceph_mgr_id_createmgr
+pack: proxmox
+runner_type: python-script
+description: "Create Ceph Manager"
+enabled: true
+entry_point: "nodes_node_ceph_mgr_id_createmgr.py"
+parameters:
+  prox_id:
+    description: "The ID for the manager, when omitted the same as the nodename"
+    type: string
+    required: false
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

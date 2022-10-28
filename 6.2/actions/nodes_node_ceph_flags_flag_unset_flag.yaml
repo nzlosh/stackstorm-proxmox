@@ -1,0 +1,31 @@
+name: nodes_node_ceph_flags_flag_unset_flag
+pack: proxmox
+runner_type: python-script
+description: "Unset a ceph flag"
+enabled: true
+entry_point: "nodes_node_ceph_flags_flag_unset_flag.py"
+parameters:
+  flag:
+    description: "The ceph flag to unset"
+    enum:
+      - nobackfill
+      - nodeep-scrub
+      - nodown
+      - noin
+      - noout
+      - norebalance
+      - norecover
+      - noscrub
+      - notieragent
+      - noup
+      - pause
+    type: string
+    required: true
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

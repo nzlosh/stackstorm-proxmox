@@ -1,0 +1,27 @@
+name: nodes_node_qemu_vmid_cloudinit_dump_cloudinit_generated_config_dump
+pack: proxmox
+runner_type: python-script
+description: "Get automatically generated cloudinit config."
+enabled: true
+entry_point: "nodes_node_qemu_vmid_cloudinit_dump_cloudinit_generated_config_dump.py"
+parameters:
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  prox_type:
+    description: "Config type."
+    enum:
+      - user
+      - network
+      - meta
+    type: string
+    required: true
+  vmid:
+    description: "The (unique) ID of the VM."
+    type: integer
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

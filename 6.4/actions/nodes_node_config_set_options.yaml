@@ -1,0 +1,44 @@
+name: nodes_node_config_set_options
+pack: proxmox
+runner_type: python-script
+description: "Set node configuration options."
+enabled: true
+entry_point: "nodes_node_config_set_options.py"
+parameters:
+  acme:
+    description: "Node specific ACME settings."
+    type: string
+    required: false
+  acmedomain_list:
+    description: "ACME domain and validation plugin"
+    type: string
+    required: false
+  delete:
+    description: "A list of settings you want to delete."
+    type: string
+    required: false
+  description:
+    description: "Node description/comment."
+    type: string
+    required: false
+  digest:
+    description: "Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications."
+    type: string
+    required: false
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  startall_onboot_delay:
+    description: "Initial delay in seconds, before starting all the Virtual Guests with on-boot enabled."
+    default: 0
+    type: integer
+    required: false
+  wakeonlan:
+    description: "MAC address for wake on LAN"
+    type: string
+    required: false
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

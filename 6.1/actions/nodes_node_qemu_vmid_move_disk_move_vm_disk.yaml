@@ -1,0 +1,91 @@
+name: nodes_node_qemu_vmid_move_disk_move_vm_disk
+pack: proxmox
+runner_type: python-script
+description: "Move volume to different storage."
+enabled: true
+entry_point: "nodes_node_qemu_vmid_move_disk_move_vm_disk.py"
+parameters:
+  bwlimit:
+    description: "Override I/O bandwidth limit (in KiB/s)."
+    default: move limit from datacenter or storage config
+    type: integer
+    required: false
+  delete:
+    description: "Delete the original disk after successful copy. By default the original disk is kept as unused disk."
+    default: False
+    type: boolean
+    required: false
+  digest:
+    description: "Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications."
+    type: string
+    required: false
+  disk:
+    description: "The disk you want to move."
+    enum:
+      - ide0
+      - ide1
+      - ide2
+      - ide3
+      - scsi0
+      - scsi1
+      - scsi2
+      - scsi3
+      - scsi4
+      - scsi5
+      - scsi6
+      - scsi7
+      - scsi8
+      - scsi9
+      - scsi10
+      - scsi11
+      - scsi12
+      - scsi13
+      - virtio0
+      - virtio1
+      - virtio2
+      - virtio3
+      - virtio4
+      - virtio5
+      - virtio6
+      - virtio7
+      - virtio8
+      - virtio9
+      - virtio10
+      - virtio11
+      - virtio12
+      - virtio13
+      - virtio14
+      - virtio15
+      - sata0
+      - sata1
+      - sata2
+      - sata3
+      - sata4
+      - sata5
+      - efidisk0
+    type: string
+    required: true
+  prox_format:
+    description: "Target Format."
+    enum:
+      - raw
+      - qcow2
+      - vmdk
+    type: string
+    required: false
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  storage:
+    description: "Target storage."
+    type: string
+    required: true
+  vmid:
+    description: "The (unique) ID of the VM."
+    type: integer
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

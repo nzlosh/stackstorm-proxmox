@@ -1,0 +1,11 @@
+name: cluster_sdn_vnets_index
+pack: proxmox
+runner_type: python-script
+description: "SDN vnets index."
+enabled: true
+entry_point: "cluster_sdn_vnets_index.py"
+parameters:
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

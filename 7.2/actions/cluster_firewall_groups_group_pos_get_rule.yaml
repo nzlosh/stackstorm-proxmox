@@ -1,0 +1,19 @@
+name: cluster_firewall_groups_group_pos_get_rule
+pack: proxmox
+runner_type: python-script
+description: "Get single rule data."
+enabled: true
+entry_point: "cluster_firewall_groups_group_pos_get_rule.py"
+parameters:
+  group:
+    description: "Security Group name."
+    type: string
+    required: true
+  pos:
+    description: "Update rule at position <pos>."
+    type: integer
+    required: false
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

@@ -1,0 +1,57 @@
+name: nodes_node_disks_zfs_create
+pack: proxmox
+runner_type: python-script
+description: "Create a ZFS pool."
+enabled: true
+entry_point: "nodes_node_disks_zfs_create.py"
+parameters:
+  add_storage:
+    description: "Configure storage using the zpool."
+    default: False
+    type: boolean
+    required: false
+  ashift:
+    description: "Pool sector size exponent."
+    default: 12
+    type: integer
+    required: false
+  compression:
+    description: "The compression algorithm to use."
+    default: "on"
+    enum:
+      - on
+      - off
+      - gzip
+      - lz4
+      - lzjb
+      - zle
+      - zstd
+    type: string
+    required: false
+  devices:
+    description: "The block devices you want to create the zpool on."
+    type: string
+    required: true
+  name:
+    description: "The storage identifier."
+    type: string
+    required: true
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  raidlevel:
+    description: "The RAID level to use."
+    enum:
+      - single
+      - mirror
+      - raid10
+      - raidz
+      - raidz2
+      - raidz3
+    type: string
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

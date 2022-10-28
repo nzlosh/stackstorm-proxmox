@@ -1,0 +1,147 @@
+name: access_domains_realm_update
+pack: proxmox
+runner_type: python-script
+description: "Update authentication server settings."
+enabled: true
+entry_point: "access_domains_realm_update.py"
+parameters:
+  base_dn:
+    description: "LDAP base domain name"
+    type: string
+    required: false
+  bind_dn:
+    description: "LDAP bind domain name"
+    type: string
+    required: false
+  capath:
+    description: "Path to the CA certificate store"
+    default: "/etc/ssl/certs"
+    type: string
+    required: false
+  case_sensitive:
+    description: "username is case-sensitive"
+    default: True
+    type: boolean
+    required: false
+  cert:
+    description: "Path to the client certificate"
+    type: string
+    required: false
+  certkey:
+    description: "Path to the client certificate key"
+    type: string
+    required: false
+  comment:
+    description: "Description."
+    type: string
+    required: false
+  default:
+    description: "Use this as default realm"
+    type: boolean
+    required: false
+  delete:
+    description: "A list of settings you want to delete."
+    type: string
+    required: false
+  digest:
+    description: "Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications."
+    type: string
+    required: false
+  domain:
+    description: "AD domain name"
+    type: string
+    required: false
+  prox_filter:
+    description: "LDAP filter for user sync."
+    type: string
+    required: false
+  group_classes:
+    description: "The objectclasses for groups."
+    default: "groupOfNames, group, univentionGroup, ipausergroup"
+    type: string
+    required: false
+  group_dn:
+    description: "LDAP base domain name for group sync. If not set, the base_dn will be used."
+    type: string
+    required: false
+  group_filter:
+    description: "LDAP filter for group sync."
+    type: string
+    required: false
+  group_name_attr:
+    description: "LDAP attribute representing a groups name. If not set or found, the first value of the DN will be used as name."
+    type: string
+    required: false
+  mode:
+    description: "LDAP protocol mode."
+    default: "ldap"
+    enum:
+      - ldap
+      - ldaps
+      - ldap+starttls
+    type: string
+    required: false
+  password:
+    description: "LDAP bind password. Will be stored in '/etc/pve/priv/realm/<REALM>.pw'."
+    secret: true
+    type: string
+    required: false
+  port:
+    description: "Server port."
+    type: integer
+    required: false
+  realm:
+    description: "Authentication domain ID"
+    type: string
+    required: true
+  secure:
+    description: "Use secure LDAPS protocol. DEPRECATED: use 'mode' instead."
+    type: boolean
+    required: false
+  server1:
+    description: "Server IP address (or DNS name)"
+    type: string
+    required: false
+  server2:
+    description: "Fallback Server IP address (or DNS name)"
+    type: string
+    required: false
+  sslversion:
+    description: "LDAPS TLS/SSL version. It's not recommended to use version older than 1.2!"
+    enum:
+      - tlsv1
+      - tlsv1_1
+      - tlsv1_2
+      - tlsv1_3
+    type: string
+    required: false
+  sync_defaults_options:
+    description: "The default options for behavior of synchronizations."
+    type: string
+    required: false
+  sync_attributes:
+    description: "Comma separated list of key=value pairs for specifying which LDAP attributes map to which PVE user field. For example, to map the LDAP attribute 'mail' to PVEs 'email', write  'email=mail'. By default, each PVE user field is represented  by an LDAP attribute of the same name."
+    type: string
+    required: false
+  tfa:
+    description: "Use Two-factor authentication."
+    type: string
+    required: false
+  user_attr:
+    description: "LDAP user attribute name"
+    type: string
+    required: false
+  user_classes:
+    description: "The objectclasses for users."
+    default: "inetorgperson, posixaccount, person, user"
+    type: string
+    required: false
+  verify:
+    description: "Verify the server's SSL certificate"
+    default: False
+    type: boolean
+    required: false
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

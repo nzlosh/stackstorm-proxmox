@@ -1,0 +1,40 @@
+name: access_acl_update_acl
+pack: proxmox
+runner_type: python-script
+description: "Update Access Control List (add or remove permissions)."
+enabled: true
+entry_point: "access_acl_update_acl.py"
+parameters:
+  delete:
+    description: "Remove permissions (instead of adding it)."
+    type: boolean
+    required: false
+  groups:
+    description: "List of groups."
+    type: string
+    required: false
+  path:
+    description: "Access control path"
+    type: string
+    required: true
+  propagate:
+    description: "Allow to propagate (inherit) permissions."
+    default: True
+    type: boolean
+    required: false
+  roles:
+    description: "List of roles."
+    type: string
+    required: true
+  tokens:
+    description: "List of API tokens."
+    type: string
+    required: false
+  users:
+    description: "List of users."
+    type: string
+    required: false
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

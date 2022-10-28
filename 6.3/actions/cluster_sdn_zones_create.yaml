@@ -1,0 +1,66 @@
+name: cluster_sdn_zones_create
+pack: proxmox
+runner_type: python-script
+description: "Create a new sdn zone object."
+enabled: true
+entry_point: "cluster_sdn_zones_create.py"
+parameters:
+  bridge:
+    description: "Description unavailable."
+    type: string
+    required: false
+  controller:
+    description: "Frr router name"
+    type: string
+    required: false
+  dp_id:
+    description: "Faucet dataplane id"
+    type: integer
+    required: false
+  mtu:
+    description: "MTU"
+    type: integer
+    required: false
+  nodes:
+    description: "List of cluster node names."
+    type: string
+    required: false
+  peers:
+    description: "peers address list."
+    type: string
+    required: false
+  tag:
+    description: "Service-VLAN Tag"
+    type: integer
+    required: false
+  prox_type:
+    description: "Plugin type."
+    enum:
+      - evpn
+      - faucet
+      - qinq
+      - simple
+      - vlan
+      - vxlan
+    type: string
+    required: true
+  vlan_protocol:
+    description: "Description unavailable."
+    default: "802.1q"
+    enum:
+      - 802.1q
+      - 802.1ad
+    type: string
+    required: false
+  vrf_vxlan:
+    description: "l3vni."
+    type: integer
+    required: false
+  zone:
+    description: "The SDN zone object identifier."
+    type: string
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

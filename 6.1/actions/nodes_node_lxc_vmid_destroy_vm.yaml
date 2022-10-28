@@ -1,0 +1,23 @@
+name: nodes_node_lxc_vmid_destroy_vm
+pack: proxmox
+runner_type: python-script
+description: "Destroy the container (also delete all uses files)."
+enabled: true
+entry_point: "nodes_node_lxc_vmid_destroy_vm.py"
+parameters:
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  purge:
+    description: "Remove vmid from backup cron jobs."
+    type: boolean
+    required: false
+  vmid:
+    description: "The (unique) ID of the VM."
+    type: integer
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

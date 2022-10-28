@@ -1,0 +1,23 @@
+name: pools_poolid_read_pool
+pack: proxmox
+runner_type: python-script
+description: "Get pool configuration."
+enabled: true
+entry_point: "pools_poolid_read_pool.py"
+parameters:
+  poolid:
+    description: "Description unavailable."
+    type: string
+    required: true
+  prox_type:
+    description: "Description unavailable."
+    enum:
+      - qemu
+      - lxc
+      - storage
+    type: string
+    required: false
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

@@ -1,0 +1,20 @@
+name: nodes_node_certificates_acme_certificate_renew_certificate
+pack: proxmox
+runner_type: python-script
+description: "Renew existing certificate from CA."
+enabled: true
+entry_point: "nodes_node_certificates_acme_certificate_renew_certificate.py"
+parameters:
+  force:
+    description: "Force renewal even if expiry is more than 30 days away."
+    default: False
+    type: boolean
+    required: false
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

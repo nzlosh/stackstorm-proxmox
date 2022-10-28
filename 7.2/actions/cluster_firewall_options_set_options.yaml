@@ -1,0 +1,48 @@
+name: cluster_firewall_options_set_options
+pack: proxmox
+runner_type: python-script
+description: "Set Firewall options."
+enabled: true
+entry_point: "cluster_firewall_options_set_options.py"
+parameters:
+  delete:
+    description: "A list of settings you want to delete."
+    type: string
+    required: false
+  digest:
+    description: "Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications."
+    type: string
+    required: false
+  ebtables:
+    description: "Enable ebtables rules cluster wide."
+    default: True
+    type: boolean
+    required: false
+  enable:
+    description: "Enable or disable the firewall cluster wide."
+    type: integer
+    required: false
+  log_ratelimit:
+    description: "Log ratelimiting settings"
+    type: string
+    required: false
+  policy_in:
+    description: "Input policy."
+    enum:
+      - ACCEPT
+      - REJECT
+      - DROP
+    type: string
+    required: false
+  policy_out:
+    description: "Output policy."
+    enum:
+      - ACCEPT
+      - REJECT
+      - DROP
+    type: string
+    required: false
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

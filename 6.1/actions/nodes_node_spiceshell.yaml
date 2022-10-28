@@ -1,0 +1,33 @@
+name: nodes_node_spiceshell
+pack: proxmox
+runner_type: python-script
+description: "Creates a SPICE shell."
+enabled: true
+entry_point: "nodes_node_spiceshell.py"
+parameters:
+  cmd:
+    description: "Run specific command or default to login."
+    default: "login"
+    enum:
+      - login
+      - ceph_install
+      - upgrade
+    type: string
+    required: false
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  proxy:
+    description: "SPICE proxy server. This can be used by the client to specify the proxy server. All nodes in a cluster runs 'spiceproxy', so it is up to the client to choose one. By default, we return the node where the VM is currently running. As reasonable setting is to use same node you use to connect to the API (This is window.location.hostname for the JS GUI)."
+    type: string
+    required: false
+  upgrade:
+    description: "Deprecated, use the 'cmd' property instead! Run 'apt-get dist-upgrade' instead of normal shell."
+    default: False
+    type: boolean
+    required: false
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

@@ -1,0 +1,65 @@
+name: nodes_node_qemu_vmid_template
+pack: proxmox
+runner_type: python-script
+description: "Create a Template."
+enabled: true
+entry_point: "nodes_node_qemu_vmid_template.py"
+parameters:
+  disk:
+    description: "If you want to convert only 1 disk to base image."
+    enum:
+      - ide0
+      - ide1
+      - ide2
+      - ide3
+      - scsi0
+      - scsi1
+      - scsi2
+      - scsi3
+      - scsi4
+      - scsi5
+      - scsi6
+      - scsi7
+      - scsi8
+      - scsi9
+      - scsi10
+      - scsi11
+      - scsi12
+      - scsi13
+      - virtio0
+      - virtio1
+      - virtio2
+      - virtio3
+      - virtio4
+      - virtio5
+      - virtio6
+      - virtio7
+      - virtio8
+      - virtio9
+      - virtio10
+      - virtio11
+      - virtio12
+      - virtio13
+      - virtio14
+      - virtio15
+      - sata0
+      - sata1
+      - sata2
+      - sata3
+      - sata4
+      - sata5
+      - efidisk0
+    type: string
+    required: false
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  vmid:
+    description: "The (unique) ID of the VM."
+    type: integer
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

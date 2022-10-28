@@ -1,0 +1,19 @@
+name: access_groups_groupid_update_group
+pack: proxmox
+runner_type: python-script
+description: "Update group data."
+enabled: true
+entry_point: "access_groups_groupid_update_group.py"
+parameters:
+  comment:
+    description: "Description unavailable."
+    type: string
+    required: false
+  groupid:
+    description: "Description unavailable."
+    type: string
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

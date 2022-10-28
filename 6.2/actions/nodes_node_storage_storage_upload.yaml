@@ -1,0 +1,31 @@
+name: nodes_node_storage_storage_upload
+pack: proxmox
+runner_type: python-script
+description: "Upload templates and ISO images."
+enabled: true
+entry_point: "nodes_node_storage_storage_upload.py"
+parameters:
+  content:
+    description: "Content type."
+    type: string
+    required: true
+  filename:
+    description: "The name of the file to create."
+    type: string
+    required: true
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  storage:
+    description: "The storage identifier."
+    type: string
+    required: true
+  tmpfilename:
+    description: "The source file name. This parameter is usually set by the REST handler. You can only overwrite it when connecting to the trusted port on localhost."
+    type: string
+    required: false
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false
