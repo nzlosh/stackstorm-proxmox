@@ -1,0 +1,27 @@
+name: nodes_node_lxc_vmid_mtunnel
+pack: proxmox
+runner_type: python-script
+description: "Migration tunnel endpoint - only for internal use by CT migration."
+enabled: true
+entry_point: "nodes_node_lxc_vmid_mtunnel.py"
+parameters:
+  bridges:
+    description: "List of network bridges to check availability. Will be checked again for actually used bridges during migration."
+    type: string
+    required: false
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  storages:
+    description: "List of storages to check permission and availability. Will be checked again for all actually used storages during migration."
+    type: string
+    required: false
+  vmid:
+    description: "The (unique) ID of the VM."
+    type: integer
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

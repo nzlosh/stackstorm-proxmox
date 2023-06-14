@@ -1,0 +1,31 @@
+name: nodes_node_apt_repositories_change_repository
+pack: proxmox
+runner_type: python-script
+description: "Change the properties of a repository. Currently only allows enabling/disabling."
+enabled: true
+entry_point: "nodes_node_apt_repositories_change_repository.py"
+parameters:
+  digest:
+    description: "Digest to detect modifications."
+    type: string
+    required: false
+  enabled:
+    description: "Whether the repository should be enabled or not."
+    type: boolean
+    required: false
+  index:
+    description: "Index within the file (starting from 0)."
+    type: integer
+    required: true
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  path:
+    description: "Path to the containing file."
+    type: string
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

@@ -1,0 +1,127 @@
+{
+    "nodes_node_lxc_vmid_config_update_vm": {
+        "cpuunits": {
+            "default": 100
+        }
+    },
+    "storage_create": {
+        "smbversion": {
+            "enum": ["default", 2.0, 2.1, 3.0, 3.11]
+        }
+    },
+    "storage_storage_update": {
+        "smbversion": {
+            "enum": ["default", 2.0, 2.1, 3.0, 3.11]
+        }
+    },
+    "nodes_node_qemu_create_vm": {
+	"cpuunits": {
+            "default": 100
+        },
+        "bwlimit": {
+            "default": 0
+        },
+        "keyboard": {
+            "default": "en-us"
+        },
+        "vcpus": {
+            "default": "1"
+        },
+        "vmgenid": {
+            "default": "1"
+        }
+    },
+    "nodes_node_qemu_vmid_config_update_vm_async": {
+        "keyboard": {
+            "default": "en-us"
+        },
+        "vcpus": {
+            "default": "1"
+        },
+        "vmgenid": {
+            "default": "1"
+        },
+	"cpuunits": {
+            "default": 100
+        }
+
+    },
+    "nodes_node_qemu_vmid_config_update_vm": {
+        "keyboard": {
+            "default": "en-us"
+        },
+        "vcpus": {
+            "default": "1"
+        },
+        "vmgenid": {
+            "default": "1"
+        },
+	"cpuunits": {
+            "default": 100
+        }
+
+    },
+    "nodes_node_lxc_create_vm": {
+        "bwlimit": {
+            "default": 0
+        },
+        "cpuunits": {
+            "default": 100
+        }
+
+    },
+    "nodes_node_lxc_vmid_clone_clone_vm": {
+        "bwlimit": {
+            "default": 0
+        }
+    },
+    "nodes_node_lxc_vmid_migrate_migrate_vm": {
+        "bwlimit": {
+            "default": 0
+        }
+    },
+    "nodes_node_lxc_vmid_move_volume": {
+        "bwlimit": {
+            "default": 0
+        }
+    },
+    "nodes_node_qemu_vmid_clone_clone_vm": {
+        "bwlimit": {
+            "default": 0
+        }
+    },
+    "nodes_node_qemu_vmid_migrate_migrate_vm": {
+        "bwlimit": {
+            "default": 0
+        }
+    },
+    "nodes_node_qemu_vmid_move_disk_move_vm_disk": {
+        "bwlimit": {
+            "default": 0
+        }
+    },
+    "nodes_node_qemu_vmid_status_start_vm_start": {
+        "timeout": {
+            "default": 10
+        }
+    },
+    "nodes_node_ceph_osd_createosd": {
+        "wal_dev_size": {
+            "default": 1
+        },
+        "db_dev_size": {
+            "default": 0.5
+        }
+    },
+    "access_users_userid_token_tokenid_update_token_info": {
+        "expire": {
+            "default": 1
+        }
+    },
+    "access_users_userid_token_tokenid_generate_token": {
+        "expire": {
+            "default": 1
+        }
+    }
+
+}

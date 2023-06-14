@@ -1,0 +1,24 @@
+name: nodes_node_ceph_osd_osdid_scrub
+pack: proxmox
+runner_type: python-script
+description: "Instruct the OSD to scrub."
+enabled: true
+entry_point: "nodes_node_ceph_osd_osdid_scrub.py"
+parameters:
+  deep:
+    description: "If set, instructs a deep scrub instead of a normal one."
+    default: False
+    type: boolean
+    required: false
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  osdid:
+    description: "OSD ID"
+    type: integer
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

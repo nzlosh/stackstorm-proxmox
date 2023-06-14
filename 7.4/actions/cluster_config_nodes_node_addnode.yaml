@@ -1,0 +1,39 @@
+name: cluster_config_nodes_node_addnode
+pack: proxmox
+runner_type: python-script
+description: "Adds a node to the cluster configuration. This call is for internal use."
+enabled: true
+entry_point: "cluster_config_nodes_node_addnode.py"
+parameters:
+  apiversion:
+    description: "The JOIN_API_VERSION of the new node."
+    type: integer
+    required: false
+  force:
+    description: "Do not throw error if node already exists."
+    type: boolean
+    required: false
+  link_list:
+    description: "Address and priority information of a single corosync link. (up to 8 links supported; link0..link7)"
+    type: string
+    required: false
+  new_node_ip:
+    description: "IP Address of node to add. Used as fallback if no links are given."
+    type: string
+    required: false
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  nodeid:
+    description: "Node id for this node."
+    type: integer
+    required: false
+  votes:
+    description: "Number of votes for this node"
+    type: integer
+    required: false
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

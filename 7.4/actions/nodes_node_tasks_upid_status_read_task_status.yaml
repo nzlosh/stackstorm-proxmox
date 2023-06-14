@@ -1,0 +1,19 @@
+name: nodes_node_tasks_upid_status_read_task_status
+pack: proxmox
+runner_type: python-script
+description: "Read task status."
+enabled: true
+entry_point: "nodes_node_tasks_upid_status_read_task_status.py"
+parameters:
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  upid:
+    description: "The task's unique ID."
+    type: string
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

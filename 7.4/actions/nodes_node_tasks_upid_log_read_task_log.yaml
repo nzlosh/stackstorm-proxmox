@@ -1,0 +1,33 @@
+name: nodes_node_tasks_upid_log_read_task_log
+pack: proxmox
+runner_type: python-script
+description: "Read task log."
+enabled: true
+entry_point: "nodes_node_tasks_upid_log_read_task_log.py"
+parameters:
+  download:
+    description: "Whether the tasklog file should be downloaded. This parameter can't be used in conjunction with other parameters"
+    type: boolean
+    required: false
+  limit:
+    description: "The amount of lines to read from the tasklog."
+    default: 50
+    type: integer
+    required: false
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  start:
+    description: "Start at this line when reading the tasklog"
+    default: 0
+    type: integer
+    required: false
+  upid:
+    description: "The task's unique ID."
+    type: string
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

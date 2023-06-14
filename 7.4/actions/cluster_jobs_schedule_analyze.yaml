@@ -1,0 +1,24 @@
+name: cluster_jobs_schedule_analyze
+pack: proxmox
+runner_type: python-script
+description: "Returns a list of future schedule runtimes."
+enabled: true
+entry_point: "cluster_jobs_schedule_analyze.py"
+parameters:
+  iterations:
+    description: "Number of event-iteration to simulate and return."
+    default: 10
+    type: integer
+    required: false
+  schedule:
+    description: "Job schedule. The format is a subset of `systemd` calendar events."
+    type: string
+    required: true
+  starttime:
+    description: "UNIX timestamp to start the calculation from. Defaults to the current time."
+    type: integer
+    required: false
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

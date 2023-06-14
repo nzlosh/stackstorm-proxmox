@@ -1,0 +1,11 @@
+name: cluster_tasks
+pack: proxmox
+runner_type: python-script
+description: "List recent tasks (cluster wide)."
+enabled: true
+entry_point: "cluster_tasks.py"
+parameters:
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

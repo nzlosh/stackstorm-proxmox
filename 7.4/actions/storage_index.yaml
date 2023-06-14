@@ -1,0 +1,30 @@
+name: storage_index
+pack: proxmox
+runner_type: python-script
+description: "Storage index."
+enabled: true
+entry_point: "storage_index.py"
+parameters:
+  prox_type:
+    description: "Only list storage of specific type"
+    enum:
+      - btrfs
+      - cephfs
+      - cifs
+      - dir
+      - glusterfs
+      - iscsi
+      - iscsidirect
+      - lvm
+      - lvmthin
+      - nfs
+      - pbs
+      - rbd
+      - zfs
+      - zfspool
+    type: string
+    required: false
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false
