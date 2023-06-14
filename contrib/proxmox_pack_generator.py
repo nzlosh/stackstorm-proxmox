@@ -482,7 +482,9 @@ def extract_schema_from_js(data):
     Extracts the jsonschema confounded inside the proxmox js documentation since a pure
     api specifications isn't officially provided.
     """
-    tokens = esprima.parseScript(data, {"tokens": True}).tokens
+
+    # Esprima does not support chaining operator, this is a temp fix until esprima supports it
+    tokens = esprima.parseScript(data.replace("?.", "."), {"tokens": True}).tokens
 
     v6x_token = "pveapi"
     v72_token = "apiSchema"
