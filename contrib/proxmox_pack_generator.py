@@ -144,9 +144,6 @@ PYTHON_KEYWORDS = [
     "pass",
 ]
 
-# global populated by load_overrides function.
-PROXMOX_OVERRIDE = None
-
 
 action_meta_jinja = r"""name: {{ action_name }}
 pack: proxmox
@@ -159,9 +156,6 @@ parameters:
 {% for param, p in parameters.properties.items() -%}
   {{ "  " ~ p["safe_param"] }}:
     description: {{ p.description | default('"Description unavailable."') }}
-    {% if "default" in p -%}
-    default: {{ p.default }}
-    {% endif -%}
     {% if "st2_secret" in p-%}
     secret: {{ p.st2_secret }}
     {% endif -%}
@@ -194,7 +188,7 @@ class {{ class_name }}Action(ProxmoxAction):
 {% for p in parameters.properties -%}
 {% set pp = parameters.properties[p] -%}
 {% if "optional" in pp and pp.optional == 1 -%}
-{% set value = pp.get("default", "None") -%}
+{% set value = "None" -%}
 {% set _ = opts.append(pp.safe_param ~ "=" ~ value) -%}
 {% if "{" ~ p ~ "}" not in parameters.path and p not in ["profile_name"] -%}
 {% set _ = api_args.update({p: pp.safe_param}) -%}
@@ -269,13 +263,6 @@ def cleanup_node(node):
             node["path"].replace("-", "/"), method_meta["name"].replace("-", "_")
         )
 
-        # Merge overrides to fix certain fields
-        if method_meta["action_name"] in PROXMOX_OVERRIDE:
-            for param in PROXMOX_OVERRIDE[method_meta["action_name"]]:
-                method_meta["parameters"]["properties"][param].update(
-                    PROXMOX_OVERRIDE[method_meta["action_name"]][param]
-                )
-
         if "properties" not in method_meta["parameters"]:
             method_meta["parameters"]["properties"] = {}
 
@@ -291,18 +278,6 @@ def cleanup_node(node):
             if isinstance(param_value, dict) and "description" in param_value:
                 method_meta["parameters"]["properties"][param]["description"] = json.dumps(
                     param_value["description"].replace("\n", " ").replace("\t", "")
-                )
-
-            # Wrap default values of type string in quotes
-            if "default" in param_value and param_value["type"] == "string":
-                method_meta["parameters"]["properties"][param]["default"] = json.dumps(
-                    param_value["default"]
-                )
-
-            # Proxmox api defaults to integers for booleans types so we cast them for Python/StackStorm
-            if "default" in param_value and param_value["type"] == "boolean":
-                method_meta["parameters"]["properties"][param]["default"] = bool(
-                    method_meta["parameters"]["properties"][param]["default"]
                 )
 
             # [n] is transformed into a StackStorm array parameter using "format" to define the object.
@@ -482,9 +457,8 @@ def extract_schema_from_js(data):
     Extracts the jsonschema confounded inside the proxmox js documentation since a pure
     api specifications isn't officially provided.
     """
-
-    # Esprima does not support chaining operator, this is a temp fix until esprima supports it
-    tokens = esprima.parseScript(data.replace("?.", "."), {"tokens": True}).tokens
+    data = data.replace("?.", ".")
+    tokens = esprima.parseScript(data, {"tokens": True}).tokens
 
     v6x_token = "pveapi"
     v72_token = "apiSchema"
@@ -507,20 +481,6 @@ def extract_schema_from_js(data):
         s += tokens[i].value.strip()
 
     return json.loads(s)
-
-def load_overrides(filename=None):
-    """
-    filename: a filename to a JSON formatted file.
-    """
-    overrides = {}
-    # return an empty
-    if not filename:
-        return overrides
-
-    with open(filename, "r") as f:
-        overrides = json.loads(f.read())
-
-    return overrides
 
 
 def load_schema(source, username=None, password=None, realm=None):
@@ -614,7 +574,6 @@ if __name__ == "__main__":
     )
 
     args = parser.parse_args()
-    PROXMOX_OVERRIDE = load_overrides(args.overrides)
     generate_pack_contents(
         args.api_source, args.pack_path, args.username, args.password, args.realm
     )
