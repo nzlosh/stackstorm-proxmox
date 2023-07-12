@@ -7,7 +7,6 @@ entry_point: "nodes_node_certificates_acme_certificate_renew_certificate.py"
 parameters:
   force:
     description: "Force renewal even if expiry is more than 30 days away."
-    default: False
     type: boolean
     required: false
   node:

@@ -7,18 +7,6 @@ entry_point: "nodes_node_ceph_flags_flag_set_flag.py"
 parameters:
   flag:
     description: "The ceph flag to set"
-    enum:
-      - nobackfill
-      - nodeep-scrub
-      - nodown
-      - noin
-      - noout
-      - norebalance
-      - norecover
-      - noscrub
-      - notieragent
-      - noup
-      - pause
     type: string
     required: true
   node:

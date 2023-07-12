@@ -11,7 +11,6 @@ parameters:
     required: false
   dhcp:
     description: "Enable DHCP."
-    default: False
     type: boolean
     required: false
   digest:
@@ -20,7 +19,6 @@ parameters:
     required: false
   enable:
     description: "Enable/disable firewall rules."
-    default: False
     type: boolean
     required: false
   ipfilter:
@@ -29,40 +27,18 @@ parameters:
     required: false
   log_level_in:
     description: "Log level for incoming traffic."
-    enum:
-      - emerg
-      - alert
-      - crit
-      - err
-      - warning
-      - notice
-      - info
-      - debug
-      - nolog
     type: string
     required: false
   log_level_out:
     description: "Log level for outgoing traffic."
-    enum:
-      - emerg
-      - alert
-      - crit
-      - err
-      - warning
-      - notice
-      - info
-      - debug
-      - nolog
     type: string
     required: false
   macfilter:
     description: "Enable/disable MAC address filter."
-    default: False
     type: boolean
     required: false
   ndp:
     description: "Enable NDP (Neighbor Discovery Protocol)."
-    default: False
     type: boolean
     required: false
   node:
@@ -71,18 +47,10 @@ parameters:
     required: true
   policy_in:
     description: "Input policy."
-    enum:
-      - ACCEPT
-      - REJECT
-      - DROP
     type: string
     required: false
   policy_out:
     description: "Output policy."
-    enum:
-      - ACCEPT
-      - REJECT
-      - DROP
     type: string
     required: false
   radv:

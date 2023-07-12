@@ -7,7 +7,7 @@ class ClusterHaGroupsCreateAction(ProxmoxAction):
     Create a new HA group.
     """
 
-    def run(self, group, nodes, comment=None, nofailback=False, restricted=False, prox_type=None, profile_name=None):
+    def run(self, group, nodes, comment=None, nofailback=None, restricted=None, prox_type=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

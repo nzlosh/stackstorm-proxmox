@@ -19,60 +19,34 @@ parameters:
     required: false
   log_level_in:
     description: "Log level for incoming traffic."
-    enum:
-      - emerg
-      - alert
-      - crit
-      - err
-      - warning
-      - notice
-      - info
-      - debug
-      - nolog
     type: string
     required: false
   log_level_out:
     description: "Log level for outgoing traffic."
-    enum:
-      - emerg
-      - alert
-      - crit
-      - err
-      - warning
-      - notice
-      - info
-      - debug
-      - nolog
     type: string
     required: false
   log_nf_conntrack:
     description: "Enable logging of conntrack information."
-    default: False
     type: boolean
     required: false
   ndp:
     description: "Enable NDP (Neighbor Discovery Protocol)."
-    default: False
     type: boolean
     required: false
   nf_conntrack_allow_invalid:
     description: "Allow invalid packets on connection tracking."
-    default: False
     type: boolean
     required: false
   nf_conntrack_max:
     description: "Maximum number of tracked connections."
-    default: 262144
     type: integer
     required: false
   nf_conntrack_tcp_timeout_established:
     description: "Conntrack established timeout."
-    default: 432000
     type: integer
     required: false
   nf_conntrack_tcp_timeout_syn_recv:
     description: "Conntrack syn recv timeout."
-    default: 60
     type: integer
     required: false
   node:
@@ -85,50 +59,26 @@ parameters:
     required: false
   protection_synflood:
     description: "Enable synflood protection"
-    default: False
     type: boolean
     required: false
   protection_synflood_burst:
     description: "Synflood protection rate burst by ip src."
-    default: 1000
     type: integer
     required: false
   protection_synflood_rate:
     description: "Synflood protection rate syn/sec by ip src."
-    default: 200
     type: integer
     required: false
   smurf_log_level:
     description: "Log level for SMURFS filter."
-    enum:
-      - emerg
-      - alert
-      - crit
-      - err
-      - warning
-      - notice
-      - info
-      - debug
-      - nolog
     type: string
     required: false
   tcp_flags_log_level:
     description: "Log level for illegal tcp flags filter."
-    enum:
-      - emerg
-      - alert
-      - crit
-      - err
-      - warning
-      - notice
-      - info
-      - debug
-      - nolog
     type: string
     required: false
   tcpflags:
     description: "Filter illegal combinations of TCP flags."
-    default: False
     type: boolean
     required: false
   profile_name:

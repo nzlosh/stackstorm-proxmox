@@ -11,7 +11,6 @@ parameters:
     required: false
   limit:
     description: "The amount of lines to read from the tasklog."
-    default: 50
     type: integer
     required: false
   node:
@@ -20,7 +19,6 @@ parameters:
     required: true
   start:
     description: "Start at this line when reading the tasklog"
-    default: 0
     type: integer
     required: false
   upid:

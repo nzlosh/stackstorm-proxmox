@@ -31,7 +31,6 @@ parameters:
     required: true
   startall_onboot_delay:
     description: "Initial delay in seconds, before starting all the Virtual Guests with on-boot enabled."
-    default: 0
     type: integer
     required: false
   wakeonlan:

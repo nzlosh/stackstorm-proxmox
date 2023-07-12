@@ -7,7 +7,7 @@ class NodesNodeStartallAction(ProxmoxAction):
     Start all VMs and containers located on this node (by default only those with onboot=1).
     """
 
-    def run(self, node, force=True, vms=None, profile_name=None):
+    def run(self, node, force=None, vms=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

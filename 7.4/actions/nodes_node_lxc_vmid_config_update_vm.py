@@ -7,7 +7,7 @@ class NodesNodeLxcVmidConfigUpdateVmAction(ProxmoxAction):
     Set container options.
     """
 
-    def run(self, node, vmid, arch="amd64", cmode="tty", console=True, cores=None, cpulimit=0, cpuunits=100, debug=False, delete=None, description=None, digest=None, features=None, hookscript=None, hostname=None, lock=None, memory=512, mp_list=None, nameserver=None, net_list=None, onboot=False, ostype=None, protection=False, revert=None, rootfs=None, searchdomain=None, startup=None, swap=512, tags=None, template=False, timezone=None, tty=2, unprivileged=False, unused_list=None, profile_name=None):
+    def run(self, node, vmid, arch=None, cmode=None, console=None, cores=None, cpulimit=None, cpuunits=None, debug=None, delete=None, description=None, digest=None, features=None, hookscript=None, hostname=None, lock=None, memory=None, mp_list=None, nameserver=None, net_list=None, onboot=None, ostype=None, protection=None, revert=None, rootfs=None, searchdomain=None, startup=None, swap=None, tags=None, template=None, timezone=None, tty=None, unprivileged=None, unused_list=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

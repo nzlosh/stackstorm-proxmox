@@ -7,7 +7,7 @@ class NodesNodeAptUpdateUpdateDatabaseAction(ProxmoxAction):
     This is used to resynchronize the package index files from their sources (apt-get update).
     """
 
-    def run(self, node, notify=False, quiet=False, profile_name=None):
+    def run(self, node, notify=None, quiet=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

@@ -7,7 +7,7 @@ class NodesNodeQemuVmidStatusSuspendVmSuspendAction(ProxmoxAction):
     Suspend virtual machine.
     """
 
-    def run(self, node, vmid, skiplock=None, statestorage=None, todisk=False, profile_name=None):
+    def run(self, node, vmid, skiplock=None, statestorage=None, todisk=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

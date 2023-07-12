@@ -7,7 +7,7 @@ class NodesNodeDisksListAction(ProxmoxAction):
     List local disks.
     """
 
-    def run(self, node, include_partitions=False, skipsmart=False, prox_type=None, profile_name=None):
+    def run(self, node, include_partitions=None, skipsmart=None, prox_type=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

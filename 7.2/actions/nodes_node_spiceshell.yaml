@@ -7,16 +7,10 @@ entry_point: "nodes_node_spiceshell.py"
 parameters:
   cmd:
     description: "Run specific command or default to login."
-    default: "login"
-    enum:
-      - ceph_install
-      - upgrade
-      - login
     type: string
     required: false
   cmd_opts:
     description: "Add parameters to a command. Encoded as null terminated strings."
-    default: ""
     type: string
     required: false
   node:

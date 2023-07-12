@@ -7,7 +7,7 @@ class NodesNodeLxcVmidSnapshotSnapnameRollbackAction(ProxmoxAction):
     Rollback LXC state to specified snapshot.
     """
 
-    def run(self, node, snapname, vmid, start=False, profile_name=None):
+    def run(self, node, snapname, vmid, start=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

@@ -7,7 +7,6 @@ entry_point: "cluster_jobs_schedule_analyze.py"
 parameters:
   iterations:
     description: "Number of event-iteration to simulate and return."
-    default: 10
     type: integer
     required: false
   schedule:

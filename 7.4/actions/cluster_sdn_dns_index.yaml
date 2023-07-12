@@ -7,8 +7,6 @@ entry_point: "cluster_sdn_dns_index.py"
 parameters:
   prox_type:
     description: "Only list sdn dns of specific type"
-    enum:
-      - powerdns
     type: string
     required: false
   profile_name:

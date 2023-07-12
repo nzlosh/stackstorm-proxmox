@@ -23,8 +23,6 @@ parameters:
     required: true
   prox_type:
     description: "Description unavailable."
-    enum:
-      - subnet
     type: string
     required: true
   vnet:

@@ -11,23 +11,6 @@ parameters:
     required: true
   service:
     description: "Service ID"
-    enum:
-      - pveproxy
-      - pvedaemon
-      - spiceproxy
-      - pvestatd
-      - pve-cluster
-      - corosync
-      - pve-firewall
-      - pvefw-logger
-      - pve-ha-crm
-      - pve-ha-lrm
-      - sshd
-      - syslog
-      - cron
-      - postfix
-      - ksmtuned
-      - systemd-timesyncd
     type: string
     required: true
   profile_name:

@@ -11,20 +11,10 @@ parameters:
     required: false
   checksum_algorithm:
     description: "The algorithm to calculate the checksum of the file."
-    enum:
-      - md5
-      - sha1
-      - sha224
-      - sha256
-      - sha384
-      - sha512
     type: string
     required: false
   content:
     description: "Content type."
-    enum:
-      - iso
-      - vztmpl
     type: string
     required: true
   filename:

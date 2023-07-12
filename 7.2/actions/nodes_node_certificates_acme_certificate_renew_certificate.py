@@ -7,7 +7,7 @@ class NodesNodeCertificatesAcmeCertificateRenewCertificateAction(ProxmoxAction):
     Renew existing certificate from CA.
     """
 
-    def run(self, node, force=False, profile_name=None):
+    def run(self, node, force=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

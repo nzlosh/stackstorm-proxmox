@@ -7,7 +7,7 @@ class NodesNodeLxcVmidStatusStartVmStartAction(ProxmoxAction):
     Start the container.
     """
 
-    def run(self, node, vmid, debug=False, skiplock=None, profile_name=None):
+    def run(self, node, vmid, debug=None, skiplock=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

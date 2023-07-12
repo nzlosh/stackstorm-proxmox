@@ -11,14 +11,10 @@ parameters:
     required: true
   skipsmart:
     description: "Skip smart checks."
-    default: False
     type: boolean
     required: false
   prox_type:
     description: "Only list specific types of disks."
-    enum:
-      - unused
-      - journal_disks
     type: string
     required: false
   profile_name:

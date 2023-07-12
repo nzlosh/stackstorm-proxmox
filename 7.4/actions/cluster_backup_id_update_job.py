@@ -7,7 +7,7 @@ class ClusterBackupIdUpdateJobAction(ProxmoxAction):
     Update vzdump backup job definition.
     """
 
-    def run(self, prox_id, prox_all=False, bwlimit=0, comment=None, compress="0", delete=None, dow=None, dumpdir=None, enabled=True, exclude=None, exclude_path=None, ionice=7, lockwait=180, mailnotification="always", mailto=None, maxfiles=None, mode="snapshot", node=None, notes_template=None, performance=None, pigz=0, pool=None, protected=None, prune_backups="keep-all=1", quiet=False, remove=True, repeat_missed=False, schedule=None, script=None, starttime=None, stdexcludes=True, stop=False, stopwait=10, storage=None, tmpdir=None, vmid=None, zstd=1, profile_name=None):
+    def run(self, prox_id, prox_all=None, bwlimit=None, comment=None, compress=None, delete=None, dow=None, dumpdir=None, enabled=None, exclude=None, exclude_path=None, ionice=None, lockwait=None, mailnotification=None, mailto=None, maxfiles=None, mode=None, node=None, notes_template=None, performance=None, pigz=None, pool=None, protected=None, prune_backups=None, quiet=None, remove=None, repeat_missed=None, schedule=None, script=None, starttime=None, stdexcludes=None, stop=None, stopwait=None, storage=None, tmpdir=None, vmid=None, zstd=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

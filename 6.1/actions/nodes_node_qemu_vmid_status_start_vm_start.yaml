@@ -19,9 +19,6 @@ parameters:
     required: false
   migration_type:
     description: "Migration traffic is encrypted using an SSH tunnel by default. On secure, completely private networks this can be disabled to increase performance."
-    enum:
-      - secure
-      - insecure
     type: string
     required: false
   node:

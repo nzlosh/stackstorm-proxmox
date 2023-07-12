@@ -7,10 +7,6 @@ entry_point: "access_tfa_change_tfa.py"
 parameters:
   action:
     description: "The action to perform"
-    enum:
-      - delete
-      - new
-      - confirm
     type: string
     required: true
   config:

@@ -7,7 +7,7 @@ class NodesNodeQemuVmidAgentFileWriteFileWriteAction(ProxmoxAction):
     Writes the given file via guest agent.
     """
 
-    def run(self, content, file, node, vmid, encode=True, profile_name=None):
+    def run(self, content, file, node, vmid, encode=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

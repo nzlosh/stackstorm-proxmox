@@ -7,107 +7,6 @@ entry_point: "cluster_acme_plugins_id_update_plugin.py"
 parameters:
   api:
     description: "API plugin name"
-    enum:
-      - acmedns
-      - acmeproxy
-      - active24
-      - ad
-      - ali
-      - autodns
-      - aws
-      - azure
-      - cf
-      - clouddns
-      - cloudns
-      - cn
-      - conoha
-      - constellix
-      - cx
-      - cyon
-      - da
-      - ddnss
-      - desec
-      - df
-      - dgon
-      - dnsimple
-      - do
-      - doapi
-      - domeneshop
-      - dp
-      - dpi
-      - dreamhost
-      - duckdns
-      - durabledns
-      - dyn
-      - dynu
-      - dynv6
-      - easydns
-      - euserv
-      - exoscale
-      - freedns
-      - gandi_livedns
-      - gcloud
-      - gd
-      - gdnsdk
-      - he
-      - hexonet
-      - hostingde
-      - infoblox
-      - internetbs
-      - inwx
-      - ispconfig
-      - jd
-      - kas
-      - kinghost
-      - knot
-      - leaseweb
-      - lexicon
-      - linode
-      - linode_v4
-      - loopia
-      - lua
-      - maradns
-      - me
-      - miab
-      - misaka
-      - myapi
-      - mydevil
-      - mydnsjp
-      - namecheap
-      - namecom
-      - namesilo
-      - nederhost
-      - neodigit
-      - netcup
-      - nic
-      - nsd
-      - nsone
-      - nsupdate
-      - nw
-      - one
-      - online
-      - openprovider
-      - opnsense
-      - ovh
-      - pdns
-      - pleskxml
-      - pointhq
-      - rackspace
-      - rcode0
-      - regru
-      - schlundtech
-      - selectel
-      - servercow
-      - tele3
-      - ultra
-      - unoeuro
-      - variomedia
-      - vscale
-      - vultr
-      - yandex
-      - zilore
-      - zone
-      - zonomi
     type: string
     required: false
   data:
@@ -136,7 +35,6 @@ parameters:
     required: false
   validation_delay:
     description: "Extra delay in seconds to wait before requesting validation. Allows to cope with a long TTL of DNS records."
-    default: 30
     type: integer
     required: false
   profile_name:

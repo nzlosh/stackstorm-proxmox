@@ -7,7 +7,7 @@ class NodesNodeQemuVmidMove_diskMoveVmDiskAction(ProxmoxAction):
     Move volume to different storage.
     """
 
-    def run(self, disk, node, storage, vmid, bwlimit=move limit from datacenter or storage config, delete=False, digest=None, prox_format=None, profile_name=None):
+    def run(self, disk, node, storage, vmid, bwlimit=None, delete=None, digest=None, prox_format=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

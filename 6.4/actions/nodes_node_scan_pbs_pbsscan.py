@@ -7,7 +7,7 @@ class NodesNodeScanPbsPbsscanAction(ProxmoxAction):
     Scan remote Proxmox Backup Server.
     """
 
-    def run(self, node, password, server, username, fingerprint=None, port=8007, profile_name=None):
+    def run(self, node, password, server, username, fingerprint=None, port=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

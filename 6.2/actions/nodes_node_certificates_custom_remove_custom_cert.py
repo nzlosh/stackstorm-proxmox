@@ -7,7 +7,7 @@ class NodesNodeCertificatesCustomRemoveCustomCertAction(ProxmoxAction):
     DELETE custom certificate chain and key.
     """
 
-    def run(self, node, restart=False, profile_name=None):
+    def run(self, node, restart=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

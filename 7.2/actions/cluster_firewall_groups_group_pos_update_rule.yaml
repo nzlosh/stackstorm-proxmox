@@ -47,16 +47,6 @@ parameters:
     required: false
   log:
     description: "Log level for firewall rule."
-    enum:
-      - emerg
-      - alert
-      - crit
-      - err
-      - warning
-      - notice
-      - info
-      - debug
-      - nolog
     type: string
     required: false
   macro:
@@ -85,10 +75,6 @@ parameters:
     required: false
   prox_type:
     description: "Rule type."
-    enum:
-      - in
-      - out
-      - group
     type: string
     required: false
   profile_name:

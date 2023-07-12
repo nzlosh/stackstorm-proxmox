@@ -11,7 +11,6 @@ parameters:
     required: true
   force:
     description: "Overwrite existing custom or ACME certificate files."
-    default: False
     type: boolean
     required: false
   key:
@@ -25,7 +24,6 @@ parameters:
     required: true
   restart:
     description: "Restart pveproxy."
-    default: False
     type: boolean
     required: false
   profile_name:

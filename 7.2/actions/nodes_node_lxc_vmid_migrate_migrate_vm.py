@@ -7,7 +7,7 @@ class NodesNodeLxcVmidMigrateMigrateVmAction(ProxmoxAction):
     Migrate the container to another node. Creates a new migration task.
     """
 
-    def run(self, node, target, vmid, bwlimit=migrate limit from datacenter or storage config, online=None, restart=None, target_storage=None, timeout=180, profile_name=None):
+    def run(self, node, target, vmid, bwlimit=None, online=None, restart=None, target_storage=None, timeout=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

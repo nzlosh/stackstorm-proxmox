@@ -15,11 +15,6 @@ parameters:
     required: true
   prox_type:
     description: "OSD device type"
-    default: "block"
-    enum:
-      - block
-      - db
-      - wal
     type: string
     required: false
   profile_name:

@@ -11,17 +11,6 @@ parameters:
     required: true
   prox_type:
     description: "Only list specific interface types."
-    enum:
-      - bridge
-      - bond
-      - eth
-      - alias
-      - vlan
-      - OVSBridge
-      - OVSBond
-      - OVSPort
-      - OVSIntPort
-      - any_bridge
     type: string
     required: false
   profile_name:

@@ -7,7 +7,7 @@ class NodesNodeQemuVmidRemote_migrateRemoteMigrateVmAction(ProxmoxAction):
     Migrate virtual machine to a remote cluster. Creates a new migration task. EXPERIMENTAL feature!
     """
 
-    def run(self, node, target_bridge, target_endpoint, target_storage, vmid, bwlimit=migrate limit from datacenter or storage config, delete=False, online=None, target_vmid=None, profile_name=None):
+    def run(self, node, target_bridge, target_endpoint, target_storage, vmid, bwlimit=None, delete=None, online=None, target_vmid=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

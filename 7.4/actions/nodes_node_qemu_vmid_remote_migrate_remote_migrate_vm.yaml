@@ -7,12 +7,10 @@ entry_point: "nodes_node_qemu_vmid_remote_migrate_remote_migrate_vm.py"
 parameters:
   bwlimit:
     description: "Override I/O bandwidth limit (in KiB/s)."
-    default: migrate limit from datacenter or storage config
     type: integer
     required: false
   delete:
     description: "Delete the original VM and related data after successful migration. By default the original VM is kept on the source cluster in a stopped state."
-    default: False
     type: boolean
     required: false
   node:

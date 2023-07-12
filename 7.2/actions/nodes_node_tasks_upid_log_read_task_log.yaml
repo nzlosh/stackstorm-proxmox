@@ -7,7 +7,6 @@ entry_point: "nodes_node_tasks_upid_log_read_task_log.py"
 parameters:
   limit:
     description: "The maximum amount of lines that should be printed."
-    default: 50
     type: integer
     required: false
   node:
@@ -16,7 +15,6 @@ parameters:
     required: true
   start:
     description: "The line number to start printing at."
-    default: 0
     type: integer
     required: false
   upid:

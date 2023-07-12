@@ -7,7 +7,7 @@ class ClusterConfigJoinAction(ProxmoxAction):
     Joins this node into an existing cluster.
     """
 
-    def run(self, fingerprint, hostname, password, force=None, link_list="IP resolved by node's hostname", nodeid=None, votes=None, profile_name=None):
+    def run(self, fingerprint, hostname, password, force=None, link_list=None, nodeid=None, votes=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

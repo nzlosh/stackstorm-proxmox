@@ -7,7 +7,7 @@ class NodesNodeDisksDirectoryCreateAction(ProxmoxAction):
     Create a Filesystem on an unused disk. Will be mounted under '/mnt/pve/NAME'.
     """
 
-    def run(self, device, name, node, add_storage=False, filesystem="ext4", profile_name=None):
+    def run(self, device, name, node, add_storage=None, filesystem=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

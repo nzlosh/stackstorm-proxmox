@@ -7,7 +7,7 @@ class ClusterCephMetadataAction(ProxmoxAction):
     Get ceph metadata.
     """
 
-    def run(self, scope="all", profile_name=None):
+    def run(self, scope=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

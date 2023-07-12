@@ -7,7 +7,6 @@ entry_point: "cluster_config_join_join_info.py"
 parameters:
   node:
     description: "The node for which the joinee gets the nodeinfo. "
-    default: "current connected node"
     type: string
     required: false
   profile_name:

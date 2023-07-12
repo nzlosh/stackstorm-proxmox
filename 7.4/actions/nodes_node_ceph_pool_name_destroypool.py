@@ -7,7 +7,7 @@ class NodesNodeCephPoolNameDestroypoolAction(ProxmoxAction):
     Destroy pool
     """
 
-    def run(self, name, node, force=False, remove_ecprofile=True, remove_storages=False, profile_name=None):
+    def run(self, name, node, force=None, remove_ecprofile=None, remove_storages=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

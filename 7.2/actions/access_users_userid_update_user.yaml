@@ -19,7 +19,6 @@ parameters:
     required: false
   enable:
     description: "Enable the account (default). You can set this to '0' to disable the account"
-    default: True
     type: boolean
     required: false
   expire:

@@ -7,7 +7,6 @@ entry_point: "nodes_node_stopall.py"
 parameters:
   force_stop:
     description: "Force a hard-stop after the timeout."
-    default: True
     type: boolean
     required: false
   node:
@@ -16,7 +15,6 @@ parameters:
     required: true
   timeout:
     description: "Timeout for each guest shutdown task. Depending on `force-stop`, the shutdown gets then simply aborted or a hard-stop is forced."
-    default: 180
     type: integer
     required: false
   vms:

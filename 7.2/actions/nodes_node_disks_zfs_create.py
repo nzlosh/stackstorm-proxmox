@@ -7,7 +7,7 @@ class NodesNodeDisksZfsCreateAction(ProxmoxAction):
     Create a ZFS pool.
     """
 
-    def run(self, devices, name, node, raidlevel, add_storage=False, ashift=12, compression="on", profile_name=None):
+    def run(self, devices, name, node, raidlevel, add_storage=None, ashift=None, compression=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

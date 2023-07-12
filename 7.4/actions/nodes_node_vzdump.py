@@ -7,7 +7,7 @@ class NodesNodeVzdumpAction(ProxmoxAction):
     Create backup.
     """
 
-    def run(self, prox_all=False, bwlimit=0, compress="0", dumpdir=None, exclude=None, exclude_path=None, ionice=7, lockwait=180, mailnotification="always", mailto=None, maxfiles=None, mode="snapshot", node=None, notes_template=None, performance=None, pigz=0, pool=None, protected=None, prune_backups="keep-all=1", quiet=False, remove=True, script=None, stdexcludes=True, stdout=None, stop=False, stopwait=10, storage=None, tmpdir=None, vmid=None, zstd=1, profile_name=None):
+    def run(self, prox_all=None, bwlimit=None, compress=None, dumpdir=None, exclude=None, exclude_path=None, ionice=None, lockwait=None, mailnotification=None, mailto=None, maxfiles=None, mode=None, node=None, notes_template=None, performance=None, pigz=None, pool=None, protected=None, prune_backups=None, quiet=None, remove=None, script=None, stdexcludes=None, stdout=None, stop=None, stopwait=None, storage=None, tmpdir=None, vmid=None, zstd=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

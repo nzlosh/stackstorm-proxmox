@@ -7,7 +7,7 @@ class NodesNodeQemuVmidStatusStopVmStopAction(ProxmoxAction):
     Stop virtual machine. The qemu process will exit immediately. Thisis akin to pulling the power plug of a running computer and may damage the VM data
     """
 
-    def run(self, node, vmid, keepActive=False, migratedfrom=None, skiplock=None, timeout=None, profile_name=None):
+    def run(self, node, vmid, keepActive=None, migratedfrom=None, skiplock=None, timeout=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

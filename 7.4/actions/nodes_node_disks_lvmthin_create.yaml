@@ -7,7 +7,6 @@ entry_point: "nodes_node_disks_lvmthin_create.py"
 parameters:
   add_storage:
     description: "Configure storage using the thinpool."
-    default: False
     type: boolean
     required: false
   device:

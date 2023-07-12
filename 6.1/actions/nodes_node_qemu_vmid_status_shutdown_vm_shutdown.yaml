@@ -7,12 +7,10 @@ entry_point: "nodes_node_qemu_vmid_status_shutdown_vm_shutdown.py"
 parameters:
   forceStop:
     description: "Make sure the VM stops."
-    default: False
     type: boolean
     required: false
   keepActive:
     description: "Do not deactivate storage volumes."
-    default: False
     type: boolean
     required: false
   node:

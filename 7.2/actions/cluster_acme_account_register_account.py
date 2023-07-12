@@ -7,7 +7,7 @@ class ClusterAcmeAccountRegisterAccountAction(ProxmoxAction):
     Register a new ACME account with CA.
     """
 
-    def run(self, contact, directory="https://acme-v02.api.letsencrypt.org/directory", name="default", tos_url=None, profile_name=None):
+    def run(self, contact, directory=None, name=None, tos_url=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

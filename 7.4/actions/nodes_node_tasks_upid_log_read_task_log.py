@@ -7,7 +7,7 @@ class NodesNodeTasksUpidLogReadTaskLogAction(ProxmoxAction):
     Read task log.
     """
 
-    def run(self, node, upid, download=None, limit=50, start=0, profile_name=None):
+    def run(self, node, upid, download=None, limit=None, start=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

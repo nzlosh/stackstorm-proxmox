@@ -7,7 +7,7 @@ class ClusterReplicationIdDeleteAction(ProxmoxAction):
     Mark replication job for removal.
     """
 
-    def run(self, prox_id, force=False, keep=False, profile_name=None):
+    def run(self, prox_id, force=None, keep=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

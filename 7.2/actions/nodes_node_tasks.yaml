@@ -7,12 +7,10 @@ entry_point: "nodes_node_tasks.py"
 parameters:
   errors:
     description: "Only list tasks with a status of ERROR."
-    default: False
     type: boolean
     required: false
   limit:
     description: "Only list this amount of tasks."
-    default: 50
     type: integer
     required: false
   node:
@@ -25,16 +23,10 @@ parameters:
     required: false
   source:
     description: "List archived, active or all tasks."
-    default: "archive"
-    enum:
-      - archive
-      - active
-      - all
     type: string
     required: false
   start:
     description: "List tasks beginning from this offset."
-    default: 0
     type: integer
     required: false
   statusfilter:

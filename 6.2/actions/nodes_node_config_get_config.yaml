@@ -11,18 +11,6 @@ parameters:
     required: true
   prox_property:
     description: "Return only a specific property from the node configuration."
-    default: "all"
-    enum:
-      - acme
-      - acmedomain0
-      - acmedomain1
-      - acmedomain2
-      - acmedomain3
-      - acmedomain4
-      - acmedomain5
-      - description
-      - startall-onboot-delay
-      - wakeonlan
     type: string
     required: false
   profile_name:

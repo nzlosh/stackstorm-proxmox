@@ -11,12 +11,10 @@ parameters:
     required: true
   directory:
     description: "URL of ACME CA directory endpoint."
-    default: "https://acme-v02.api.letsencrypt.org/directory"
     type: string
     required: false
   name:
     description: "ACME account config file name."
-    default: "default"
     type: string
     required: false
   tos_url:

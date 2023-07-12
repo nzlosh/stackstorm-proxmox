@@ -7,9 +7,6 @@ entry_point: "cluster_firewall_refs.py"
 parameters:
   prox_type:
     description: "Only list references of specified type."
-    enum:
-      - alias
-      - ipset
     type: string
     required: false
   profile_name:

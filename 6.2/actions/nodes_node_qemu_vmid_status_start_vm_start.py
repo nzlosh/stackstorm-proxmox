@@ -7,7 +7,7 @@ class NodesNodeQemuVmidStatusStartVmStartAction(ProxmoxAction):
     Start virtual machine.
     """
 
-    def run(self, node, vmid, force_cpu=None, machine=None, migratedfrom=None, migration_network=None, migration_type=None, skiplock=None, stateuri=None, targetstorage=None, timeout=max(30, vm memory in GiB), profile_name=None):
+    def run(self, node, vmid, force_cpu=None, machine=None, migratedfrom=None, migration_network=None, migration_type=None, skiplock=None, stateuri=None, targetstorage=None, timeout=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

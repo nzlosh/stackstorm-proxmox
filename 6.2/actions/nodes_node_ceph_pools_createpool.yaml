@@ -11,10 +11,6 @@ parameters:
     required: false
   application:
     description: "The application of the pool, 'rbd' by default."
-    enum:
-      - rbd
-      - cephfs
-      - rgw
     type: string
     required: false
   crush_rule:
@@ -23,7 +19,6 @@ parameters:
     required: false
   min_size:
     description: "Minimum number of replicas per object"
-    default: 2
     type: integer
     required: false
   name:
@@ -36,12 +31,10 @@ parameters:
     required: true
   pg_num:
     description: "Number of placement groups."
-    default: 128
     type: integer
     required: false
   size:
     description: "Number of replicas per object"
-    default: 3
     type: integer
     required: false
   profile_name:

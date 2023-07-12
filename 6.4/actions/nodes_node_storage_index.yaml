@@ -11,12 +11,10 @@ parameters:
     required: false
   enabled:
     description: "Only list stores which are enabled (not disabled in config)."
-    default: False
     type: boolean
     required: false
   prox_format:
     description: "Include information about formats"
-    default: False
     type: boolean
     required: false
   node:

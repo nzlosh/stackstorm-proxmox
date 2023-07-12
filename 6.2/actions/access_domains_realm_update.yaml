@@ -15,7 +15,6 @@ parameters:
     required: false
   capath:
     description: "Path to the CA certificate store"
-    default: "/etc/ssl/certs"
     type: string
     required: false
   cert:
@@ -52,7 +51,6 @@ parameters:
     required: false
   group_classes:
     description: "The objectclasses for groups."
-    default: "groupOfNames, group, univentionGroup, ipausergroup"
     type: string
     required: false
   group_dn:
@@ -69,11 +67,6 @@ parameters:
     required: false
   mode:
     description: "LDAP protocol mode."
-    default: "ldap"
-    enum:
-      - ldap
-      - ldaps
-      - ldap+starttls
     type: string
     required: false
   password:
@@ -103,11 +96,6 @@ parameters:
     required: false
   sslversion:
     description: "LDAPS TLS/SSL version. It's not recommended to use version older than 1.2!"
-    enum:
-      - tlsv1
-      - tlsv1_1
-      - tlsv1_2
-      - tlsv1_3
     type: string
     required: false
   sync_defaults_options:
@@ -128,12 +116,10 @@ parameters:
     required: false
   user_classes:
     description: "The objectclasses for users."
-    default: "inetorgperson, posixaccount, person, user"
     type: string
     required: false
   verify:
     description: "Verify the server's SSL certificate"
-    default: False
     type: boolean
     required: false
   profile_name:

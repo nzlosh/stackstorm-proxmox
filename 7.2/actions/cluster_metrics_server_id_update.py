@@ -7,7 +7,7 @@ class ClusterMetricsServerIdUpdateAction(ProxmoxAction):
     Update metric server configuration.
     """
 
-    def run(self, prox_id, port, server, api_path_prefix=None, bucket=None, delete=None, digest=None, disable=None, influxdbproto="udp", max_body_size=25000000, mtu=1500, organization=None, path=None, proto=None, timeout=1, token=None, verify_certificate=True, profile_name=None):
+    def run(self, prox_id, port, server, api_path_prefix=None, bucket=None, delete=None, digest=None, disable=None, influxdbproto=None, max_body_size=None, mtu=None, organization=None, path=None, proto=None, timeout=None, token=None, verify_certificate=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

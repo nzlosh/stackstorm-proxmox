@@ -7,7 +7,7 @@ class NodesNodeLxcVmidMove_volumeAction(ProxmoxAction):
     Move a rootfs-/mp-volume to a different storage
     """
 
-    def run(self, node, storage, vmid, volume, bwlimit=clone limit from datacenter or storage config, delete=False, digest=None, profile_name=None):
+    def run(self, node, storage, vmid, volume, bwlimit=None, delete=None, digest=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

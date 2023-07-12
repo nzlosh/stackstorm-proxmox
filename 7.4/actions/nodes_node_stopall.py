@@ -7,7 +7,7 @@ class NodesNodeStopallAction(ProxmoxAction):
     Stop all VMs and Containers.
     """
 
-    def run(self, node, force_stop=True, timeout=180, vms=None, profile_name=None):
+    def run(self, node, force_stop=None, timeout=None, vms=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

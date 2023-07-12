@@ -7,12 +7,10 @@ entry_point: "access_domains_realm_sync.py"
 parameters:
   dry_run:
     description: "If set, does not write anything."
-    default: False
     type: boolean
     required: false
   enable_new:
     description: "Enable newly synced users immediately."
-    default: True
     type: boolean
     required: false
   full:
@@ -29,15 +27,10 @@ parameters:
     required: true
   remove_vanished:
     description: "A semicolon-seperated list of things to remove when they or the user vanishes during a sync. The following values are possible: 'entry' removes the user/group when not returned from the sync. 'properties' removes the set properties on existing user/group that do not appear in the source (even custom ones). 'acl' removes acls when the user/group is not returned from the sync. Instead of a list it also can be 'none' (the default)."
-    default: "none"
     type: string
     required: false
   scope:
     description: "Select what to sync."
-    enum:
-      - users
-      - groups
-      - both
     type: string
     required: false
   profile_name:

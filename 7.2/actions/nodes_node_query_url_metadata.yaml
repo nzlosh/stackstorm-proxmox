@@ -15,7 +15,6 @@ parameters:
     required: true
   verify_certificates:
     description: "If false, no SSL/TLS certificates will be verified."
-    default: True
     type: boolean
     required: false
   profile_name:

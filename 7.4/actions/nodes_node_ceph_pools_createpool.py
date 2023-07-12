@@ -7,7 +7,7 @@ class NodesNodeCephPoolsCreatepoolAction(ProxmoxAction):
     Create Ceph pool. Deprecated, please use `/nodes/{node}/ceph/pool`.
     """
 
-    def run(self, name, node, add_storages=True, application="rbd", crush_rule=None, erasure_coding=None, min_size=2, pg_autoscale_mode="warn", pg_num=128, pg_num_min=None, size=3, target_size=None, target_size_ratio=None, profile_name=None):
+    def run(self, name, node, add_storages=None, application=None, crush_rule=None, erasure_coding=None, min_size=None, pg_autoscale_mode=None, pg_num=None, pg_num_min=None, size=None, target_size=None, target_size_ratio=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

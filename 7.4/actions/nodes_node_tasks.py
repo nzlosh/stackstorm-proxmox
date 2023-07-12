@@ -7,7 +7,7 @@ class NodesNodeTasksNodeTasksAction(ProxmoxAction):
     Read task list for one node (finished tasks).
     """
 
-    def run(self, node, errors=False, limit=50, since=None, source="archive", start=0, statusfilter=None, typefilter=None, until=None, userfilter=None, vmid=None, profile_name=None):
+    def run(self, node, errors=None, limit=None, since=None, source=None, start=None, statusfilter=None, typefilter=None, until=None, userfilter=None, vmid=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

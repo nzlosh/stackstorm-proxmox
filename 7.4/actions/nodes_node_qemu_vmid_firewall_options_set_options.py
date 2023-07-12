@@ -7,7 +7,7 @@ class NodesNodeQemuVmidFirewallOptionsSetOptionsAction(ProxmoxAction):
     Set Firewall options.
     """
 
-    def run(self, node, vmid, delete=None, dhcp=False, digest=None, enable=False, ipfilter=None, log_level_in=None, log_level_out=None, macfilter=True, ndp=False, policy_in=None, policy_out=None, radv=None, profile_name=None):
+    def run(self, node, vmid, delete=None, dhcp=None, digest=None, enable=None, ipfilter=None, log_level_in=None, log_level_out=None, macfilter=None, ndp=None, policy_in=None, policy_out=None, radv=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

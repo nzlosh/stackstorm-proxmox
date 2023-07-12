@@ -11,12 +11,10 @@ parameters:
     required: false
   disable_cephx:
     description: "Disable cephx authentication.  WARNING: cephx is a security feature protecting against man-in-the-middle attacks. Only consider disabling cephx if your network is private!"
-    default: False
     type: boolean
     required: false
   min_size:
     description: "Minimum number of available replicas per object to allow I/O"
-    default: 2
     type: integer
     required: false
   network:
@@ -29,12 +27,10 @@ parameters:
     required: true
   pg_bits:
     description: "Placement group bits, used to specify the default number of placement groups.  NOTE: 'osd pool default pg num' does not work for default pools."
-    default: 6
     type: integer
     required: false
   size:
     description: "Targeted number of replicas per object"
-    default: 3
     type: integer
     required: false
   profile_name:

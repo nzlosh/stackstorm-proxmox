@@ -11,10 +11,6 @@ parameters:
     required: true
   prox_format:
     description: "Description unavailable."
-    enum:
-      - raw
-      - qcow2
-      - subvol
     type: string
     required: false
   node:

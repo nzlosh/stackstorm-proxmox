@@ -19,7 +19,6 @@ parameters:
     required: true
   link_list:
     description: "Address and priority information of a single corosync link."
-    default: "IP resolved by node's hostname"
     type: string
     required: false
   nodeid:

@@ -7,7 +7,7 @@ class NodesNodeStorageIndexAction(ProxmoxAction):
     Get status for all datastores.
     """
 
-    def run(self, node, content=None, enabled=False, prox_format=False, storage=None, target=None, profile_name=None):
+    def run(self, node, content=None, enabled=None, prox_format=None, storage=None, target=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

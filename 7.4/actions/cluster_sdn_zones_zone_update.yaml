@@ -91,10 +91,6 @@ parameters:
     required: false
   vlan_protocol:
     description: "Description unavailable."
-    default: "802.1q"
-    enum:
-      - 802.1q
-      - 802.1ad
     type: string
     required: false
   vrf_vxlan:

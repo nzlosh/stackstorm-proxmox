@@ -7,7 +7,6 @@ entry_point: "nodes_node_ceph_osd_osdid_scrub.py"
 parameters:
   deep:
     description: "If set, instructs a deep scrub instead of a normal one."
-    default: False
     type: boolean
     required: false
   node:

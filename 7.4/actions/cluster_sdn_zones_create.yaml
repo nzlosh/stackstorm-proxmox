@@ -83,21 +83,10 @@ parameters:
     required: false
   prox_type:
     description: "Plugin type."
-    enum:
-      - evpn
-      - faucet
-      - qinq
-      - simple
-      - vlan
-      - vxlan
     type: string
     required: true
   vlan_protocol:
     description: "Description unavailable."
-    default: "802.1q"
-    enum:
-      - 802.1q
-      - 802.1ad
     type: string
     required: false
   vrf_vxlan:

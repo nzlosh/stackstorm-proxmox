@@ -7,7 +7,6 @@ entry_point: "nodes_node_lxc_vmid_migrate_migrate_vm.py"
 parameters:
   bwlimit:
     description: "Override I/O bandwidth limit (in KiB/s)."
-    default: 0
     type: number
     required: false
   node:
@@ -32,7 +31,6 @@ parameters:
     required: false
   timeout:
     description: "Timeout in seconds for shutdown for restart migration"
-    default: 180
     type: integer
     required: false
   vmid:

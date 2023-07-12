@@ -7,7 +7,7 @@ class ClusterSdnZonesZoneUpdateAction(ProxmoxAction):
     Update sdn zone object configuration.
     """
 
-    def run(self, zone, bridge=None, controller=None, delete=None, digest=None, dns=None, dnszone=None, dp_id=None, exitnodes=None, ipam=None, mac=None, mtu=None, nodes=None, peers=None, reversedns=None, tag=None, vlan_protocol="802.1q", vrf_vxlan=None, profile_name=None):
+    def run(self, zone, bridge=None, controller=None, delete=None, digest=None, dns=None, dnszone=None, dp_id=None, exitnodes=None, ipam=None, mac=None, mtu=None, nodes=None, peers=None, reversedns=None, tag=None, vlan_protocol=None, vrf_vxlan=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

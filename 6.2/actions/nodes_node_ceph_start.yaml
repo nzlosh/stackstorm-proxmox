@@ -11,7 +11,6 @@ parameters:
     required: true
   service:
     description: "Ceph service name."
-    default: "ceph.target"
     type: string
     required: false
   profile_name:

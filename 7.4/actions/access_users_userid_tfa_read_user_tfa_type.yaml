@@ -7,7 +7,6 @@ entry_point: "access_users_userid_tfa_read_user_tfa_type.py"
 parameters:
   multiple:
     description: "Request all entries as an array."
-    default: False
     type: boolean
     required: false
   userid:

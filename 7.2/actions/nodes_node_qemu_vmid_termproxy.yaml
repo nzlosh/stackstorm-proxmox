@@ -11,11 +11,6 @@ parameters:
     required: true
   serial:
     description: "opens a serial terminal (defaults to display)"
-    enum:
-      - serial0
-      - serial1
-      - serial2
-      - serial3
     type: string
     required: false
   vmid:

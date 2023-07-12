@@ -7,10 +7,6 @@ entry_point: "cluster_sdn_ipams_index.py"
 parameters:
   prox_type:
     description: "Only list sdn ipams of specific type"
-    enum:
-      - netbox
-      - phpipam
-      - pve
     type: string
     required: false
   profile_name:

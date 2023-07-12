@@ -15,7 +15,6 @@ parameters:
     required: false
   capath:
     description: "Path to the CA certificate store"
-    default: "/etc/ssl/certs"
     type: string
     required: false
   cert:
@@ -68,11 +67,6 @@ parameters:
     required: false
   sslversion:
     description: "LDAPS TLS/SSL version. It's not recommended to use version older than 1.2!"
-    enum:
-      - tlsv1
-      - tlsv1_1
-      - tlsv1_2
-      - tlsv1_3
     type: string
     required: false
   tfa:
@@ -85,7 +79,6 @@ parameters:
     required: false
   verify:
     description: "Verify the server's SSL certificate"
-    default: False
     type: boolean
     required: false
   profile_name:

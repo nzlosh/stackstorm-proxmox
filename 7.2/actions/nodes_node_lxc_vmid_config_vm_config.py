@@ -7,7 +7,7 @@ class NodesNodeLxcVmidConfigVmConfigAction(ProxmoxAction):
     Get container configuration.
     """
 
-    def run(self, node, vmid, current=False, snapshot=None, profile_name=None):
+    def run(self, node, vmid, current=None, snapshot=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

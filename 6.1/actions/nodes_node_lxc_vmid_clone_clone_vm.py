@@ -7,7 +7,7 @@ class NodesNodeLxcVmidCloneCloneVmAction(ProxmoxAction):
     Create a container clone/copy
     """
 
-    def run(self, newid, node, vmid, bwlimit=clone limit from datacenter or storage config, description=None, full=None, hostname=None, pool=None, snapname=None, storage=None, target=None, profile_name=None):
+    def run(self, newid, node, vmid, bwlimit=None, description=None, full=None, hostname=None, pool=None, snapname=None, storage=None, target=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

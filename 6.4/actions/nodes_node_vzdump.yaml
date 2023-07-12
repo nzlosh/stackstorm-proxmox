@@ -7,23 +7,14 @@ entry_point: "nodes_node_vzdump.py"
 parameters:
   prox_all:
     description: "Backup all known guest systems on this host."
-    default: False
     type: boolean
     required: false
   bwlimit:
     description: "Limit I/O bandwidth (KBytes per second)."
-    default: 0
     type: integer
     required: false
   compress:
     description: "Compress dump file."
-    default: "0"
-    enum:
-      - 0
-      - 1
-      - gzip
-      - lzo
-      - zstd
     type: string
     required: false
   dumpdir:
@@ -40,20 +31,14 @@ parameters:
     required: false
   ionice:
     description: "Set CFQ ionice priority."
-    default: 7
     type: integer
     required: false
   lockwait:
     description: "Maximal time to wait for the global lock (minutes)."
-    default: 180
     type: integer
     required: false
   mailnotification:
     description: "Specify when to send an email"
-    default: "always"
-    enum:
-      - always
-      - failure
     type: string
     required: false
   mailto:
@@ -62,16 +47,10 @@ parameters:
     required: false
   maxfiles:
     description: "Maximal number of backup files per guest system."
-    default: 1
     type: integer
     required: false
   mode:
     description: "Backup mode."
-    default: "snapshot"
-    enum:
-      - snapshot
-      - suspend
-      - stop
     type: string
     required: false
   node:
@@ -80,7 +59,6 @@ parameters:
     required: false
   pigz:
     description: "Use pigz instead of gzip when N>0. N=1 uses half of cores, N>1 uses N as thread count."
-    default: 0
     type: integer
     required: false
   pool:
@@ -93,12 +71,10 @@ parameters:
     required: false
   quiet:
     description: "Be quiet."
-    default: False
     type: boolean
     required: false
   remove:
     description: "Remove old backup files if there are more than 'maxfiles' backup files."
-    default: True
     type: boolean
     required: false
   script:
@@ -107,12 +83,10 @@ parameters:
     required: false
   size:
     description: "Unused, will be removed in a future release."
-    default: 1024
     type: integer
     required: false
   stdexcludes:
     description: "Exclude temporary files and logs."
-    default: True
     type: boolean
     required: false
   stdout:
@@ -121,12 +95,10 @@ parameters:
     required: false
   stop:
     description: "Stop running backup jobs on this host."
-    default: False
     type: boolean
     required: false
   stopwait:
     description: "Maximal time to wait until a guest system is stopped (minutes)."
-    default: 10
     type: integer
     required: false
   storage:
@@ -143,7 +115,6 @@ parameters:
     required: false
   zstd:
     description: "Zstd threads. N=0 uses half of the available cores, N>0 uses N as thread count."
-    default: 1
     type: integer
     required: false
   profile_name:

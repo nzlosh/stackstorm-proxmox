@@ -7,12 +7,10 @@ entry_point: "nodes_node_ceph_fs_name_createfs.py"
 parameters:
   add_storage:
     description: "Configure the created CephFS as storage for this cluster."
-    default: False
     type: boolean
     required: false
   name:
     description: "The ceph filesystem name."
-    default: "cephfs"
     type: string
     required: false
   node:
@@ -21,7 +19,6 @@ parameters:
     required: true
   pg_num:
     description: "Number of placement groups for the backing data pool. The metadata pool will use a quarter of this."
-    default: 128
     type: integer
     required: false
   profile_name:

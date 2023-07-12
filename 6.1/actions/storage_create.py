@@ -7,7 +7,7 @@ class StorageCreateAction(ProxmoxAction):
     Create a new storage.
     """
 
-    def run(self, storage, prox_type, authsupported=None, base=None, blocksize=None, bwlimit=None, comstar_hg=None, comstar_tg=None, content=None, disable=None, domain=None, export=None, prox_format=None, fuse=None, is_mountpoint="no", iscsiprovider=None, krbd=None, lio_tpg=None, maxfiles=None, mkdir=True, monhost=None, mountpoint=None, nodes=None, nowritecache=None, options=None, password=None, path=None, pool=None, portal=None, redundancy=2, saferemove=None, saferemove_throughput=None, server=None, server2=None, share=None, shared=None, smbversion=None, sparse=None, subdir=None, tagged_only=None, target=None, thinpool=None, transport=None, username=None, vgname=None, volume=None, profile_name=None):
+    def run(self, storage, prox_type, authsupported=None, base=None, blocksize=None, bwlimit=None, comstar_hg=None, comstar_tg=None, content=None, disable=None, domain=None, export=None, prox_format=None, fuse=None, is_mountpoint=None, iscsiprovider=None, krbd=None, lio_tpg=None, maxfiles=None, mkdir=None, monhost=None, mountpoint=None, nodes=None, nowritecache=None, options=None, password=None, path=None, pool=None, portal=None, redundancy=None, saferemove=None, saferemove_throughput=None, server=None, server2=None, share=None, shared=None, smbversion=None, sparse=None, subdir=None, tagged_only=None, target=None, thinpool=None, transport=None, username=None, vgname=None, volume=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

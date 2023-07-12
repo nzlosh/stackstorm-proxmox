@@ -7,9 +7,6 @@ entry_point: "nodes_node_storage_storage_rrd.py"
 parameters:
   cf:
     description: "The RRD consolidation function"
-    enum:
-      - AVERAGE
-      - MAX
     type: string
     required: false
   ds:
@@ -26,12 +23,6 @@ parameters:
     required: true
   timeframe:
     description: "Specify the time frame you are interested in."
-    enum:
-      - hour
-      - day
-      - week
-      - month
-      - year
     type: string
     required: true
   profile_name:

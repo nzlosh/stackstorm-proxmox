@@ -7,7 +7,7 @@ class AccessDomainsCreateAction(ProxmoxAction):
     Add an authentication server.
     """
 
-    def run(self, realm, prox_type, acr_values=None, autocreate=False, base_dn=None, bind_dn=None, capath="/etc/ssl/certs", case_sensitive=True, cert=None, certkey=None, client_id=None, client_key=None, comment=None, default=None, domain=None, prox_filter=None, group_classes="groupOfNames, group, univentionGroup, ipausergroup", group_dn=None, group_filter=None, group_name_attr=None, issuer_url=None, mode="ldap", password=None, port=None, prompt=None, scopes="email profile", secure=None, server1=None, server2=None, sslversion=None, sync_defaults_options=None, sync_attributes=None, tfa=None, user_attr=None, user_classes="inetorgperson, posixaccount, person, user", username_claim=None, verify=False, profile_name=None):
+    def run(self, realm, prox_type, acr_values=None, autocreate=None, base_dn=None, bind_dn=None, capath=None, case_sensitive=None, cert=None, certkey=None, client_id=None, client_key=None, comment=None, default=None, domain=None, prox_filter=None, group_classes=None, group_dn=None, group_filter=None, group_name_attr=None, issuer_url=None, mode=None, password=None, port=None, prompt=None, scopes=None, secure=None, server1=None, server2=None, sslversion=None, sync_defaults_options=None, sync_attributes=None, tfa=None, user_attr=None, user_classes=None, username_claim=None, verify=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

@@ -7,12 +7,10 @@ entry_point: "nodes_node_ceph_mds_name_createmds.py"
 parameters:
   hotstandby:
     description: "Determines whether a ceph-mds daemon should poll and replay the log of an active MDS. Faster switch on MDS failure, but needs more idle resources."
-    default: True
     type: boolean
     required: false
   name:
     description: "The ID for the mds, when omitted the same as the nodename"
-    default: "nodename"
     type: string
     required: false
   node:

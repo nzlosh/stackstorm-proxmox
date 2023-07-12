@@ -7,7 +7,7 @@ class NodesNodeDisksDirectoryNameDeleteAction(ProxmoxAction):
     Unmounts the storage and removes the mount unit.
     """
 
-    def run(self, name, node, cleanup_config=False, cleanup_disks=False, profile_name=None):
+    def run(self, name, node, cleanup_config=None, cleanup_disks=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

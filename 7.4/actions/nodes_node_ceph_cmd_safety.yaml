@@ -7,9 +7,6 @@ entry_point: "nodes_node_ceph_cmd_safety.py"
 parameters:
   action:
     description: "Action to check"
-    enum:
-      - stop
-      - destroy
     type: string
     required: true
   prox_id:
@@ -22,10 +19,6 @@ parameters:
     required: true
   service:
     description: "Service type"
-    enum:
-      - osd
-      - mon
-      - mds
     type: string
     required: true
   profile_name:

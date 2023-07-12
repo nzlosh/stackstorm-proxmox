@@ -7,21 +7,6 @@ entry_point: "storage_index.py"
 parameters:
   prox_type:
     description: "Only list storage of specific type"
-    enum:
-      - cephfs
-      - cifs
-      - dir
-      - drbd
-      - glusterfs
-      - iscsi
-      - iscsidirect
-      - lvm
-      - lvmthin
-      - nfs
-      - pbs
-      - rbd
-      - zfs
-      - zfspool
     type: string
     required: false
   profile_name:

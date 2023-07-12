@@ -7,7 +7,7 @@ class NodesNodeCephPoolsCreatepoolAction(ProxmoxAction):
     Create POOL
     """
 
-    def run(self, name, node, add_storages=None, application=None, crush_rule=None, min_size=2, pg_num=128, size=3, profile_name=None):
+    def run(self, name, node, add_storages=None, application=None, crush_rule=None, min_size=None, pg_num=None, size=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

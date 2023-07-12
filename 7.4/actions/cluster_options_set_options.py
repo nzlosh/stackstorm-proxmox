@@ -7,7 +7,7 @@ class ClusterOptionsSetOptionsAction(ProxmoxAction):
     Set datacenter options.
     """
 
-    def run(self, bwlimit=None, console=None, crs=None, delete=None, description=None, email_from=None, fencing="watchdog", ha=None, http_proxy=None, keyboard=None, language=None, mac_prefix=None, max_workers=None, migration=None, migration_unsecure=None, next_id=None, notify=None, registered_tags=None, tag_style=None, u2f=None, user_tag_access=None, webauthn=None, profile_name=None):
+    def run(self, bwlimit=None, console=None, crs=None, delete=None, description=None, email_from=None, fencing=None, ha=None, http_proxy=None, keyboard=None, language=None, mac_prefix=None, max_workers=None, migration=None, migration_unsecure=None, next_id=None, notify=None, registered_tags=None, tag_style=None, u2f=None, user_tag_access=None, webauthn=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

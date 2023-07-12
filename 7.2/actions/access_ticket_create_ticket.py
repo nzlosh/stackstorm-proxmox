@@ -7,7 +7,7 @@ class AccessTicketCreateTicketAction(ProxmoxAction):
     Create or verify authentication ticket.
     """
 
-    def run(self, password, username, new_format=False, otp=None, path=None, privs=None, realm=None, tfa_challenge=None, profile_name=None):
+    def run(self, password, username, new_format=None, otp=None, path=None, privs=None, realm=None, tfa_challenge=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

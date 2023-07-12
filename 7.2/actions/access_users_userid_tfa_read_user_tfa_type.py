@@ -7,7 +7,7 @@ class AccessUsersUseridTfaReadUserTfaTypeAction(ProxmoxAction):
     Get user TFA types (Personal and Realm).
     """
 
-    def run(self, userid, multiple=False, profile_name=None):
+    def run(self, userid, multiple=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

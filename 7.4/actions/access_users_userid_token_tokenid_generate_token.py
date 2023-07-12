@@ -7,7 +7,7 @@ class AccessUsersUseridTokenTokenidGenerateTokenAction(ProxmoxAction):
     Generate a new API token for a specific user. NOTE: returns API token value, which needs to be stored as it cannot be retrieved afterwards!
     """
 
-    def run(self, tokenid, userid, comment=None, expire=1, privsep=True, profile_name=None):
+    def run(self, tokenid, userid, comment=None, expire=None, privsep=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

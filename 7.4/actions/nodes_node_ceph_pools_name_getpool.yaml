@@ -15,7 +15,6 @@ parameters:
     required: true
   verbose:
     description: "If enabled, will display additional data(eg. statistics)."
-    default: False
     type: boolean
     required: false
   profile_name:

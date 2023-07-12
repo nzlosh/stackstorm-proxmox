@@ -7,7 +7,7 @@ class ClusterAcmePluginsIdUpdatePluginAction(ProxmoxAction):
     Update ACME plugin configuration.
     """
 
-    def run(self, prox_id, api=None, data=None, delete=None, digest=None, disable=None, nodes=None, validation_delay=30, profile_name=None):
+    def run(self, prox_id, api=None, data=None, delete=None, digest=None, disable=None, nodes=None, validation_delay=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

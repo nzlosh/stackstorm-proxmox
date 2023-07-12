@@ -7,12 +7,10 @@ entry_point: "cluster_backup_id_update_job.py"
 parameters:
   prox_all:
     description: "Backup all known guest systems on this host."
-    default: False
     type: boolean
     required: false
   bwlimit:
     description: "Limit I/O bandwidth (KBytes per second)."
-    default: 0
     type: integer
     required: false
   comment:
@@ -21,13 +19,6 @@ parameters:
     required: false
   compress:
     description: "Compress dump file."
-    default: "0"
-    enum:
-      - 0
-      - 1
-      - gzip
-      - lzo
-      - zstd
     type: string
     required: false
   delete:
@@ -44,7 +35,6 @@ parameters:
     required: false
   enabled:
     description: "Enable or disable the job."
-    default: True
     type: boolean
     required: false
   exclude:
@@ -61,20 +51,14 @@ parameters:
     required: true
   ionice:
     description: "Set CFQ ionice priority."
-    default: 7
     type: integer
     required: false
   lockwait:
     description: "Maximal time to wait for the global lock (minutes)."
-    default: 180
     type: integer
     required: false
   mailnotification:
     description: "Specify when to send an email"
-    default: "always"
-    enum:
-      - always
-      - failure
     type: string
     required: false
   mailto:
@@ -87,11 +71,6 @@ parameters:
     required: false
   mode:
     description: "Backup mode."
-    default: "snapshot"
-    enum:
-      - snapshot
-      - suspend
-      - stop
     type: string
     required: false
   node:
@@ -108,7 +87,6 @@ parameters:
     required: false
   pigz:
     description: "Use pigz instead of gzip when N>0. N=1 uses half of cores, N>1 uses N as thread count."
-    default: 0
     type: integer
     required: false
   pool:
@@ -121,22 +99,18 @@ parameters:
     required: false
   prune_backups:
     description: "Use these retention options instead of those from the storage configuration."
-    default: "keep-all=1"
     type: string
     required: false
   quiet:
     description: "Be quiet."
-    default: False
     type: boolean
     required: false
   remove:
     description: "Prune older backups according to 'prune-backups'."
-    default: True
     type: boolean
     required: false
   repeat_missed:
     description: "If true, the job will be run as soon as possible if it was missed while the scheduler was not running."
-    default: False
     type: boolean
     required: false
   schedule:
@@ -153,17 +127,14 @@ parameters:
     required: false
   stdexcludes:
     description: "Exclude temporary files and logs."
-    default: True
     type: boolean
     required: false
   stop:
     description: "Stop running backup jobs on this host."
-    default: False
     type: boolean
     required: false
   stopwait:
     description: "Maximal time to wait until a guest system is stopped (minutes)."
-    default: 10
     type: integer
     required: false
   storage:
@@ -180,7 +151,6 @@ parameters:
     required: false
   zstd:
     description: "Zstd threads. N=0 uses half of the available cores, N>0 uses N as thread count."
-    default: 1
     type: integer
     required: false
   profile_name:

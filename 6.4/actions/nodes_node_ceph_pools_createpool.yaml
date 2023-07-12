@@ -11,11 +11,6 @@ parameters:
     required: false
   application:
     description: "The application of the pool."
-    default: "rbd"
-    enum:
-      - rbd
-      - cephfs
-      - rgw
     type: string
     required: false
   crush_rule:
@@ -24,7 +19,6 @@ parameters:
     required: false
   min_size:
     description: "Minimum number of replicas per object"
-    default: 2
     type: integer
     required: false
   name:
@@ -37,16 +31,10 @@ parameters:
     required: true
   pg_autoscale_mode:
     description: "The automatic PG scaling mode of the pool."
-    default: "warn"
-    enum:
-      - on
-      - off
-      - warn
     type: string
     required: false
   pg_num:
     description: "Number of placement groups."
-    default: 128
     type: integer
     required: false
   pg_num_min:
@@ -55,7 +43,6 @@ parameters:
     required: false
   size:
     description: "Number of replicas per object"
-    default: 3
     type: integer
     required: false
   target_size:

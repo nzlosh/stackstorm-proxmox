@@ -11,12 +11,10 @@ parameters:
     required: true
   notify:
     description: "Send notification mail about new packages (to email address specified for user 'root@pam')."
-    default: False
     type: boolean
     required: false
   quiet:
     description: "Only produces output suitable for logging, omitting progress indicators."
-    default: False
     type: boolean
     required: false
   profile_name:

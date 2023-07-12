@@ -7,18 +7,6 @@ entry_point: "cluster_ceph_flags_flag_update_flag.py"
 parameters:
   flag:
     description: "The ceph flag to update"
-    enum:
-      - nobackfill
-      - nodeep-scrub
-      - nodown
-      - noin
-      - noout
-      - norebalance
-      - norecover
-      - noscrub
-      - notieragent
-      - noup
-      - pause
     type: string
     required: true
   value:

@@ -7,7 +7,7 @@ class NodesNodeCephOsdOsdidLvInfoOsdvolumeAction(ProxmoxAction):
     Get OSD volume details
     """
 
-    def run(self, node, osdid, prox_type="block", profile_name=None):
+    def run(self, node, osdid, prox_type=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

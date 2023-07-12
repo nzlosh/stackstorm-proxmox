@@ -7,10 +7,6 @@ entry_point: "nodes_node_ceph_pools_name_setpool.py"
 parameters:
   application:
     description: "The application of the pool."
-    enum:
-      - rbd
-      - cephfs
-      - rgw
     type: string
     required: false
   crush_rule:
@@ -31,10 +27,6 @@ parameters:
     required: true
   pg_autoscale_mode:
     description: "The automatic PG scaling mode of the pool."
-    enum:
-      - on
-      - off
-      - warn
     type: string
     required: false
   pg_num:

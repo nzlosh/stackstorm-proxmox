@@ -7,7 +7,7 @@ class NodesNodeCephOsdCreateosdAction(ProxmoxAction):
     Create OSD
     """
 
-    def run(self, dev, node, crush_device_class=None, db_dev=None, db_dev_size=0.5, encrypted=False, wal_dev=None, wal_dev_size=1, profile_name=None):
+    def run(self, dev, node, crush_device_class=None, db_dev=None, db_dev_size=None, encrypted=None, wal_dev=None, wal_dev_size=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

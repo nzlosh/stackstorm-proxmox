@@ -11,7 +11,6 @@ parameters:
     required: false
   db_size:
     description: "Size in GiB for block.db."
-    default: bluestore_block_db_size or 10% of OSD size
     type: number
     required: false
   dev:
@@ -20,7 +19,6 @@ parameters:
     required: true
   encrypted:
     description: "Enables encryption of the OSD."
-    default: False
     type: boolean
     required: false
   node:
@@ -33,7 +31,6 @@ parameters:
     required: false
   wal_size:
     description: "Size in GiB for block.wal."
-    default: bluestore_block_wal_size or 1% of OSD size
     type: number
     required: false
   profile_name:

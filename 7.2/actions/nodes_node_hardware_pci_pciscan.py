@@ -7,7 +7,7 @@ class NodesNodeHardwarePciPciscanAction(ProxmoxAction):
     List local PCI devices.
     """
 
-    def run(self, node, pci_class_blacklist="05;06;0b", verbose=True, profile_name=None):
+    def run(self, node, pci_class_blacklist=None, verbose=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

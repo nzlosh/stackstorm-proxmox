@@ -7,11 +7,6 @@ entry_point: "cluster_resources.py"
 parameters:
   prox_type:
     description: "Description unavailable."
-    enum:
-      - vm
-      - storage
-      - node
-      - sdn
     type: string
     required: false
   profile_name:

@@ -7,7 +7,6 @@ entry_point: "nodes_node_qemu_vmid_vncproxy.py"
 parameters:
   generate_password:
     description: "Generates a random password to be used as ticket instead of the API ticket."
-    default: False
     type: boolean
     required: false
   node:

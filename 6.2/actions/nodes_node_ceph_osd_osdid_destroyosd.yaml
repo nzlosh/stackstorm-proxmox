@@ -7,7 +7,6 @@ entry_point: "nodes_node_ceph_osd_osdid_destroyosd.py"
 parameters:
   cleanup:
     description: "If set, we remove partition table entries."
-    default: False
     type: boolean
     required: false
   node:

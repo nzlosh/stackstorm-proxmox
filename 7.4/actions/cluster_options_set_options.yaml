@@ -11,11 +11,6 @@ parameters:
     required: false
   console:
     description: "Select the default Console viewer. You can either use the builtin java applet (VNC; deprecated and maps to html5), an external virt-viewer comtatible application (SPICE), an HTML5 based vnc viewer (noVNC), or an HTML5 based console client (xtermjs). If the selected viewer is not available (e.g. SPICE not activated for the VM), the fallback is noVNC."
-    enum:
-      - applet
-      - vv
-      - html5
-      - xtermjs
     type: string
     required: false
   crs:
@@ -36,11 +31,6 @@ parameters:
     required: false
   fencing:
     description: "Set the fencing mode of the HA cluster. Hardware mode needs a valid configuration of fence devices in /etc/pve/ha/fence.cfg. With both all two modes are used.  WARNING: 'hardware' and 'both' are EXPERIMENTAL & WIP"
-    default: "watchdog"
-    enum:
-      - watchdog
-      - hardware
-      - both
     type: string
     required: false
   ha:
@@ -53,58 +43,10 @@ parameters:
     required: false
   keyboard:
     description: "Default keybord layout for vnc server."
-    enum:
-      - de
-      - de-ch
-      - da
-      - en-gb
-      - en-us
-      - es
-      - fi
-      - fr
-      - fr-be
-      - fr-ca
-      - fr-ch
-      - hu
-      - is
-      - it
-      - ja
-      - lt
-      - mk
-      - nl
-      - no
-      - pl
-      - pt
-      - pt-br
-      - sv
-      - sl
-      - tr
     type: string
     required: false
   language:
     description: "Default GUI language."
-    enum:
-      - ca
-      - da
-      - de
-      - en
-      - es
-      - eu
-      - fa
-      - fr
-      - he
-      - it
-      - ja
-      - nb
-      - nn
-      - pl
-      - pt_BR
-      - ru
-      - sl
-      - sv
-      - tr
-      - zh_CN
-      - zh_TW
     type: string
     required: false
   mac_prefix:

@@ -7,7 +7,6 @@ entry_point: "nodes_node_lxc_vmid_clone_clone_vm.py"
 parameters:
   bwlimit:
     description: "Override I/O bandwidth limit (in KiB/s)."
-    default: clone limit from datacenter or storage config
     type: number
     required: false
   description:

@@ -7,7 +7,7 @@ class NodesNodeStorageStorageDownloadUrlDownloadUrlAction(ProxmoxAction):
     Download templates and ISO images by using an URL.
     """
 
-    def run(self, content, filename, node, storage, url, checksum=None, checksum_algorithm=None, verify_certificates=True, profile_name=None):
+    def run(self, content, filename, node, storage, url, checksum=None, checksum_algorithm=None, verify_certificates=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

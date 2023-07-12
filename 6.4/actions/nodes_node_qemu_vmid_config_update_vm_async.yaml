@@ -7,7 +7,6 @@ entry_point: "nodes_node_qemu_vmid_config_update_vm_async.py"
 parameters:
   acpi:
     description: "Enable/disable ACPI."
-    default: True
     type: boolean
     required: false
   agent:
@@ -16,9 +15,6 @@ parameters:
     required: false
   arch:
     description: "Virtual processor architecture. Defaults to the host."
-    enum:
-      - x86_64
-      - aarch64
     type: string
     required: false
   args:
@@ -31,7 +27,6 @@ parameters:
     required: false
   autostart:
     description: "Automatic restart after crash (currently ignored)."
-    default: False
     type: boolean
     required: false
   background_delay:
@@ -44,10 +39,6 @@ parameters:
     required: false
   bios:
     description: "Select BIOS implementation."
-    default: "seabios"
-    enum:
-      - seabios
-      - ovmf
     type: string
     required: false
   boot:
@@ -72,10 +63,6 @@ parameters:
     required: false
   citype:
     description: "Specifies the cloud-init configuration format. The default depends on the configured operating system type (`ostype`. We use the `nocloud` format for Linux, and `configdrive2` for windows."
-    enum:
-      - configdrive2
-      - nocloud
-      - opennebula
     type: string
     required: false
   ciuser:
@@ -84,7 +71,6 @@ parameters:
     required: false
   cores:
     description: "The number of cores per socket."
-    default: 1
     type: integer
     required: false
   cpu:
@@ -93,12 +79,10 @@ parameters:
     required: false
   cpulimit:
     description: "Limit of CPU usage."
-    default: 0
     type: number
     required: false
   cpuunits:
     description: "CPU weight for a VM."
-    default: 1024
     type: integer
     required: false
   delete:
@@ -135,15 +119,10 @@ parameters:
     required: false
   hotplug:
     description: "Selectively enable hotplug features. This is a comma separated list of hotplug features: 'network', 'disk', 'cpu', 'memory' and 'usb'. Use '0' to disable hotplug completely. Value '1' is an alias for the default 'network,disk,usb'."
-    default: "network,disk,usb"
     type: string
     required: false
   hugepages:
     description: "Enable/disable hugepages memory."
-    enum:
-      - any
-      - 2
-      - 1024
     type: string
     required: false
   ide_list:
@@ -160,43 +139,14 @@ parameters:
     required: false
   keephugepages:
     description: "Use together with hugepages. If enabled, hugepages will not not be deleted after VM shutdown and can be used for subsequent starts."
-    default: False
     type: boolean
     required: false
   keyboard:
     description: "Keybord layout for vnc server. Default is read from the '/etc/pve/datacenter.cfg' configuration file.It should not be necessary to set it."
-    default: null
-    enum:
-      - de
-      - de-ch
-      - da
-      - en-gb
-      - en-us
-      - es
-      - fi
-      - fr
-      - fr-be
-      - fr-ca
-      - fr-ch
-      - hu
-      - is
-      - it
-      - ja
-      - lt
-      - mk
-      - nl
-      - no
-      - pl
-      - pt
-      - pt-br
-      - sv
-      - sl
-      - tr
     type: string
     required: false
   kvm:
     description: "Enable/disable KVM hardware virtualization."
-    default: True
     type: boolean
     required: false
   localtime:
@@ -205,16 +155,6 @@ parameters:
     required: false
   lock:
     description: "Lock/unlock the VM."
-    enum:
-      - backup
-      - clone
-      - create
-      - migrate
-      - rollback
-      - snapshot
-      - snapshot-delete
-      - suspending
-      - suspended
     type: string
     required: false
   machine:
@@ -223,17 +163,14 @@ parameters:
     required: false
   memory:
     description: "Amount of RAM for the VM in MB. This is the maximum available memory when you use the balloon device."
-    default: 512
     type: integer
     required: false
   migrate_downtime:
     description: "Set maximum tolerated downtime (in seconds) for migrations."
-    default: 0.1
     type: number
     required: false
   migrate_speed:
     description: "Set maximum speed (in MB/s) for migrations. Value 0 is no limit."
-    default: 0
     type: integer
     required: false
   name:
@@ -254,7 +191,6 @@ parameters:
     required: true
   numa:
     description: "Enable/disable NUMA."
-    default: False
     type: boolean
     required: false
   numa_list:
@@ -263,24 +199,10 @@ parameters:
     required: false
   onboot:
     description: "Specifies whether a VM will be started during system bootup."
-    default: False
     type: boolean
     required: false
   ostype:
     description: "Specify guest operating system."
-    enum:
-      - other
-      - wxp
-      - w2k
-      - w2k3
-      - w2k8
-      - wvista
-      - win7
-      - win8
-      - win10
-      - l24
-      - l26
-      - solaris
     type: string
     required: false
   parallel_list:
@@ -289,12 +211,10 @@ parameters:
     required: false
   protection:
     description: "Sets the protection flag of the VM. This will disable the remove VM and remove disk operations."
-    default: False
     type: boolean
     required: false
   reboot:
     description: "Allow reboot. If set to '0' the VM exit on reboot."
-    default: True
     type: boolean
     required: false
   revert:
@@ -315,14 +235,6 @@ parameters:
     required: false
   scsihw:
     description: "SCSI controller model"
-    default: "lsi"
-    enum:
-      - lsi
-      - lsi53c810
-      - virtio-scsi-pci
-      - virtio-scsi-single
-      - megasas
-      - pvscsi
     type: string
     required: false
   searchdomain:
@@ -335,7 +247,6 @@ parameters:
     required: false
   shares:
     description: "Amount of memory shares for auto-ballooning. The larger the number is, the more memory this VM gets. Number is relative to weights of all other running VMs. Using zero disables auto-ballooning. Auto-ballooning is done by pvestatd."
-    default: 1000
     type: integer
     required: false
   skiplock:
@@ -348,12 +259,10 @@ parameters:
     required: false
   smp:
     description: "The number of CPUs. Please use option -sockets instead."
-    default: 1
     type: integer
     required: false
   sockets:
     description: "The number of CPU sockets."
-    default: 1
     type: integer
     required: false
   spice_enhancements:
@@ -366,7 +275,6 @@ parameters:
     required: false
   startdate:
     description: "Set the initial date of the real time clock. Valid format for date are:'now' or '2006-06-17T16:01:21' or '2006-06-17'."
-    default: "now"
     type: string
     required: false
   startup:
@@ -375,7 +283,6 @@ parameters:
     required: false
   tablet:
     description: "Enable/disable the USB tablet device."
-    default: True
     type: boolean
     required: false
   tags:
@@ -384,12 +291,10 @@ parameters:
     required: false
   tdf:
     description: "Enable/disable time drift fix."
-    default: False
     type: boolean
     required: false
   template:
     description: "Enable/disable Template."
-    default: False
     type: boolean
     required: false
   unused_list:
@@ -402,7 +307,6 @@ parameters:
     required: false
   vcpus:
     description: "Number of hotplugged vcpus."
-    default: 0
     type: integer
     required: false
   vga:
@@ -415,7 +319,6 @@ parameters:
     required: false
   vmgenid:
     description: "Set VM Generation ID. Use '1' to autogenerate on create or update, pass '0' to disable explicitly."
-    default: "1 (autogenerated)"
     type: string
     required: false
   vmid:

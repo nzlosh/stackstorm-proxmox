@@ -7,12 +7,10 @@ entry_point: "nodes_node_lxc_vmid_remote_migrate_remote_migrate_vm.py"
 parameters:
   bwlimit:
     description: "Override I/O bandwidth limit (in KiB/s)."
-    default: migrate limit from datacenter or storage config
     type: number
     required: false
   delete:
     description: "Delete the original CT and related data after successful migration. By default the original CT is kept on the source cluster in a stopped state."
-    default: False
     type: boolean
     required: false
   node:
@@ -45,7 +43,6 @@ parameters:
     required: false
   timeout:
     description: "Timeout in seconds for shutdown for restart migration"
-    default: 180
     type: integer
     required: false
   vmid:

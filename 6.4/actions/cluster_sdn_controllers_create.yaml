@@ -35,10 +35,6 @@ parameters:
     required: false
   prox_type:
     description: "Plugin type."
-    enum:
-      - bgp
-      - evpn
-      - faucet
     type: string
     required: true
   profile_name:

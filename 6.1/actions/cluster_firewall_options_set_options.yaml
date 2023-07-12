@@ -15,7 +15,6 @@ parameters:
     required: false
   ebtables:
     description: "Enable ebtables rules cluster wide."
-    default: True
     type: boolean
     required: false
   enable:
@@ -28,18 +27,10 @@ parameters:
     required: false
   policy_in:
     description: "Input policy."
-    enum:
-      - ACCEPT
-      - REJECT
-      - DROP
     type: string
     required: false
   policy_out:
     description: "Output policy."
-    enum:
-      - ACCEPT
-      - REJECT
-      - DROP
     type: string
     required: false
   profile_name:

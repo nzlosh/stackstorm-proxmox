@@ -7,7 +7,7 @@ class NodesNodeLxcVmidDestroyVmAction(ProxmoxAction):
     Destroy the container (also delete all uses files).
     """
 
-    def run(self, node, vmid, destroy_unreferenced_disks=None, force=False, purge=False, profile_name=None):
+    def run(self, node, vmid, destroy_unreferenced_disks=None, force=None, purge=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

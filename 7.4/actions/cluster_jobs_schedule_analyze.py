@@ -7,7 +7,7 @@ class ClusterJobsScheduleAnalyzeScheduleAnalyzeAction(ProxmoxAction):
     Returns a list of future schedule runtimes.
     """
 
-    def run(self, schedule, iterations=10, starttime=None, profile_name=None):
+    def run(self, schedule, iterations=None, starttime=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

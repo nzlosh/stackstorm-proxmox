@@ -7,9 +7,6 @@ entry_point: "nodes_node_status_node_cmd.py"
 parameters:
   command:
     description: "Specify the command."
-    enum:
-      - reboot
-      - shutdown
     type: string
     required: true
   node:

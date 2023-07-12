@@ -23,12 +23,10 @@ parameters:
     required: false
   max_relocate:
     description: "Maximal number of service relocate tries when a service failes to start."
-    default: 1
     type: integer
     required: false
   max_restart:
     description: "Maximal number of tries to restart the service on a node after its start failed."
-    default: 1
     type: integer
     required: false
   sid:
@@ -37,13 +35,6 @@ parameters:
     required: true
   state:
     description: "Requested resource state."
-    default: "started"
-    enum:
-      - started
-      - stopped
-      - enabled
-      - disabled
-      - ignored
     type: string
     required: false
   profile_name:

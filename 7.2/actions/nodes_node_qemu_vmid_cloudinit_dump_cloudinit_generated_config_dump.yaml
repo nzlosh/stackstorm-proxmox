@@ -11,10 +11,6 @@ parameters:
     required: true
   prox_type:
     description: "Config type."
-    enum:
-      - user
-      - network
-      - meta
     type: string
     required: true
   vmid:

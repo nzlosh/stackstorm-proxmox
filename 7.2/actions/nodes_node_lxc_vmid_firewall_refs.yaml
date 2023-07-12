@@ -11,9 +11,6 @@ parameters:
     required: true
   prox_type:
     description: "Only list references of specified type."
-    enum:
-      - alias
-      - ipset
     type: string
     required: false
   vmid:
