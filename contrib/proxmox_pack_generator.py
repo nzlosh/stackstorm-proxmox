@@ -159,12 +159,6 @@ parameters:
     {% if "st2_secret" in p-%}
     secret: {{ p.st2_secret }}
     {% endif -%}
-    {% if "enum" in p -%}
-    enum:
-    {% for i in p.enum -%}
-    {{ "  - " ~ i }}
-    {% endfor -%}
-    {% endif -%}
     type: {{ p.type }}
     required: {{ (p.optional | default(0) == 0) | lower }}
 {% endfor -%}
