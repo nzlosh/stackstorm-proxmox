@@ -1,7 +1,7 @@
 ---
 name: proxmox
 description: Enable StackStorm to interact with the Proxmox APIv2.
-version: 0.0.1
+version: 1.0.0
 author: Carlos
 email: nzlosh@yahoo.com
 contributors:
