@@ -7,7 +7,7 @@ class NodesNodeQemuVmidConfigVmConfigAction(ProxmoxAction):
     Get the virtual machine configuration with pending configuration changes applied. Set the 'current' parameter to get the current configuration instead.
     """
 
-    def run(self, node, vmid, current=False, snapshot=None, profile_name=None):
+    def run(self, node, vmid, current=None, snapshot=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

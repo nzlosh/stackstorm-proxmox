@@ -31,21 +31,14 @@ parameters:
     required: true
   influxdbproto:
     description: "Description unavailable."
-    default: "udp"
-    enum:
-      - udp
-      - http
-      - https
     type: string
     required: false
   max_body_size:
     description: "InfluxDB max-body-size in bytes. Requests are batched up to this size."
-    default: 25000000
     type: integer
     required: false
   mtu:
     description: "MTU for metrics transmission over UDP"
-    default: 1500
     type: integer
     required: false
   organization:
@@ -62,9 +55,6 @@ parameters:
     required: true
   proto:
     description: "Protocol to send graphite data. TCP or UDP (default)"
-    enum:
-      - udp
-      - tcp
     type: string
     required: false
   server:
@@ -73,7 +63,6 @@ parameters:
     required: true
   timeout:
     description: "graphite TCP socket timeout (default=1)"
-    default: 1
     type: integer
     required: false
   token:

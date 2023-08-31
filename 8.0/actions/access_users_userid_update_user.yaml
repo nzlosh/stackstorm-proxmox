@@ -1,0 +1,51 @@
+name: access_users_userid_update_user
+pack: proxmox
+runner_type: python-script
+description: "Update user configuration."
+enabled: true
+entry_point: "access_users_userid_update_user.py"
+parameters:
+  append:
+    description: "Description unavailable."
+    type: boolean
+    required: false
+  comment:
+    description: "Description unavailable."
+    type: string
+    required: false
+  email:
+    description: "Description unavailable."
+    type: string
+    required: false
+  enable:
+    description: "Enable the account (default). You can set this to '0' to disable the account"
+    type: boolean
+    required: false
+  expire:
+    description: "Account expiration date (seconds since epoch). '0' means no expiration date."
+    type: integer
+    required: false
+  firstname:
+    description: "Description unavailable."
+    type: string
+    required: false
+  groups:
+    description: "Description unavailable."
+    type: string
+    required: false
+  keys:
+    description: "Keys for two factor auth (yubico)."
+    type: string
+    required: false
+  lastname:
+    description: "Description unavailable."
+    type: string
+    required: false
+  userid:
+    description: "Full User ID, in the `name@realm` format."
+    type: string
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

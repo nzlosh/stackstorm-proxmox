@@ -7,7 +7,6 @@ entry_point: "nodes_node_qemu_vmid_destroy_vm.py"
 parameters:
   destroy_unreferenced_disks:
     description: "If set, destroy additionally all disks not referenced in the config but with a matching VMID from all enabled storages."
-    default: False
     type: boolean
     required: false
   node:

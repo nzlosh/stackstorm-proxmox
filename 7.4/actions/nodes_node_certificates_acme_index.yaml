@@ -1,0 +1,15 @@
+name: nodes_node_certificates_acme_index
+pack: proxmox
+runner_type: python-script
+description: "ACME index."
+enabled: true
+entry_point: "nodes_node_certificates_acme_index.py"
+parameters:
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

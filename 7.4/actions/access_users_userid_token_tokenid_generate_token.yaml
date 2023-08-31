@@ -1,0 +1,31 @@
+name: access_users_userid_token_tokenid_generate_token
+pack: proxmox
+runner_type: python-script
+description: "Generate a new API token for a specific user. NOTE: returns API token value, which needs to be stored as it cannot be retrieved afterwards!"
+enabled: true
+entry_point: "access_users_userid_token_tokenid_generate_token.py"
+parameters:
+  comment:
+    description: "Description unavailable."
+    type: string
+    required: false
+  expire:
+    description: "API token expiration date (seconds since epoch). '0' means no expiration date."
+    type: integer
+    required: false
+  privsep:
+    description: "Restrict API token privileges with separate ACLs (default), or give full privileges of corresponding user."
+    type: boolean
+    required: false
+  tokenid:
+    description: "User-specific token identifier."
+    type: string
+    required: true
+  userid:
+    description: "Full User ID, in the `name@realm` format."
+    type: string
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

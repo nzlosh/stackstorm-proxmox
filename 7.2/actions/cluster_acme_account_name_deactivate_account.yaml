@@ -7,7 +7,6 @@ entry_point: "cluster_acme_account_name_deactivate_account.py"
 parameters:
   name:
     description: "ACME account config file name."
-    default: "default"
     type: string
     required: false
   profile_name:

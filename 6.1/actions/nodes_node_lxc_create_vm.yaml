@@ -7,31 +7,18 @@ entry_point: "nodes_node_lxc_create_vm.py"
 parameters:
   arch:
     description: "OS architecture type."
-    default: "amd64"
-    enum:
-      - amd64
-      - i386
-      - arm64
-      - armhf
     type: string
     required: false
   bwlimit:
     description: "Override I/O bandwidth limit (in KiB/s)."
-    default: restore limit from datacenter or storage config
     type: number
     required: false
   cmode:
     description: "Console mode. By default, the console command tries to open a connection to one of the available tty devices. By setting cmode to 'console' it tries to attach to /dev/console instead. If you set cmode to 'shell', it simply invokes a shell inside the container (no login)."
-    default: "tty"
-    enum:
-      - shell
-      - console
-      - tty
     type: string
     required: false
   console:
     description: "Attach a console device (/dev/console) to the container."
-    default: True
     type: boolean
     required: false
   cores:
@@ -40,12 +27,10 @@ parameters:
     required: false
   cpulimit:
     description: "Limit of CPU usage.  NOTE: If the computer has 2 CPUs, it has a total of '2' CPU time. Value '0' indicates no CPU limit."
-    default: 0
     type: number
     required: false
   cpuunits:
     description: "CPU weight for a VM. Argument is used in the kernel fair scheduler. The larger the number is, the more CPU time this VM gets. Number is relative to the weights of all the other running VMs.  NOTE: You can disable fair-scheduler configuration by setting this to 0."
-    default: 1024
     type: integer
     required: false
   description:
@@ -74,22 +59,10 @@ parameters:
     required: false
   lock:
     description: "Lock/unlock the VM."
-    enum:
-      - backup
-      - create
-      - destroyed
-      - disk
-      - fstrim
-      - migrate
-      - mounted
-      - rollback
-      - snapshot
-      - snapshot-delete
     type: string
     required: false
   memory:
     description: "Amount of RAM for the VM in MB."
-    default: 512
     type: integer
     required: false
   mp_list:
@@ -110,7 +83,6 @@ parameters:
     required: true
   onboot:
     description: "Specifies whether a VM will be started during system bootup."
-    default: False
     type: boolean
     required: false
   ostemplate:
@@ -119,16 +91,6 @@ parameters:
     required: true
   ostype:
     description: "OS type. This is used to setup configuration inside the container, and corresponds to lxc setup scripts in /usr/share/lxc/config/<ostype>.common.conf. Value 'unmanaged' can be used to skip and OS specific setup."
-    enum:
-      - debian
-      - ubuntu
-      - centos
-      - fedora
-      - opensuse
-      - archlinux
-      - alpine
-      - gentoo
-      - unmanaged
     type: string
     required: false
   password:
@@ -142,7 +104,6 @@ parameters:
     required: false
   protection:
     description: "Sets the protection flag of the container. This will prevent the CT or CT's disk remove/update operation."
-    default: False
     type: boolean
     required: false
   restore:
@@ -163,7 +124,6 @@ parameters:
     required: false
   start:
     description: "Start the CT after its creation finished successfully."
-    default: False
     type: boolean
     required: false
   startup:
@@ -172,12 +132,10 @@ parameters:
     required: false
   storage:
     description: "Default Storage."
-    default: "local"
     type: string
     required: false
   swap:
     description: "Amount of SWAP for the VM in MB."
-    default: 512
     type: integer
     required: false
   tags:
@@ -186,12 +144,10 @@ parameters:
     required: false
   template:
     description: "Enable/disable Template."
-    default: False
     type: boolean
     required: false
   tty:
     description: "Specify the number of tty available to the container"
-    default: 2
     type: integer
     required: false
   unique:
@@ -200,7 +156,6 @@ parameters:
     required: false
   unprivileged:
     description: "Makes the container run as unprivileged user. (Should not be modified manually.)"
-    default: False
     type: boolean
     required: false
   unused_list:

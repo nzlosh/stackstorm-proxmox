@@ -7,11 +7,6 @@ entry_point: "nodes_node_termproxy.py"
 parameters:
   cmd:
     description: "Run specific command or default to login."
-    default: "login"
-    enum:
-      - login
-      - ceph_install
-      - upgrade
     type: string
     required: false
   node:
@@ -20,7 +15,6 @@ parameters:
     required: true
   upgrade:
     description: "Deprecated, use the 'cmd' property instead! Run 'apt-get dist-upgrade' instead of normal shell."
-    default: False
     type: boolean
     required: false
   profile_name:

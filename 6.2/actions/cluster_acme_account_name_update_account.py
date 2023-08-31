@@ -7,7 +7,7 @@ class ClusterAcmeAccountNameUpdateAccountAction(ProxmoxAction):
     Update existing ACME account information with CA. Note: not specifying any new account information triggers a refresh.
     """
 
-    def run(self, contact=None, name="default", profile_name=None):
+    def run(self, contact=None, name=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

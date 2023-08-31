@@ -7,7 +7,7 @@ class NodesNodeCertificatesCustomUploadCustomCertAction(ProxmoxAction):
     Upload or update custom certificate chain and key.
     """
 
-    def run(self, certificates, node, force=False, key=None, restart=False, profile_name=None):
+    def run(self, certificates, node, force=None, key=None, restart=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

@@ -1,0 +1,15 @@
+name: cluster_firewall_groups_group_get_rules
+pack: proxmox
+runner_type: python-script
+description: "List rules."
+enabled: true
+entry_point: "cluster_firewall_groups_group_get_rules.py"
+parameters:
+  group:
+    description: "Security Group name."
+    type: string
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

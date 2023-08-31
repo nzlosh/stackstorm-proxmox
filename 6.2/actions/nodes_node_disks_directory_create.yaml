@@ -7,7 +7,6 @@ entry_point: "nodes_node_disks_directory_create.py"
 parameters:
   add_storage:
     description: "Configure storage using the directory."
-    default: False
     type: boolean
     required: false
   device:
@@ -16,10 +15,6 @@ parameters:
     required: true
   filesystem:
     description: "The desired filesystem."
-    default: "ext4"
-    enum:
-      - ext4
-      - xfs
     type: string
     required: false
   name:

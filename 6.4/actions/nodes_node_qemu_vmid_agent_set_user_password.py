@@ -7,7 +7,7 @@ class NodesNodeQemuVmidAgentSetUserPasswordSetUserPasswordAction(ProxmoxAction):
     Sets the password for the given user to the given password
     """
 
-    def run(self, node, password, username, vmid, crypted=False, profile_name=None):
+    def run(self, node, password, username, vmid, crypted=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

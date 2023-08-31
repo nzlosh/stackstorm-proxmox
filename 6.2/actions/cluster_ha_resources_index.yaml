@@ -7,9 +7,6 @@ entry_point: "cluster_ha_resources_index.py"
 parameters:
   prox_type:
     description: "Only list resources of specific type"
-    enum:
-      - ct
-      - vm
     type: string
     required: false
   profile_name:

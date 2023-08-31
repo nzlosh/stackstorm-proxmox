@@ -27,8 +27,6 @@ parameters:
     required: false
   prox_type:
     description: "Type"
-    enum:
-      - vnet
     type: string
     required: false
   vlanaware:

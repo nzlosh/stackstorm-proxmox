@@ -1,0 +1,23 @@
+name: cluster_sdn_vnets_vnet_read
+pack: proxmox
+runner_type: python-script
+description: "Read sdn vnet configuration."
+enabled: true
+entry_point: "cluster_sdn_vnets_vnet_read.py"
+parameters:
+  pending:
+    description: "Display pending config."
+    type: boolean
+    required: false
+  running:
+    description: "Display running config."
+    type: boolean
+    required: false
+  vnet:
+    description: "The SDN vnet object identifier."
+    type: string
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

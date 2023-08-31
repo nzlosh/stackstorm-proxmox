@@ -7,7 +7,7 @@ class NodesNodeCephFsNameCreatefsAction(ProxmoxAction):
     Create a Ceph filesystem
     """
 
-    def run(self, node, add_storage=False, name="cephfs", pg_num=128, profile_name=None):
+    def run(self, node, add_storage=None, name=None, pg_num=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

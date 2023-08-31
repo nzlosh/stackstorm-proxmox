@@ -7,7 +7,6 @@ entry_point: "cluster_acme_tos_get_tos.py"
 parameters:
   directory:
     description: "URL of ACME CA directory endpoint."
-    default: "https://acme-v02.api.letsencrypt.org/directory"
     type: string
     required: false
   profile_name:

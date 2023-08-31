@@ -7,7 +7,7 @@ class NodesNodeCephMdsNameCreatemdsAction(ProxmoxAction):
     Create Ceph Metadata Server (MDS)
     """
 
-    def run(self, node, hotstandby=True, name="nodename", profile_name=None):
+    def run(self, node, hotstandby=None, name=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

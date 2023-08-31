@@ -1,0 +1,31 @@
+name: nodes_node_migrateall
+pack: proxmox
+runner_type: python-script
+description: "Migrate all VMs and Containers."
+enabled: true
+entry_point: "nodes_node_migrateall.py"
+parameters:
+  maxworkers:
+    description: "Maximal number of parallel migration job. If not set, uses'max_workers' from datacenter.cfg. One of both must be set!"
+    type: integer
+    required: false
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  target:
+    description: "Target node."
+    type: string
+    required: true
+  vms:
+    description: "Only consider Guests with these IDs."
+    type: string
+    required: false
+  with_local_disks:
+    description: "Enable live storage migration for local disk"
+    type: boolean
+    required: false
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

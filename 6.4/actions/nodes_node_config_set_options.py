@@ -7,7 +7,7 @@ class NodesNodeConfigSetOptionsAction(ProxmoxAction):
     Set node configuration options.
     """
 
-    def run(self, node, acme=None, acmedomain_list=None, delete=None, description=None, digest=None, startall_onboot_delay=0, wakeonlan=None, profile_name=None):
+    def run(self, node, acme=None, acmedomain_list=None, delete=None, description=None, digest=None, startall_onboot_delay=None, wakeonlan=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

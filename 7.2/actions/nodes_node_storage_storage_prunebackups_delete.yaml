@@ -19,9 +19,6 @@ parameters:
     required: true
   prox_type:
     description: "Either 'qemu' or 'lxc'. Only consider backups for guests of this type."
-    enum:
-      - qemu
-      - lxc
     type: string
     required: false
   vmid:

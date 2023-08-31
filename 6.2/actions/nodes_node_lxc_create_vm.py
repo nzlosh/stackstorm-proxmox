@@ -7,7 +7,7 @@ class NodesNodeLxcCreateVmAction(ProxmoxAction):
     Create or restore a container.
     """
 
-    def run(self, node, ostemplate, vmid, arch="amd64", bwlimit=restore limit from datacenter or storage config, cmode="tty", console=True, cores=None, cpulimit=0, cpuunits=1024, description=None, features=None, force=None, hookscript=None, hostname=None, ignore_unpack_errors=None, lock=None, memory=512, mp_list=None, nameserver=None, net_list=None, onboot=False, ostype=None, password=None, pool=None, protection=False, restore=None, rootfs=None, searchdomain=None, ssh_public_keys=None, start=False, startup=None, storage="local", swap=512, tags=None, template=False, timezone=None, tty=2, unique=None, unprivileged=False, unused_list=None, profile_name=None):
+    def run(self, node, ostemplate, vmid, arch=None, bwlimit=None, cmode=None, console=None, cores=None, cpulimit=None, cpuunits=None, description=None, features=None, force=None, hookscript=None, hostname=None, ignore_unpack_errors=None, lock=None, memory=None, mp_list=None, nameserver=None, net_list=None, onboot=None, ostype=None, password=None, pool=None, protection=None, restore=None, rootfs=None, searchdomain=None, ssh_public_keys=None, start=None, startup=None, storage=None, swap=None, tags=None, template=None, timezone=None, tty=None, unique=None, unprivileged=None, unused_list=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

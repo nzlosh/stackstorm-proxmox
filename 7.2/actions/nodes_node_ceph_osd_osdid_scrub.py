@@ -7,7 +7,7 @@ class NodesNodeCephOsdOsdidScrubAction(ProxmoxAction):
     Instruct the OSD to scrub.
     """
 
-    def run(self, node, osdid, deep=False, profile_name=None):
+    def run(self, node, osdid, deep=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

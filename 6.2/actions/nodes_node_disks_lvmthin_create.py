@@ -7,7 +7,7 @@ class NodesNodeDisksLvmthinCreateAction(ProxmoxAction):
     Create an LVM thinpool
     """
 
-    def run(self, device, name, node, add_storage=False, profile_name=None):
+    def run(self, device, name, node, add_storage=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

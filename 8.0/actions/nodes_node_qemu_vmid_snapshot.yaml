@@ -1,0 +1,31 @@
+name: nodes_node_qemu_vmid_snapshot
+pack: proxmox
+runner_type: python-script
+description: "Snapshot a VM."
+enabled: true
+entry_point: "nodes_node_qemu_vmid_snapshot.py"
+parameters:
+  description:
+    description: "A textual description or comment."
+    type: string
+    required: false
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  snapname:
+    description: "The name of the snapshot."
+    type: string
+    required: true
+  vmid:
+    description: "The (unique) ID of the VM."
+    type: integer
+    required: true
+  vmstate:
+    description: "Save the vmstate"
+    type: boolean
+    required: false
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

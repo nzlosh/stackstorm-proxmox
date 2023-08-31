@@ -27,12 +27,10 @@ parameters:
     required: false
   nofailback:
     description: "The CRM tries to run services on the node with the highest priority. If a node with higher priority comes online, the CRM migrates the service to that node. Enabling nofailback prevents that behavior."
-    default: False
     type: boolean
     required: false
   restricted:
     description: "Resources bound to restricted groups may only run on nodes defined by the group."
-    default: False
     type: boolean
     required: false
   profile_name:

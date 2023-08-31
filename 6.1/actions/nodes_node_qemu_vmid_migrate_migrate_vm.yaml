@@ -7,7 +7,6 @@ entry_point: "nodes_node_qemu_vmid_migrate_migrate_vm.py"
 parameters:
   bwlimit:
     description: "Override I/O bandwidth limit (in KiB/s)."
-    default: migrate limit from datacenter or storage config
     type: integer
     required: false
   force:
@@ -20,9 +19,6 @@ parameters:
     required: false
   migration_type:
     description: "Migration traffic is encrypted using an SSH tunnel by default. On secure, completely private networks this can be disabled to increase performance."
-    enum:
-      - secure
-      - insecure
     type: string
     required: false
   node:

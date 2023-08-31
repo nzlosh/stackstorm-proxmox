@@ -19,7 +19,6 @@ parameters:
     required: true
   propagate:
     description: "Allow to propagate (inherit) permissions."
-    default: True
     type: boolean
     required: false
   roles:

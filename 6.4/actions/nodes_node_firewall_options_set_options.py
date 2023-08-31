@@ -7,7 +7,7 @@ class NodesNodeFirewallOptionsSetOptionsAction(ProxmoxAction):
     Set Firewall options.
     """
 
-    def run(self, node, delete=None, digest=None, enable=None, log_level_in=None, log_level_out=None, log_nf_conntrack=False, ndp=False, nf_conntrack_allow_invalid=False, nf_conntrack_max=262144, nf_conntrack_tcp_timeout_established=432000, nf_conntrack_tcp_timeout_syn_recv=60, nosmurfs=None, protection_synflood=False, protection_synflood_burst=1000, protection_synflood_rate=200, smurf_log_level=None, tcp_flags_log_level=None, tcpflags=False, profile_name=None):
+    def run(self, node, delete=None, digest=None, enable=None, log_level_in=None, log_level_out=None, log_nf_conntrack=None, ndp=None, nf_conntrack_allow_invalid=None, nf_conntrack_max=None, nf_conntrack_tcp_timeout_established=None, nf_conntrack_tcp_timeout_syn_recv=None, nosmurfs=None, protection_synflood=None, protection_synflood_burst=None, protection_synflood_rate=None, smurf_log_level=None, tcp_flags_log_level=None, tcpflags=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

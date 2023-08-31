@@ -7,7 +7,6 @@ entry_point: "nodes_node_lxc_vmid_config_vm_config.py"
 parameters:
   current:
     description: "Get current values (instead of pending values)."
-    default: False
     type: boolean
     required: false
   node:

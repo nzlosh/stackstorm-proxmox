@@ -1,0 +1,27 @@
+name: cluster_mapping_pci_create
+pack: proxmox
+runner_type: python-script
+description: "Create a new hardware mapping."
+enabled: true
+entry_point: "cluster_mapping_pci_create.py"
+parameters:
+  description:
+    description: "Description of the logical PCI device."
+    type: string
+    required: false
+  prox_id:
+    description: "The ID of the logical PCI mapping."
+    type: string
+    required: true
+  prox_map:
+    description: "A list of maps for the cluster nodes."
+    type: array
+    required: true
+  mdev:
+    description: "Description unavailable."
+    type: boolean
+    required: false
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

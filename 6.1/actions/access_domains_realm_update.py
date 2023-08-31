@@ -7,7 +7,7 @@ class AccessDomainsRealmUpdateAction(ProxmoxAction):
     Update authentication server settings.
     """
 
-    def run(self, realm, base_dn=None, bind_dn=None, capath="/etc/ssl/certs", cert=None, certkey=None, comment=None, default=None, delete=None, digest=None, domain=None, port=None, secure=None, server1=None, server2=None, sslversion=None, tfa=None, user_attr=None, verify=False, profile_name=None):
+    def run(self, realm, base_dn=None, bind_dn=None, capath=None, cert=None, certkey=None, comment=None, default=None, delete=None, digest=None, domain=None, port=None, secure=None, server1=None, server2=None, sslversion=None, tfa=None, user_attr=None, verify=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

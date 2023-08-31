@@ -7,7 +7,7 @@ class AccessAclUpdateAclAction(ProxmoxAction):
     Update Access Control List (add or remove permissions).
     """
 
-    def run(self, path, roles, delete=None, groups=None, propagate=True, users=None, profile_name=None):
+    def run(self, path, roles, delete=None, groups=None, propagate=None, users=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

@@ -7,7 +7,7 @@ class ClusterHaResourcesCreateAction(ProxmoxAction):
     Create a new HA resource.
     """
 
-    def run(self, sid, comment=None, group=None, max_relocate=1, max_restart=1, state="started", prox_type=None, profile_name=None):
+    def run(self, sid, comment=None, group=None, max_relocate=None, max_restart=None, state=None, prox_type=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

@@ -1,0 +1,39 @@
+name: access_domains_realm_sync
+pack: proxmox
+runner_type: python-script
+description: "Syncs users and/or groups from the configured LDAP to user.cfg. NOTE: Synced groups will have the name 'name-$realm', so make sure those groups do not exist to prevent overwriting."
+enabled: true
+entry_point: "access_domains_realm_sync.py"
+parameters:
+  dry_run:
+    description: "If set, does not write anything."
+    type: boolean
+    required: false
+  enable_new:
+    description: "Enable newly synced users immediately."
+    type: boolean
+    required: false
+  full:
+    description: "DEPRECATED: use 'remove-vanished' instead. If set, uses the LDAP Directory as source of truth, deleting users or groups not returned from the sync and removing all locally modified properties of synced users. If not set, only syncs information which is present in the synced data, and does not delete or modify anything else."
+    type: boolean
+    required: false
+  purge:
+    description: "DEPRECATED: use 'remove-vanished' instead. Remove ACLs for users or groups which were removed from the config during a sync."
+    type: boolean
+    required: false
+  realm:
+    description: "Authentication domain ID"
+    type: string
+    required: true
+  remove_vanished:
+    description: "A semicolon-seperated list of things to remove when they or the user vanishes during a sync. The following values are possible: 'entry' removes the user/group when not returned from the sync. 'properties' removes the set properties on existing user/group that do not appear in the source (even custom ones). 'acl' removes acls when the user/group is not returned from the sync. Instead of a list it also can be 'none' (the default)."
+    type: string
+    required: false
+  scope:
+    description: "Select what to sync."
+    type: string
+    required: false
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

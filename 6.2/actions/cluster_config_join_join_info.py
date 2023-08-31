@@ -7,7 +7,7 @@ class ClusterConfigJoinJoinInfoAction(ProxmoxAction):
     Get information needed to join this cluster over the connected node.
     """
 
-    def run(self, node="current connected node", profile_name=None):
+    def run(self, node=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

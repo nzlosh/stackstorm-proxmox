@@ -1,0 +1,55 @@
+name: cluster_ceph_flags_set_flags
+pack: proxmox
+runner_type: python-script
+description: "Set/Unset multiple ceph flags at once."
+enabled: true
+entry_point: "cluster_ceph_flags_set_flags.py"
+parameters:
+  nobackfill:
+    description: "Backfilling of PGs is suspended."
+    type: boolean
+    required: false
+  nodeep_scrub:
+    description: "Deep Scrubbing is disabled."
+    type: boolean
+    required: false
+  nodown:
+    description: "OSD failure reports are being ignored, such that the monitors will not mark OSDs down."
+    type: boolean
+    required: false
+  noin:
+    description: "OSDs that were previously marked out will not be marked back in when they start."
+    type: boolean
+    required: false
+  noout:
+    description: "OSDs will not automatically be marked out after the configured interval."
+    type: boolean
+    required: false
+  norebalance:
+    description: "Rebalancing of PGs is suspended."
+    type: boolean
+    required: false
+  norecover:
+    description: "Recovery of PGs is suspended."
+    type: boolean
+    required: false
+  noscrub:
+    description: "Scrubbing is disabled."
+    type: boolean
+    required: false
+  notieragent:
+    description: "Cache tiering activity is suspended."
+    type: boolean
+    required: false
+  noup:
+    description: "OSDs are not allowed to start."
+    type: boolean
+    required: false
+  pause:
+    description: "Pauses read and writes."
+    type: boolean
+    required: false
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

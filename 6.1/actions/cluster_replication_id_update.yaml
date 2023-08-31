@@ -31,14 +31,10 @@ parameters:
     required: false
   remove_job:
     description: "Mark the replication job for removal. The job will remove all local replication snapshots. When set to 'full', it also tries to remove replicated volumes on the target. The job then removes itself from the configuration file."
-    enum:
-      - local
-      - full
     type: string
     required: false
   schedule:
     description: "Storage replication schedule. The format is a subset of `systemd` calender events."
-    default: "*/15"
     type: string
     required: false
   source:

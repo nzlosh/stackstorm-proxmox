@@ -7,7 +7,7 @@ class NodesNodeSpiceshellAction(ProxmoxAction):
     Creates a SPICE shell.
     """
 
-    def run(self, node, cmd="login", cmd_opts="", proxy=None, upgrade=False, profile_name=None):
+    def run(self, node, cmd=None, cmd_opts=None, proxy=None, upgrade=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

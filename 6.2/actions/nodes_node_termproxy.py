@@ -7,7 +7,7 @@ class NodesNodeTermproxyAction(ProxmoxAction):
     Creates a VNC Shell proxy.
     """
 
-    def run(self, node, cmd="login", upgrade=False, profile_name=None):
+    def run(self, node, cmd=None, upgrade=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

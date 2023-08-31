@@ -1,0 +1,27 @@
+name: nodes_node_stopall
+pack: proxmox
+runner_type: python-script
+description: "Stop all VMs and Containers."
+enabled: true
+entry_point: "nodes_node_stopall.py"
+parameters:
+  force_stop:
+    description: "Force a hard-stop after the timeout."
+    type: boolean
+    required: false
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  timeout:
+    description: "Timeout for each guest shutdown task. Depending on `force-stop`, the shutdown gets then simply aborted or a hard-stop is forced."
+    type: integer
+    required: false
+  vms:
+    description: "Only consider Guests with these IDs."
+    type: string
+    required: false
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

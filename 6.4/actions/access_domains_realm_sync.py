@@ -7,7 +7,7 @@ class AccessDomainsRealmSyncAction(ProxmoxAction):
     Syncs users and/or groups from the configured LDAP to user.cfg. NOTE: Synced groups will have the name 'name-$realm', so make sure those groups do not exist to prevent overwriting.
     """
 
-    def run(self, enable_new, full, purge, realm, scope, dry_run=False, profile_name=None):
+    def run(self, enable_new, full, purge, realm, scope, dry_run=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

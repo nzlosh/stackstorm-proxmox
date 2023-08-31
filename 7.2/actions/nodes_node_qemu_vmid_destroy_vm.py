@@ -7,7 +7,7 @@ class NodesNodeQemuVmidDestroyVmAction(ProxmoxAction):
     Destroy the VM and  all used/owned volumes. Removes any VM specific permissions and firewall rules
     """
 
-    def run(self, node, vmid, destroy_unreferenced_disks=False, purge=None, skiplock=None, profile_name=None):
+    def run(self, node, vmid, destroy_unreferenced_disks=None, purge=None, skiplock=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

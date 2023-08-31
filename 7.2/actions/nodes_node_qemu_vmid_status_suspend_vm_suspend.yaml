@@ -19,7 +19,6 @@ parameters:
     required: false
   todisk:
     description: "If set, suspends the VM to disk. Will be resumed on next VM start."
-    default: False
     type: boolean
     required: false
   vmid:

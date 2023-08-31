@@ -7,7 +7,7 @@ class ClusterBackupCreateJobAction(ProxmoxAction):
     Create new vzdump backup job.
     """
 
-    def run(self, starttime, prox_all=False, bwlimit=0, compress="0", dow="mon,tue,wed,thu,fri,sat,sun", dumpdir=None, enabled=True, exclude=None, exclude_path=None, ionice=7, lockwait=180, mailnotification="always", mailto=None, maxfiles=1, mode="snapshot", node=None, pigz=0, pool=None, prune_backups=None, quiet=False, remove=True, script=None, size=1024, stdexcludes=True, stop=False, stopwait=10, storage=None, tmpdir=None, vmid=None, zstd=1, profile_name=None):
+    def run(self, starttime, prox_all=None, bwlimit=None, compress=None, dow=None, dumpdir=None, enabled=None, exclude=None, exclude_path=None, ionice=None, lockwait=None, mailnotification=None, mailto=None, maxfiles=None, mode=None, node=None, pigz=None, pool=None, prune_backups=None, quiet=None, remove=None, script=None, size=None, stdexcludes=None, stop=None, stopwait=None, storage=None, tmpdir=None, vmid=None, zstd=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

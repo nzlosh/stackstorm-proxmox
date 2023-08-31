@@ -7,7 +7,7 @@ class NodesNodeQemuVmidStatusShutdownVmShutdownAction(ProxmoxAction):
     Shutdown virtual machine. This is similar to pressing the power button on a physical machine.This will send an ACPI event for the guest OS, which should then proceed to a clean shutdown.
     """
 
-    def run(self, node, vmid, forceStop=False, keepActive=False, skiplock=None, timeout=None, profile_name=None):
+    def run(self, node, vmid, forceStop=None, keepActive=None, skiplock=None, timeout=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

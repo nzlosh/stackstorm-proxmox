@@ -7,7 +7,7 @@ class NodesNodeCephInitAction(ProxmoxAction):
     Create initial ceph default configuration and setup symlinks.
     """
 
-    def run(self, node, cluster_network=None, disable_cephx=False, min_size=2, network=None, pg_bits=6, size=3, profile_name=None):
+    def run(self, node, cluster_network=None, disable_cephx=None, min_size=None, network=None, pg_bits=None, size=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

@@ -7,7 +7,7 @@ class ClusterHaResourcesSidUpdateAction(ProxmoxAction):
     Update resource configuration.
     """
 
-    def run(self, sid, comment=None, delete=None, digest=None, group=None, max_relocate=1, max_restart=1, state="started", profile_name=None):
+    def run(self, sid, comment=None, delete=None, digest=None, group=None, max_relocate=None, max_restart=None, state=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

@@ -7,7 +7,7 @@ class ClusterFirewallOptionsSetOptionsAction(ProxmoxAction):
     Set Firewall options.
     """
 
-    def run(self, delete=None, digest=None, ebtables=True, enable=None, log_ratelimit=None, policy_in=None, policy_out=None, profile_name=None):
+    def run(self, delete=None, digest=None, ebtables=None, enable=None, log_ratelimit=None, policy_in=None, policy_out=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

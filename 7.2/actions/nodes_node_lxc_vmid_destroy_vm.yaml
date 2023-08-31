@@ -11,7 +11,6 @@ parameters:
     required: false
   force:
     description: "Force destroy, even if running."
-    default: False
     type: boolean
     required: false
   node:
@@ -20,7 +19,6 @@ parameters:
     required: true
   purge:
     description: "Remove container from all related configurations. For example, backup jobs, replication jobs or HA. Related ACLs and Firewall entries will *always* be removed."
-    default: False
     type: boolean
     required: false
   vmid:

@@ -7,9 +7,6 @@ entry_point: "cluster_sdn_controllers_index.py"
 parameters:
   prox_type:
     description: "Only list sdn controllers of specific type"
-    enum:
-      - evpn
-      - faucet
     type: string
     required: false
   profile_name:

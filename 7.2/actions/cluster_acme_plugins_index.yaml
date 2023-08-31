@@ -7,9 +7,6 @@ entry_point: "cluster_acme_plugins_index.py"
 parameters:
   prox_type:
     description: "Only list ACME plugins of a specific type"
-    enum:
-      - dns
-      - standalone
     type: string
     required: false
   profile_name:

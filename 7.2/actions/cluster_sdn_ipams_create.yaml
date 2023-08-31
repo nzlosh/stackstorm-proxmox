@@ -19,10 +19,6 @@ parameters:
     required: false
   prox_type:
     description: "Plugin type."
-    enum:
-      - netbox
-      - phpipam
-      - pve
     type: string
     required: true
   url:

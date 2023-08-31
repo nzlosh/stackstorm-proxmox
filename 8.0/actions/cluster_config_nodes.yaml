@@ -1,0 +1,11 @@
+name: cluster_config_nodes
+pack: proxmox
+runner_type: python-script
+description: "Corosync node list."
+enabled: true
+entry_point: "cluster_config_nodes.py"
+parameters:
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

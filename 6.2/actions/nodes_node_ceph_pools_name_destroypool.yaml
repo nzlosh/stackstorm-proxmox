@@ -7,7 +7,6 @@ entry_point: "nodes_node_ceph_pools_name_destroypool.py"
 parameters:
   force:
     description: "If true, destroys pool even if in use"
-    default: False
     type: boolean
     required: false
   name:
@@ -20,7 +19,6 @@ parameters:
     required: true
   remove_storages:
     description: "Remove all pveceph-managed storages configured for this pool"
-    default: False
     type: boolean
     required: false
   profile_name:

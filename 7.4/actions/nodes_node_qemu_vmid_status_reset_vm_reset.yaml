@@ -1,0 +1,23 @@
+name: nodes_node_qemu_vmid_status_reset_vm_reset
+pack: proxmox
+runner_type: python-script
+description: "Reset virtual machine."
+enabled: true
+entry_point: "nodes_node_qemu_vmid_status_reset_vm_reset.py"
+parameters:
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  skiplock:
+    description: "Ignore locks - only root is allowed to use this option."
+    type: boolean
+    required: false
+  vmid:
+    description: "The (unique) ID of the VM."
+    type: integer
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

@@ -7,7 +7,6 @@ entry_point: "cluster_replication_id_delete.py"
 parameters:
   force:
     description: "Will remove the jobconfig entry, but will not cleanup."
-    default: False
     type: boolean
     required: false
   prox_id:
@@ -16,7 +15,6 @@ parameters:
     required: true
   keep:
     description: "Keep replicated data at target (do not remove)."
-    default: False
     type: boolean
     required: false
   profile_name:

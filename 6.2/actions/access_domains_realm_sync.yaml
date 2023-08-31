@@ -7,12 +7,10 @@ entry_point: "access_domains_realm_sync.py"
 parameters:
   dry_run:
     description: "If set, does not write anything."
-    default: False
     type: boolean
     required: false
   enable_new:
     description: "Enable newly synced users immediately."
-    default: True
     type: boolean
     required: false
   full:
@@ -29,10 +27,6 @@ parameters:
     required: true
   scope:
     description: "Select what to sync."
-    enum:
-      - users
-      - groups
-      - both
     type: string
     required: false
   profile_name:

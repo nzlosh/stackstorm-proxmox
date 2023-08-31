@@ -7,7 +7,6 @@ entry_point: "nodes_node_startall.py"
 parameters:
   force:
     description: "Issue start command even if virtual guest have 'onboot' not set or set to off."
-    default: True
     type: boolean
     required: false
   node:

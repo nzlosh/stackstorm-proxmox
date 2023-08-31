@@ -7,7 +7,7 @@ class ClusterAcmeTosGetTosAction(ProxmoxAction):
     Retrieve ACME TermsOfService URL from CA.
     """
 
-    def run(self, directory="https://acme-v02.api.letsencrypt.org/directory", profile_name=None):
+    def run(self, directory=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

@@ -7,7 +7,6 @@ entry_point: "nodes_node_qemu_vmid_clone_clone_vm.py"
 parameters:
   bwlimit:
     description: "Override I/O bandwidth limit (in KiB/s)."
-    default: clone limit from datacenter or storage config
     type: integer
     required: false
   description:
@@ -16,10 +15,6 @@ parameters:
     required: false
   prox_format:
     description: "Target format for file storage. Only valid for full clone."
-    enum:
-      - raw
-      - qcow2
-      - vmdk
     type: string
     required: false
   full:

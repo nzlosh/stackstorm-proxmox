@@ -7,7 +7,7 @@ class ClusterReplicationIdUpdateAction(ProxmoxAction):
     Update replication job configuration.
     """
 
-    def run(self, prox_id, comment=None, delete=None, digest=None, disable=None, rate=None, remove_job=None, schedule="*/15", source=None, profile_name=None):
+    def run(self, prox_id, comment=None, delete=None, digest=None, disable=None, rate=None, remove_job=None, schedule=None, source=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

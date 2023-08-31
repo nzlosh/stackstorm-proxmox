@@ -7,7 +7,6 @@ entry_point: "nodes_node_disks_lvm_create.py"
 parameters:
   add_storage:
     description: "Configure storage using the Volume Group"
-    default: False
     type: boolean
     required: false
   device:

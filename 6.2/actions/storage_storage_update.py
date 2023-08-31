@@ -7,7 +7,7 @@ class StorageStorageUpdateAction(ProxmoxAction):
     Update storage configuration.
     """
 
-    def run(self, storage, blocksize=None, bwlimit=None, comstar_hg=None, comstar_tg=None, content=None, delete=None, digest=None, disable=None, domain=None, encryption_key=None, fingerprint=None, prox_format=None, fuse=None, is_mountpoint="no", krbd=None, lio_tpg=None, maxfiles=None, mkdir=True, monhost=None, mountpoint=None, nodes=None, nowritecache=None, options=None, password=None, pool=None, redundancy=2, saferemove=None, saferemove_throughput=None, server=None, server2=None, shared=None, smbversion=None, sparse=None, subdir=None, tagged_only=None, transport=None, username=None, profile_name=None):
+    def run(self, storage, blocksize=None, bwlimit=None, comstar_hg=None, comstar_tg=None, content=None, delete=None, digest=None, disable=None, domain=None, encryption_key=None, fingerprint=None, prox_format=None, fuse=None, is_mountpoint=None, krbd=None, lio_tpg=None, maxfiles=None, mkdir=None, monhost=None, mountpoint=None, nodes=None, nowritecache=None, options=None, password=None, pool=None, redundancy=None, saferemove=None, saferemove_throughput=None, server=None, server2=None, shared=None, smbversion=None, sparse=None, subdir=None, tagged_only=None, transport=None, username=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

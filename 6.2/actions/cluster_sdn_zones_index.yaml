@@ -7,13 +7,6 @@ entry_point: "cluster_sdn_zones_index.py"
 parameters:
   prox_type:
     description: "Only list sdn zones of specific type"
-    enum:
-      - evpn
-      - faucet
-      - qinq
-      - simple
-      - vlan
-      - vxlan
     type: string
     required: false
   profile_name:

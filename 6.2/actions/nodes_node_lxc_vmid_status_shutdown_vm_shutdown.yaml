@@ -7,7 +7,6 @@ entry_point: "nodes_node_lxc_vmid_status_shutdown_vm_shutdown.py"
 parameters:
   forceStop:
     description: "Make sure the Container stops."
-    default: False
     type: boolean
     required: false
   node:
@@ -16,7 +15,6 @@ parameters:
     required: true
   timeout:
     description: "Wait maximal timeout seconds."
-    default: 60
     type: integer
     required: false
   vmid:

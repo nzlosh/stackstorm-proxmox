@@ -1,0 +1,15 @@
+name: cluster_mapping_usb_id_delete
+pack: proxmox
+runner_type: python-script
+description: "Remove Hardware Mapping."
+enabled: true
+entry_point: "cluster_mapping_usb_id_delete.py"
+parameters:
+  prox_id:
+    description: "Description unavailable."
+    type: string
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

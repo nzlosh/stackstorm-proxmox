@@ -7,7 +7,7 @@ class NodesNodeQemuVmidMigrateMigrateVmAction(ProxmoxAction):
     Migrate virtual machine. Creates a new migration task.
     """
 
-    def run(self, node, target, vmid, bwlimit=migrate limit from datacenter or storage config, force=None, migration_network=None, migration_type=None, online=None, targetstorage=None, with_local_disks=None, profile_name=None):
+    def run(self, node, target, vmid, bwlimit=None, force=None, migration_network=None, migration_type=None, online=None, targetstorage=None, with_local_disks=None, profile_name=None):
         super().run(profile_name)
 
         # Only include non None arguments to pass through to proxmox api.

@@ -15,13 +15,6 @@ parameters:
     required: false
   prox_type:
     description: "Only list SDN zones of specific type"
-    enum:
-      - evpn
-      - faucet
-      - qinq
-      - simple
-      - vlan
-      - vxlan
     type: string
     required: false
   profile_name:

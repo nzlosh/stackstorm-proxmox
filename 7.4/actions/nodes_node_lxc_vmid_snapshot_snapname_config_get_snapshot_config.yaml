@@ -1,0 +1,23 @@
+name: nodes_node_lxc_vmid_snapshot_snapname_config_get_snapshot_config
+pack: proxmox
+runner_type: python-script
+description: "Get snapshot configuration"
+enabled: true
+entry_point: "nodes_node_lxc_vmid_snapshot_snapname_config_get_snapshot_config.py"
+parameters:
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  snapname:
+    description: "The name of the snapshot."
+    type: string
+    required: true
+  vmid:
+    description: "The (unique) ID of the VM."
+    type: integer
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false
