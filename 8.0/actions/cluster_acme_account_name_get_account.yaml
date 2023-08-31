@@ -1,0 +1,15 @@
+name: cluster_acme_account_name_get_account
+pack: proxmox
+runner_type: python-script
+description: "Return existing ACME account information."
+enabled: true
+entry_point: "cluster_acme_account_name_get_account.py"
+parameters:
+  name:
+    description: "ACME account config file name."
+    type: string
+    required: false
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

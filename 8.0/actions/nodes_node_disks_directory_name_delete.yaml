@@ -1,0 +1,27 @@
+name: nodes_node_disks_directory_name_delete
+pack: proxmox
+runner_type: python-script
+description: "Unmounts the storage and removes the mount unit."
+enabled: true
+entry_point: "nodes_node_disks_directory_name_delete.py"
+parameters:
+  cleanup_config:
+    description: "Marks associated storage(s) as not available on this node anymore or removes them from the configuration (if configured for this node only)."
+    type: boolean
+    required: false
+  cleanup_disks:
+    description: "Also wipe disk so it can be repurposed afterwards."
+    type: boolean
+    required: false
+  name:
+    description: "The storage identifier."
+    type: string
+    required: true
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

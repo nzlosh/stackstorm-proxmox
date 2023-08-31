@@ -1,0 +1,11 @@
+name: cluster_ha_index
+pack: proxmox
+runner_type: python-script
+description: "Directory index."
+enabled: true
+entry_point: "cluster_ha_index.py"
+parameters:
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

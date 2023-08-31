@@ -1,0 +1,39 @@
+name: nodes_node_ceph_init
+pack: proxmox
+runner_type: python-script
+description: "Create initial ceph default configuration and setup symlinks."
+enabled: true
+entry_point: "nodes_node_ceph_init.py"
+parameters:
+  cluster_network:
+    description: "Declare a separate cluster network, OSDs will routeheartbeat, object replication and recovery traffic over it"
+    type: string
+    required: false
+  disable_cephx:
+    description: "Disable cephx authentication.  WARNING: cephx is a security feature protecting against man-in-the-middle attacks. Only consider disabling cephx if your network is private!"
+    type: boolean
+    required: false
+  min_size:
+    description: "Minimum number of available replicas per object to allow I/O"
+    type: integer
+    required: false
+  network:
+    description: "Use specific network for all ceph related traffic"
+    type: string
+    required: false
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  pg_bits:
+    description: "Placement group bits, used to specify the default number of placement groups.  NOTE: 'osd pool default pg num' does not work for default pools."
+    type: integer
+    required: false
+  size:
+    description: "Targeted number of replicas per object"
+    type: integer
+    required: false
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

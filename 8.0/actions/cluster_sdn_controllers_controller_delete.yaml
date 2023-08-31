@@ -1,0 +1,15 @@
+name: cluster_sdn_controllers_controller_delete
+pack: proxmox
+runner_type: python-script
+description: "Delete sdn controller object configuration."
+enabled: true
+entry_point: "cluster_sdn_controllers_controller_delete.py"
+parameters:
+  controller:
+    description: "The SDN controller object identifier."
+    type: string
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

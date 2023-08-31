@@ -1,0 +1,35 @@
+name: nodes_node_storage_storage_content_create
+pack: proxmox
+runner_type: python-script
+description: "Allocate disk images."
+enabled: true
+entry_point: "nodes_node_storage_storage_content_create.py"
+parameters:
+  filename:
+    description: "The name of the file to create."
+    type: string
+    required: true
+  prox_format:
+    description: "Description unavailable."
+    type: string
+    required: false
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  size:
+    description: "Size in kilobyte (1024 bytes). Optional suffixes 'M' (megabyte, 1024K) and 'G' (gigabyte, 1024M)"
+    type: string
+    required: true
+  storage:
+    description: "The storage identifier."
+    type: string
+    required: true
+  vmid:
+    description: "Specify owner VM"
+    type: integer
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

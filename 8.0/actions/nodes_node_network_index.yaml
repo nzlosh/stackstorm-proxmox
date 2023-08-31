@@ -1,0 +1,19 @@
+name: nodes_node_network_index
+pack: proxmox
+runner_type: python-script
+description: "List available networks"
+enabled: true
+entry_point: "nodes_node_network_index.py"
+parameters:
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  prox_type:
+    description: "Only list specific interface types."
+    type: string
+    required: false
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

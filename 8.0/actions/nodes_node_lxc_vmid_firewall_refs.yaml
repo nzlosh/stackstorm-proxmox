@@ -1,0 +1,23 @@
+name: nodes_node_lxc_vmid_firewall_refs
+pack: proxmox
+runner_type: python-script
+description: "Lists possible IPSet/Alias reference which are allowed in source/dest properties."
+enabled: true
+entry_point: "nodes_node_lxc_vmid_firewall_refs.py"
+parameters:
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  prox_type:
+    description: "Only list references of specified type."
+    type: string
+    required: false
+  vmid:
+    description: "The (unique) ID of the VM."
+    type: integer
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

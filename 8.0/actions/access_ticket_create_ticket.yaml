@@ -1,0 +1,44 @@
+name: access_ticket_create_ticket
+pack: proxmox
+runner_type: python-script
+description: "Create or verify authentication ticket."
+enabled: true
+entry_point: "access_ticket_create_ticket.py"
+parameters:
+  new_format:
+    description: "This parameter is now ignored and assumed to be 1."
+    type: boolean
+    required: false
+  otp:
+    description: "One-time password for Two-factor authentication."
+    type: string
+    required: false
+  password:
+    description: "The secret password. This can also be a valid ticket."
+    secret: true
+    type: string
+    required: true
+  path:
+    description: "Verify ticket, and check if user have access 'privs' on 'path'"
+    type: string
+    required: false
+  privs:
+    description: "Verify ticket, and check if user have access 'privs' on 'path'"
+    type: string
+    required: false
+  realm:
+    description: "You can optionally pass the realm using this parameter. Normally the realm is simply added to the username <username>@<relam>."
+    type: string
+    required: false
+  tfa_challenge:
+    description: "The signed TFA challenge string the user wants to respond to."
+    type: string
+    required: false
+  username:
+    description: "User name"
+    type: string
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

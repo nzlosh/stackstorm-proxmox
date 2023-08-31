@@ -1,0 +1,39 @@
+name: cluster_ha_groups_group_update
+pack: proxmox
+runner_type: python-script
+description: "Update ha group configuration."
+enabled: true
+entry_point: "cluster_ha_groups_group_update.py"
+parameters:
+  comment:
+    description: "Description."
+    type: string
+    required: false
+  delete:
+    description: "A list of settings you want to delete."
+    type: string
+    required: false
+  digest:
+    description: "Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications."
+    type: string
+    required: false
+  group:
+    description: "The HA group identifier."
+    type: string
+    required: true
+  nodes:
+    description: "List of cluster node names with optional priority."
+    type: string
+    required: false
+  nofailback:
+    description: "The CRM tries to run services on the node with the highest priority. If a node with higher priority comes online, the CRM migrates the service to that node. Enabling nofailback prevents that behavior."
+    type: boolean
+    required: false
+  restricted:
+    description: "Resources bound to restricted groups may only run on nodes defined by the group."
+    type: boolean
+    required: false
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

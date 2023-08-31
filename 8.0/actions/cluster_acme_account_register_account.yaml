@@ -1,0 +1,27 @@
+name: cluster_acme_account_register_account
+pack: proxmox
+runner_type: python-script
+description: "Register a new ACME account with CA."
+enabled: true
+entry_point: "cluster_acme_account_register_account.py"
+parameters:
+  contact:
+    description: "Contact email addresses."
+    type: string
+    required: true
+  directory:
+    description: "URL of ACME CA directory endpoint."
+    type: string
+    required: false
+  name:
+    description: "ACME account config file name."
+    type: string
+    required: false
+  tos_url:
+    description: "URL of CA TermsOfService - setting this indicates agreement."
+    type: string
+    required: false
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

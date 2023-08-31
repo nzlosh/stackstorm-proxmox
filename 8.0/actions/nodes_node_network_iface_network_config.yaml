@@ -1,0 +1,19 @@
+name: nodes_node_network_iface_network_config
+pack: proxmox
+runner_type: python-script
+description: "Read network device configuration"
+enabled: true
+entry_point: "nodes_node_network_iface_network_config.py"
+parameters:
+  iface:
+    description: "Network interface name."
+    type: string
+    required: true
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

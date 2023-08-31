@@ -1,0 +1,27 @@
+name: nodes_node_qemu_vmid_mtunnelwebsocket
+pack: proxmox
+runner_type: python-script
+description: "Migration tunnel endpoint for websocket upgrade - only for internal use by VM migration."
+enabled: true
+entry_point: "nodes_node_qemu_vmid_mtunnelwebsocket.py"
+parameters:
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  socket:
+    description: "unix socket to forward to"
+    type: string
+    required: true
+  ticket:
+    description: "ticket return by initial 'mtunnel' API call, or retrieved via 'ticket' tunnel command"
+    type: string
+    required: true
+  vmid:
+    description: "The (unique) ID of the VM."
+    type: integer
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

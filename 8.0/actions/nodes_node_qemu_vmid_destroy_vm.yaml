@@ -1,0 +1,31 @@
+name: nodes_node_qemu_vmid_destroy_vm
+pack: proxmox
+runner_type: python-script
+description: "Destroy the VM and  all used/owned volumes. Removes any VM specific permissions and firewall rules"
+enabled: true
+entry_point: "nodes_node_qemu_vmid_destroy_vm.py"
+parameters:
+  destroy_unreferenced_disks:
+    description: "If set, destroy additionally all disks not referenced in the config but with a matching VMID from all enabled storages."
+    type: boolean
+    required: false
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  purge:
+    description: "Remove VMID from configurations, like backup & replication jobs and HA."
+    type: boolean
+    required: false
+  skiplock:
+    description: "Ignore locks - only root is allowed to use this option."
+    type: boolean
+    required: false
+  vmid:
+    description: "The (unique) ID of the VM."
+    type: integer
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

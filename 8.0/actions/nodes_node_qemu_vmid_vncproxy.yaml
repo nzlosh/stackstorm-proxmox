@@ -1,0 +1,27 @@
+name: nodes_node_qemu_vmid_vncproxy
+pack: proxmox
+runner_type: python-script
+description: "Creates a TCP VNC proxy connections."
+enabled: true
+entry_point: "nodes_node_qemu_vmid_vncproxy.py"
+parameters:
+  generate_password:
+    description: "Generates a random password to be used as ticket instead of the API ticket."
+    type: boolean
+    required: false
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  vmid:
+    description: "The (unique) ID of the VM."
+    type: integer
+    required: true
+  websocket:
+    description: "starts websockify instead of vncproxy"
+    type: boolean
+    required: false
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

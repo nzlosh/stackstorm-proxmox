@@ -1,0 +1,11 @@
+name: cluster_sdn_reload
+pack: proxmox
+runner_type: python-script
+description: "Apply sdn controller changes && reload."
+enabled: true
+entry_point: "cluster_sdn_reload.py"
+parameters:
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

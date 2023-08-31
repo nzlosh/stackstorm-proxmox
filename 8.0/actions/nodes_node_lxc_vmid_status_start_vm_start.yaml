@@ -1,0 +1,27 @@
+name: nodes_node_lxc_vmid_status_start_vm_start
+pack: proxmox
+runner_type: python-script
+description: "Start the container."
+enabled: true
+entry_point: "nodes_node_lxc_vmid_status_start_vm_start.py"
+parameters:
+  debug:
+    description: "If set, enables very verbose debug log-level on start."
+    type: boolean
+    required: false
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  skiplock:
+    description: "Ignore locks - only root is allowed to use this option."
+    type: boolean
+    required: false
+  vmid:
+    description: "The (unique) ID of the VM."
+    type: integer
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

@@ -1,0 +1,55 @@
+name: nodes_node_qemu_vmid_status_start_vm_start
+pack: proxmox
+runner_type: python-script
+description: "Start virtual machine."
+enabled: true
+entry_point: "nodes_node_qemu_vmid_status_start_vm_start.py"
+parameters:
+  force_cpu:
+    description: "Override QEMU's -cpu argument with the given string."
+    type: string
+    required: false
+  machine:
+    description: "Specifies the QEMU machine type."
+    type: string
+    required: false
+  migratedfrom:
+    description: "The cluster node name."
+    type: string
+    required: false
+  migration_network:
+    description: "CIDR of the (sub) network that is used for migration."
+    type: string
+    required: false
+  migration_type:
+    description: "Migration traffic is encrypted using an SSH tunnel by default. On secure, completely private networks this can be disabled to increase performance."
+    type: string
+    required: false
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  skiplock:
+    description: "Ignore locks - only root is allowed to use this option."
+    type: boolean
+    required: false
+  stateuri:
+    description: "Some command save/restore state from this location."
+    type: string
+    required: false
+  targetstorage:
+    description: "Mapping from source to target storages. Providing only a single storage ID maps all source storages to that storage. Providing the special value '1' will map each source storage to itself."
+    type: string
+    required: false
+  timeout:
+    description: "Wait maximal timeout seconds."
+    type: integer
+    required: false
+  vmid:
+    description: "The (unique) ID of the VM."
+    type: integer
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

@@ -1,0 +1,19 @@
+name: nodes_node_certificates_acme_certificate_new_certificate
+pack: proxmox
+runner_type: python-script
+description: "Order a new certificate from ACME-compatible CA."
+enabled: true
+entry_point: "nodes_node_certificates_acme_certificate_new_certificate.py"
+parameters:
+  force:
+    description: "Overwrite existing custom certificate."
+    type: boolean
+    required: false
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

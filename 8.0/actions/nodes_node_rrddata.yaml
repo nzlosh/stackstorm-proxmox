@@ -1,0 +1,23 @@
+name: nodes_node_rrddata
+pack: proxmox
+runner_type: python-script
+description: "Read node RRD statistics"
+enabled: true
+entry_point: "nodes_node_rrddata.py"
+parameters:
+  cf:
+    description: "The RRD consolidation function"
+    type: string
+    required: false
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  timeframe:
+    description: "Specify the time frame you are interested in."
+    type: string
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

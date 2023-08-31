@@ -1,0 +1,19 @@
+name: nodes_node_storage_storage_diridx
+pack: proxmox
+runner_type: python-script
+description: ""
+enabled: true
+entry_point: "nodes_node_storage_storage_diridx.py"
+parameters:
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  storage:
+    description: "The storage identifier."
+    type: string
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

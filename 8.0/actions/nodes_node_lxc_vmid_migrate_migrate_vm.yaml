@@ -1,0 +1,43 @@
+name: nodes_node_lxc_vmid_migrate_migrate_vm
+pack: proxmox
+runner_type: python-script
+description: "Migrate the container to another node. Creates a new migration task."
+enabled: true
+entry_point: "nodes_node_lxc_vmid_migrate_migrate_vm.py"
+parameters:
+  bwlimit:
+    description: "Override I/O bandwidth limit (in KiB/s)."
+    type: number
+    required: false
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  online:
+    description: "Use online/live migration."
+    type: boolean
+    required: false
+  restart:
+    description: "Use restart migration"
+    type: boolean
+    required: false
+  target:
+    description: "Target node."
+    type: string
+    required: true
+  target_storage:
+    description: "Mapping from source to target storages. Providing only a single storage ID maps all source storages to that storage. Providing the special value '1' will map each source storage to itself."
+    type: string
+    required: false
+  timeout:
+    description: "Timeout in seconds for shutdown for restart migration"
+    type: integer
+    required: false
+  vmid:
+    description: "The (unique) ID of the VM."
+    type: integer
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false
