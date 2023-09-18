@@ -1,8 +1,9 @@
-# {{ pack["pack.yaml"].name }} pack
+# {{ pack["pack.yaml"].name | title }} integration pack
 
 > {{ pack["pack.yaml"].description }}
+{{ pack["pack.yaml"].author }} <{{ pack["pack.yaml"].email }}>
 
-## Action Generation
+## Action generation
 
 Actions are generated from the Proxmox API documentation which can be read directly from the
 local filesystem or via the Proxmox web interface.  The pack has been generated against Proxmox v6.1 through to v8.0
