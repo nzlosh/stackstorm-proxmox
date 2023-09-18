@@ -5,8 +5,22 @@
 ## Action Generation
 
 Actions are generated from the Proxmox API documentation which can be read directly from the
-local filesystem or via the Proxmox web interface.  The pack was originally developed against
-Proxmox v7.0 but might work with other versions of Proxmox API documentation.
+local filesystem or via the Proxmox web interface.  The pack has been generated against Proxmox v6.1 through to v8.0
+
+## Pack versioning
+
+Each Proxmox API version is stored as a git branch that corresponds to the version.  Git tags are used to link the
+API version to the pack version.  The branch format is `v<major>.<minor>` and the tag format is `v<major>.<minor>_<pack_major>.<pack_minor>.<pack_patch>`
+
+The reasons for organising the code in such a way is to allow pack installations based on the Proxmox version and/or the pack version.
+
+For an example: if someone operates Proxmox 7.2, they can install the pack from the latest release with the following command
+
+`st2 pack install https://github.com/nzlosh/stackstorm-proxmox=v7.2`
+
+The same person could also use the tag to get a specific version of the `v7.2` branch with the tag.
+
+`st2 pack install https://github.com/nzlosh/stackstorm-proxmox=v7.2_v1.0.2`
 
 ### Installation
 
