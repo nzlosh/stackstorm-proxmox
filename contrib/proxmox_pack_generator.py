@@ -1,25 +1,25 @@
 #!/usr/bin/env python3
 import argparse
-import requests
-import logging
 import copy
 import json
-import re
+import logging
 import os
-
-import pprint
+import pathlib
+import re
+import shutil
+import sys
+from urllib.parse import urlparse
 
 import esprima
-
+import requests
 from jinja2.sandbox import SandboxedEnvironment
-from urllib.parse import urlparse
 
 log = logging.getLogger(__name__)
 log.setLevel(logging.DEBUG)
 
 console_log = logging.StreamHandler()
 console_log.setLevel(logging.DEBUG)
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 console_log.setFormatter(formatter)
 
 log.addHandler(console_log)
@@ -145,7 +145,7 @@ PYTHON_KEYWORDS = [
 ]
 
 
-action_meta_jinja = r"""name: {{ action_name }}
+ACTION_META_JINJA = r"""name: {{ action_name }}
 pack: proxmox
 runner_type: python-script
 description: "{{ description }}"
@@ -167,7 +167,7 @@ parameters: {}
 {% endif %}
 """
 
-action_jinja = r"""import json
+ACTION_JINJA = r"""import json
 from packlib.base import ProxmoxAction
 
 
@@ -228,8 +228,8 @@ class {{ class_name }}Action(ProxmoxAction):
 
 
 def write_to_disk(filename, contents):
-    with open(filename, "w") as f:
-        f.write(contents)
+    with open(filename, "w", encoding="utf-8") as fhandle:
+        fhandle.write(contents)
 
 
 def cleanup_node(node):
@@ -243,10 +243,10 @@ def cleanup_node(node):
      - Add python parameter name field
     """
 
-    for (http_verb, method_meta) in node["info"].items():
+    for http_verb, method_meta in node["info"].items():
         # Skip non http verb entries.
         if http_verb not in HTTP_METHODS:
-            log.debug(f"Skip unsupported http method {http_verb}.")
+            log.debug("Skip unsupported http method %s.", http_verb)
             continue
 
         # Translate "-" to be Python safe.
@@ -274,7 +274,8 @@ def cleanup_node(node):
                     param_value["description"].replace("\n", " ").replace("\t", "")
                 )
 
-            # [n] is transformed into a StackStorm array parameter using "format" to define the object.
+            # [n] is transformed into a StackStorm array parameter using
+            # "format" to define the object.
             if "[n]" in param:
                 method_meta["parameters"]["properties"][param]["safe_param"] = param.replace(
                     "[n]", "_list"
@@ -296,7 +297,7 @@ def cleanup_node(node):
                 method_meta["parameters"]["properties"][param]["st2_secret"] = "true"
 
         node["info"][http_verb] = method_meta
-        log.debug("{} {}".format(http_verb, node["path"]))
+        log.debug("%s %s", http_verb, node["path"])
 
     return node
 
@@ -304,17 +305,17 @@ def cleanup_node(node):
 def write_st2_action(node, pack_path, lvl):
     """
     node: the proxmox spec to be processed
+    pack_path: the path to the pack being generated.
     lvl: present to respect function signature, but is unused.
     """
     action_path = "actions"
 
     env = SandboxedEnvironment()
-    template = env.from_string(action_jinja)
+    template = env.from_string(ACTION_JINJA)
 
     info = node["info"]
 
-    for (http_verb, method_object) in info.items():
-
+    for http_verb, method_object in info.items():
         action_name = info[http_verb]["action_name"]
         class_name = info[http_verb]["class_name"]
         filename = os.path.join(
@@ -352,7 +353,7 @@ def class_name_from_nodepath(node_path, method_name):
 def action_name_from_node_path(node_path, method_name):
     # strip out { and } making variables plain text.
     path = node_path.replace("{", "").replace("}", "")
-    base_name = "_".join([n for n in path.lstrip("/").split("/")])
+    base_name = "_".join(path.lstrip("/").split("/"))
     if base_name.endswith(method_name):
         action_name = base_name
     else:
@@ -369,12 +370,11 @@ def write_st2_action_meta(node, pack_path, lvl):
     action_path = "actions"
 
     env = SandboxedEnvironment()
-    template = env.from_string(action_meta_jinja)
+    template = env.from_string(ACTION_META_JINJA)
 
     info = node["info"]
 
-    for (http_verb, method_object) in info.items():
-
+    for http_verb, method_object in info.items():
         action_name = info[http_verb]["action_name"]
         filename = os.path.join(pack_path, action_path, f"{action_name}.yaml")
 
@@ -424,6 +424,7 @@ def read_from_http(url, username, password, realm):
             "password": password,
             "realm": realm,
         },
+        timeout=20,
     )
 
     prevention_token = resp.json()["data"]["CSRFPreventionToken"]
@@ -435,15 +436,47 @@ def read_from_http(url, username, password, realm):
 
     # Get javascript document.
     resp = requests.get(
-        f"{u.scheme}://{u.netloc}{u.path}{doc_path}", verify=False, headers=headers, cookies=cookies
+        f"{u.scheme}://{u.netloc}{u.path}{doc_path}",
+        verify=False,
+        headers=headers,
+        cookies=cookies,
+        timeout=20,
     )
 
     return resp.text
 
 
 def read_from_disk(filename):
-    with open(filename, "r") as f:
-        return "".join(f.readlines())
+    with open(filename, "r", encoding="utf-8") as fhandle:
+        return "".join(fhandle.readlines())
+
+
+def copy_packlib(pack_path):
+    """
+    Given the pack root directory, the contrib and actions directories
+    are extrapolated as the source/destination to copy python modules.
+    """
+    action_path = pathlib.Path(pack_path)
+    action_path = action_path.joinpath("actions").resolve()
+    if not action_path.exists():
+        print(f"Abort: 'actions' path not found at {action_path}.")
+        sys.exit(1)
+    # Create the directory packlib inside the actions directory.
+    packlib_dst = action_path.joinpath("packlib")
+    if not packlib_dst.exists():
+        try:
+            os.mkdir(packlib_dst)
+        except FileExistsError as ignored:
+            pass
+
+    # Copy the contents of the packlib directory from the contrib directory.
+    packlib_src = pathlib.Path(pack_path)
+    packlib_src = packlib_src.joinpath("contrib/packlib")
+    if not packlib_src.exists():
+        print(f"Abort: 'packlib' path not found at {packlib_path}")
+        sys.exit(1)
+
+    shutil.copytree(packlib_src, packlib_dst, dirs_exist_ok=True)
 
 
 def extract_schema_from_js(data):
@@ -458,7 +491,7 @@ def extract_schema_from_js(data):
     v72_token = "apiSchema"
 
     end = start = 0
-    for (i, t) in enumerate(tokens):
+    for i, t in enumerate(tokens):
         if t.value in [v6x_token, v72_token] and tokens[i + 1].value == "=":
             log.debug("API schema variable start found!")
             start = i + 2
@@ -489,13 +522,15 @@ def load_schema(source, username=None, password=None, realm=None):
     return extract_schema_from_js(data)
 
 
-def walk_node(node, pack_path, lvl=0, funcs=[]):
+def walk_node(node, pack_path, lvl=0, funcs=None):
+    if funcs is None:
+        funcs = []
     if node.get("info", False):
         clean_node = cleanup_node(copy.deepcopy(node))
         for fn in funcs:
             fn(clean_node, pack_path, lvl)
     else:
-        log.info("Skipping {} because it has no info.".format(node["path"]))
+        log.info("Skipping %s because it has no info.", node["path"])
     if "children" in node:
         lvl += 1
         for v in node["children"]:
@@ -514,9 +549,8 @@ def generate_pack_contents(source, pack_path, username=None, password=None, real
     """
     generators = [write_st2_action_meta, write_st2_action]
 
-    DISPLAY = False
-    if DISPLAY:
-        generators.append(write_console)
+    # Uncomment when you want to see console output
+    # generators.append(write_console)
 
     schema = load_schema(source, username, password, realm)
     for i in schema:
@@ -571,3 +605,4 @@ if __name__ == "__main__":
     generate_pack_contents(
         args.api_source, args.pack_path, args.username, args.password, args.realm
     )
+    copy_packlib(args.pack_path)
