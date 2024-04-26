@@ -7,8 +7,17 @@ class NodesNodeQemuVmidDestroyVmAction(ProxmoxAction):
     Destroy the VM and  all used/owned volumes. Removes any VM specific permissions and firewall rules
     """
 
-    def run(self, node, vmid, destroy_unreferenced_disks=None, purge=None, skiplock=None, profile_name=None):
-        super().run(profile_name)
+    def run(
+        self,
+        node,
+        vmid,
+        destroy_unreferenced_disks=None,
+        purge=None,
+        skiplock=None,
+        profile_name=None,
+        api_timeout=5,
+    ):
+        super().run(profile_name, api_timeout=api_timeout)
 
         # Only include non None arguments to pass through to proxmox api.
         proxmox_kwargs = {}
@@ -18,11 +27,10 @@ class NodesNodeQemuVmidDestroyVmAction(ProxmoxAction):
             ["purge", purge, "boolean"],
             ["skiplock", skiplock, "boolean"],
             ["vmid", vmid, "integer"],
-            
         ]:
             if api_arg[1] is None:
                 continue
-            if '[n]' in api_arg[0]:
+            if "[n]" in api_arg[0]:
                 unit_list = json.loads(api_arg[1])
                 for i, v in enumerate(unit_list):
                     proxmox_kwargs[api_arg[0].replace("[n]", str(i))] = v
@@ -31,8 +39,4 @@ class NodesNodeQemuVmidDestroyVmAction(ProxmoxAction):
                     api_arg[1] = int(api_arg[1])
                 proxmox_kwargs[api_arg[0]] = api_arg[1]
 
-        return self.proxmox.delete(
-            f"nodes/{node}/qemu/{vmid}",
-            **proxmox_kwargs
-        )
-        
+        return self.proxmox.delete(f"nodes/{node}/qemu/{vmid}", **proxmox_kwargs)

@@ -5,6 +5,11 @@ description: "Create Ceph Metadata Server (MDS)"
 enabled: true
 entry_point: "nodes_node_ceph_mds_name_createmds.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   hotstandby:
     description: "Determines whether a ceph-mds daemon should poll and replay the log of an active MDS. Faster switch on MDS failure, but needs more idle resources."
     type: boolean

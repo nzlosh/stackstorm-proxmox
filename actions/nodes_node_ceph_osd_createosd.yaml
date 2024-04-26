@@ -5,6 +5,11 @@ description: "Create OSD"
 enabled: true
 entry_point: "nodes_node_ceph_osd_createosd.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   crush_device_class:
     description: "Set the device class of the OSD in crush."
     type: string
@@ -29,6 +34,10 @@ parameters:
     description: "The cluster node name."
     type: string
     required: true
+  osds_per_device:
+    description: "OSD services per physical device. Only useful for fast NVMe devices\"     .\" to utilize their performance better."
+    type: integer
+    required: false
   wal_dev:
     description: "Block device name for block.wal."
     type: string

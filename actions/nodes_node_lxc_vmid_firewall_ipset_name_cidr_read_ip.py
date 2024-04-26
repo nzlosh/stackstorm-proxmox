@@ -7,8 +7,8 @@ class NodesNodeLxcVmidFirewallIpsetNameCidrReadIpAction(ProxmoxAction):
     Read IP or Network settings from IPSet.
     """
 
-    def run(self, cidr, name, node, vmid, profile_name=None):
-        super().run(profile_name)
+    def run(self, cidr, name, node, vmid, profile_name=None, api_timeout=5):
+        super().run(profile_name, api_timeout=api_timeout)
 
         # Only include non None arguments to pass through to proxmox api.
         proxmox_kwargs = {}
@@ -17,11 +17,10 @@ class NodesNodeLxcVmidFirewallIpsetNameCidrReadIpAction(ProxmoxAction):
             ["name", name, "string"],
             ["node", node, "string"],
             ["vmid", vmid, "integer"],
-            
         ]:
             if api_arg[1] is None:
                 continue
-            if '[n]' in api_arg[0]:
+            if "[n]" in api_arg[0]:
                 unit_list = json.loads(api_arg[1])
                 for i, v in enumerate(unit_list):
                     proxmox_kwargs[api_arg[0].replace("[n]", str(i))] = v
@@ -31,7 +30,5 @@ class NodesNodeLxcVmidFirewallIpsetNameCidrReadIpAction(ProxmoxAction):
                 proxmox_kwargs[api_arg[0]] = api_arg[1]
 
         return self.proxmox.get(
-            f"nodes/{node}/lxc/{vmid}/firewall/ipset/{name}/{cidr}",
-            **proxmox_kwargs
+            f"nodes/{node}/lxc/{vmid}/firewall/ipset/{name}/{cidr}", **proxmox_kwargs
         )
-        

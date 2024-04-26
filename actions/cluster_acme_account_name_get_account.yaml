@@ -5,6 +5,11 @@ description: "Return existing ACME account information."
 enabled: true
 entry_point: "cluster_acme_account_name_get_account.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   name:
     description: "ACME account config file name."
     type: string

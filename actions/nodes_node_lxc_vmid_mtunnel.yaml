@@ -5,6 +5,11 @@ description: "Migration tunnel endpoint - only for internal use by CT migration.
 enabled: true
 entry_point: "nodes_node_lxc_vmid_mtunnel.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   bridges:
     description: "List of network bridges to check availability. Will be checked again for actually used bridges during migration."
     type: string

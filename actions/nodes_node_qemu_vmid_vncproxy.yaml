@@ -5,6 +5,11 @@ description: "Creates a TCP VNC proxy connections."
 enabled: true
 entry_point: "nodes_node_qemu_vmid_vncproxy.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   generate_password:
     description: "Generates a random password to be used as ticket instead of the API ticket."
     type: boolean
@@ -18,7 +23,7 @@ parameters:
     type: integer
     required: true
   websocket:
-    description: "starts websockify instead of vncproxy"
+    description: "Prepare for websocket upgrade (only required when using serial terminal, otherwise upgrade is always possible)."
     type: boolean
     required: false
   profile_name:

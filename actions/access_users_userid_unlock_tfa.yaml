@@ -5,6 +5,11 @@ description: "Unlock a user's TFA authentication."
 enabled: true
 entry_point: "access_users_userid_unlock_tfa.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   userid:
     description: "Full User ID, in the `name@realm` format."
     type: string

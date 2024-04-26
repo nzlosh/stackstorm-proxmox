@@ -5,6 +5,11 @@ description: "List PCI Hardware Mapping"
 enabled: true
 entry_point: "cluster_mapping_pci_index.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   check_node:
     description: "If given, checks the configurations on the given node for correctness, and adds relevant diagnostics for the devices to the response."
     type: string

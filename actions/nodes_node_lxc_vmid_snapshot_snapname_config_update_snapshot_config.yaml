@@ -5,6 +5,11 @@ description: "Update snapshot metadata."
 enabled: true
 entry_point: "nodes_node_lxc_vmid_snapshot_snapname_config_update_snapshot_config.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   description:
     description: "A textual description or comment."
     type: string

@@ -18,11 +18,10 @@ class PoolsPoolidUpdatePoolAction(ProxmoxAction):
             ["poolid", poolid, "string"],
             ["storage", storage, "string"],
             ["vms", vms, "string"],
-            
         ]:
             if api_arg[1] is None:
                 continue
-            if '[n]' in api_arg[0]:
+            if "[n]" in api_arg[0]:
                 unit_list = json.loads(api_arg[1])
                 for i, v in enumerate(unit_list):
                     proxmox_kwargs[api_arg[0].replace("[n]", str(i))] = v
@@ -31,8 +30,4 @@ class PoolsPoolidUpdatePoolAction(ProxmoxAction):
                     api_arg[1] = int(api_arg[1])
                 proxmox_kwargs[api_arg[0]] = api_arg[1]
 
-        return self.proxmox.put(
-            f"pools/{poolid}",
-            **proxmox_kwargs
-        )
-        
+        return self.proxmox.put(f"pools/{poolid}", **proxmox_kwargs)

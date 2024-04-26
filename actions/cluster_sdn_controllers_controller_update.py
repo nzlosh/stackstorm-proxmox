@@ -7,8 +7,25 @@ class ClusterSdnControllersControllerUpdateAction(ProxmoxAction):
     Update sdn controller object configuration.
     """
 
-    def run(self, controller, asn=None, bgp_multipath_as_path_relax=None, delete=None, digest=None, ebgp=None, ebgp_multihop=None, loopback=None, node=None, peers=None, profile_name=None):
-        super().run(profile_name)
+    def run(
+        self,
+        controller,
+        asn=None,
+        bgp_multipath_as_path_relax=None,
+        delete=None,
+        digest=None,
+        ebgp=None,
+        ebgp_multihop=None,
+        isis_domain=None,
+        isis_ifaces=None,
+        isis_net=None,
+        loopback=None,
+        node=None,
+        peers=None,
+        profile_name=None,
+        api_timeout=5,
+    ):
+        super().run(profile_name, api_timeout=api_timeout)
 
         # Only include non None arguments to pass through to proxmox api.
         proxmox_kwargs = {}
@@ -20,14 +37,16 @@ class ClusterSdnControllersControllerUpdateAction(ProxmoxAction):
             ["digest", digest, "string"],
             ["ebgp", ebgp, "boolean"],
             ["ebgp-multihop", ebgp_multihop, "integer"],
+            ["isis-domain", isis_domain, "string"],
+            ["isis-ifaces", isis_ifaces, "string"],
+            ["isis-net", isis_net, "string"],
             ["loopback", loopback, "string"],
             ["node", node, "string"],
             ["peers", peers, "string"],
-            
         ]:
             if api_arg[1] is None:
                 continue
-            if '[n]' in api_arg[0]:
+            if "[n]" in api_arg[0]:
                 unit_list = json.loads(api_arg[1])
                 for i, v in enumerate(unit_list):
                     proxmox_kwargs[api_arg[0].replace("[n]", str(i))] = v
@@ -36,8 +55,4 @@ class ClusterSdnControllersControllerUpdateAction(ProxmoxAction):
                     api_arg[1] = int(api_arg[1])
                 proxmox_kwargs[api_arg[0]] = api_arg[1]
 
-        return self.proxmox.put(
-            f"cluster/sdn/controllers/{controller}",
-            **proxmox_kwargs
-        )
-        
+        return self.proxmox.put(f"cluster/sdn/controllers/{controller}", **proxmox_kwargs)

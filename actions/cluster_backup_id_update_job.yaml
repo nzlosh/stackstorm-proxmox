@@ -5,6 +5,11 @@ description: "Update vzdump backup job definition."
 enabled: true
 entry_point: "cluster_backup_id_update_job.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   prox_all:
     description: "Backup all known guest systems on this host."
     type: boolean
@@ -58,11 +63,11 @@ parameters:
     type: integer
     required: false
   mailnotification:
-    description: "Specify when to send an email"
+    description: "Deprecated: use 'notification-policy' instead."
     type: string
     required: false
   mailto:
-    description: "Comma-separated list of email addresses or users that should receive email notifications."
+    description: "Comma-separated list of email addresses or users that should receive email notifications. Has no effect if the 'notification-target' option  is set at the same time."
     type: string
     required: false
   maxfiles:
@@ -79,6 +84,14 @@ parameters:
     required: false
   notes_template:
     description: "Template string for generating notes for the backup(s). It can contain variables which will be replaced by their values. Currently supported are {{cluster}}, {{guestname}}, {{node}}, and {{vmid}}, but more might be added in the future. Needs to be a single line, newline and backslash need to be escaped as '\\n' and '\\\\' respectively."
+    type: string
+    required: false
+  notification_policy:
+    description: "Specify when to send a notification"
+    type: string
+    required: false
+  notification_target:
+    description: "Determine the target to which notifications should be sent. Can either be a notification endpoint or a notification group. This option takes precedence over 'mailto', meaning that if both are  set, the 'mailto' option will be ignored."
     type: string
     required: false
   performance:

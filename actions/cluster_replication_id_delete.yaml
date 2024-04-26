@@ -5,6 +5,11 @@ description: "Mark replication job for removal."
 enabled: true
 entry_point: "cluster_replication_id_delete.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   force:
     description: "Will remove the jobconfig entry, but will not cleanup."
     type: boolean

@@ -5,6 +5,11 @@ description: "Read replication job configuration."
 enabled: true
 entry_point: "cluster_replication_id_read.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   prox_id:
     description: "Replication Job ID. The ID is composed of a Guest ID and a job number, separated by a hyphen, i.e. '<GUEST>-<JOBNUM>'."
     type: string

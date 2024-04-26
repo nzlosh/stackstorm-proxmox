@@ -5,6 +5,11 @@ description: "Create Ceph Monitor and Manager"
 enabled: true
 entry_point: "nodes_node_ceph_mon_monid_createmon.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   mon_address:
     description: "Overwrites autodetected monitor IP address(es). Must be in the public network(s) of Ceph."
     type: string

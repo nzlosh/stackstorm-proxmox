@@ -5,6 +5,11 @@ description: "Read IP or Network settings from IPSet."
 enabled: true
 entry_point: "cluster_firewall_ipset_name_cidr_read_ip.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   cidr:
     description: "Network/IP specification in CIDR format."
     type: string

@@ -7,8 +7,50 @@ class AccessDomainsRealmUpdateAction(ProxmoxAction):
     Update authentication server settings.
     """
 
-    def run(self, realm, acr_values=None, autocreate=None, base_dn=None, bind_dn=None, capath=None, case_sensitive=None, cert=None, certkey=None, client_id=None, client_key=None, comment=None, default=None, delete=None, digest=None, domain=None, prox_filter=None, group_classes=None, group_dn=None, group_filter=None, group_name_attr=None, issuer_url=None, mode=None, password=None, port=None, prompt=None, scopes=None, secure=None, server1=None, server2=None, sslversion=None, sync_defaults_options=None, sync_attributes=None, tfa=None, user_attr=None, user_classes=None, verify=None, profile_name=None):
-        super().run(profile_name)
+    def run(
+        self,
+        realm,
+        acr_values=None,
+        autocreate=None,
+        base_dn=None,
+        bind_dn=None,
+        capath=None,
+        case_sensitive=None,
+        cert=None,
+        certkey=None,
+        check_connection=None,
+        client_id=None,
+        client_key=None,
+        comment=None,
+        default=None,
+        delete=None,
+        digest=None,
+        domain=None,
+        prox_filter=None,
+        group_classes=None,
+        group_dn=None,
+        group_filter=None,
+        group_name_attr=None,
+        issuer_url=None,
+        mode=None,
+        password=None,
+        port=None,
+        prompt=None,
+        scopes=None,
+        secure=None,
+        server1=None,
+        server2=None,
+        sslversion=None,
+        sync_defaults_options=None,
+        sync_attributes=None,
+        tfa=None,
+        user_attr=None,
+        user_classes=None,
+        verify=None,
+        profile_name=None,
+        api_timeout=5,
+    ):
+        super().run(profile_name, api_timeout=api_timeout)
 
         # Only include non None arguments to pass through to proxmox api.
         proxmox_kwargs = {}
@@ -21,6 +63,7 @@ class AccessDomainsRealmUpdateAction(ProxmoxAction):
             ["case-sensitive", case_sensitive, "boolean"],
             ["cert", cert, "string"],
             ["certkey", certkey, "string"],
+            ["check-connection", check_connection, "boolean"],
             ["client-id", client_id, "string"],
             ["client-key", client_key, "string"],
             ["comment", comment, "string"],
@@ -50,11 +93,10 @@ class AccessDomainsRealmUpdateAction(ProxmoxAction):
             ["user_attr", user_attr, "string"],
             ["user_classes", user_classes, "string"],
             ["verify", verify, "boolean"],
-            
         ]:
             if api_arg[1] is None:
                 continue
-            if '[n]' in api_arg[0]:
+            if "[n]" in api_arg[0]:
                 unit_list = json.loads(api_arg[1])
                 for i, v in enumerate(unit_list):
                     proxmox_kwargs[api_arg[0].replace("[n]", str(i))] = v
@@ -63,8 +105,4 @@ class AccessDomainsRealmUpdateAction(ProxmoxAction):
                     api_arg[1] = int(api_arg[1])
                 proxmox_kwargs[api_arg[0]] = api_arg[1]
 
-        return self.proxmox.put(
-            f"access/domains/{realm}",
-            **proxmox_kwargs
-        )
-        
+        return self.proxmox.put(f"access/domains/{realm}", **proxmox_kwargs)
