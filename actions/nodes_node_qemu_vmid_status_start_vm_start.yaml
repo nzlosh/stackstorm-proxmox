@@ -5,12 +5,17 @@ description: "Start virtual machine."
 enabled: true
 entry_point: "nodes_node_qemu_vmid_status_start_vm_start.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   force_cpu:
     description: "Override QEMU's -cpu argument with the given string."
     type: string
     required: false
   machine:
-    description: "Specifies the QEMU machine type."
+    description: "Specify the QEMU machine."
     type: string
     required: false
   migratedfrom:

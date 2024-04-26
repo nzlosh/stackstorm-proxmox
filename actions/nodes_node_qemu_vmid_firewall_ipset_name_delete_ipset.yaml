@@ -5,6 +5,11 @@ description: "Delete IPSet"
 enabled: true
 entry_point: "nodes_node_qemu_vmid_firewall_ipset_name_delete_ipset.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   force:
     description: "Delete all members of the IPSet, if there are any."
     type: boolean

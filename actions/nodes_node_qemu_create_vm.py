@@ -7,8 +7,99 @@ class NodesNodeQemuCreateVmAction(ProxmoxAction):
     Create or restore a virtual machine.
     """
 
-    def run(self, node, vmid, acpi=None, affinity=None, agent=None, arch=None, archive=None, args=None, audio0=None, autostart=None, balloon=None, bios=None, boot=None, bootdisk=None, bwlimit=None, cdrom=None, cicustom=None, cipassword=None, citype=None, ciupgrade=None, ciuser=None, cores=None, cpu=None, cpulimit=None, cpuunits=None, description=None, efidisk0=None, force=None, freeze=None, hookscript=None, hostpci_list=None, hotplug=None, hugepages=None, ide_list=None, ipconfig_list=None, ivshmem=None, keephugepages=None, keyboard=None, kvm=None, live_restore=None, localtime=None, lock=None, machine=None, memory=None, migrate_downtime=None, migrate_speed=None, name=None, nameserver=None, net_list=None, numa=None, numa_list=None, onboot=None, ostype=None, parallel_list=None, pool=None, protection=None, reboot=None, rng0=None, sata_list=None, scsi_list=None, scsihw=None, searchdomain=None, serial_list=None, shares=None, smbios1=None, smp=None, sockets=None, spice_enhancements=None, sshkeys=None, start=None, startdate=None, startup=None, storage=None, tablet=None, tags=None, tdf=None, template=None, tpmstate0=None, unique=None, unused_list=None, usb_list=None, vcpus=None, vga=None, virtio_list=None, vmgenid=None, vmstatestorage=None, watchdog=None, profile_name=None):
-        super().run(profile_name)
+    def run(
+        self,
+        node,
+        vmid,
+        acpi=None,
+        affinity=None,
+        agent=None,
+        arch=None,
+        archive=None,
+        args=None,
+        audio0=None,
+        autostart=None,
+        balloon=None,
+        bios=None,
+        boot=None,
+        bootdisk=None,
+        bwlimit=None,
+        cdrom=None,
+        cicustom=None,
+        cipassword=None,
+        citype=None,
+        ciupgrade=None,
+        ciuser=None,
+        cores=None,
+        cpu=None,
+        cpulimit=None,
+        cpuunits=None,
+        description=None,
+        efidisk0=None,
+        force=None,
+        freeze=None,
+        hookscript=None,
+        hostpci_list=None,
+        hotplug=None,
+        hugepages=None,
+        ide_list=None,
+        ipconfig_list=None,
+        ivshmem=None,
+        keephugepages=None,
+        keyboard=None,
+        kvm=None,
+        live_restore=None,
+        localtime=None,
+        lock=None,
+        machine=None,
+        memory=None,
+        migrate_downtime=None,
+        migrate_speed=None,
+        name=None,
+        nameserver=None,
+        net_list=None,
+        numa=None,
+        numa_list=None,
+        onboot=None,
+        ostype=None,
+        parallel_list=None,
+        pool=None,
+        protection=None,
+        reboot=None,
+        rng0=None,
+        sata_list=None,
+        scsi_list=None,
+        scsihw=None,
+        searchdomain=None,
+        serial_list=None,
+        shares=None,
+        smbios1=None,
+        smp=None,
+        sockets=None,
+        spice_enhancements=None,
+        sshkeys=None,
+        start=None,
+        startdate=None,
+        startup=None,
+        storage=None,
+        tablet=None,
+        tags=None,
+        tdf=None,
+        template=None,
+        tpmstate0=None,
+        unique=None,
+        unused_list=None,
+        usb_list=None,
+        vcpus=None,
+        vga=None,
+        virtio_list=None,
+        vmgenid=None,
+        vmstatestorage=None,
+        watchdog=None,
+        profile_name=None,
+        api_timeout=5,
+    ):
+        super().run(profile_name, api_timeout=api_timeout)
 
         # Only include non None arguments to pass through to proxmox api.
         proxmox_kwargs = {}
@@ -54,7 +145,7 @@ class NodesNodeQemuCreateVmAction(ProxmoxAction):
             ["localtime", localtime, "boolean"],
             ["lock", lock, "string"],
             ["machine", machine, "string"],
-            ["memory", memory, "integer"],
+            ["memory", memory, "string"],
             ["migrate_downtime", migrate_downtime, "number"],
             ["migrate_speed", migrate_speed, "integer"],
             ["name", name, "string"],
@@ -100,11 +191,10 @@ class NodesNodeQemuCreateVmAction(ProxmoxAction):
             ["vmid", vmid, "integer"],
             ["vmstatestorage", vmstatestorage, "string"],
             ["watchdog", watchdog, "string"],
-            
         ]:
             if api_arg[1] is None:
                 continue
-            if '[n]' in api_arg[0]:
+            if "[n]" in api_arg[0]:
                 unit_list = json.loads(api_arg[1])
                 for i, v in enumerate(unit_list):
                     proxmox_kwargs[api_arg[0].replace("[n]", str(i))] = v
@@ -113,8 +203,4 @@ class NodesNodeQemuCreateVmAction(ProxmoxAction):
                     api_arg[1] = int(api_arg[1])
                 proxmox_kwargs[api_arg[0]] = api_arg[1]
 
-        return self.proxmox.post(
-            f"nodes/{node}/qemu",
-            **proxmox_kwargs
-        )
-        
+        return self.proxmox.post(f"nodes/{node}/qemu", **proxmox_kwargs)

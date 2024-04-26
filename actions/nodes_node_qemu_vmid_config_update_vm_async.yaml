@@ -5,6 +5,11 @@ description: "Set virtual machine options (asynchrounous API)."
 enabled: true
 entry_point: "nodes_node_qemu_vmid_config_update_vm_async.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   acpi:
     description: "Enable/disable ACPI."
     type: boolean
@@ -166,12 +171,12 @@ parameters:
     type: string
     required: false
   machine:
-    description: "Specifies the QEMU machine type."
+    description: "Specify the QEMU machine."
     type: string
     required: false
   memory:
-    description: "Amount of RAM for the VM in MiB. This is the maximum available memory when you use the balloon device."
-    type: integer
+    description: "Memory properties."
+    type: string
     required: false
   migrate_downtime:
     description: "Set maximum tolerated downtime (in seconds) for migrations."

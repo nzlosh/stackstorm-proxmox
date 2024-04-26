@@ -5,6 +5,11 @@ description: "Scan remote CIFS server."
 enabled: true
 entry_point: "nodes_node_scan_cifs_cifsscan.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   domain:
     description: "SMB domain (Workgroup)."
     type: string

@@ -1,10 +1,15 @@
 name: nodes_node_qemu_vmid_status_shutdown_vm_shutdown
 pack: proxmox
 runner_type: python-script
-description: "Shutdown virtual machine. This is similar to pressing the power button on a physical machine.This will send an ACPI event for the guest OS, which should then proceed to a clean shutdown."
+description: "Shutdown virtual machine. This is similar to pressing the power button on a physical machine. This will send an ACPI event for the guest OS, which should then proceed to a clean shutdown."
 enabled: true
 entry_point: "nodes_node_qemu_vmid_status_shutdown_vm_shutdown.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   forceStop:
     description: "Make sure the VM stops."
     type: boolean

@@ -5,6 +5,11 @@ description: "Create a new sdn controller object."
 enabled: true
 entry_point: "cluster_sdn_controllers_create.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   asn:
     description: "autonomous system number"
     type: integer
@@ -24,6 +29,18 @@ parameters:
   ebgp_multihop:
     description: "Description unavailable."
     type: integer
+    required: false
+  isis_domain:
+    description: "ISIS domain."
+    type: string
+    required: false
+  isis_ifaces:
+    description: "ISIS interface."
+    type: string
+    required: false
+  isis_net:
+    description: "ISIS network entity title."
+    type: string
     required: false
   loopback:
     description: "source loopback interface."

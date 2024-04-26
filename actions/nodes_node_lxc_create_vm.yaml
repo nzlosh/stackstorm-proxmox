@@ -5,6 +5,11 @@ description: "Create or restore a container."
 enabled: true
 entry_point: "nodes_node_lxc_create_vm.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   arch:
     description: "OS architecture type."
     type: string
@@ -39,6 +44,10 @@ parameters:
     required: false
   description:
     description: "Description for the Container. Shown in the web-interface CT's summary. This is saved as comment inside the configuration file."
+    type: string
+    required: false
+  dev_list:
+    description: "Device to pass through to the container"
     type: string
     required: false
   features:

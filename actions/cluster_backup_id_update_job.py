@@ -7,8 +7,53 @@ class ClusterBackupIdUpdateJobAction(ProxmoxAction):
     Update vzdump backup job definition.
     """
 
-    def run(self, prox_id, prox_all=None, bwlimit=None, comment=None, compress=None, delete=None, dow=None, dumpdir=None, enabled=None, exclude=None, exclude_path=None, ionice=None, lockwait=None, mailnotification=None, mailto=None, maxfiles=None, mode=None, node=None, notes_template=None, performance=None, pigz=None, pool=None, protected=None, prune_backups=None, quiet=None, remove=None, repeat_missed=None, schedule=None, script=None, starttime=None, stdexcludes=None, stop=None, stopwait=None, storage=None, tmpdir=None, vmid=None, zstd=None, profile_name=None):
-        super().run(profile_name)
+    def run(
+        self,
+        prox_id,
+        prox_all=None,
+        bwlimit=None,
+        comment=None,
+        compress=None,
+        delete=None,
+        dow=None,
+        dumpdir=None,
+        enabled=None,
+        exclude=None,
+        exclude_path=None,
+        fleecing=None,
+        ionice=None,
+        lockwait=None,
+        mailnotification=None,
+        mailto=None,
+        maxfiles=None,
+        mode=None,
+        node=None,
+        notes_template=None,
+        notification_mode=None,
+        notification_policy=None,
+        notification_target=None,
+        performance=None,
+        pigz=None,
+        pool=None,
+        protected=None,
+        prune_backups=None,
+        quiet=None,
+        remove=None,
+        repeat_missed=None,
+        schedule=None,
+        script=None,
+        starttime=None,
+        stdexcludes=None,
+        stop=None,
+        stopwait=None,
+        storage=None,
+        tmpdir=None,
+        vmid=None,
+        zstd=None,
+        profile_name=None,
+        api_timeout=5,
+    ):
+        super().run(profile_name, api_timeout=api_timeout)
 
         # Only include non None arguments to pass through to proxmox api.
         proxmox_kwargs = {}
@@ -23,6 +68,7 @@ class ClusterBackupIdUpdateJobAction(ProxmoxAction):
             ["enabled", enabled, "boolean"],
             ["exclude", exclude, "string"],
             ["exclude-path", exclude_path, "array"],
+            ["fleecing", fleecing, "string"],
             ["id", prox_id, "string"],
             ["ionice", ionice, "integer"],
             ["lockwait", lockwait, "integer"],
@@ -32,6 +78,9 @@ class ClusterBackupIdUpdateJobAction(ProxmoxAction):
             ["mode", mode, "string"],
             ["node", node, "string"],
             ["notes-template", notes_template, "string"],
+            ["notification-mode", notification_mode, "string"],
+            ["notification-policy", notification_policy, "string"],
+            ["notification-target", notification_target, "string"],
             ["performance", performance, "string"],
             ["pigz", pigz, "integer"],
             ["pool", pool, "string"],
@@ -50,11 +99,10 @@ class ClusterBackupIdUpdateJobAction(ProxmoxAction):
             ["tmpdir", tmpdir, "string"],
             ["vmid", vmid, "string"],
             ["zstd", zstd, "integer"],
-            
         ]:
             if api_arg[1] is None:
                 continue
-            if '[n]' in api_arg[0]:
+            if "[n]" in api_arg[0]:
                 unit_list = json.loads(api_arg[1])
                 for i, v in enumerate(unit_list):
                     proxmox_kwargs[api_arg[0].replace("[n]", str(i))] = v
@@ -63,8 +111,4 @@ class ClusterBackupIdUpdateJobAction(ProxmoxAction):
                     api_arg[1] = int(api_arg[1])
                 proxmox_kwargs[api_arg[0]] = api_arg[1]
 
-        return self.proxmox.put(
-            f"cluster/backup/{id}",
-            **proxmox_kwargs
-        )
-        
+        return self.proxmox.put(f"cluster/backup/{id}", **proxmox_kwargs)

@@ -5,6 +5,11 @@ description: "Migrate all VMs and Containers."
 enabled: true
 entry_point: "nodes_node_migrateall.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   maxworkers:
     description: "Maximal number of parallel migration job. If not set, uses'max_workers' from datacenter.cfg. One of both must be set!"
     type: integer

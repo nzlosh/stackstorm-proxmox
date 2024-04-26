@@ -7,8 +7,41 @@ class NodesNodeNetworkIfaceUpdateNetworkAction(ProxmoxAction):
     Update network device configuration
     """
 
-    def run(self, iface, node, prox_type, address=None, address6=None, autostart=None, bond_primary=None, bond_mode=None, bond_xmit_hash_policy=None, bridge_ports=None, bridge_vlan_aware=None, cidr=None, cidr6=None, comments=None, comments6=None, delete=None, gateway=None, gateway6=None, mtu=None, netmask=None, netmask6=None, ovs_bonds=None, ovs_bridge=None, ovs_options=None, ovs_ports=None, ovs_tag=None, slaves=None, vlan_id=None, vlan_raw_device=None, profile_name=None):
-        super().run(profile_name)
+    def run(
+        self,
+        iface,
+        node,
+        prox_type,
+        address=None,
+        address6=None,
+        autostart=None,
+        bond_primary=None,
+        bond_mode=None,
+        bond_xmit_hash_policy=None,
+        bridge_ports=None,
+        bridge_vlan_aware=None,
+        cidr=None,
+        cidr6=None,
+        comments=None,
+        comments6=None,
+        delete=None,
+        gateway=None,
+        gateway6=None,
+        mtu=None,
+        netmask=None,
+        netmask6=None,
+        ovs_bonds=None,
+        ovs_bridge=None,
+        ovs_options=None,
+        ovs_ports=None,
+        ovs_tag=None,
+        slaves=None,
+        vlan_id=None,
+        vlan_raw_device=None,
+        profile_name=None,
+        api_timeout=5,
+    ):
+        super().run(profile_name, api_timeout=api_timeout)
 
         # Only include non None arguments to pass through to proxmox api.
         proxmox_kwargs = {}
@@ -42,11 +75,10 @@ class NodesNodeNetworkIfaceUpdateNetworkAction(ProxmoxAction):
             ["type", prox_type, "string"],
             ["vlan-id", vlan_id, "integer"],
             ["vlan-raw-device", vlan_raw_device, "string"],
-            
         ]:
             if api_arg[1] is None:
                 continue
-            if '[n]' in api_arg[0]:
+            if "[n]" in api_arg[0]:
                 unit_list = json.loads(api_arg[1])
                 for i, v in enumerate(unit_list):
                     proxmox_kwargs[api_arg[0].replace("[n]", str(i))] = v
@@ -55,8 +87,4 @@ class NodesNodeNetworkIfaceUpdateNetworkAction(ProxmoxAction):
                     api_arg[1] = int(api_arg[1])
                 proxmox_kwargs[api_arg[0]] = api_arg[1]
 
-        return self.proxmox.put(
-            f"nodes/{node}/network/{iface}",
-            **proxmox_kwargs
-        )
-        
+        return self.proxmox.put(f"nodes/{node}/network/{iface}", **proxmox_kwargs)

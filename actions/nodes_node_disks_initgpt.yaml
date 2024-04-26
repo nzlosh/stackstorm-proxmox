@@ -5,6 +5,11 @@ description: "Initialize Disk with GPT"
 enabled: true
 entry_point: "nodes_node_disks_initgpt.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   disk:
     description: "Block device name"
     type: string

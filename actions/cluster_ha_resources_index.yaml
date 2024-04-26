@@ -5,6 +5,11 @@ description: "List HA resources."
 enabled: true
 entry_point: "cluster_ha_resources_index.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   prox_type:
     description: "Only list resources of specific type"
     type: string

@@ -5,6 +5,11 @@ description: "Create backup."
 enabled: true
 entry_point: "nodes_node_vzdump.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   prox_all:
     description: "Backup all known guest systems on this host."
     type: boolean
@@ -26,8 +31,12 @@ parameters:
     type: string
     required: false
   exclude_path:
-    description: "Exclude certain files/directories (shell globs). Paths starting with '/' are anchored to the container's root,  other paths match relative to each subdirectory."
+    description: "Exclude certain files/directories (shell globs). Paths starting with '/' are anchored to the container's root, other paths match relative to each subdirectory."
     type: array
+    required: false
+  fleecing:
+    description: "Options for backup fleecing (VM only)."
+    type: string
     required: false
   ionice:
     description: "Set IO priority when using the BFQ scheduler. For snapshot and suspend mode backups of VMs, this only affects the compressor. A value of 8 means the idle priority is used, otherwise the best-effort priority is used with the specified value."
@@ -38,11 +47,11 @@ parameters:
     type: integer
     required: false
   mailnotification:
-    description: "Specify when to send an email"
+    description: "Deprecated: use notification targets/matchers instead. Specify when to send a notification mail"
     type: string
     required: false
   mailto:
-    description: "Comma-separated list of email addresses or users that should receive email notifications."
+    description: "Deprecated: Use notification targets/matchers instead. Comma-separated list of email addresses or users that should receive email notifications."
     type: string
     required: false
   maxfiles:
@@ -59,6 +68,18 @@ parameters:
     required: false
   notes_template:
     description: "Template string for generating notes for the backup(s). It can contain variables which will be replaced by their values. Currently supported are {{cluster}}, {{guestname}}, {{node}}, and {{vmid}}, but more might be added in the future. Needs to be a single line, newline and backslash need to be escaped as '\\n' and '\\\\' respectively."
+    type: string
+    required: false
+  notification_mode:
+    description: "Determine which notification system to use. If set to 'legacy-sendmail', vzdump will consider the mailto/mailnotification parameters and send emails to the specified address(es) via the 'sendmail' command. If set to 'notification-system', a notification will be sent via PVE's notification system, and the mailto and mailnotification will be ignored. If set to 'auto' (default setting), an email will be sent if mailto is set, and the notification system will be used if not."
+    type: string
+    required: false
+  notification_policy:
+    description: "Deprecated: Do not use"
+    type: string
+    required: false
+  notification_target:
+    description: "Deprecated: Do not use"
     type: string
     required: false
   performance:
@@ -122,7 +143,7 @@ parameters:
     type: string
     required: false
   zstd:
-    description: "Zstd threads. N=0 uses half of the available cores, N>0 uses N as thread count."
+    description: "Zstd threads. N=0 uses half of the available cores, if N is set to a value bigger than 0, N is used as thread count."
     type: integer
     required: false
   profile_name:

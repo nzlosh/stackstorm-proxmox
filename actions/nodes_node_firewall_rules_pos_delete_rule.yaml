@@ -5,8 +5,13 @@ description: "Delete rule."
 enabled: true
 entry_point: "nodes_node_firewall_rules_pos_delete_rule.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   digest:
-    description: "Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications."
+    description: "Prevent changes if current configuration file has a different digest. This can be used to prevent concurrent modifications."
     type: string
     required: false
   node:

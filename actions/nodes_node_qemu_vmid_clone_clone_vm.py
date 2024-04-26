@@ -7,8 +7,24 @@ class NodesNodeQemuVmidCloneCloneVmAction(ProxmoxAction):
     Create a copy of virtual machine/template.
     """
 
-    def run(self, newid, node, vmid, bwlimit=None, description=None, prox_format=None, full=None, name=None, pool=None, snapname=None, storage=None, target=None, profile_name=None):
-        super().run(profile_name)
+    def run(
+        self,
+        newid,
+        node,
+        vmid,
+        bwlimit=None,
+        description=None,
+        prox_format=None,
+        full=None,
+        name=None,
+        pool=None,
+        snapname=None,
+        storage=None,
+        target=None,
+        profile_name=None,
+        api_timeout=5,
+    ):
+        super().run(profile_name, api_timeout=api_timeout)
 
         # Only include non None arguments to pass through to proxmox api.
         proxmox_kwargs = {}
@@ -25,11 +41,10 @@ class NodesNodeQemuVmidCloneCloneVmAction(ProxmoxAction):
             ["storage", storage, "string"],
             ["target", target, "string"],
             ["vmid", vmid, "integer"],
-            
         ]:
             if api_arg[1] is None:
                 continue
-            if '[n]' in api_arg[0]:
+            if "[n]" in api_arg[0]:
                 unit_list = json.loads(api_arg[1])
                 for i, v in enumerate(unit_list):
                     proxmox_kwargs[api_arg[0].replace("[n]", str(i))] = v
@@ -38,8 +53,4 @@ class NodesNodeQemuVmidCloneCloneVmAction(ProxmoxAction):
                     api_arg[1] = int(api_arg[1])
                 proxmox_kwargs[api_arg[0]] = api_arg[1]
 
-        return self.proxmox.post(
-            f"nodes/{node}/qemu/{vmid}/clone",
-            **proxmox_kwargs
-        )
-        
+        return self.proxmox.post(f"nodes/{node}/qemu/{vmid}/clone", **proxmox_kwargs)
