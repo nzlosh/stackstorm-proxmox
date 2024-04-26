@@ -7,11 +7,11 @@ LOG = logging.getLogger(__name__)
 
 
 class ProxmoxAction(Action):
-    def __init__(self, config, timeout=5):
+    def __init__(self, config):
         super().__init__(config)
         self.config = config
 
-    def run(self, profile_name=None):
+    def run(self, profile_name=None, api_timeout=5):
         super().run()
 
         if not profile_name:
@@ -30,4 +30,5 @@ class ProxmoxAction(Action):
             user=profile.get("username") + "@" + profile.get("auth_realm"),
             password=profile.get("password"),
             verify_ssl=profile.get("verify_tls"),
+            timeout=api_timeout
         )
