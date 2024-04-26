@@ -7,8 +7,29 @@ class ClusterMetricsServerIdUpdateAction(ProxmoxAction):
     Update metric server configuration.
     """
 
-    def run(self, prox_id, port, server, api_path_prefix=None, bucket=None, delete=None, digest=None, disable=None, influxdbproto=None, max_body_size=None, mtu=None, organization=None, path=None, proto=None, timeout=None, token=None, verify_certificate=None, profile_name=None):
-        super().run(profile_name)
+    def run(
+        self,
+        prox_id,
+        port,
+        server,
+        api_path_prefix=None,
+        bucket=None,
+        delete=None,
+        digest=None,
+        disable=None,
+        influxdbproto=None,
+        max_body_size=None,
+        mtu=None,
+        organization=None,
+        path=None,
+        proto=None,
+        timeout=None,
+        token=None,
+        verify_certificate=None,
+        profile_name=None,
+        api_timeout=5,
+    ):
+        super().run(profile_name, api_timeout=api_timeout)
 
         # Only include non None arguments to pass through to proxmox api.
         proxmox_kwargs = {}
@@ -30,11 +51,10 @@ class ClusterMetricsServerIdUpdateAction(ProxmoxAction):
             ["timeout", timeout, "integer"],
             ["token", token, "string"],
             ["verify-certificate", verify_certificate, "boolean"],
-            
         ]:
             if api_arg[1] is None:
                 continue
-            if '[n]' in api_arg[0]:
+            if "[n]" in api_arg[0]:
                 unit_list = json.loads(api_arg[1])
                 for i, v in enumerate(unit_list):
                     proxmox_kwargs[api_arg[0].replace("[n]", str(i))] = v
@@ -43,8 +63,4 @@ class ClusterMetricsServerIdUpdateAction(ProxmoxAction):
                     api_arg[1] = int(api_arg[1])
                 proxmox_kwargs[api_arg[0]] = api_arg[1]
 
-        return self.proxmox.put(
-            f"cluster/metrics/server/{id}",
-            **proxmox_kwargs
-        )
-        
+        return self.proxmox.put(f"cluster/metrics/server/{id}", **proxmox_kwargs)

@@ -5,6 +5,11 @@ description: "Retrieve effective permissions of given user/token."
 enabled: true
 entry_point: "access_permissions.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   path:
     description: "Only dump this specific path, not the whole tree."
     type: string

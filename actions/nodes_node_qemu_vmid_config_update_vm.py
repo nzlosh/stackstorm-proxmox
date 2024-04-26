@@ -7,8 +7,95 @@ class NodesNodeQemuVmidConfigUpdateVmAction(ProxmoxAction):
     Set virtual machine options (synchrounous API) - You should consider using the POST method instead for any actions involving hotplug or storage allocation.
     """
 
-    def run(self, node, vmid, acpi=None, affinity=None, agent=None, arch=None, args=None, audio0=None, autostart=None, balloon=None, bios=None, boot=None, bootdisk=None, cdrom=None, cicustom=None, cipassword=None, citype=None, ciuser=None, cores=None, cpu=None, cpulimit=None, cpuunits=None, delete=None, description=None, digest=None, efidisk0=None, force=None, freeze=None, hookscript=None, hostpci_list=None, hotplug=None, hugepages=None, ide_list=None, ipconfig_list=None, ivshmem=None, keephugepages=None, keyboard=None, kvm=None, localtime=None, lock=None, machine=None, memory=None, migrate_downtime=None, migrate_speed=None, name=None, nameserver=None, net_list=None, numa=None, numa_list=None, onboot=None, ostype=None, parallel_list=None, protection=None, reboot=None, revert=None, rng0=None, sata_list=None, scsi_list=None, scsihw=None, searchdomain=None, serial_list=None, shares=None, skiplock=None, smbios1=None, smp=None, sockets=None, spice_enhancements=None, sshkeys=None, startdate=None, startup=None, tablet=None, tags=None, tdf=None, template=None, tpmstate0=None, unused_list=None, usb_list=None, vcpus=None, vga=None, virtio_list=None, vmgenid=None, vmstatestorage=None, watchdog=None, profile_name=None):
-        super().run(profile_name)
+    def run(
+        self,
+        node,
+        vmid,
+        acpi=None,
+        affinity=None,
+        agent=None,
+        arch=None,
+        args=None,
+        audio0=None,
+        autostart=None,
+        balloon=None,
+        bios=None,
+        boot=None,
+        bootdisk=None,
+        cdrom=None,
+        cicustom=None,
+        cipassword=None,
+        citype=None,
+        ciuser=None,
+        cores=None,
+        cpu=None,
+        cpulimit=None,
+        cpuunits=None,
+        delete=None,
+        description=None,
+        digest=None,
+        efidisk0=None,
+        force=None,
+        freeze=None,
+        hookscript=None,
+        hostpci_list=None,
+        hotplug=None,
+        hugepages=None,
+        ide_list=None,
+        ipconfig_list=None,
+        ivshmem=None,
+        keephugepages=None,
+        keyboard=None,
+        kvm=None,
+        localtime=None,
+        lock=None,
+        machine=None,
+        memory=None,
+        migrate_downtime=None,
+        migrate_speed=None,
+        name=None,
+        nameserver=None,
+        net_list=None,
+        numa=None,
+        numa_list=None,
+        onboot=None,
+        ostype=None,
+        parallel_list=None,
+        protection=None,
+        reboot=None,
+        revert=None,
+        rng0=None,
+        sata_list=None,
+        scsi_list=None,
+        scsihw=None,
+        searchdomain=None,
+        serial_list=None,
+        shares=None,
+        skiplock=None,
+        smbios1=None,
+        smp=None,
+        sockets=None,
+        spice_enhancements=None,
+        sshkeys=None,
+        startdate=None,
+        startup=None,
+        tablet=None,
+        tags=None,
+        tdf=None,
+        template=None,
+        tpmstate0=None,
+        unused_list=None,
+        usb_list=None,
+        vcpus=None,
+        vga=None,
+        virtio_list=None,
+        vmgenid=None,
+        vmstatestorage=None,
+        watchdog=None,
+        profile_name=None,
+        api_timeout=5,
+    ):
+        super().run(profile_name, api_timeout=api_timeout)
 
         # Only include non None arguments to pass through to proxmox api.
         proxmox_kwargs = {}
@@ -96,11 +183,10 @@ class NodesNodeQemuVmidConfigUpdateVmAction(ProxmoxAction):
             ["vmid", vmid, "integer"],
             ["vmstatestorage", vmstatestorage, "string"],
             ["watchdog", watchdog, "string"],
-            
         ]:
             if api_arg[1] is None:
                 continue
-            if '[n]' in api_arg[0]:
+            if "[n]" in api_arg[0]:
                 unit_list = json.loads(api_arg[1])
                 for i, v in enumerate(unit_list):
                     proxmox_kwargs[api_arg[0].replace("[n]", str(i))] = v
@@ -109,8 +195,4 @@ class NodesNodeQemuVmidConfigUpdateVmAction(ProxmoxAction):
                     api_arg[1] = int(api_arg[1])
                 proxmox_kwargs[api_arg[0]] = api_arg[1]
 
-        return self.proxmox.put(
-            f"nodes/{node}/qemu/{vmid}/config",
-            **proxmox_kwargs
-        )
-        
+        return self.proxmox.put(f"nodes/{node}/qemu/{vmid}/config", **proxmox_kwargs)

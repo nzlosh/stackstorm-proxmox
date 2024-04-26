@@ -7,8 +7,54 @@ class NodesNodeLxcCreateVmAction(ProxmoxAction):
     Create or restore a container.
     """
 
-    def run(self, node, ostemplate, vmid, arch=None, bwlimit=None, cmode=None, console=None, cores=None, cpulimit=None, cpuunits=None, debug=None, description=None, features=None, force=None, hookscript=None, hostname=None, ignore_unpack_errors=None, lock=None, memory=None, mp_list=None, nameserver=None, net_list=None, onboot=None, ostype=None, password=None, pool=None, protection=None, restore=None, rootfs=None, searchdomain=None, ssh_public_keys=None, start=None, startup=None, storage=None, swap=None, tags=None, template=None, timezone=None, tty=None, unique=None, unprivileged=None, unused_list=None, profile_name=None):
-        super().run(profile_name)
+    def run(
+        self,
+        node,
+        ostemplate,
+        vmid,
+        arch=None,
+        bwlimit=None,
+        cmode=None,
+        console=None,
+        cores=None,
+        cpulimit=None,
+        cpuunits=None,
+        debug=None,
+        description=None,
+        features=None,
+        force=None,
+        hookscript=None,
+        hostname=None,
+        ignore_unpack_errors=None,
+        lock=None,
+        memory=None,
+        mp_list=None,
+        nameserver=None,
+        net_list=None,
+        onboot=None,
+        ostype=None,
+        password=None,
+        pool=None,
+        protection=None,
+        restore=None,
+        rootfs=None,
+        searchdomain=None,
+        ssh_public_keys=None,
+        start=None,
+        startup=None,
+        storage=None,
+        swap=None,
+        tags=None,
+        template=None,
+        timezone=None,
+        tty=None,
+        unique=None,
+        unprivileged=None,
+        unused_list=None,
+        profile_name=None,
+        api_timeout=5,
+    ):
+        super().run(profile_name, api_timeout=api_timeout)
 
         # Only include non None arguments to pass through to proxmox api.
         proxmox_kwargs = {}
@@ -55,11 +101,10 @@ class NodesNodeLxcCreateVmAction(ProxmoxAction):
             ["unprivileged", unprivileged, "boolean"],
             ["unused[n]", unused_list, "string"],
             ["vmid", vmid, "integer"],
-            
         ]:
             if api_arg[1] is None:
                 continue
-            if '[n]' in api_arg[0]:
+            if "[n]" in api_arg[0]:
                 unit_list = json.loads(api_arg[1])
                 for i, v in enumerate(unit_list):
                     proxmox_kwargs[api_arg[0].replace("[n]", str(i))] = v
@@ -68,8 +113,4 @@ class NodesNodeLxcCreateVmAction(ProxmoxAction):
                     api_arg[1] = int(api_arg[1])
                 proxmox_kwargs[api_arg[0]] = api_arg[1]
 
-        return self.proxmox.post(
-            f"nodes/{node}/lxc",
-            **proxmox_kwargs
-        )
-        
+        return self.proxmox.post(f"nodes/{node}/lxc", **proxmox_kwargs)

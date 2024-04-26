@@ -5,6 +5,11 @@ description: "Add IP or Network to IPSet."
 enabled: true
 entry_point: "nodes_node_lxc_vmid_firewall_ipset_name_create_ip.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   cidr:
     description: "Network/IP specification in CIDR format."
     type: string

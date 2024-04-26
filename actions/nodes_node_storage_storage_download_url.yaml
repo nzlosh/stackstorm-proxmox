@@ -5,6 +5,11 @@ description: "Download templates and ISO images by using an URL."
 enabled: true
 entry_point: "nodes_node_storage_storage_download_url.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   checksum:
     description: "The expected checksum of the file."
     type: string

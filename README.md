@@ -122,6 +122,7 @@ _Create new IPSet_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `comment` | string | False | default | _Description unavailable._ |
 | `digest` | string | False | default | _Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications._ |
 | `name` | string | True | default | _IP set name._ |
@@ -132,6 +133,7 @@ _Destroy a ZFS pool._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `cleanup_config` | boolean | False | default | _Marks associated storage(s) as not available on this node anymore or removes them from the configuration (if configured for this node only)._ |
 | `cleanup_disks` | boolean | False | default | _Also wipe disks so they can be repurposed afterwards._ |
 | `name` | string | True | default | _The storage identifier._ |
@@ -142,12 +144,14 @@ _Directory index._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### access_tfa_userid_id_update_tfa_entry
 _Add a TFA entry for a user._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `description` | string | False | default | _A description to distinguish multiple entries from one another_ |
 | `enable` | boolean | False | default | _Whether the entry should be enabled for login._ |
 | `prox_id` | string | True | default | _A TFA entry id._ |
@@ -159,6 +163,7 @@ _Start all VMs and containers located on this node (by default only those with o
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `force` | boolean | False | default | _Issue start command even if virtual guest have 'onboot' not set or set to off._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vms` | string | False | default | _Only consider guests from this comma separated list of VMIDs._ |
@@ -168,6 +173,7 @@ _Migration tunnel endpoint for websocket upgrade - only for internal use by VM m
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `socket` | string | True | default | _unix socket to forward to_ |
 | `ticket` | string | True | default | _ticket return by initial 'mtunnel' API call, or retrieved via 'ticket' tunnel command_ |
@@ -178,6 +184,7 @@ _Read cluster log_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `prox_max` | integer | False | default | _Maximum number of entries._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### cluster_acme_plugins_id_get_plugin_config
@@ -185,6 +192,7 @@ _Get ACME plugin configuration._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `prox_id` | string | True | default | _Unique identifier for ACME plugin instance._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_disks_directory_name_delete
@@ -192,6 +200,7 @@ _Unmounts the storage and removes the mount unit._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `cleanup_config` | boolean | False | default | _Marks associated storage(s) as not available on this node anymore or removes them from the configuration (if configured for this node only)._ |
 | `cleanup_disks` | boolean | False | default | _Also wipe disk so it can be repurposed afterwards._ |
 | `name` | string | True | default | _The storage identifier._ |
@@ -202,6 +211,7 @@ _Upload templates and ISO images._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `checksum` | string | False | default | _The expected checksum of the file._ |
 | `checksum_algorithm` | string | False | default | _The algorithm to calculate the checksum of the file._ |
 | `content` | string | True | default | _Content type._ |
@@ -215,6 +225,7 @@ _Change POOL settings_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `application` | string | False | default | _The application of the pool._ |
 | `crush_rule` | string | False | default | _The rule to use for mapping object placement in the cluster._ |
 | `min_size` | integer | False | default | _Minimum number of replicas per object_ |
@@ -232,6 +243,7 @@ _Read sdn vnet configuration._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `pending` | boolean | False | default | _Display pending config._ |
 | `running` | boolean | False | default | _Display running config._ |
 | `vnet` | string | True | default | _The SDN vnet object identifier._ |
@@ -241,6 +253,7 @@ _Executes the given command in the vm via the guest-agent and returns an object 
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `command` | string | False | default | _The command as a list of program + arguments_ |
 | `input_data` | string | False | default | _Data to pass as 'input-data' to the guest. Usually treated as STDIN to 'command'._ |
 | `node` | string | True | default | _The cluster node name._ |
@@ -251,6 +264,7 @@ _Get single rule data._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `pos` | integer | False | default | _Update rule at position <pos>._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -259,18 +273,21 @@ _List aliases_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### cluster_config_totem
 _Get corosync totem protocol settings._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_hosts_get_etc_hosts
 _Get the content of /etc/hosts._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### cluster_firewall_macros_get_macros
@@ -278,12 +295,14 @@ _List available macros_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_qemu_vmid_snapshot_snapname_snapshot_cmd_idx
 __
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `snapname` | string | True | default | _The name of the snapshot._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
@@ -293,6 +312,7 @@ _MGR directory index._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_firewall_rules_get_rules
@@ -300,6 +320,7 @@ _List rules._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_lxc_vmid_snapshot_snapname_config_get_snapshot_config
@@ -307,6 +328,7 @@ _Get snapshot configuration_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `snapname` | string | True | default | _The name of the snapshot._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
@@ -316,6 +338,7 @@ _Create Ceph Metadata Server (MDS)_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `hotstandby` | boolean | False | default | _Determines whether a ceph-mds daemon should poll and replay the log of an active MDS. Faster switch on MDS failure, but needs more idle resources._ |
 | `name` | string | False | default | _The ID for the mds, when omitted the same as the nodename_ |
 | `node` | string | True | default | _The cluster node name._ |
@@ -325,6 +348,7 @@ _Instruct the OSD to scrub._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `deep` | boolean | False | default | _If set, instructs a deep scrub instead of a normal one._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `osdid` | integer | True | default | _OSD ID_ |
@@ -334,6 +358,7 @@ _Update an existing role._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `append` | boolean | False | default | _Description unavailable._ |
 | `privs` | string | False | default | _Description unavailable._ |
 | `roleid` | string | True | default | _Description unavailable._ |
@@ -343,6 +368,7 @@ _Create a Template._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `disk` | string | False | default | _If you want to convert only 1 disk to base image._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
@@ -352,6 +378,7 @@ _List ceph rules._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### cluster_sdn_zones_create
@@ -359,6 +386,7 @@ _Create a new sdn zone object._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `advertise_subnets` | boolean | False | default | _Advertise evpn subnets if you have silent hosts_ |
 | `bridge` | string | False | default | _Description unavailable._ |
 | `bridge_disable_mac_learning` | boolean | False | default | _Disable auto mac learning._ |
@@ -388,6 +416,7 @@ _List aliases_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -396,6 +425,7 @@ _Delete an authentication server._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `realm` | string | True | default | _Authentication domain ID_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### cluster_replication_id_read
@@ -403,6 +433,7 @@ _Read replication job configuration._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `prox_id` | string | True | default | _Replication Job ID. The ID is composed of a Guest ID and a job number, separated by a hyphen, i.e. '<GUEST>-<JOBNUM>'._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_qemu_vmid_agent_exec_status
@@ -410,6 +441,7 @@ _Gets the status of the given pid started by the guest-agent_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `pid` | integer | True | default | _The PID to query_ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
@@ -419,6 +451,7 @@ _Delete rule._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `digest` | string | False | default | _Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `pos` | integer | False | default | _Update rule at position <pos>._ |
@@ -429,6 +462,7 @@ _Execute get-timezone._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -437,6 +471,7 @@ _Index of hardware types_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_ceph_mgr_id_destroymgr
@@ -444,6 +479,7 @@ _Destroy Ceph Manager._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `prox_id` | string | True | default | _The ID of the manager_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -452,6 +488,7 @@ _Start ceph services._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `service` | string | False | default | _Ceph service name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -460,6 +497,7 @@ _Read network device configuration_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `iface` | string | True | default | _Network interface name._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -468,6 +506,7 @@ _Update sdn subnet object configuration._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `delete` | string | False | default | _A list of settings you want to delete._ |
 | `digest` | string | False | default | _Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications._ |
 | `dnszoneprefix` | string | False | default | _dns domain zone prefix  ex: 'adm' -> <hostname>.adm.mydomain.com_ |
@@ -481,6 +520,7 @@ _Read task status._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `upid` | string | True | default | _The task's unique ID._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -489,6 +529,7 @@ __
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `upid` | string | True | default | _Description unavailable._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -497,6 +538,7 @@ _Update sdn controller object configuration._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `asn` | integer | False | default | _autonomous system number_ |
 | `bgp_multipath_as_path_relax` | boolean | False | default | _Description unavailable._ |
 | `controller` | string | True | default | _The SDN controller object identifier._ |
@@ -513,6 +555,7 @@ _SDN ipams index._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `prox_type` | string | False | default | _Only list sdn ipams of specific type_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### cluster_firewall_ipset_name_cidr_remove_ip
@@ -520,6 +563,7 @@ _Remove IP or Network from IPSet._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `cidr` | string | True | default | _Network/IP specification in CIDR format._ |
 | `digest` | string | False | default | _Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications._ |
 | `name` | string | True | default | _IP set name._ |
@@ -529,6 +573,7 @@ _List IPSet content_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `name` | string | True | default | _IP set name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_qemu_vmid_termproxy
@@ -536,6 +581,7 @@ _Creates a TCP proxy connections._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `serial` | string | False | default | _opens a serial terminal (defaults to display)_ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
@@ -545,6 +591,7 @@ _Update Access Control List (add or remove permissions)._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `delete` | boolean | False | default | _Remove permissions (instead of adding it)._ |
 | `groups` | string | False | default | _List of groups._ |
 | `path` | string | True | default | _Access control path_ |
@@ -558,6 +605,7 @@ _Lists possible IPSet/Alias reference which are allowed in source/dest propertie
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `prox_type` | string | False | default | _Only list references of specified type._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
@@ -567,6 +615,7 @@ _Get user TFA types (Personal and Realm)._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `multiple` | boolean | False | default | _Request all entries as an array._ |
 | `userid` | string | True | default | _Full User ID, in the `name@realm` format._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -575,12 +624,14 @@ _Index for jobs related endpoints._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_lxc_vmid_status_reboot_vm_reboot
 _Reboot the container by shutting it down, and starting it again. Applies pending changes._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `timeout` | integer | False | default | _Wait maximal timeout seconds for the shutdown._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
@@ -590,6 +641,7 @@ _Update subscription info._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `force` | boolean | False | default | _Always connect to server, even if we have up to date info inside local cache._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -598,6 +650,7 @@ _Reboot or shutdown a node._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `command` | string | True | default | _Specify the command._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -606,6 +659,7 @@ _Reload service. Falls back to restart if service cannot be reloaded._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `service` | string | True | default | _Service ID_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -614,6 +668,7 @@ _Get OSD crush map_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_scan_nfs_nfsscan
@@ -621,6 +676,7 @@ _Scan remote NFS server._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `server` | string | True | default | _The server address (name or IP)._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -629,6 +685,7 @@ _Start the container._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `debug` | boolean | False | default | _If set, enables very verbose debug log-level on start._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `skiplock` | boolean | False | default | _Ignore locks - only root is allowed to use this option._ |
@@ -639,6 +696,7 @@ _Directory index_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -647,6 +705,7 @@ _List IPSet content_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `name` | string | True | default | _IP set name._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
@@ -656,6 +715,7 @@ _Get information needed to join this cluster over the connected node._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | False | default | _The node for which the joinee gets the nodeinfo. _ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### cluster_ceph_metadata
@@ -663,6 +723,7 @@ _Get ceph metadata._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `scope` | string | False | default | _Description unavailable._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_spiceshell
@@ -670,6 +731,7 @@ _Creates a SPICE shell._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `cmd` | string | False | default | _Run specific command or default to login._ |
 | `cmd_opts` | string | False | default | _Add parameters to a command. Encoded as null terminated strings._ |
 | `node` | string | True | default | _The cluster node name._ |
@@ -680,6 +742,7 @@ _Create a new sdn dns object._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `dns` | string | True | default | _The SDN dns object identifier._ |
 | `key` | string | True | True | _Description unavailable._ |
 | `reversemaskv6` | integer | False | default | _Description unavailable._ |
@@ -693,6 +756,7 @@ _Update IP or Network alias._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `cidr` | string | True | default | _Network/IP specification in CIDR format._ |
 | `comment` | string | False | default | _Description unavailable._ |
 | `digest` | string | False | default | _Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications._ |
@@ -706,6 +770,7 @@ _Get single rule data._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `pos` | integer | False | default | _Update rule at position <pos>._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### cluster_config_apiversion_join_api_version
@@ -713,12 +778,14 @@ _Return the version of the cluster join API available on this node._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### cluster_ha_resources_sid_relocate
 _Request resource relocatzion to another node. This stops the service on the old node, and restarts it on the target node._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _Target node._ |
 | `sid` | string | True | default | _HA resource ID. This consists of a resource type followed by a resource specific name, separated with colon (example: vm:100 / ct:100). For virtual machines and containers, you can simply use the VM or CT id as a shortcut (example: 100)._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -727,6 +794,7 @@ _Get the currently configured vzdump defaults._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `storage` | string | False | default | _The storage identifier._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -735,6 +803,7 @@ _List available updates._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_lxc_vmid_firewall_ipset_name_get_ipset
@@ -742,6 +811,7 @@ _List IPSet content_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `name` | string | True | default | _IP set name._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
@@ -751,6 +821,7 @@ _Get package information for important Proxmox packages._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_disks_list
@@ -758,6 +829,7 @@ _List local disks._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `include_partitions` | boolean | False | default | _Also include partitions._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `skipsmart` | boolean | False | default | _Skip smart checks._ |
@@ -768,6 +840,7 @@ _Mark replication job for removal._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `force` | boolean | False | default | _Will remove the jobconfig entry, but will not cleanup._ |
 | `prox_id` | string | True | default | _Replication Job ID. The ID is composed of a Guest ID and a job number, separated by a hyphen, i.e. '<GUEST>-<JOBNUM>'._ |
 | `keep` | boolean | False | default | _Keep replicated data at target (do not remove)._ |
@@ -777,6 +850,7 @@ _Update group data._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `comment` | string | False | default | _Description unavailable._ |
 | `groupid` | string | True | default | _Description unavailable._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -785,6 +859,7 @@ _Lists possible IPSet/Alias reference which are allowed in source/dest propertie
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `prox_type` | string | False | default | _Only list references of specified type._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_subscription_set
@@ -792,6 +867,7 @@ _Set subscription key._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `key` | string | True | True | _Proxmox VE subscription key_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -800,6 +876,7 @@ _Writes the given file via guest agent._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `content` | string | True | default | _The content to write into the file._ |
 | `encode` | boolean | False | default | _If set, the content will be encoded as base64 (required by QEMU).Otherwise the content needs to be encoded beforehand - defaults to true._ |
 | `file` | string | True | default | _The path to the file._ |
@@ -811,6 +888,7 @@ _SDN vnets index._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `pending` | boolean | False | default | _Display pending config._ |
 | `running` | boolean | False | default | _Display running config._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -819,6 +897,7 @@ _Read storage RRD statistics (returns PNG)._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `cf` | string | False | default | _The RRD consolidation function_ |
 | `ds` | string | True | default | _The list of datasources you want to display._ |
 | `node` | string | True | default | _The cluster node name._ |
@@ -830,6 +909,7 @@ _Set/Unset multiple ceph flags at once._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `nobackfill` | boolean | False | default | _Backfilling of PGs is suspended._ |
 | `nodeep_scrub` | boolean | False | default | _Deep Scrubbing is disabled._ |
 | `nodown` | boolean | False | default | _OSD failure reports are being ignored, such that the monitors will not mark OSDs down._ |
@@ -847,6 +927,7 @@ _Remove IP or Network alias._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `digest` | string | False | default | _Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications._ |
 | `name` | string | True | default | _Alias name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -855,6 +936,7 @@ _SDN controllers index._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `pending` | boolean | False | default | _Display pending config._ |
 | `running` | boolean | False | default | _Display running config._ |
 | `prox_type` | string | False | default | _Only list sdn controllers of specific type_ |
@@ -864,12 +946,14 @@ _Group index._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_qemu_vmid_agent_fsfreeze_freeze
 _Execute fsfreeze-freeze._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -878,6 +962,7 @@ _ceph osd in_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `osdid` | integer | True | default | _OSD ID_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -886,6 +971,7 @@ _Get replication job status._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `prox_id` | string | True | default | _Replication Job ID. The ID is composed of a Guest ID and a job number, separated by a hyphen, i.e. '<GUEST>-<JOBNUM>'._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -894,6 +980,7 @@ _List all snapshots._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -902,6 +989,7 @@ _Set or clear (unset) a specific ceph flag_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `flag` | string | True | default | _The ceph flag to update_ |
 | `value` | boolean | True | default | _The new value of the flag_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -910,6 +998,7 @@ _API version details_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### cluster_sdn_vnets_vnet_subnets_subnet_read
@@ -917,6 +1006,7 @@ _Read sdn subnet configuration._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `pending` | boolean | False | default | _Display pending config._ |
 | `running` | boolean | False | default | _Display running config._ |
 | `subnet` | string | True | default | _The SDN subnet object identifier._ |
@@ -927,6 +1017,7 @@ _Create new IPSet_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `comment` | string | False | default | _Description unavailable._ |
 | `digest` | string | False | default | _Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications._ |
 | `name` | string | True | default | _IP set name._ |
@@ -939,6 +1030,7 @@ _Deactivate existing ACME account at CA._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `name` | string | False | default | _ACME account config file name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_ceph_cfg_raw
@@ -946,6 +1038,7 @@ _Get the Ceph configuration file._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_qemu_vmid_snapshot
@@ -953,6 +1046,7 @@ _Snapshot a VM._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `description` | string | False | default | _A textual description or comment._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `snapname` | string | True | default | _The name of the snapshot._ |
@@ -964,6 +1058,7 @@ _Destroy pool. Deprecated, please use `/nodes/{node}/ceph/pool/{name}`._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `force` | boolean | False | default | _If true, destroys pool even if in use_ |
 | `name` | string | True | default | _The name of the pool. It must be unique._ |
 | `node` | string | True | default | _The cluster node name._ |
@@ -975,6 +1070,7 @@ _Create Ceph Monitor and Manager_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `mon_address` | string | False | default | _Overwrites autodetected monitor IP address(es). Must be in the public network(s) of Ceph._ |
 | `monid` | string | False | default | _The ID for the monitor, when omitted the same as the nodename_ |
 | `node` | string | True | default | _The cluster node name._ |
@@ -984,6 +1080,7 @@ _Create new rule._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `action` | string | True | default | _Rule action ('ACCEPT', 'DROP', 'REJECT') or security group name._ |
 | `comment` | string | False | default | _Descriptive comment._ |
 | `dest` | string | False | default | _Restrict packet destination address. This can refer to a single IP address, an IP set ('+ipsetname') or an IP alias definition. You can also specify an address range like '20.34.101.207-201.3.9.99', or a list of IP addresses and networks (entries are separated by comma). Please do not mix IPv4 and IPv6 addresses inside such lists._ |
@@ -1006,6 +1103,7 @@ _Execute QEMU Guest Agent commands._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `command` | string | True | default | _The QGA command._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
@@ -1015,6 +1113,7 @@ _Upload or update custom certificate chain and key._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `certificates` | string | True | default | _PEM encoded certificate (chain)._ |
 | `force` | boolean | False | default | _Overwrite existing custom or ACME certificate files._ |
 | `key` | string | False | True | _PEM encoded private key._ |
@@ -1026,6 +1125,7 @@ _Update ACME plugin configuration._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `api` | string | False | default | _API plugin name_ |
 | `data` | string | False | default | _DNS plugin data. (base64 encoded)_ |
 | `delete` | string | False | default | _A list of settings you want to delete._ |
@@ -1040,6 +1140,7 @@ _Create OSD_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `crush_device_class` | string | False | default | _Set the device class of the OSD in crush._ |
 | `db_dev` | string | False | default | _Block device name for block.db._ |
 | `db_dev_size` | number | False | default | _Size in GiB for block.db._ |
@@ -1054,6 +1155,7 @@ _Resume virtual machine._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `nocheck` | boolean | False | default | _Description unavailable._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `skiplock` | boolean | False | default | _Ignore locks - only root is allowed to use this option._ |
@@ -1064,12 +1166,14 @@ _Cluster node index._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### cluster_sdn_vnets_create
 _Create a new sdn vnet object._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `alias` | string | False | default | _alias name of the vnet_ |
 | `tag` | integer | False | default | _vlan or vxlan id_ |
 | `prox_type` | string | False | default | _Type_ |
@@ -1082,12 +1186,14 @@ _Cluster ceph index._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_lxc_vmid_firewall_index
 _Directory index._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -1096,6 +1202,7 @@ _Read storage status._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `storage` | string | True | default | _The storage identifier._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -1104,6 +1211,7 @@ _Get container configuration._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `current` | boolean | False | default | _Get current values (instead of pending values)._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `snapshot` | string | False | default | _Fetch config values from given snapshot._ |
@@ -1114,6 +1222,7 @@ _Delete rule._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `digest` | string | False | default | _Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `pos` | integer | False | default | _Update rule at position <pos>._ |
@@ -1123,6 +1232,7 @@ _Execute fsfreeze-status._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -1131,6 +1241,7 @@ _Get next free VMID. Pass a VMID to assert that its free (at time of check)._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `vmid` | integer | False | default | _The (unique) ID of the VM._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### cluster_acme_plugins_id_delete_plugin
@@ -1138,6 +1249,7 @@ _Delete ACME plugin configuration._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `prox_id` | string | True | default | _Unique identifier for ACME plugin instance._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### access_roles_create_role
@@ -1145,6 +1257,7 @@ _Create new role._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `privs` | string | False | default | _Description unavailable._ |
 | `roleid` | string | True | default | _Description unavailable._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -1153,6 +1266,7 @@ _Opens a weksocket for VNC traffic._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `port` | integer | True | default | _Port number returned by previous vncproxy call._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
@@ -1163,6 +1277,7 @@ _Read VM RRD statistics (returns PNG)_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `cf` | string | False | default | _The RRD consolidation function_ |
 | `ds` | string | True | default | _The list of datasources you want to display._ |
 | `node` | string | True | default | _The cluster node name._ |
@@ -1174,6 +1289,7 @@ _Returns a SPICE configuration to connect to the CT._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `proxy` | string | False | default | _SPICE proxy server. This can be used by the client to specify the proxy server. All nodes in a cluster runs 'spiceproxy', so it is up to the client to choose one. By default, we return the node where the VM is currently running. As reasonable setting is to use same node you use to connect to the API (This is window.location.hostname for the JS GUI)._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
@@ -1183,6 +1299,7 @@ _Set Firewall options._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `delete` | string | False | default | _A list of settings you want to delete._ |
 | `digest` | string | False | default | _Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications._ |
 | `ebtables` | boolean | False | default | _Enable ebtables rules cluster wide._ |
@@ -1196,12 +1313,14 @@ _Index for backup info related endpoints_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### pools_poolid_delete_pool
 _Delete pool._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `poolid` | string | True | default | _Description unavailable._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_termproxy
@@ -1209,6 +1328,7 @@ _Creates a VNC Shell proxy._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `cmd` | string | False | default | _Run specific command or default to login._ |
 | `cmd_opts` | string | False | default | _Add parameters to a command. Encoded as null terminated strings._ |
 | `node` | string | True | default | _The cluster node name._ |
@@ -1218,6 +1338,7 @@ _Read alias._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `name` | string | True | default | _Alias name._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
@@ -1227,6 +1348,7 @@ _Directory index_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -1235,6 +1357,7 @@ _Read metric server configuration._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `prox_id` | string | True | default | _Description unavailable._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### access_openid_index
@@ -1242,12 +1365,14 @@ _Directory index._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_storage_storage_diridx
 __
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `storage` | string | True | default | _The storage identifier._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -1256,12 +1381,14 @@ _Get Firewall options._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### access_roles_roleid_read_role
 _Get role configuration._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `roleid` | string | True | default | _Description unavailable._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### cluster_metrics_server_id_update
@@ -1269,6 +1396,7 @@ _Update metric server configuration._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `api_path_prefix` | string | False | default | _An API path prefix inserted between '<host>:<port>/' and '/api2/'. Can be useful if the InfluxDB service runs behind a reverse proxy._ |
 | `bucket` | string | False | default | _The InfluxDB bucket/db. Only necessary when using the http v2 api._ |
 | `delete` | string | False | default | _A list of settings you want to delete._ |
@@ -1292,6 +1420,7 @@ _Download templates and ISO images by using an URL._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `checksum` | string | False | default | _The expected checksum of the file._ |
 | `checksum_algorithm` | string | False | default | _The algorithm to calculate the checksum of the file._ |
 | `content` | string | True | default | _Content type._ |
@@ -1306,6 +1435,7 @@ _Update volume attributes_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `notes` | string | False | default | _The new notes._ |
 | `protected` | boolean | False | default | _Protection status. Currently only supported for backups._ |
@@ -1317,6 +1447,7 @@ _QEMU capabilities index._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### access_users_userid_delete_user
@@ -1324,6 +1455,7 @@ _Delete user._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `userid` | string | True | default | _Full User ID, in the `name@realm` format._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_qemu_vmid_firewall_ipset_name_cidr_remove_ip
@@ -1331,6 +1463,7 @@ _Remove IP or Network from IPSet._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `cidr` | string | True | default | _Network/IP specification in CIDR format._ |
 | `digest` | string | False | default | _Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications._ |
 | `name` | string | True | default | _IP set name._ |
@@ -1342,12 +1475,14 @@ _Directory index._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### cluster_firewall_aliases_create_alias
 _Create IP or Network Alias._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `cidr` | string | True | default | _Network/IP specification in CIDR format._ |
 | `comment` | string | False | default | _Description unavailable._ |
 | `name` | string | True | default | _Alias name._ |
@@ -1357,6 +1492,7 @@ _Stop service._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `service` | string | True | default | _Service ID_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -1365,6 +1501,7 @@ _Get the virtual machine configuration with pending configuration changes applie
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `current` | boolean | False | default | _Get current values (instead of pending values)._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `snapshot` | string | False | default | _Fetch config values from given snapshot._ |
@@ -1375,6 +1512,7 @@ _Service list._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### access_users_index
@@ -1382,6 +1520,7 @@ _User index._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `enabled` | boolean | False | default | _Optional filter for enable property._ |
 | `full` | boolean | False | default | _Include group and token information._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -1390,6 +1529,7 @@ _Read firewall log_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `limit` | integer | False | default | _Description unavailable._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `since` | integer | False | default | _Display log since this UNIX epoch._ |
@@ -1402,6 +1542,7 @@ _Create new security group._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `comment` | string | False | default | _Description unavailable._ |
 | `digest` | string | False | default | _Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications._ |
 | `group` | string | True | default | _Security Group name._ |
@@ -1412,6 +1553,7 @@ _Read task log._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `download` | boolean | False | default | _Whether the tasklog file should be downloaded. This parameter can't be used in conjunction with other parameters_ |
 | `limit` | integer | False | default | _The amount of lines to read from the tasklog._ |
 | `node` | string | True | default | _The cluster node name._ |
@@ -1423,6 +1565,7 @@ _List all custom and default CPU models._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### cluster_sdn_zones_index
@@ -1430,6 +1573,7 @@ _SDN zones index._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `pending` | boolean | False | default | _Display pending config._ |
 | `running` | boolean | False | default | _Display running config._ |
 | `prox_type` | string | False | default | _Only list SDN zones of specific type_ |
@@ -1439,12 +1583,14 @@ _Get schema of ACME challenge types._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_network_iface_update_network
 _Update network device configuration_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `address` | string | False | default | _IP address._ |
 | `address6` | string | False | default | _IP address._ |
 | `autostart` | boolean | False | default | _Automatically start interface on boot._ |
@@ -1480,6 +1626,7 @@ _List aliases_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -1488,6 +1635,7 @@ _Migrate the container to another cluster. Creates a new migration task. EXPERIM
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `bwlimit` | number | False | default | _Override I/O bandwidth limit (in KiB/s)._ |
 | `delete` | boolean | False | default | _Delete the original CT and related data after successful migration. By default the original CT is kept on the source cluster in a stopped state._ |
 | `node` | string | True | default | _The cluster node name._ |
@@ -1505,6 +1653,7 @@ _Update existing ACME account information with CA. Note: not specifying any new 
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `contact` | string | False | default | _Contact email addresses._ |
 | `name` | string | False | default | _ACME account config file name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -1513,6 +1662,7 @@ _Generate new cluster configuration. If no links given, default to local IP addr
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `clustername` | string | True | default | _The name of the cluster._ |
 | `link_list` | string | False | default | _Address and priority information of a single corosync link. (up to 8 links supported; link0..link7)_ |
 | `nodeid` | integer | False | default | _Node id for this node._ |
@@ -1523,6 +1673,7 @@ _Check if feature for virtual machine is available._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `feature` | string | True | default | _Feature to check._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `snapname` | string | False | default | _The name of the snapshot._ |
@@ -1533,6 +1684,7 @@ _Read firewall log_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `limit` | integer | False | default | _Description unavailable._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `since` | integer | False | default | _Display log since this UNIX epoch._ |
@@ -1545,6 +1697,7 @@ _Set container options._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `arch` | string | False | default | _OS architecture type._ |
 | `cmode` | string | False | default | _Console mode. By default, the console command tries to open a connection to one of the available tty devices. By setting cmode to 'console' it tries to attach to /dev/console instead. If you set cmode to 'shell', it simply invokes a shell inside the container (no login)._ |
 | `console` | boolean | False | default | _Attach a console device (/dev/console) to the container._ |
@@ -1585,6 +1738,7 @@ _Delete IPSet_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `force` | boolean | False | default | _Delete all members of the IPSet, if there are any._ |
 | `name` | string | True | default | _IP set name._ |
 | `node` | string | True | default | _The cluster node name._ |
@@ -1595,6 +1749,7 @@ _Get virtual machine status._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -1603,6 +1758,7 @@ _LXC container index (per node)._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### cluster_metrics_server_id_delete
@@ -1610,6 +1766,7 @@ _Remove Metric server._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `prox_id` | string | True | default | _Description unavailable._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_storage_storage_prunebackups_dryrun
@@ -1617,6 +1774,7 @@ _Get prune information for backups. NOTE: this is only a preview and might not b
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `prune_backups` | string | False | default | _Use these retention options instead of those from the storage configuration._ |
 | `storage` | string | True | default | _The storage identifier._ |
@@ -1628,12 +1786,14 @@ _List configured metric servers._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_lxc_vmid_status_suspend_vm_suspend
 _Suspend the container. This is experimental._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -1642,6 +1802,7 @@ _Get single rule data._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `pos` | integer | False | default | _Update rule at position <pos>._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
@@ -1651,12 +1812,14 @@ _get the status of all ceph flags_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_sdn_zones_zone_content_index
 _List zone content._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `zone` | string | True | default | _The SDN zone object identifier._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -1665,6 +1828,7 @@ _Regenerate and change cloudinit config drive._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -1673,12 +1837,14 @@ _API version details, including some parts of the global datacenter config._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_disks_directory_create
 _Create a Filesystem on an unused disk. Will be mounted under '/mnt/pve/NAME'._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `add_storage` | boolean | False | default | _Configure storage using the directory._ |
 | `device` | string | True | default | _The block device you want to create the filesystem on._ |
 | `filesystem` | string | False | default | _The desired filesystem._ |
@@ -1690,6 +1856,7 @@ _Scan remote CIFS server._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `domain` | string | False | default | _SMB domain (Workgroup)._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `password` | string | False | True | _User password._ |
@@ -1701,6 +1868,7 @@ _Revoke existing certificate from CA._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### cluster_firewall_ipset_name_cidr_read_ip
@@ -1708,6 +1876,7 @@ _Read IP or Network settings from IPSet._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `cidr` | string | True | default | _Network/IP specification in CIDR format._ |
 | `name` | string | True | default | _IP set name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -1716,6 +1885,7 @@ _ACME plugin index._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `prox_type` | string | False | default | _Only list ACME plugins of a specific type_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_apt_changelog
@@ -1723,6 +1893,7 @@ _Get package changelogs._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `name` | string | True | default | _Package name._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `version` | string | False | default | _Package version._ |
@@ -1732,6 +1903,7 @@ _Delete sdn subnet object configuration._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `subnet` | string | True | default | _The SDN subnet object identifier._ |
 | `vnet` | string | True | default | _The SDN vnet object identifier._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -1740,6 +1912,7 @@ _Directory index._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -1748,6 +1921,7 @@ _Execute get-memory-block-info._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -1756,6 +1930,7 @@ _Get the status of a specific ceph flag._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `flag` | string | True | default | _The name of the flag name to get._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### cluster_sdn_dns_index
@@ -1763,6 +1938,7 @@ _SDN dns index._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `prox_type` | string | False | default | _Only list sdn dns of specific type_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### access_roles_index
@@ -1770,12 +1946,14 @@ _Role index._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### access_domains_realm_read
 _Get auth server configuration._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `realm` | string | True | default | _Authentication domain ID_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_lxc_vmid_firewall_ipset_name_cidr_remove_ip
@@ -1783,6 +1961,7 @@ _Remove IP or Network from IPSet._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `cidr` | string | True | default | _Network/IP specification in CIDR format._ |
 | `digest` | string | False | default | _Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications._ |
 | `name` | string | True | default | _IP set name._ |
@@ -1794,6 +1973,7 @@ _Delete a TFA entry by ID._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `prox_id` | string | True | default | _A TFA entry id._ |
 | `password` | string | False | True | _The current password._ |
 | `userid` | string | True | default | _Full User ID, in the `name@realm` format._ |
@@ -1803,6 +1983,7 @@ _Create or restore a container._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `arch` | string | False | default | _OS architecture type._ |
 | `bwlimit` | number | False | default | _Override I/O bandwidth limit (in KiB/s)._ |
 | `cmode` | string | False | default | _Console mode. By default, the console command tries to open a connection to one of the available tty devices. By setting cmode to 'console' it tries to attach to /dev/console instead. If you set cmode to 'shell', it simply invokes a shell inside the container (no login)._ |
@@ -1851,6 +2032,7 @@ _Resume the container._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -1859,6 +2041,7 @@ _Read IP or Network settings from IPSet._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `cidr` | string | True | default | _Network/IP specification in CIDR format._ |
 | `name` | string | True | default | _IP set name._ |
 | `node` | string | True | default | _The cluster node name._ |
@@ -1869,6 +2052,7 @@ _Update snapshot metadata._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `description` | string | False | default | _A textual description or comment._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `snapname` | string | True | default | _The name of the snapshot._ |
@@ -1879,6 +2063,7 @@ _List available networks_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `prox_type` | string | False | default | _Only list specific interface types._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -1887,6 +2072,7 @@ _Directory index_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `service` | string | True | default | _Service ID_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -1895,6 +2081,7 @@ _List status of all replication jobs on this node._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `guest` | integer | False | default | _Only list replication jobs for this guest._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -1903,6 +2090,7 @@ _Order a new certificate from ACME-compatible CA._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `force` | boolean | False | default | _Overwrite existing custom certificate._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -1911,6 +2099,7 @@ _Read sdn controller configuration._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `controller` | string | True | default | _The SDN controller object identifier._ |
 | `pending` | boolean | False | default | _Display pending config._ |
 | `running` | boolean | False | default | _Display running config._ |
@@ -1920,6 +2109,7 @@ _Shutdown the container. This will trigger a clean shutdown of the container, se
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `forceStop` | boolean | False | default | _Make sure the Container stops._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `timeout` | integer | False | default | _Wait maximal timeout seconds._ |
@@ -1930,6 +2120,7 @@ _Create a new replication job_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `comment` | string | False | default | _Description._ |
 | `disable` | boolean | False | default | _Flag to disable/deactivate the entry._ |
 | `prox_id` | string | True | default | _Replication Job ID. The ID is composed of a Guest ID and a job number, separated by a hyphen, i.e. '<GUEST>-<JOBNUM>'._ |
@@ -1945,6 +2136,7 @@ _Remove API token for a specific user._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `tokenid` | string | True | default | _User-specific token identifier._ |
 | `userid` | string | True | default | _Full User ID, in the `name@realm` format._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -1953,6 +2145,7 @@ _Get OSD volume details_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `osdid` | integer | True | default | _OSD ID_ |
 | `prox_type` | string | False | default | _OSD device type_ |
@@ -1962,6 +2155,7 @@ _Migrate the container to another node. Creates a new migration task._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `bwlimit` | number | False | default | _Override I/O bandwidth limit (in KiB/s)._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `online` | boolean | False | default | _Use online/live migration._ |
@@ -1976,6 +2170,7 @@ _Get list of appliances._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_aplinfo_apl_download
@@ -1983,6 +2178,7 @@ _Download appliance templates._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `storage` | string | True | default | _The storage where the template will be stored_ |
 | `template` | string | True | default | _The template which will downloaded_ |
@@ -1992,6 +2188,7 @@ _Delete a VM snapshot._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `force` | boolean | False | default | _For removal from config file, even if removing disk snapshots fails._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `snapname` | string | True | default | _The name of the snapshot._ |
@@ -2002,6 +2199,7 @@ _Delete security group._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `group` | string | True | default | _Security Group name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### cluster_firewall_groups_group_pos_update_rule
@@ -2009,6 +2207,7 @@ _Modify rule data._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `action` | string | False | default | _Rule action ('ACCEPT', 'DROP', 'REJECT') or security group name._ |
 | `comment` | string | False | default | _Descriptive comment._ |
 | `delete` | string | False | default | _A list of settings you want to delete._ |
@@ -2033,6 +2232,7 @@ _Generate a new API token for a specific user. NOTE: returns API token value, wh
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `comment` | string | False | default | _Description unavailable._ |
 | `expire` | integer | False | default | _API token expiration date (seconds since epoch). '0' means no expiration date._ |
 | `privsep` | boolean | False | default | _Restrict API token privileges with separate ACLs (default), or give full privileges of corresponding user._ |
@@ -2044,6 +2244,7 @@ _Read ha group configuration._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `group` | string | True | default | _The HA group identifier._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_certificates_index
@@ -2051,6 +2252,7 @@ _Node index._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_ceph_pools_name_getpool
@@ -2058,6 +2260,7 @@ _List pool settings. Deprecated, please use `/nodes/{node}/ceph/pool/{pool}/stat
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `name` | string | True | default | _The name of the pool. It must be unique._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `verbose` | boolean | False | default | _If enabled, will display additional data(eg. statistics)._ |
@@ -2067,6 +2270,7 @@ _Storage index._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `prox_type` | string | False | default | _Only list storage of specific type_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### cluster_firewall_rules_pos_delete_rule
@@ -2074,6 +2278,7 @@ _Delete rule._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `digest` | string | False | default | _Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications._ |
 | `pos` | integer | False | default | _Update rule at position <pos>._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -2082,6 +2287,7 @@ _Remove IP or Network alias._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `digest` | string | False | default | _Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications._ |
 | `name` | string | True | default | _Alias name._ |
 | `node` | string | True | default | _The cluster node name._ |
@@ -2092,6 +2298,7 @@ _Opens a websocket for VNC traffic._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `port` | integer | True | default | _Port number returned by previous vncproxy call._ |
 | `vncticket` | string | True | default | _Ticket from previous call to vncproxy._ |
@@ -2101,6 +2308,7 @@ _Delete IPSet_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `force` | boolean | False | default | _Delete all members of the IPSet, if there are any._ |
 | `name` | string | True | default | _IP set name._ |
 | `node` | string | True | default | _The cluster node name._ |
@@ -2111,6 +2319,7 @@ _Hard restart service. Use reload if you want to reduce interruptions._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `service` | string | True | default | _Service ID_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -2119,12 +2328,14 @@ _Directory index._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_ceph_pool_name_poolindex
 _Pool index._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `name` | string | True | default | _The name of the pool._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -2133,6 +2344,7 @@ _Read VM RRD statistics_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `cf` | string | False | default | _The RRD consolidation function_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `timeframe` | string | True | default | _Specify the time frame you are interested in._ |
@@ -2143,6 +2355,7 @@ _Migrate all VMs and Containers._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `maxworkers` | integer | False | default | _Maximal number of parallel migration job. If not set, uses'max_workers' from datacenter.cfg. One of both must be set!_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `target` | string | True | default | _Target node._ |
@@ -2154,12 +2367,14 @@ _List TFA configurations of users._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_ceph_mon_listmon
 _Get Ceph monitor list._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### cluster_acme_account_account_index
@@ -2167,12 +2382,14 @@ _ACMEAccount index._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### cluster_sdn_dns_dns_update
 _Update sdn dns object configuration._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `delete` | string | False | default | _A list of settings you want to delete._ |
 | `digest` | string | False | default | _Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications._ |
 | `dns` | string | True | default | _The SDN dns object identifier._ |
@@ -2186,6 +2403,7 @@ _Reboot the VM by shutting it down, and starting it again. Applies pending chang
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `timeout` | integer | False | default | _Wait maximal timeout seconds for the shutdown._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
@@ -2195,6 +2413,7 @@ _Delete volume_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `delay` | integer | False | default | _Time to wait for the task to finish. We return 'null' if the task finish within that time._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `storage` | string | False | default | _The storage identifier._ |
@@ -2205,6 +2424,7 @@ _Update storage configuration._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `blocksize` | string | False | default | _block size_ |
 | `bwlimit` | string | False | default | _Set bandwidth/io limits various operations._ |
 | `comstar_hg` | string | False | default | _host group for comstar views_ |
@@ -2259,6 +2479,7 @@ _List all snapshots._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -2267,6 +2488,7 @@ _Read VM RRD statistics_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `cf` | string | False | default | _The RRD consolidation function_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `timeframe` | string | True | default | _Specify the time frame you are interested in._ |
@@ -2277,6 +2499,7 @@ _Reload network configuration_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_lxc_vmid_firewall_aliases_name_read_alias
@@ -2284,6 +2507,7 @@ _Read alias._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `name` | string | True | default | _Alias name._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
@@ -2293,6 +2517,7 @@ _Get information about node's certificates._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### cluster_resources
@@ -2300,6 +2525,7 @@ _Resources index (cluster wide)._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `prox_type` | string | False | default | _Description unavailable._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### access_domains_realm_update
@@ -2307,6 +2533,7 @@ _Update authentication server settings._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `acr_values` | string | False | default | _Specifies the Authentication Context Class Reference values that theAuthorization Server is being requested to use for the Auth Request._ |
 | `autocreate` | boolean | False | default | _Automatically create users if they do not exist._ |
 | `base_dn` | string | False | default | _LDAP base domain name_ |
@@ -2350,6 +2577,7 @@ _Get container configuration, including pending changes._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -2358,6 +2586,7 @@ _Delete rule._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `digest` | string | False | default | _Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `pos` | integer | False | default | _Update rule at position <pos>._ |
@@ -2368,6 +2597,7 @@ _Initialize Disk with GPT_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `disk` | string | True | default | _Block device name_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `uuid` | string | False | default | _UUID for the GPT table_ |
@@ -2377,6 +2607,7 @@ _Create Ceph pool. Deprecated, please use `/nodes/{node}/ceph/pool`._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `add_storages` | boolean | False | default | _Configure VM and CT storage using the new pool._ |
 | `application` | string | False | default | _The application of the pool._ |
 | `crush_rule` | string | False | default | _The rule to use for mapping object placement in the cluster._ |
@@ -2396,6 +2627,7 @@ _Execute info._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -2404,6 +2636,7 @@ _Execute get-memory-blocks._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -2412,6 +2645,7 @@ _Execute network-get-interfaces._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -2420,6 +2654,7 @@ _Update sdn vnet object configuration._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `alias` | string | False | default | _alias name of the vnet_ |
 | `delete` | string | False | default | _A list of settings you want to delete._ |
 | `digest` | string | False | default | _Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications._ |
@@ -2433,6 +2668,7 @@ _Update replication job configuration._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `comment` | string | False | default | _Description._ |
 | `delete` | string | False | default | _A list of settings you want to delete._ |
 | `digest` | string | False | default | _Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications._ |
@@ -2448,6 +2684,7 @@ _Delete resource configuration._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `sid` | string | True | default | _HA resource ID. This consists of a resource type followed by a resource specific name, separated with colon (example: vm:100 / ct:100). For virtual machines and containers, you can simply use the VM or CT id as a shortcut (example: 100)._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### cluster_status_get_status
@@ -2455,12 +2692,14 @@ _Get cluster status information._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### cluster_firewall_ipset_name_cidr_update_ip
 _Update IP or Network settings_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `cidr` | string | True | default | _Network/IP specification in CIDR format._ |
 | `comment` | string | False | default | _Description unavailable._ |
 | `digest` | string | False | default | _Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications._ |
@@ -2472,6 +2711,7 @@ _Get user configuration._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `userid` | string | True | default | _Full User ID, in the `name@realm` format._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### cluster_sdn_zones_zone_delete
@@ -2479,6 +2719,7 @@ _Delete sdn zone object configuration._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `zone` | string | True | default | _The SDN zone object identifier._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_qemu_vmid_agent_get_users
@@ -2486,6 +2727,7 @@ _Execute get-users._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -2494,6 +2736,7 @@ _Create IP or Network Alias._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `cidr` | string | True | default | _Network/IP specification in CIDR format._ |
 | `comment` | string | False | default | _Description unavailable._ |
 | `name` | string | True | default | _Alias name._ |
@@ -2505,6 +2748,7 @@ _Delete sdn controller object configuration._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `controller` | string | True | default | _The SDN controller object identifier._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### cluster_tasks
@@ -2512,12 +2756,14 @@ _List recent tasks (cluster wide)._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### access_domains_create
 _Add an authentication server._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `acr_values` | string | False | default | _Specifies the Authentication Context Class Reference values that theAuthorization Server is being requested to use for the Auth Request._ |
 | `autocreate` | boolean | False | default | _Automatically create users if they do not exist._ |
 | `base_dn` | string | False | default | _LDAP base domain name_ |
@@ -2561,6 +2807,7 @@ _Prune backups. Only those using the standard naming scheme are considered._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `prune_backups` | string | False | default | _Use these retention options instead of those from the storage configuration._ |
 | `storage` | string | True | default | _The storage identifier._ |
@@ -2572,6 +2819,7 @@ _Read sdn zone configuration._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `pending` | boolean | False | default | _Display pending config._ |
 | `running` | boolean | False | default | _Display running config._ |
 | `zone` | string | True | default | _The SDN zone object identifier._ |
@@ -2581,6 +2829,7 @@ _Change POOL settings. Deprecated, please use `/nodes/{node}/ceph/pool/{name}`._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `application` | string | False | default | _The application of the pool._ |
 | `crush_rule` | string | False | default | _The rule to use for mapping object placement in the cluster._ |
 | `min_size` | integer | False | default | _Minimum number of replicas per object_ |
@@ -2598,6 +2847,7 @@ _Get volume attributes_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `storage` | string | False | default | _The storage identifier._ |
 | `volume` | string | True | default | _Volume identifier_ |
@@ -2607,6 +2857,7 @@ _Stop ceph services._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `service` | string | False | default | _Ceph service name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -2615,6 +2866,7 @@ _Create a new HA group._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `comment` | string | False | default | _Description._ |
 | `group` | string | True | default | _The HA group identifier._ |
 | `nodes` | string | True | default | _List of cluster node names with optional priority._ |
@@ -2627,12 +2879,14 @@ _Metrics index._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### cluster_backup_id_delete_job
 _Delete vzdump backup job definition._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `prox_id` | string | True | default | _The job ID._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### storage_storage_read
@@ -2640,6 +2894,7 @@ _Read storage configuration._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `storage` | string | True | default | _The storage identifier._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### cluster_firewall_groups_group_get_rules
@@ -2647,6 +2902,7 @@ _List rules._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `group` | string | True | default | _Security Group name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### cluster_sdn_reload
@@ -2654,12 +2910,14 @@ _Apply sdn controller changes && reload._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_sdn_sdnindex
 _SDN index._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_qemu_vmid_agent_suspend_hybrid
@@ -2667,6 +2925,7 @@ _Execute suspend-hybrid._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -2675,6 +2934,7 @@ _Read resource configuration._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `sid` | string | True | default | _HA resource ID. This consists of a resource type followed by a resource specific name, separated with colon (example: vm:100 / ct:100). For virtual machines and containers, you can simply use the VM or CT id as a shortcut (example: 100)._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_ceph_cfg_db
@@ -2682,6 +2942,7 @@ _Get the Ceph configuration database._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### cluster_config_qdevice_status
@@ -2689,12 +2950,14 @@ _Get QDevice status_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_subscription_get
 _Read subscription info._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_lxc_vmid_mtunnelwebsocket
@@ -2702,6 +2965,7 @@ _Migration tunnel endpoint for websocket upgrade - only for internal use by VM m
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `socket` | string | True | default | _unix socket to forward to_ |
 | `ticket` | string | True | default | _ticket return by initial 'mtunnel' API call, or retrieved via 'ticket' tunnel command_ |
@@ -2712,6 +2976,7 @@ _Set Firewall options._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `delete` | string | False | default | _A list of settings you want to delete._ |
 | `dhcp` | boolean | False | default | _Enable DHCP._ |
 | `digest` | string | False | default | _Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications._ |
@@ -2732,6 +2997,7 @@ _Update vzdump backup job definition._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `prox_all` | boolean | False | default | _Backup all known guest systems on this host._ |
 | `bwlimit` | integer | False | default | _Limit I/O bandwidth (KBytes per second)._ |
 | `comment` | string | False | default | _Description for the Job._ |
@@ -2775,6 +3041,7 @@ _Wipe a disk or partition._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `disk` | string | True | default | _Block device name_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -2783,6 +3050,7 @@ _Get automatically generated cloudinit config._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `prox_type` | string | True | default | _Config type._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
@@ -2792,6 +3060,7 @@ _Start service._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `service` | string | True | default | _Service ID_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -2800,6 +3069,7 @@ _Write /etc/hosts._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `data` | string | True | default | _The target content of /etc/hosts._ |
 | `digest` | string | False | default | _Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications._ |
 | `node` | string | True | default | _The cluster node name._ |
@@ -2809,6 +3079,7 @@ _Migration tunnel endpoint - only for internal use by VM migration._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `bridges` | string | False | default | _List of network bridges to check availability. Will be checked again for actually used bridges during migration._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `storages` | string | False | default | _List of storages to check permission and availability. Will be checked again for all actually used storages during migration._ |
@@ -2819,6 +3090,7 @@ _Destroy Ceph Monitor and Manager._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `monid` | string | True | default | _Monitor ID_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -2827,12 +3099,14 @@ _Get HA groups._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_lxc_vmid_firewall_rules_create_rule
 _Create new rule._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `action` | string | True | default | _Rule action ('ACCEPT', 'DROP', 'REJECT') or security group name._ |
 | `comment` | string | False | default | _Descriptive comment._ |
 | `dest` | string | False | default | _Restrict packet destination address. This can refer to a single IP address, an IP set ('+ipsetname') or an IP alias definition. You can also specify an address range like '20.34.101.207-201.3.9.99', or a list of IP addresses and networks (entries are separated by comma). Please do not mix IPv4 and IPv6 addresses inside such lists._ |
@@ -2856,6 +3130,7 @@ _Delete sdn dns object configuration._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `dns` | string | True | default | _The SDN dns object identifier._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### cluster_backup_index
@@ -2863,12 +3138,14 @@ _List vzdump backup schedule._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_config_set_options
 _Set node configuration options._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `acme` | string | False | default | _Node specific ACME settings._ |
 | `acmedomain_list` | string | False | default | _ACME domain and validation plugin_ |
 | `delete` | string | False | default | _A list of settings you want to delete._ |
@@ -2883,6 +3160,7 @@ _SDN subnets index._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `pending` | boolean | False | default | _Display pending config._ |
 | `running` | boolean | False | default | _Display running config._ |
 | `vnet` | string | True | default | _The SDN vnet object identifier._ |
@@ -2892,6 +3170,7 @@ _Create an LVM thinpool_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `add_storage` | boolean | False | default | _Configure storage using the thinpool._ |
 | `device` | string | True | default | _The block device you want to create the thinpool on._ |
 | `name` | string | True | default | _The storage identifier._ |
@@ -2902,6 +3181,7 @@ _OSD index._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `osdid` | integer | True | default | _OSD ID_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -2910,6 +3190,7 @@ _Reads the given file via guest agent. Is limited to 16777216 bytes._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `file` | string | True | default | _The path to the file_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
@@ -2919,6 +3200,7 @@ _Modify rule data._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `action` | string | False | default | _Rule action ('ACCEPT', 'DROP', 'REJECT') or security group name._ |
 | `comment` | string | False | default | _Descriptive comment._ |
 | `delete` | string | False | default | _A list of settings you want to delete._ |
@@ -2942,6 +3224,7 @@ _Copy a volume. This is experimental code - do not use._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `storage` | string | False | default | _The storage identifier._ |
 | `target` | string | True | default | _Target volume identifier_ |
@@ -2953,6 +3236,7 @@ _Stop the container. This will abruptly stop all processes running in the contai
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `skiplock` | boolean | False | default | _Ignore locks - only root is allowed to use this option._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
@@ -2962,6 +3246,7 @@ _Create backup._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `prox_all` | boolean | False | default | _Backup all known guest systems on this host._ |
 | `bwlimit` | integer | False | default | _Limit I/O bandwidth (KBytes per second)._ |
 | `compress` | string | False | default | _Compress dump file._ |
@@ -2998,6 +3283,7 @@ _Retrieve effective permissions of given user/token._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `path` | string | False | default | _Only dump this specific path, not the whole tree._ |
 | `userid` | string | False | default | _User ID or full API token ID_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -3006,6 +3292,7 @@ _List Zpools._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_storage_storage_content_index
@@ -3013,6 +3300,7 @@ _List storage content._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `content` | string | False | default | _Only list content of this type._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `storage` | string | True | default | _The storage identifier._ |
@@ -3023,6 +3311,7 @@ _Request resource migration (online) to another node._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _Target node._ |
 | `sid` | string | True | default | _HA resource ID. This consists of a resource type followed by a resource specific name, separated with colon (example: vm:100 / ct:100). For virtual machines and containers, you can simply use the VM or CT id as a shortcut (example: 100)._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -3031,6 +3320,7 @@ _Index of available pci methods_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `pciid` | string | True | default | _Description unavailable._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -3039,6 +3329,7 @@ _Get snapshot configuration_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `snapname` | string | True | default | _The name of the snapshot._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
@@ -3048,6 +3339,7 @@ _Read vzdump backup job definition._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `prox_id` | string | True | default | _The job ID._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_qemu_vmid_firewall_rules_create_rule
@@ -3055,6 +3347,7 @@ _Create new rule._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `action` | string | True | default | _Rule action ('ACCEPT', 'DROP', 'REJECT') or security group name._ |
 | `comment` | string | False | default | _Descriptive comment._ |
 | `dest` | string | False | default | _Restrict packet destination address. This can refer to a single IP address, an IP set ('+ipsetname') or an IP alias definition. You can also specify an address range like '20.34.101.207-201.3.9.99', or a list of IP addresses and networks (entries are separated by comma). Please do not mix IPv4 and IPv6 addresses inside such lists._ |
@@ -3078,6 +3371,7 @@ _Creates a TCP VNC proxy connections._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `height` | integer | False | default | _sets the height of the console in pixels._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
@@ -3089,6 +3383,7 @@ _Suspend virtual machine._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `skiplock` | boolean | False | default | _Ignore locks - only root is allowed to use this option._ |
 | `statestorage` | string | False | default | _The storage for the VM state_ |
@@ -3100,6 +3395,7 @@ _Creates a TCP VNC proxy connections._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `generate_password` | boolean | False | default | _Generates a random password to be used as ticket instead of the API ticket._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
@@ -3110,6 +3406,7 @@ _Delete ha group configuration._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `group` | string | True | default | _The HA group identifier._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_ceph_mgr_id_createmgr
@@ -3117,6 +3414,7 @@ _Create Ceph Manager_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `prox_id` | string | False | default | _The ID for the manager, when omitted the same as the nodename_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -3125,6 +3423,7 @@ _Get ceph status._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### cluster_jobs_schedule_analyze
@@ -3132,6 +3431,7 @@ _Returns a list of future schedule runtimes._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `iterations` | integer | False | default | _Number of event-iteration to simulate and return._ |
 | `schedule` | string | True | default | _Job schedule. The format is a subset of `systemd` calendar events._ |
 | `starttime` | integer | False | default | _UNIX timestamp to start the calculation from. Defaults to the current time._ |
@@ -3141,6 +3441,7 @@ _Delete subscription key of this node._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_lxc_vmid_snapshot_snapname_snapshot_cmd_idx
@@ -3148,6 +3449,7 @@ __
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `snapname` | string | True | default | _The name of the snapshot._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
@@ -3157,6 +3459,7 @@ _Modify rule data._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `action` | string | False | default | _Rule action ('ACCEPT', 'DROP', 'REJECT') or security group name._ |
 | `comment` | string | False | default | _Descriptive comment._ |
 | `delete` | string | False | default | _A list of settings you want to delete._ |
@@ -3182,6 +3485,7 @@ _Read ceph log_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `limit` | integer | False | default | _Description unavailable._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `start` | integer | False | default | _Description unavailable._ |
@@ -3191,6 +3495,7 @@ _Get user API tokens._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `userid` | string | True | default | _Full User ID, in the `name@realm` format._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_qemu_vmid_status_shutdown_vm_shutdown
@@ -3198,6 +3503,7 @@ _Shutdown virtual machine. This is similar to pressing the power button on a phy
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `forceStop` | boolean | False | default | _Make sure the VM stops._ |
 | `keepActive` | boolean | False | default | _Do not deactivate storage volumes._ |
 | `node` | string | True | default | _The cluster node name._ |
@@ -3210,6 +3516,7 @@ _Joins this node into an existing cluster. If no links are given, default to IP 
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `fingerprint` | string | True | default | _Certificate SHA 256 fingerprint._ |
 | `force` | boolean | False | default | _Do not throw error if node already exists._ |
 | `hostname` | string | True | default | _Hostname (or IP) of an existing cluster member._ |
@@ -3223,6 +3530,7 @@ _Revert network configuration changes._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### cluster_firewall_aliases_name_read_alias
@@ -3230,6 +3538,7 @@ _Read alias._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `name` | string | True | default | _Alias name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### cluster_acme_plugins_add_plugin
@@ -3237,6 +3546,7 @@ _Add ACME plugin configuration._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `api` | string | False | default | _API plugin name_ |
 | `data` | string | False | default | _DNS plugin data. (base64 encoded)_ |
 | `disable` | boolean | False | default | _Flag to disable the config._ |
@@ -3250,6 +3560,7 @@ _Get Ceph osd list/tree._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### pools_poolid_update_pool
@@ -3257,6 +3568,7 @@ _Update pool data._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `comment` | string | False | default | _Description unavailable._ |
 | `delete` | boolean | False | default | _Remove vms/storage (instead of adding it)._ |
 | `poolid` | string | True | default | _Description unavailable._ |
@@ -3268,6 +3580,7 @@ _Create new pool._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `comment` | string | False | default | _Description unavailable._ |
 | `poolid` | string | True | default | _Description unavailable._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -3276,6 +3589,7 @@ _ceph osd out_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `osdid` | integer | True | default | _OSD ID_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -3284,6 +3598,7 @@ _Extract configuration from vzdump backup archive._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `volume` | string | True | default | _Volume identifier_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -3292,6 +3607,7 @@ _Read Journal_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `endcursor` | string | False | default | _End before the given Cursor. Conflicts with 'until'_ |
 | `lastentries` | integer | False | default | _Limit to the last X lines. Conflicts with a range._ |
 | `node` | string | True | default | _The cluster node name._ |
@@ -3304,6 +3620,7 @@ _Stop all VMs and Containers._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `force_stop` | boolean | False | default | _Force a hard-stop after the timeout._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `timeout` | integer | False | default | _Timeout for each guest shutdown task. Depending on `force-stop`, the shutdown gets then simply aborted or a hard-stop is forced._ |
@@ -3314,6 +3631,7 @@ _Resize a container mount point._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `digest` | string | False | default | _Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications._ |
 | `disk` | string | True | default | _The disk you want to resize._ |
 | `node` | string | True | default | _The cluster node name._ |
@@ -3325,6 +3643,7 @@ _Removes a node from the cluster configuration._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_time_set_timezone
@@ -3332,6 +3651,7 @@ _Set time zone._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `timezone` | string | True | default | _Time zone. The file '/usr/share/zoneinfo/zone.tab' contains the list of valid names._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -3340,12 +3660,14 @@ _Directory index._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_qemu_vmid_agent_get_fsinfo
 _Execute get-fsinfo._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -3354,6 +3676,7 @@ _This is used to resynchronize the package index files from their sources (apt-g
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `notify` | boolean | False | default | _Send notification mail about new packages (to email address specified for user 'root@pam')._ |
 | `quiet` | boolean | False | default | _Only produces output suitable for logging, omitting progress indicators._ |
@@ -3363,6 +3686,7 @@ _Destroy pool_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `force` | boolean | False | default | _If true, destroys pool even if in use_ |
 | `name` | string | True | default | _The name of the pool. It must be unique._ |
 | `node` | string | True | default | _The cluster node name._ |
@@ -3374,6 +3698,7 @@ _Read service properties_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `service` | string | True | default | _Service ID_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -3382,6 +3707,7 @@ _Node index._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_ceph_cfg_index
@@ -3389,6 +3715,7 @@ _Directory index._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_lxc_vmid_vncwebsocket
@@ -3396,6 +3723,7 @@ _Opens a weksocket for VNC traffic._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `port` | integer | True | default | _Port number returned by previous vncproxy call._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
@@ -3406,6 +3734,7 @@ _List LVM Volume Groups_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_scan_iscsi_iscsiscan
@@ -3413,6 +3742,7 @@ _Scan remote iSCSI server._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `portal` | string | True | default | _The iSCSI portal (IP or DNS name with optional port)._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -3421,6 +3751,7 @@ _List IPSets_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -3429,6 +3760,7 @@ _Retrieve ACME TermsOfService URL from CA._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `directory` | string | False | default | _URL of ACME CA directory endpoint._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_lxc_vmid_firewall_rules_get_rules
@@ -3436,6 +3768,7 @@ _List rules._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -3444,6 +3777,7 @@ _Set datacenter options._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `bwlimit` | string | False | default | _Set bandwidth/io limits various operations._ |
 | `console` | string | False | default | _Select the default Console viewer. You can either use the builtin java applet (VNC; deprecated and maps to html5), an external virt-viewer comtatible application (SPICE), an HTML5 based vnc viewer (noVNC), or an HTML5 based console client (xtermjs). If the selected viewer is not available (e.g. SPICE not activated for the VM), the fallback is noVNC._ |
 | `crs` | string | False | default | _Cluster resource scheduling settings._ |
@@ -3472,6 +3806,7 @@ _Execute suspend-disk._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -3480,6 +3815,7 @@ _Stop a task._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `upid` | string | True | default | _Description unavailable._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -3488,6 +3824,7 @@ _Get the Ceph configuration file. Deprecated, please use `/nodes/{node}/ceph/cfg
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_hardware_usb_usbscan
@@ -3495,6 +3832,7 @@ _List local USB devices._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_scan_lvm_lvmscan
@@ -3502,6 +3840,7 @@ _List local LVM volume groups._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### access_tfa_userid_add_tfa_entry
@@ -3509,6 +3848,7 @@ _Add a TFA entry for a user._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `challenge` | string | False | default | _When responding to a u2f challenge: the original challenge string_ |
 | `description` | string | False | default | _A description to distinguish multiple entries from one another_ |
 | `password` | string | False | True | _The current password._ |
@@ -3522,6 +3862,7 @@ _Create a new sdn ipam object._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `ipam` | string | True | default | _The SDN ipam object identifier._ |
 | `section` | integer | False | default | _Description unavailable._ |
 | `token` | string | False | default | _Description unavailable._ |
@@ -3533,6 +3874,7 @@ _Update IP or Network alias._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `cidr` | string | True | default | _Network/IP specification in CIDR format._ |
 | `comment` | string | False | default | _Description unavailable._ |
 | `digest` | string | False | default | _Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications._ |
@@ -3544,6 +3886,7 @@ _Get single rule data._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `group` | string | True | default | _Security Group name._ |
 | `pos` | integer | False | default | _Update rule at position <pos>._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -3552,6 +3895,7 @@ _Read node status_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### access_users_userid_token_tokenid_update_token_info
@@ -3559,6 +3903,7 @@ _Update API token for a specific user._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `comment` | string | False | default | _Description unavailable._ |
 | `expire` | integer | False | default | _API token expiration date (seconds since epoch). '0' means no expiration date._ |
 | `privsep` | boolean | False | default | _Restrict API token privileges with separate ACLs (default), or give full privileges of corresponding user._ |
@@ -3570,6 +3915,7 @@ _Sets the password for the given user to the given password_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `crypted` | boolean | False | default | _set to 1 if the password has already been passed through crypt()_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `password` | string | True | True | _The new password._ |
@@ -3581,6 +3927,7 @@ _Update IP or Network alias._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `cidr` | string | True | default | _Network/IP specification in CIDR format._ |
 | `comment` | string | False | default | _Description unavailable._ |
 | `digest` | string | False | default | _Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications._ |
@@ -3594,6 +3941,7 @@ _Read sdn ipam configuration._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `ipam` | string | True | default | _The SDN ipam object identifier._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_firewall_options_get_options
@@ -3601,6 +3949,7 @@ _Get host firewall options._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_qemu_vmid_firewall_ipset_create_ipset
@@ -3608,6 +3957,7 @@ _Create new IPSet_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `comment` | string | False | default | _Description unavailable._ |
 | `digest` | string | False | default | _Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications._ |
 | `name` | string | True | default | _IP set name._ |
@@ -3620,6 +3970,7 @@ _Create a new external metric server config_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `api_path_prefix` | string | False | default | _An API path prefix inserted between '<host>:<port>/' and '/api2/'. Can be useful if the InfluxDB service runs behind a reverse proxy._ |
 | `bucket` | string | False | default | _The InfluxDB bucket/db. Only necessary when using the http v2 api._ |
 | `disable` | boolean | False | default | _Flag to disable the plugin._ |
@@ -3642,6 +3993,7 @@ _Directory index_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -3650,6 +4002,7 @@ _Schedule replication job to start as soon as possible._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `prox_id` | string | True | default | _Replication Job ID. The ID is composed of a Guest ID and a job number, separated by a hyphen, i.e. '<GUEST>-<JOBNUM>'._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -3658,6 +4011,7 @@ _Read firewall log_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `limit` | integer | False | default | _Description unavailable._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `since` | integer | False | default | _Display log since this UNIX epoch._ |
@@ -3669,6 +4023,7 @@ _Read storage RRD statistics._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `cf` | string | False | default | _The RRD consolidation function_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `storage` | string | True | default | _The storage identifier._ |
@@ -3679,6 +4034,7 @@ _Add IP or Network to IPSet._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `cidr` | string | True | default | _Network/IP specification in CIDR format._ |
 | `comment` | string | False | default | _Description unavailable._ |
 | `name` | string | True | default | _IP set name._ |
@@ -3691,6 +4047,7 @@ _Read DNS settings._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_storage_index
@@ -3698,6 +4055,7 @@ _Get status for all datastores._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `content` | string | False | default | _Only list stores which support this content type._ |
 | `enabled` | boolean | False | default | _Only list stores which are enabled (not disabled in config)._ |
 | `prox_format` | boolean | False | default | _Include information about formats_ |
@@ -3710,6 +4068,7 @@ _Delete sdn vnet object configuration._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `vnet` | string | True | default | _The SDN vnet object identifier._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_ceph_index
@@ -3717,6 +4076,7 @@ _Directory index._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_qemu_vmid_destroy_vm
@@ -3724,6 +4084,7 @@ _Destroy the VM and  all used/owned volumes. Removes any VM specific permissions
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `destroy_unreferenced_disks` | boolean | False | default | _If set, destroy additionally all disks not referenced in the config but with a matching VMID from all enabled storages._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `purge` | boolean | False | default | _Remove VMID from configurations, like backup & replication jobs and HA._ |
@@ -3735,6 +4096,7 @@ _Get node configuration options._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `prox_property` | string | False | default | _Return only a specific property from the node configuration._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -3743,6 +4105,7 @@ _Create or restore a virtual machine._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `acpi` | boolean | False | default | _Enable/disable ACPI._ |
 | `affinity` | string | False | default | _List of host cores used to execute guest processes, for example: 0,5,8-11_ |
 | `agent` | string | False | default | _Enable/disable communication with the QEMU Guest Agent and its properties._ |
@@ -3835,6 +4198,7 @@ _Destroy Ceph Metadata Server_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `name` | string | True | default | _The name (ID) of the mds_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -3843,6 +4207,7 @@ _List all pools. Deprecated, please use `/nodes/{node}/ceph/pool`._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### access_groups_groupid_delete_group
@@ -3850,6 +4215,7 @@ _Delete group._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `groupid` | string | True | default | _Description unavailable._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_disks_directory_index
@@ -3857,6 +4223,7 @@ _PVE Managed Directory storages._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### cluster_ha_groups_group_update
@@ -3864,6 +4231,7 @@ _Update ha group configuration._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `comment` | string | False | default | _Description._ |
 | `delete` | string | False | default | _A list of settings you want to delete._ |
 | `digest` | string | False | default | _Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications._ |
@@ -3877,6 +4245,7 @@ _Execute QEMU monitor commands._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `command` | string | True | default | _The monitor command._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
@@ -3886,6 +4255,7 @@ _Read IP or Network settings from IPSet._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `cidr` | string | True | default | _Network/IP specification in CIDR format._ |
 | `name` | string | True | default | _IP set name._ |
 | `node` | string | True | default | _The cluster node name._ |
@@ -3896,6 +4266,7 @@ _Delete network device configuration_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `iface` | string | True | default | _Network interface name._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -3904,6 +4275,7 @@ _List rules._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -3912,6 +4284,7 @@ _Directory index for apt (Advanced Package Tool)._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_capabilities_index
@@ -3919,6 +4292,7 @@ _Node capabilities index._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### access_users_userid_update_user
@@ -3926,6 +4300,7 @@ _Update user configuration._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `append` | boolean | False | default | _Description unavailable._ |
 | `comment` | string | False | default | _Description unavailable._ |
 | `email` | string | False | default | _Description unavailable._ |
@@ -3942,6 +4317,7 @@ _Renew existing certificate from CA._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `force` | boolean | False | default | _Force renewal even if expiry is more than 30 days away._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -3950,6 +4326,7 @@ _Get VM firewall options._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -3958,6 +4335,7 @@ _Show the current pool status._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `name` | string | True | default | _The name of the pool. It must be unique._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `verbose` | boolean | False | default | _If enabled, will display additional data(eg. statistics)._ |
@@ -3967,6 +4345,7 @@ _Create IP or Network Alias._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `cidr` | string | True | default | _Network/IP specification in CIDR format._ |
 | `comment` | string | False | default | _Description unavailable._ |
 | `name` | string | True | default | _Alias name._ |
@@ -3978,6 +4357,7 @@ _MDS directory index._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_ceph_fs_index
@@ -3985,6 +4365,7 @@ _Directory index._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### access_acl_read_acl
@@ -3992,12 +4373,14 @@ _Get Access Control List (ACLs)._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_disks_zfs_name_detail
 _Get details about a zpool._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `name` | string | True | default | _The storage identifier._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -4006,6 +4389,7 @@ _Get virtual machine status._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -4014,6 +4398,7 @@ _Create new group._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `comment` | string | False | default | _Description unavailable._ |
 | `groupid` | string | True | default | _Description unavailable._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -4022,6 +4407,7 @@ _Create Ceph pool_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `add_storages` | boolean | False | default | _Configure VM and CT storage using the new pool._ |
 | `application` | string | False | default | _The application of the pool._ |
 | `crush_rule` | string | False | default | _The rule to use for mapping object placement in the cluster._ |
@@ -4041,6 +4427,7 @@ _Rollback VM state to specified snapshot._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `snapname` | string | True | default | _The name of the snapshot._ |
 | `start` | boolean | False | default | _Whether the VM should get started after rolling back successfully. (Note: VMs will be automatically started if the snapshot includes RAM.)_ |
@@ -4051,6 +4438,7 @@ _Allocate disk images._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `filename` | string | True | default | _The name of the file to create._ |
 | `prox_format` | string | False | default | _Description unavailable._ |
 | `node` | string | True | default | _The cluster node name._ |
@@ -4063,6 +4451,7 @@ _Create a container clone/copy_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `bwlimit` | number | False | default | _Override I/O bandwidth limit (in KiB/s)._ |
 | `description` | string | False | default | _Description for the new CT._ |
 | `full` | boolean | False | default | _Create a full copy of all disks. This is always done when you clone a normal CT. For CT templates, we try to create a linked clone by default._ |
@@ -4080,6 +4469,7 @@ _Get APT repository information._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### access_users_userid_token_tokenid_read_token
@@ -4087,6 +4477,7 @@ _Get specific API token information._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `tokenid` | string | True | default | _User-specific token identifier._ |
 | `userid` | string | True | default | _Full User ID, in the `name@realm` format._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -4095,6 +4486,7 @@ _Set virtual machine options (synchrounous API) - You should consider using the 
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `acpi` | boolean | False | default | _Enable/disable ACPI._ |
 | `affinity` | string | False | default | _List of host cores used to execute guest processes, for example: 0,5,8-11_ |
 | `agent` | string | False | default | _Enable/disable communication with the QEMU Guest Agent and its properties._ |
@@ -4184,6 +4576,7 @@ _Set Firewall options._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `delete` | string | False | default | _A list of settings you want to delete._ |
 | `digest` | string | False | default | _Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications._ |
 | `enable` | boolean | False | default | _Enable host firewall rules._ |
@@ -4210,6 +4603,7 @@ _Directory index._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_firewall_rules_create_rule
@@ -4217,6 +4611,7 @@ _Create new rule._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `action` | string | True | default | _Rule action ('ACCEPT', 'DROP', 'REJECT') or security group name._ |
 | `comment` | string | False | default | _Descriptive comment._ |
 | `dest` | string | False | default | _Restrict packet destination address. This can refer to a single IP address, an IP set ('+ipsetname') or an IP alias definition. You can also specify an address range like '20.34.101.207-201.3.9.99', or a list of IP addresses and networks (entries are separated by comma). Please do not mix IPv4 and IPv6 addresses inside such lists._ |
@@ -4239,6 +4634,7 @@ _Execute ping._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -4247,12 +4643,14 @@ _Pool index._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_scan_pbs_pbsscan
 _Scan remote Proxmox Backup Server._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `fingerprint` | string | False | default | _Certificate SHA 256 fingerprint._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `password` | string | True | True | _User password or API token secret._ |
@@ -4265,6 +4663,7 @@ _Get the OpenId Authorization Url for the specified realm._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `realm` | string | True | default | _Authentication domain ID_ |
 | `redirect_url` | string | True | default | _Redirection Url. The client should set this to the used server url (location.origin)._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -4273,6 +4672,7 @@ _Get available QEMU/KVM machine types._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_qemu_vmid_pending_vm_pending
@@ -4280,6 +4680,7 @@ _Get the virtual machine configuration with both current and pending values._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -4288,12 +4689,14 @@ _List rules._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_qemu_vmid_feature_vm_feature
 _Check if feature for virtual machine is available._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `feature` | string | True | default | _Feature to check._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `snapname` | string | False | default | _The name of the snapshot._ |
@@ -4304,12 +4707,14 @@ _Directory index._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_storage_storage_file_restore_list
 _List files and directories for single file restore under the given path._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `filepath` | string | True | default | _base64-path to the directory or file being listed, or "/"._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `storage` | string | True | default | _The storage identifier._ |
@@ -4320,6 +4725,7 @@ __
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `zone` | string | True | default | _The SDN zone object identifier._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -4328,6 +4734,7 @@ _Remove an LVM thin pool._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `cleanup_config` | boolean | False | default | _Marks associated storage(s) as not available on this node anymore or removes them from the configuration (if configured for this node only)._ |
 | `cleanup_disks` | boolean | False | default | _Also wipe disks so they can be repurposed afterwards._ |
 | `name` | string | True | default | _The storage identifier._ |
@@ -4339,12 +4746,14 @@ _ACMEAccount index._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### access_tfa_userid_id_get_tfa_entry
 _Fetch a requested TFA entry if present._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `prox_id` | string | True | default | _A TFA entry id._ |
 | `userid` | string | True | default | _Full User ID, in the `name@realm` format._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -4353,6 +4762,7 @@ _DELETE custom certificate chain and key._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `restart` | boolean | False | default | _Restart pveproxy._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -4361,6 +4771,7 @@ _Register a new ACME account with CA._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `contact` | string | True | default | _Contact email addresses._ |
 | `directory` | string | False | default | _URL of ACME CA directory endpoint._ |
 | `name` | string | False | default | _ACME account config file name._ |
@@ -4371,6 +4782,7 @@ _Scan zfs pool list on local node._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_firewall_rules_pos_update_rule
@@ -4378,6 +4790,7 @@ _Modify rule data._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `action` | string | False | default | _Rule action ('ACCEPT', 'DROP', 'REJECT') or security group name._ |
 | `comment` | string | False | default | _Descriptive comment._ |
 | `delete` | string | False | default | _A list of settings you want to delete._ |
@@ -4402,6 +4815,7 @@ _Create a ZFS pool._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `add_storage` | boolean | False | default | _Configure storage using the zpool._ |
 | `ashift` | integer | False | default | _Pool sector size exponent._ |
 | `compression` | string | False | default | _The compression algorithm to use._ |
@@ -4416,6 +4830,7 @@ _Execute get-osinfo._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -4424,6 +4839,7 @@ _Create an LVM Volume Group_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `add_storage` | boolean | False | default | _Configure storage using the Volume Group_ |
 | `device` | string | True | default | _The block device you want to create the volume group on_ |
 | `name` | string | True | default | _The storage identifier._ |
@@ -4434,12 +4850,14 @@ _Dummy. Useful for formatters which want to provide a login page._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### access_domains_realm_sync
 _Syncs users and/or groups from the configured LDAP to user.cfg. NOTE: Synced groups will have the name 'name-$realm', so make sure those groups do not exist to prevent overwriting._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `dry_run` | boolean | False | default | _If set, does not write anything._ |
 | `enable_new` | boolean | False | default | _Enable newly synced users immediately._ |
 | `full` | boolean | False | default | _DEPRECATED: use 'remove-vanished' instead. If set, uses the LDAP Directory as source of truth, deleting users or groups not returned from the sync and removing all locally modified properties of synced users. If not set, only syncs information which is present in the synced data, and does not delete or modify anything else._ |
@@ -4453,6 +4871,7 @@ _Read VM RRD statistics (returns PNG)_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `cf` | string | False | default | _The RRD consolidation function_ |
 | `ds` | string | True | default | _The list of datasources you want to display._ |
 | `node` | string | True | default | _The cluster node name._ |
@@ -4464,6 +4883,7 @@ _Returns a SPICE configuration to connect to the VM._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `proxy` | string | False | default | _SPICE proxy server. This can be used by the client to specify the proxy server. All nodes in a cluster runs 'spiceproxy', so it is up to the client to choose one. By default, we return the node where the VM is currently running. As reasonable setting is to use same node you use to connect to the API (This is window.location.hostname for the JS GUI)._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
@@ -4473,6 +4893,7 @@ _ Verify OpenID authorization code and create a ticket._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `code` | string | True | default | _OpenId authorization code._ |
 | `redirect_url` | string | True | default | _Redirection Url. The client should set this to the used server url (location.origin)._ |
 | `state` | string | True | default | _OpenId state._ |
@@ -4482,6 +4903,7 @@ _Start virtual machine._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `force_cpu` | string | False | default | _Override QEMU's -cpu argument with the given string._ |
 | `machine` | string | False | default | _Specifies the QEMU machine type._ |
 | `migratedfrom` | string | False | default | _The cluster node name._ |
@@ -4499,6 +4921,7 @@ _Extend volume size._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `digest` | string | False | default | _Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications._ |
 | `disk` | string | True | default | _The disk you want to resize._ |
 | `node` | string | True | default | _The cluster node name._ |
@@ -4511,6 +4934,7 @@ _Get VM firewall options._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -4519,6 +4943,7 @@ _List local PCI devices._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `pci_class_blacklist` | string | False | default | _A list of blacklisted PCI classes, which will not be returned. Following are filtered by default: Memory Controller (05), Bridge (06) and Processor (0b)._ |
 | `verbose` | boolean | False | default | _If disabled, does only print the PCI IDs. Otherwise, additional information like vendor and device will be returned._ |
@@ -4528,6 +4953,7 @@ _Update IP or Network settings_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `cidr` | string | True | default | _Network/IP specification in CIDR format._ |
 | `comment` | string | False | default | _Description unavailable._ |
 | `digest` | string | False | default | _Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications._ |
@@ -4541,6 +4967,7 @@ _Get status for all zones._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_ceph_init
@@ -4548,6 +4975,7 @@ _Create initial ceph default configuration and setup symlinks._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `cluster_network` | string | False | default | _Declare a separate cluster network, OSDs will routeheartbeat, object replication and recovery traffic over it_ |
 | `disable_cephx` | boolean | False | default | _Disable cephx authentication.  WARNING: cephx is a security feature protecting against man-in-the-middle attacks. Only consider disabling cephx if your network is private!_ |
 | `min_size` | integer | False | default | _Minimum number of available replicas per object to allow I/O_ |
@@ -4561,6 +4989,7 @@ _QEMU Guest Agent command index._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -4569,6 +4998,7 @@ _Return existing ACME account information._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `name` | string | False | default | _ACME account config file name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_qemu_vmlist
@@ -4576,6 +5006,7 @@ _Virtual machine index (per node)._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `full` | boolean | False | default | _Determine the full status of active VMs._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -4584,18 +5015,21 @@ _Get full HA manger status, including LRM status._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### cluster_acme_directories_get_directories
 _Get named known ACME directory endpoints._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_disks_lvm_name_delete
 _Remove an LVM Volume Group._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `cleanup_config` | boolean | False | default | _Marks associated storage(s) as not available on this node anymore or removes them from the configuration (if configured for this node only)._ |
 | `cleanup_disks` | boolean | False | default | _Also wipe disks so they can be repurposed afterwards._ |
 | `name` | string | True | default | _The storage identifier._ |
@@ -4606,6 +5040,7 @@ _Restart ceph services._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `service` | string | False | default | _Ceph service name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -4614,6 +5049,7 @@ _Migrate virtual machine. Creates a new migration task._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `bwlimit` | integer | False | default | _Override I/O bandwidth limit (in KiB/s)._ |
 | `force` | boolean | False | default | _Allow to migrate VMs which use local devices. Only root may use this option._ |
 | `migration_network` | string | False | default | _CIDR of the (sub) network that is used for migration._ |
@@ -4630,12 +5066,14 @@ _List security groups._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_lxc_vmid_firewall_refs
 _Lists possible IPSet/Alias reference which are allowed in source/dest properties._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `prox_type` | string | False | default | _Only list references of specified type._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
@@ -4645,18 +5083,21 @@ _Authentication domain index._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### cluster_index
 _Cluster index._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_qemu_vmid_unlink
 _Unlink/delete disk images._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `force` | boolean | False | default | _Force physical removal. Without this, we simple remove the disk from the config file and create an additional configuration entry called 'unused[n]', which contains the volume ID. Unlink of unused[n] always cause physical removal._ |
 | `idlist` | string | True | default | _A list of disk IDs you want to delete._ |
 | `node` | string | True | default | _The cluster node name._ |
@@ -4667,12 +5108,14 @@ _Corosync node list._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### access_ticket_create_ticket
 _Create or verify authentication ticket._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `new_format` | boolean | False | default | _With webauthn the format of half-authenticated tickts changed. New clients should pass 1 here and not worry about the old format. The old format is deprecated and will be retired with PVE-8.0_ |
 | `otp` | string | False | default | _One-time password for Two-factor authentication._ |
 | `password` | string | True | True | _The secret password. This can also be a valid ticket._ |
@@ -4687,6 +5130,7 @@ _Read node RRD statistics (returns PNG)_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `cf` | string | False | default | _The RRD consolidation function_ |
 | `ds` | string | True | default | _The list of datasources you want to display._ |
 | `node` | string | True | default | _The cluster node name._ |
@@ -4697,6 +5141,7 @@ _Set virtual machine options (asynchrounous API)._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `acpi` | boolean | False | default | _Enable/disable ACPI._ |
 | `affinity` | string | False | default | _List of host cores used to execute guest processes, for example: 0,5,8-11_ |
 | `agent` | string | False | default | _Enable/disable communication with the QEMU Guest Agent and its properties._ |
@@ -4787,6 +5232,7 @@ _Execute fstrim._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -4795,6 +5241,7 @@ _Modify rule data._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `action` | string | False | default | _Rule action ('ACCEPT', 'DROP', 'REJECT') or security group name._ |
 | `comment` | string | False | default | _Descriptive comment._ |
 | `delete` | string | False | default | _A list of settings you want to delete._ |
@@ -4820,6 +5267,7 @@ _Delete sdn ipam object configuration._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `ipam` | string | True | default | _The SDN ipam object identifier._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_replication_id_index
@@ -4827,6 +5275,7 @@ _Directory index._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `prox_id` | string | True | default | _Replication Job ID. The ID is composed of a Guest ID and a job number, separated by a hyphen, i.e. '<GUEST>-<JOBNUM>'._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -4835,6 +5284,7 @@ _Returns included guests and the backup status of their disks. Optimized to be u
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `prox_id` | string | True | default | _The job ID._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_qemu_vmid_agent_shutdown
@@ -4842,6 +5292,7 @@ _Execute shutdown._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -4850,6 +5301,7 @@ _Snapshot a container._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `description` | string | False | default | _A textual description or comment._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `snapname` | string | True | default | _The name of the snapshot._ |
@@ -4860,6 +5312,7 @@ _Get group configuration._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `groupid` | string | True | default | _Description unavailable._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_lxc_vmid_template
@@ -4867,6 +5320,7 @@ _Create a Template._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -4875,6 +5329,7 @@ _Add IP or Network to IPSet._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `cidr` | string | True | default | _Network/IP specification in CIDR format._ |
 | `comment` | string | False | default | _Description unavailable._ |
 | `name` | string | True | default | _IP set name._ |
@@ -4885,6 +5340,7 @@ _List all pools and their settings (which are settable by the POST/PUT endpoints
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### cluster_firewall_rules_create_rule
@@ -4892,6 +5348,7 @@ _Create new rule._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `action` | string | True | default | _Rule action ('ACCEPT', 'DROP', 'REJECT') or security group name._ |
 | `comment` | string | False | default | _Descriptive comment._ |
 | `dest` | string | False | default | _Restrict packet destination address. This can refer to a single IP address, an IP set ('+ipsetname') or an IP alias definition. You can also specify an address range like '20.34.101.207-201.3.9.99', or a list of IP addresses and networks (entries are separated by comma). Please do not mix IPv4 and IPv6 addresses inside such lists._ |
@@ -4913,18 +5370,21 @@ _List IPSets_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### cluster_firewall_index
 _Directory index._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_scan_lvmthin_lvmthinscan
 _List local LVM Thin Pools._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vg` | string | True | default | _Description unavailable._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -4933,12 +5393,14 @@ _Get HA manger status._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_netstat
 _Read tap/vm network device interface counters_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_qemu_vmid_firewall_rules_pos_get_rule
@@ -4946,6 +5408,7 @@ _Get single rule data._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `pos` | integer | False | default | _Update rule at position <pos>._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
@@ -4955,6 +5418,7 @@ _Try to wake a node via 'wake on LAN' network packet._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _target node for wake on LAN packet_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### cluster_options_get_options
@@ -4962,12 +5426,14 @@ _Get datacenter options. Without 'Sys.Audit' on '/' not all options are returned
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### access_users_create_user
 _Create new user._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `comment` | string | False | default | _Description unavailable._ |
 | `email` | string | False | default | _Description unavailable._ |
 | `enable` | boolean | False | default | _Enable the account (default). You can set this to '0' to disable the account_ |
@@ -4984,6 +5450,7 @@ _Read server time and time zone settings._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### storage_create
@@ -4991,6 +5458,7 @@ _Create a new storage._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `authsupported` | string | False | default | _Authsupported._ |
 | `base` | string | False | default | _Base volume. This volume is automatically activated._ |
 | `blocksize` | string | False | default | _block size_ |
@@ -5056,6 +5524,7 @@ _Execute get-vcpus._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -5064,6 +5533,7 @@ _Stop virtual machine. The qemu process will exit immediately. Thisis akin to pu
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `keepActive` | boolean | False | default | _Do not deactivate storage volumes._ |
 | `migratedfrom` | string | False | default | _The cluster node name._ |
 | `node` | string | True | default | _The cluster node name._ |
@@ -5076,6 +5546,7 @@ _Index of available scan methods_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### cluster_sdn_ipams_ipam_update
@@ -5083,6 +5554,7 @@ _Update sdn ipam object configuration._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `delete` | string | False | default | _A list of settings you want to delete._ |
 | `digest` | string | False | default | _Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications._ |
 | `ipam` | string | True | default | _The SDN ipam object identifier._ |
@@ -5095,12 +5567,14 @@ _Shows all guests which are not covered by any backup job._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### access_roles_roleid_delete_role
 _Delete role._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `roleid` | string | True | default | _Description unavailable._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_lxc_vmid_mtunnel
@@ -5108,6 +5582,7 @@ _Migration tunnel endpoint - only for internal use by CT migration._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `bridges` | string | False | default | _List of network bridges to check availability. Will be checked again for actually used bridges during migration._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `storages` | string | False | default | _List of storages to check permission and availability. Will be checked again for all actually used storages during migration._ |
@@ -5118,6 +5593,7 @@ _Get the cloudinit configuration with both current and pending values._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -5126,6 +5602,7 @@ _Execute get-host-name._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -5134,6 +5611,7 @@ _Move a rootfs-/mp-volume to a different storage or to a different container._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `bwlimit` | number | False | default | _Override I/O bandwidth limit (in KiB/s)._ |
 | `delete` | boolean | False | default | _Delete the original volume after successful copy. By default the original is kept as an unused volume entry._ |
 | `digest` | string | False | default | _Prevent changes if current configuration file has different SHA1 " .     "digest. This can be used to prevent concurrent modifications._ |
@@ -5150,6 +5628,7 @@ _Gather various systems information about a node_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### cluster_firewall_groups_group_pos_delete_rule
@@ -5157,6 +5636,7 @@ _Delete rule._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `digest` | string | False | default | _Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications._ |
 | `group` | string | True | default | _Security Group name._ |
 | `pos` | integer | False | default | _Update rule at position <pos>._ |
@@ -5166,6 +5646,7 @@ _Set Firewall options._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `delete` | string | False | default | _A list of settings you want to delete._ |
 | `dhcp` | boolean | False | default | _Enable DHCP._ |
 | `digest` | string | False | default | _Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications._ |
@@ -5186,6 +5667,7 @@ _Add a standard repository to the configuration_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `digest` | string | False | default | _Digest to detect modifications._ |
 | `handle` | string | True | default | _Handle that identifies a repository._ |
 | `node` | string | True | default | _The cluster node name._ |
@@ -5195,6 +5677,7 @@ _List LVM thinpools_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_vncshell
@@ -5202,6 +5685,7 @@ _Creates a VNC Shell proxy._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `cmd` | string | False | default | _Run specific command or default to login._ |
 | `cmd_opts` | string | False | default | _Add parameters to a command. Encoded as null terminated strings._ |
 | `height` | integer | False | default | _sets the height of the console in pixels._ |
@@ -5214,6 +5698,7 @@ _Rollback LXC state to specified snapshot._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `snapname` | string | True | default | _The name of the snapshot._ |
 | `start` | boolean | False | default | _Whether the container should get started after rolling back successfully_ |
@@ -5224,6 +5709,7 @@ _Read replication job log._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `prox_id` | string | True | default | _Replication Job ID. The ID is composed of a Guest ID and a job number, separated by a hyphen, i.e. '<GUEST>-<JOBNUM>'._ |
 | `limit` | integer | False | default | _Description unavailable._ |
 | `node` | string | True | default | _The cluster node name._ |
@@ -5234,6 +5720,7 @@ _Heuristical check if it is safe to perform an action._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `action` | string | True | default | _Action to check_ |
 | `prox_id` | string | True | default | _ID of the service_ |
 | `node` | string | True | default | _The cluster node name._ |
@@ -5244,6 +5731,7 @@ _Create a new sdn subnet object._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `dnszoneprefix` | string | False | default | _dns domain zone prefix  ex: 'adm' -> <hostname>.adm.mydomain.com_ |
 | `gateway` | string | False | default | _Subnet Gateway: Will be assign on vnet for layer3 zones_ |
 | `snat` | boolean | False | default | _enable masquerade for this subnet if pve-firewall_ |
@@ -5256,6 +5744,7 @@ _Get SMART Health of a disk._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `disk` | string | True | default | _Block device name_ |
 | `healthonly` | boolean | False | default | _If true returns only the health status_ |
 | `node` | string | True | default | _The cluster node name._ |
@@ -5265,6 +5754,7 @@ _Adds a node to the cluster configuration. This call is for internal use._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `apiversion` | integer | False | default | _The JOIN_API_VERSION of the new node._ |
 | `force` | boolean | False | default | _Do not throw error if node already exists._ |
 | `link_list` | string | False | default | _Address and priority information of a single corosync link. (up to 8 links supported; link0..link7)_ |
@@ -5278,6 +5768,7 @@ _Write DNS settings._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `dns1` | string | False | default | _First name server IP address._ |
 | `dns2` | string | False | default | _Second name server IP address._ |
 | `dns3` | string | False | default | _Third name server IP address._ |
@@ -5289,6 +5780,7 @@ _Get pool configuration._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `poolid` | string | True | default | _Description unavailable._ |
 | `prox_type` | string | False | default | _Description unavailable._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -5297,6 +5789,7 @@ _Execute fsfreeze-thaw._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -5305,6 +5798,7 @@ _Query metadata of an URL: file size, file name and mime type._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `url` | string | True | default | _The URL to query the metadata from._ |
 | `verify_certificates` | boolean | False | default | _If false, no SSL/TLS certificates will be verified._ |
@@ -5314,6 +5808,7 @@ _Add IP or Network to IPSet._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `cidr` | string | True | default | _Network/IP specification in CIDR format._ |
 | `comment` | string | False | default | _Description unavailable._ |
 | `name` | string | True | default | _IP set name._ |
@@ -5326,6 +5821,7 @@ _Change the properties of a repository. Currently only allows enabling/disabling
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `digest` | string | False | default | _Digest to detect modifications._ |
 | `enabled` | boolean | False | default | _Whether the repository should be enabled or not._ |
 | `index` | integer | True | default | _Index within the file (starting from 0)._ |
@@ -5337,6 +5833,7 @@ _List HA resources._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `prox_type` | string | False | default | _Only list resources of specific type_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_qemu_vmid_snapshot_snapname_config_update_snapshot_config
@@ -5344,6 +5841,7 @@ _Update snapshot metadata._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `description` | string | False | default | _A textual description or comment._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `snapname` | string | True | default | _The name of the snapshot._ |
@@ -5354,6 +5852,7 @@ _Read system log_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `limit` | integer | False | default | _Description unavailable._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `service` | string | False | default | _Service ID_ |
@@ -5366,6 +5865,7 @@ _Destroy the container (also delete all uses files)._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `destroy_unreferenced_disks` | boolean | False | default | _If set, destroy additionally all disks with the VMID from all enabled storages which are not referenced in the config._ |
 | `force` | boolean | False | default | _Force destroy, even if running._ |
 | `node` | string | True | default | _The cluster node name._ |
@@ -5377,6 +5877,7 @@ _List IPSets_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -5385,6 +5886,7 @@ _Get the Ceph configuration database. Deprecated, please use `/nodes/{node}/ceph
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_lxc_vmid_snapshot_snapname_delsnapshot
@@ -5392,6 +5894,7 @@ _Delete a LXC snapshot._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `force` | boolean | False | default | _For removal from config file, even if removing disk snapshots fails._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `snapname` | string | True | default | _The name of the snapshot._ |
@@ -5402,6 +5905,7 @@ _Update resource configuration._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `comment` | string | False | default | _Description._ |
 | `delete` | string | False | default | _A list of settings you want to delete._ |
 | `digest` | string | False | default | _Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications._ |
@@ -5416,6 +5920,7 @@ _Creates a TCP proxy connection._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -5424,6 +5929,7 @@ _Destroy OSD_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `cleanup` | boolean | False | default | _If set, we remove partition table entries._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `osdid` | integer | True | default | _OSD ID_ |
@@ -5433,6 +5939,7 @@ _Move volume to different storage or to a different VM._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `bwlimit` | integer | False | default | _Override I/O bandwidth limit (in KiB/s)._ |
 | `delete` | boolean | False | default | _Delete the original disk after successful copy. By default the original disk is kept as unused disk._ |
 | `digest` | string | False | default | _Prevent changes if current configuration file has different SHA1"     ." digest. This can be used to prevent concurrent modifications._ |
@@ -5450,6 +5957,7 @@ _Get OSD details_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `osdid` | integer | True | default | _OSD ID_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -5458,6 +5966,7 @@ _Delete IPSet_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `force` | boolean | False | default | _Delete all members of the IPSet, if there are any._ |
 | `name` | string | True | default | _IP set name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -5466,12 +5975,14 @@ _Get ceph status._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_tasks
 _Read task list for one node (finished tasks)._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `errors` | boolean | False | default | _Only list tasks with a status of ERROR._ |
 | `limit` | integer | False | default | _Only list this amount of tasks._ |
 | `node` | string | True | default | _The cluster node name._ |
@@ -5489,6 +6000,7 @@ _Send key event to virtual machine._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `key` | string | True | True | _The key (qemu monitor encoding)._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `skiplock` | boolean | False | default | _Ignore locks - only root is allowed to use this option._ |
@@ -5499,6 +6011,7 @@ _ACME index._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_rrddata
@@ -5506,6 +6019,7 @@ _Read node RRD statistics_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `cf` | string | False | default | _The RRD consolidation function_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `timeframe` | string | True | default | _Specify the time frame you are interested in._ |
@@ -5515,6 +6029,7 @@ _Node index._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### access_password_change_password
@@ -5522,6 +6037,7 @@ _Change user password._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `password` | string | True | True | _The new password._ |
 | `userid` | string | True | default | _Full User ID, in the `name@realm` format._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -5530,6 +6046,7 @@ _List mediated device types for given PCI device._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `pciid` | string | True | default | _The PCI ID to list the mdev types for._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -5538,6 +6055,7 @@ _Get preconditions for migration._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `target` | string | False | default | _Target node._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
@@ -5547,12 +6065,14 @@ _List replication jobs._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### cluster_sdn_controllers_create
 _Create a new sdn controller object._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `asn` | integer | False | default | _autonomous system number_ |
 | `bgp_multipath_as_path_relax` | boolean | False | default | _Description unavailable._ |
 | `controller` | string | True | default | _The SDN controller object identifier._ |
@@ -5568,6 +6088,7 @@ _Create a Ceph filesystem_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `add_storage` | boolean | False | default | _Configure the created CephFS as storage for this cluster._ |
 | `name` | string | False | default | _The ceph filesystem name._ |
 | `node` | string | True | default | _The cluster node name._ |
@@ -5578,6 +6099,7 @@ _Execute suspend-ram._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -5586,6 +6108,7 @@ _Directory index_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -5594,6 +6117,7 @@ _Execute get-time._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -5602,6 +6126,7 @@ _Update IP or Network settings_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `cidr` | string | True | default | _Network/IP specification in CIDR format._ |
 | `comment` | string | False | default | _Description unavailable._ |
 | `digest` | string | False | default | _Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications._ |
@@ -5615,6 +6140,7 @@ _Reset virtual machine._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `skiplock` | boolean | False | default | _Ignore locks - only root is allowed to use this option._ |
 | `vmid` | integer | True | default | _The (unique) ID of the VM._ |
@@ -5624,6 +6150,7 @@ _Update sdn zone object configuration._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `advertise_subnets` | boolean | False | default | _Advertise evpn subnets if you have silent hosts_ |
 | `bridge` | string | False | default | _Description unavailable._ |
 | `bridge_disable_mac_learning` | boolean | False | default | _Disable auto mac learning._ |
@@ -5654,6 +6181,7 @@ _Finish a u2f challenge._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `response` | string | True | default | _The response to the current authentication challenge._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_network_create_network
@@ -5661,6 +6189,7 @@ _Create network device configuration_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `address` | string | False | default | _IP address._ |
 | `address6` | string | False | default | _IP address._ |
 | `autostart` | boolean | False | default | _Automatically start interface on boot._ |
@@ -5695,6 +6224,7 @@ _Create new vzdump backup job._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `prox_all` | boolean | False | default | _Backup all known guest systems on this host._ |
 | `bwlimit` | integer | False | default | _Limit I/O bandwidth (KBytes per second)._ |
 | `comment` | string | False | default | _Description for the Job._ |
@@ -5737,6 +6267,7 @@ _Migrate virtual machine to a remote cluster. Creates a new migration task. EXPE
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `bwlimit` | integer | False | default | _Override I/O bandwidth limit (in KiB/s)._ |
 | `delete` | boolean | False | default | _Delete the original VM and related data after successful migration. By default the original VM is kept on the source cluster in a stopped state._ |
 | `node` | string | True | default | _The cluster node name._ |
@@ -5752,6 +6283,7 @@ _Scan remote GlusterFS server._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `node` | string | True | default | _The cluster node name._ |
 | `server` | string | True | default | _The server address (name or IP)._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -5760,6 +6292,7 @@ _List TFA configurations of users._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `userid` | string | True | default | _Full User ID, in the `name@realm` format._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### cluster_ha_resources_create
@@ -5767,6 +6300,7 @@ _Create a new HA resource._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `comment` | string | False | default | _Description._ |
 | `group` | string | False | default | _The HA group identifier._ |
 | `max_relocate` | integer | False | default | _Maximal number of service relocate tries when a service failes to start._ |
@@ -5780,6 +6314,7 @@ _Execute multiple commands in order._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `commands` | string | True | default | _JSON encoded array of commands._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
@@ -5788,6 +6323,7 @@ _Delete storage configuration._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `storage` | string | True | default | _The storage identifier._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### cluster_sdn_dns_dns_read
@@ -5795,6 +6331,7 @@ _Read sdn dns configuration._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `dns` | string | True | default | _The SDN dns object identifier._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### nodes_node_qemu_vmid_firewall_aliases_name_remove_alias
@@ -5802,6 +6339,7 @@ _Remove IP or Network alias._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `digest` | string | False | default | _Prevent changes if current configuration file has different SHA1 digest. This can be used to prevent concurrent modifications._ |
 | `name` | string | True | default | _Alias name._ |
 | `node` | string | True | default | _The cluster node name._ |
@@ -5812,6 +6350,7 @@ _Create a copy of virtual machine/template._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `bwlimit` | integer | False | default | _Override I/O bandwidth limit (in KiB/s)._ |
 | `description` | string | False | default | _Description for the new VM._ |
 | `prox_format` | string | False | default | _Target format for file storage. Only valid for full clone._ |
@@ -5830,6 +6369,7 @@ _Extract a file or directory (as zip archive) from a PBS backup._
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
 | `filepath` | string | True | default | _base64-path to the directory or file to download._ |
 | `node` | string | True | default | _The cluster node name._ |
 | `storage` | string | True | default | _The storage identifier._ |

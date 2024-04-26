@@ -5,6 +5,11 @@ description: "Register a new ACME account with CA."
 enabled: true
 entry_point: "cluster_acme_account_register_account.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   contact:
     description: "Contact email addresses."
     type: string

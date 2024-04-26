@@ -5,6 +5,11 @@ description: "Create new role."
 enabled: true
 entry_point: "access_roles_create_role.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   privs:
     description: "Description unavailable."
     type: string

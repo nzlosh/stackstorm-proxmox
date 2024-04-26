@@ -5,6 +5,11 @@ description: "Executes the given command in the vm via the guest-agent and retur
 enabled: true
 entry_point: "nodes_node_qemu_vmid_agent_exec.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   command:
     description: "The command as a list of program + arguments"
     type: string

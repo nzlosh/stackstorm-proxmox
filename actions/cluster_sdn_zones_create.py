@@ -7,8 +7,35 @@ class ClusterSdnZonesCreateAction(ProxmoxAction):
     Create a new sdn zone object.
     """
 
-    def run(self, prox_type, zone, advertise_subnets=None, bridge=None, bridge_disable_mac_learning=None, controller=None, disable_arp_nd_suppression=None, dns=None, dnszone=None, dp_id=None, exitnodes=None, exitnodes_local_routing=None, exitnodes_primary=None, ipam=None, mac=None, mtu=None, nodes=None, peers=None, reversedns=None, rt_import=None, tag=None, vlan_protocol=None, vrf_vxlan=None, profile_name=None):
-        super().run(profile_name)
+    def run(
+        self,
+        prox_type,
+        zone,
+        advertise_subnets=None,
+        bridge=None,
+        bridge_disable_mac_learning=None,
+        controller=None,
+        disable_arp_nd_suppression=None,
+        dns=None,
+        dnszone=None,
+        dp_id=None,
+        exitnodes=None,
+        exitnodes_local_routing=None,
+        exitnodes_primary=None,
+        ipam=None,
+        mac=None,
+        mtu=None,
+        nodes=None,
+        peers=None,
+        reversedns=None,
+        rt_import=None,
+        tag=None,
+        vlan_protocol=None,
+        vrf_vxlan=None,
+        profile_name=None,
+        api_timeout=5,
+    ):
+        super().run(profile_name, api_timeout=api_timeout)
 
         # Only include non None arguments to pass through to proxmox api.
         proxmox_kwargs = {}
@@ -36,11 +63,10 @@ class ClusterSdnZonesCreateAction(ProxmoxAction):
             ["vlan-protocol", vlan_protocol, "string"],
             ["vrf-vxlan", vrf_vxlan, "integer"],
             ["zone", zone, "string"],
-            
         ]:
             if api_arg[1] is None:
                 continue
-            if '[n]' in api_arg[0]:
+            if "[n]" in api_arg[0]:
                 unit_list = json.loads(api_arg[1])
                 for i, v in enumerate(unit_list):
                     proxmox_kwargs[api_arg[0].replace("[n]", str(i))] = v
@@ -49,8 +75,4 @@ class ClusterSdnZonesCreateAction(ProxmoxAction):
                     api_arg[1] = int(api_arg[1])
                 proxmox_kwargs[api_arg[0]] = api_arg[1]
 
-        return self.proxmox.post(
-            f"cluster/sdn/zones",
-            **proxmox_kwargs
-        )
-        
+        return self.proxmox.post(f"cluster/sdn/zones", **proxmox_kwargs)

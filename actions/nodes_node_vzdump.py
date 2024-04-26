@@ -7,8 +7,42 @@ class NodesNodeVzdumpAction(ProxmoxAction):
     Create backup.
     """
 
-    def run(self, prox_all=None, bwlimit=None, compress=None, dumpdir=None, exclude=None, exclude_path=None, ionice=None, lockwait=None, mailnotification=None, mailto=None, maxfiles=None, mode=None, node=None, notes_template=None, performance=None, pigz=None, pool=None, protected=None, prune_backups=None, quiet=None, remove=None, script=None, stdexcludes=None, stdout=None, stop=None, stopwait=None, storage=None, tmpdir=None, vmid=None, zstd=None, profile_name=None):
-        super().run(profile_name)
+    def run(
+        self,
+        prox_all=None,
+        bwlimit=None,
+        compress=None,
+        dumpdir=None,
+        exclude=None,
+        exclude_path=None,
+        ionice=None,
+        lockwait=None,
+        mailnotification=None,
+        mailto=None,
+        maxfiles=None,
+        mode=None,
+        node=None,
+        notes_template=None,
+        performance=None,
+        pigz=None,
+        pool=None,
+        protected=None,
+        prune_backups=None,
+        quiet=None,
+        remove=None,
+        script=None,
+        stdexcludes=None,
+        stdout=None,
+        stop=None,
+        stopwait=None,
+        storage=None,
+        tmpdir=None,
+        vmid=None,
+        zstd=None,
+        profile_name=None,
+        api_timeout=5,
+    ):
+        super().run(profile_name, api_timeout=api_timeout)
 
         # Only include non None arguments to pass through to proxmox api.
         proxmox_kwargs = {}
@@ -43,11 +77,10 @@ class NodesNodeVzdumpAction(ProxmoxAction):
             ["tmpdir", tmpdir, "string"],
             ["vmid", vmid, "string"],
             ["zstd", zstd, "integer"],
-            
         ]:
             if api_arg[1] is None:
                 continue
-            if '[n]' in api_arg[0]:
+            if "[n]" in api_arg[0]:
                 unit_list = json.loads(api_arg[1])
                 for i, v in enumerate(unit_list):
                     proxmox_kwargs[api_arg[0].replace("[n]", str(i))] = v
@@ -56,8 +89,4 @@ class NodesNodeVzdumpAction(ProxmoxAction):
                     api_arg[1] = int(api_arg[1])
                 proxmox_kwargs[api_arg[0]] = api_arg[1]
 
-        return self.proxmox.post(
-            f"nodes/{node}/vzdump",
-            **proxmox_kwargs
-        )
-        
+        return self.proxmox.post(f"nodes/{node}/vzdump", **proxmox_kwargs)

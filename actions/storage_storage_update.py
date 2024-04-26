@@ -7,8 +7,60 @@ class StorageStorageUpdateAction(ProxmoxAction):
     Update storage configuration.
     """
 
-    def run(self, storage, blocksize=None, bwlimit=None, comstar_hg=None, comstar_tg=None, content=None, content_dirs=None, data_pool=None, delete=None, digest=None, disable=None, domain=None, encryption_key=None, fingerprint=None, prox_format=None, fs_name=None, fuse=None, is_mountpoint=None, keyring=None, krbd=None, lio_tpg=None, master_pubkey=None, max_protected_backups=None, maxfiles=None, mkdir=None, monhost=None, mountpoint=None, namespace=None, nocow=None, nodes=None, nowritecache=None, options=None, password=None, pool=None, port=None, preallocation=None, prune_backups=None, saferemove=None, saferemove_throughput=None, server=None, server2=None, shared=None, smbversion=None, sparse=None, subdir=None, tagged_only=None, transport=None, username=None, profile_name=None):
-        super().run(profile_name)
+    def run(
+        self,
+        storage,
+        blocksize=None,
+        bwlimit=None,
+        comstar_hg=None,
+        comstar_tg=None,
+        content=None,
+        content_dirs=None,
+        data_pool=None,
+        delete=None,
+        digest=None,
+        disable=None,
+        domain=None,
+        encryption_key=None,
+        fingerprint=None,
+        prox_format=None,
+        fs_name=None,
+        fuse=None,
+        is_mountpoint=None,
+        keyring=None,
+        krbd=None,
+        lio_tpg=None,
+        master_pubkey=None,
+        max_protected_backups=None,
+        maxfiles=None,
+        mkdir=None,
+        monhost=None,
+        mountpoint=None,
+        namespace=None,
+        nocow=None,
+        nodes=None,
+        nowritecache=None,
+        options=None,
+        password=None,
+        pool=None,
+        port=None,
+        preallocation=None,
+        prune_backups=None,
+        saferemove=None,
+        saferemove_throughput=None,
+        server=None,
+        server2=None,
+        shared=None,
+        smbversion=None,
+        sparse=None,
+        subdir=None,
+        tagged_only=None,
+        transport=None,
+        username=None,
+        profile_name=None,
+        api_timeout=5,
+    ):
+        super().run(profile_name, api_timeout=api_timeout)
 
         # Only include non None arguments to pass through to proxmox api.
         proxmox_kwargs = {}
@@ -61,11 +113,10 @@ class StorageStorageUpdateAction(ProxmoxAction):
             ["tagged_only", tagged_only, "boolean"],
             ["transport", transport, "string"],
             ["username", username, "string"],
-            
         ]:
             if api_arg[1] is None:
                 continue
-            if '[n]' in api_arg[0]:
+            if "[n]" in api_arg[0]:
                 unit_list = json.loads(api_arg[1])
                 for i, v in enumerate(unit_list):
                     proxmox_kwargs[api_arg[0].replace("[n]", str(i))] = v
@@ -74,8 +125,4 @@ class StorageStorageUpdateAction(ProxmoxAction):
                     api_arg[1] = int(api_arg[1])
                 proxmox_kwargs[api_arg[0]] = api_arg[1]
 
-        return self.proxmox.put(
-            f"storage/{storage}",
-            **proxmox_kwargs
-        )
-        
+        return self.proxmox.put(f"storage/{storage}", **proxmox_kwargs)

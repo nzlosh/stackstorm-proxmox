@@ -30,5 +30,5 @@ class ProxmoxAction(Action):
             user=profile.get("username") + "@" + profile.get("auth_realm"),
             password=profile.get("password"),
             verify_ssl=profile.get("verify_tls"),
-            timeout=api_timeout
+            timeout=api_timeout,
         )

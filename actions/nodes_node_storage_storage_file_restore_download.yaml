@@ -5,6 +5,11 @@ description: "Extract a file or directory (as zip archive) from a PBS backup."
 enabled: true
 entry_point: "nodes_node_storage_storage_file_restore_download.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   filepath:
     description: "base64-path to the directory or file to download."
     type: string

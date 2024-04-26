@@ -5,6 +5,11 @@ description: "Change POOL settings. Deprecated, please use `/nodes/{node}/ceph/p
 enabled: true
 entry_point: "nodes_node_ceph_pools_name_setpool.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   application:
     description: "The application of the pool."
     type: string

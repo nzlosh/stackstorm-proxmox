@@ -5,6 +5,11 @@ description: "Resources index (cluster wide)."
 enabled: true
 entry_point: "cluster_resources.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   prox_type:
     description: "Description unavailable."
     type: string

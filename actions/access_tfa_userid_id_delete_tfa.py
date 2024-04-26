@@ -7,8 +7,8 @@ class AccessTfaUseridIdDeleteTfaAction(ProxmoxAction):
     Delete a TFA entry by ID.
     """
 
-    def run(self, prox_id, userid, password=None, profile_name=None):
-        super().run(profile_name)
+    def run(self, prox_id, userid, password=None, profile_name=None, api_timeout=5):
+        super().run(profile_name, api_timeout=api_timeout)
 
         # Only include non None arguments to pass through to proxmox api.
         proxmox_kwargs = {}
@@ -16,11 +16,10 @@ class AccessTfaUseridIdDeleteTfaAction(ProxmoxAction):
             ["id", prox_id, "string"],
             ["password", password, "string"],
             ["userid", userid, "string"],
-            
         ]:
             if api_arg[1] is None:
                 continue
-            if '[n]' in api_arg[0]:
+            if "[n]" in api_arg[0]:
                 unit_list = json.loads(api_arg[1])
                 for i, v in enumerate(unit_list):
                     proxmox_kwargs[api_arg[0].replace("[n]", str(i))] = v
@@ -29,8 +28,4 @@ class AccessTfaUseridIdDeleteTfaAction(ProxmoxAction):
                     api_arg[1] = int(api_arg[1])
                 proxmox_kwargs[api_arg[0]] = api_arg[1]
 
-        return self.proxmox.delete(
-            f"access/tfa/{userid}/{id}",
-            **proxmox_kwargs
-        )
-        
+        return self.proxmox.delete(f"access/tfa/{userid}/{id}", **proxmox_kwargs)

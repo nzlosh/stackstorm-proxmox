@@ -5,6 +5,11 @@ description: "Start the container."
 enabled: true
 entry_point: "nodes_node_lxc_vmid_status_start_vm_start.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   debug:
     description: "If set, enables very verbose debug log-level on start."
     type: boolean

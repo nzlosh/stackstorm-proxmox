@@ -7,8 +7,71 @@ class StorageCreateAction(ProxmoxAction):
     Create a new storage.
     """
 
-    def run(self, storage, prox_type, authsupported=None, base=None, blocksize=None, bwlimit=None, comstar_hg=None, comstar_tg=None, content=None, content_dirs=None, data_pool=None, datastore=None, disable=None, domain=None, encryption_key=None, export=None, fingerprint=None, prox_format=None, fs_name=None, fuse=None, is_mountpoint=None, iscsiprovider=None, keyring=None, krbd=None, lio_tpg=None, master_pubkey=None, max_protected_backups=None, maxfiles=None, mkdir=None, monhost=None, mountpoint=None, namespace=None, nocow=None, nodes=None, nowritecache=None, options=None, password=None, path=None, pool=None, port=None, portal=None, preallocation=None, prune_backups=None, saferemove=None, saferemove_throughput=None, server=None, server2=None, share=None, shared=None, smbversion=None, sparse=None, subdir=None, tagged_only=None, target=None, thinpool=None, transport=None, username=None, vgname=None, volume=None, profile_name=None):
-        super().run(profile_name)
+    def run(
+        self,
+        storage,
+        prox_type,
+        authsupported=None,
+        base=None,
+        blocksize=None,
+        bwlimit=None,
+        comstar_hg=None,
+        comstar_tg=None,
+        content=None,
+        content_dirs=None,
+        data_pool=None,
+        datastore=None,
+        disable=None,
+        domain=None,
+        encryption_key=None,
+        export=None,
+        fingerprint=None,
+        prox_format=None,
+        fs_name=None,
+        fuse=None,
+        is_mountpoint=None,
+        iscsiprovider=None,
+        keyring=None,
+        krbd=None,
+        lio_tpg=None,
+        master_pubkey=None,
+        max_protected_backups=None,
+        maxfiles=None,
+        mkdir=None,
+        monhost=None,
+        mountpoint=None,
+        namespace=None,
+        nocow=None,
+        nodes=None,
+        nowritecache=None,
+        options=None,
+        password=None,
+        path=None,
+        pool=None,
+        port=None,
+        portal=None,
+        preallocation=None,
+        prune_backups=None,
+        saferemove=None,
+        saferemove_throughput=None,
+        server=None,
+        server2=None,
+        share=None,
+        shared=None,
+        smbversion=None,
+        sparse=None,
+        subdir=None,
+        tagged_only=None,
+        target=None,
+        thinpool=None,
+        transport=None,
+        username=None,
+        vgname=None,
+        volume=None,
+        profile_name=None,
+        api_timeout=5,
+    ):
+        super().run(profile_name, api_timeout=api_timeout)
 
         # Only include non None arguments to pass through to proxmox api.
         proxmox_kwargs = {}
@@ -72,11 +135,10 @@ class StorageCreateAction(ProxmoxAction):
             ["username", username, "string"],
             ["vgname", vgname, "string"],
             ["volume", volume, "string"],
-            
         ]:
             if api_arg[1] is None:
                 continue
-            if '[n]' in api_arg[0]:
+            if "[n]" in api_arg[0]:
                 unit_list = json.loads(api_arg[1])
                 for i, v in enumerate(unit_list):
                     proxmox_kwargs[api_arg[0].replace("[n]", str(i))] = v
@@ -85,8 +147,4 @@ class StorageCreateAction(ProxmoxAction):
                     api_arg[1] = int(api_arg[1])
                 proxmox_kwargs[api_arg[0]] = api_arg[1]
 
-        return self.proxmox.post(
-            f"storage",
-            **proxmox_kwargs
-        )
-        
+        return self.proxmox.post(f"storage", **proxmox_kwargs)
