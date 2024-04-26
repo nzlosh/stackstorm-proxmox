@@ -1,10 +1,15 @@
 name: nodes_node_qemu_vmid_status_stop_vm_stop
 pack: proxmox
 runner_type: python-script
-description: "Stop virtual machine. The qemu process will exit immediately. Thisis akin to pulling the power plug of a running computer and may damage the VM data"
+description: "Stop virtual machine. The qemu process will exit immediately. This is akin to pulling the power plug of a running computer and may damage the VM data."
 enabled: true
 entry_point: "nodes_node_qemu_vmid_status_stop_vm_stop.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   keepActive:
     description: "Do not deactivate storage volumes."
     type: boolean
@@ -17,6 +22,10 @@ parameters:
     description: "The cluster node name."
     type: string
     required: true
+  overrule_shutdown:
+    description: "Try to abort active 'qmshutdown' tasks before stopping."
+    type: boolean
+    required: false
   skiplock:
     description: "Ignore locks - only root is allowed to use this option."
     type: boolean

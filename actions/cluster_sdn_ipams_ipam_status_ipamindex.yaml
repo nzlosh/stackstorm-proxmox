@@ -1,0 +1,20 @@
+name: cluster_sdn_ipams_ipam_status_ipamindex
+pack: proxmox
+runner_type: python-script
+description: "List PVE IPAM Entries"
+enabled: true
+entry_point: "cluster_sdn_ipams_ipam_status_ipamindex.py"
+parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
+  ipam:
+    description: "The SDN ipam object identifier."
+    type: string
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

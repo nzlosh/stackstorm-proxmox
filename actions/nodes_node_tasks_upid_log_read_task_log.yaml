@@ -5,6 +5,11 @@ description: "Read task log."
 enabled: true
 entry_point: "nodes_node_tasks_upid_log_read_task_log.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   download:
     description: "Whether the tasklog file should be downloaded. This parameter can't be used in conjunction with other parameters"
     type: boolean

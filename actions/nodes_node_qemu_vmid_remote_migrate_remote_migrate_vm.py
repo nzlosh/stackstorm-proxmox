@@ -7,8 +7,21 @@ class NodesNodeQemuVmidRemote_migrateRemoteMigrateVmAction(ProxmoxAction):
     Migrate virtual machine to a remote cluster. Creates a new migration task. EXPERIMENTAL feature!
     """
 
-    def run(self, node, target_bridge, target_endpoint, target_storage, vmid, bwlimit=None, delete=None, online=None, target_vmid=None, profile_name=None):
-        super().run(profile_name)
+    def run(
+        self,
+        node,
+        target_bridge,
+        target_endpoint,
+        target_storage,
+        vmid,
+        bwlimit=None,
+        delete=None,
+        online=None,
+        target_vmid=None,
+        profile_name=None,
+        api_timeout=5,
+    ):
+        super().run(profile_name, api_timeout=api_timeout)
 
         # Only include non None arguments to pass through to proxmox api.
         proxmox_kwargs = {}
@@ -22,11 +35,10 @@ class NodesNodeQemuVmidRemote_migrateRemoteMigrateVmAction(ProxmoxAction):
             ["target-storage", target_storage, "string"],
             ["target-vmid", target_vmid, "integer"],
             ["vmid", vmid, "integer"],
-            
         ]:
             if api_arg[1] is None:
                 continue
-            if '[n]' in api_arg[0]:
+            if "[n]" in api_arg[0]:
                 unit_list = json.loads(api_arg[1])
                 for i, v in enumerate(unit_list):
                     proxmox_kwargs[api_arg[0].replace("[n]", str(i))] = v
@@ -35,8 +47,4 @@ class NodesNodeQemuVmidRemote_migrateRemoteMigrateVmAction(ProxmoxAction):
                     api_arg[1] = int(api_arg[1])
                 proxmox_kwargs[api_arg[0]] = api_arg[1]
 
-        return self.proxmox.post(
-            f"nodes/{node}/qemu/{vmid}/remote_migrate",
-            **proxmox_kwargs
-        )
-        
+        return self.proxmox.post(f"nodes/{node}/qemu/{vmid}/remote_migrate", **proxmox_kwargs)

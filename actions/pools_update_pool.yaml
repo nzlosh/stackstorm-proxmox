@@ -1,0 +1,40 @@
+name: pools_update_pool
+pack: proxmox
+runner_type: python-script
+description: "Update pool."
+enabled: true
+entry_point: "pools_update_pool.py"
+parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
+  allow_move:
+    description: "Allow adding a guest even if already in another pool. The guest will be removed from its current pool and added to this one."
+    type: boolean
+    required: false
+  comment:
+    description: "Description unavailable."
+    type: string
+    required: false
+  delete:
+    description: "Remove the passed VMIDs and/or storage IDs instead of adding them."
+    type: boolean
+    required: false
+  poolid:
+    description: "Description unavailable."
+    type: string
+    required: true
+  storage:
+    description: "List of storage IDs to add or remove from this pool."
+    type: string
+    required: false
+  vms:
+    description: "List of guest VMIDs to add or remove from this pool."
+    type: string
+    required: false
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

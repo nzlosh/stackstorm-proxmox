@@ -7,8 +7,10 @@ class NodesNodeQemuVmidVncproxyAction(ProxmoxAction):
     Creates a TCP VNC proxy connections.
     """
 
-    def run(self, node, vmid, generate_password=None, websocket=None, profile_name=None):
-        super().run(profile_name)
+    def run(
+        self, node, vmid, generate_password=None, websocket=None, profile_name=None, api_timeout=5
+    ):
+        super().run(profile_name, api_timeout=api_timeout)
 
         # Only include non None arguments to pass through to proxmox api.
         proxmox_kwargs = {}
@@ -17,11 +19,10 @@ class NodesNodeQemuVmidVncproxyAction(ProxmoxAction):
             ["node", node, "string"],
             ["vmid", vmid, "integer"],
             ["websocket", websocket, "boolean"],
-            
         ]:
             if api_arg[1] is None:
                 continue
-            if '[n]' in api_arg[0]:
+            if "[n]" in api_arg[0]:
                 unit_list = json.loads(api_arg[1])
                 for i, v in enumerate(unit_list):
                     proxmox_kwargs[api_arg[0].replace("[n]", str(i))] = v
@@ -30,8 +31,4 @@ class NodesNodeQemuVmidVncproxyAction(ProxmoxAction):
                     api_arg[1] = int(api_arg[1])
                 proxmox_kwargs[api_arg[0]] = api_arg[1]
 
-        return self.proxmox.post(
-            f"nodes/{node}/qemu/{vmid}/vncproxy",
-            **proxmox_kwargs
-        )
-        
+        return self.proxmox.post(f"nodes/{node}/qemu/{vmid}/vncproxy", **proxmox_kwargs)

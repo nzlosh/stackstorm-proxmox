@@ -1,0 +1,20 @@
+name: pools_poolid_delete_pool_deprecated
+pack: proxmox
+runner_type: python-script
+description: "Delete pool (deprecated, no support for nested pools, use 'DELETE /pools/?poolid={poolid}')."
+enabled: true
+entry_point: "pools_poolid_delete_pool_deprecated.py"
+parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
+  poolid:
+    description: "Description unavailable."
+    type: string
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

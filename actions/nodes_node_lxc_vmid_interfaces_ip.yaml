@@ -1,0 +1,24 @@
+name: nodes_node_lxc_vmid_interfaces_ip
+pack: proxmox
+runner_type: python-script
+description: "Get IP addresses of the specified container interface."
+enabled: true
+entry_point: "nodes_node_lxc_vmid_interfaces_ip.py"
+parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  vmid:
+    description: "The (unique) ID of the VM."
+    type: integer
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

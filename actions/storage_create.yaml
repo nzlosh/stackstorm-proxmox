@@ -5,6 +5,11 @@ description: "Create a new storage."
 enabled: true
 entry_point: "storage_create.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   authsupported:
     description: "Authsupported."
     type: string
@@ -138,7 +143,7 @@ parameters:
     type: boolean
     required: false
   nodes:
-    description: "List of cluster node names."
+    description: "List of nodes for which the storage configuration applies."
     type: string
     required: false
   nowritecache:
@@ -199,7 +204,11 @@ parameters:
     type: string
     required: false
   shared:
-    description: "Mark storage as shared."
+    description: "Indicate that this is a single storage with the same contents on all nodes (or all listed in the 'nodes' option). It will not make the contents of a local storage automatically accessible to other nodes, it just marks an already shared storage as such!"
+    type: boolean
+    required: false
+  skip_cert_verification:
+    description: "Disable TLS certificate verification, only enable on fully trusted networks!"
     type: boolean
     required: false
   smbversion:

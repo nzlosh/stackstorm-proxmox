@@ -5,6 +5,11 @@ description: "Query metadata of an URL: file size, file name and mime type."
 enabled: true
 entry_point: "nodes_node_query_url_metadata.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   node:
     description: "The cluster node name."
     type: string

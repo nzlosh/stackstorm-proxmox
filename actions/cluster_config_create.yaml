@@ -5,6 +5,11 @@ description: "Generate new cluster configuration. If no links given, default to 
 enabled: true
 entry_point: "cluster_config_create.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   clustername:
     description: "The name of the cluster."
     type: string

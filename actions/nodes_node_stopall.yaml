@@ -5,6 +5,11 @@ description: "Stop all VMs and Containers."
 enabled: true
 entry_point: "nodes_node_stopall.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   force_stop:
     description: "Force a hard-stop after the timeout."
     type: boolean

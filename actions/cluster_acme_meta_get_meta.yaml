@@ -1,0 +1,20 @@
+name: cluster_acme_meta_get_meta
+pack: proxmox
+runner_type: python-script
+description: "Retrieve ACME Directory Meta Information"
+enabled: true
+entry_point: "cluster_acme_meta_get_meta.py"
+parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
+  directory:
+    description: "URL of ACME CA directory endpoint."
+    type: string
+    required: false
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

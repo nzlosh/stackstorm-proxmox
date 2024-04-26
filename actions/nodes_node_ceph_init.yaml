@@ -5,6 +5,11 @@ description: "Create initial ceph default configuration and setup symlinks."
 enabled: true
 entry_point: "nodes_node_ceph_init.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   cluster_network:
     description: "Declare a separate cluster network, OSDs will routeheartbeat, object replication and recovery traffic over it"
     type: string
@@ -26,7 +31,7 @@ parameters:
     type: string
     required: true
   pg_bits:
-    description: "Placement group bits, used to specify the default number of placement groups.  NOTE: 'osd pool default pg num' does not work for default pools."
+    description: "Placement group bits, used to specify the default number of placement groups.  Depreacted. This setting was deprecated in recent Ceph versions."
     type: integer
     required: false
   size:

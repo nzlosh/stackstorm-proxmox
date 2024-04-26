@@ -5,6 +5,11 @@ description: "Scan remote GlusterFS server."
 enabled: true
 entry_point: "nodes_node_scan_glusterfs_glusterfsscan.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   node:
     description: "The cluster node name."
     type: string

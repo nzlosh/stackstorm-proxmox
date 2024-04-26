@@ -5,6 +5,11 @@ description: "Read resource configuration."
 enabled: true
 entry_point: "cluster_ha_resources_sid_read.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   sid:
     description: "HA resource ID. This consists of a resource type followed by a resource specific name, separated with colon (example: vm:100 / ct:100). For virtual machines and containers, you can simply use the VM or CT id as a shortcut (example: 100)."
     type: string

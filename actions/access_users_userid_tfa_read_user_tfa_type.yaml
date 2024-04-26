@@ -5,6 +5,11 @@ description: "Get user TFA types (Personal and Realm)."
 enabled: true
 entry_point: "access_users_userid_tfa_read_user_tfa_type.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   multiple:
     description: "Request all entries as an array."
     type: boolean

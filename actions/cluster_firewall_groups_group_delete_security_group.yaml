@@ -5,6 +5,11 @@ description: "Delete security group."
 enabled: true
 entry_point: "cluster_firewall_groups_group_delete_security_group.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   group:
     description: "Security Group name."
     type: string

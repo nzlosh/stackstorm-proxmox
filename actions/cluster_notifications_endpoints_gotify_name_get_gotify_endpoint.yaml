@@ -1,0 +1,20 @@
+name: cluster_notifications_endpoints_gotify_name_get_gotify_endpoint
+pack: proxmox
+runner_type: python-script
+description: "Return a specific gotify endpoint"
+enabled: true
+entry_point: "cluster_notifications_endpoints_gotify_name_get_gotify_endpoint.py"
+parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
+  name:
+    description: "Name of the endpoint."
+    type: string
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

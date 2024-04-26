@@ -5,6 +5,11 @@ description: "Move a rootfs-/mp-volume to a different storage or to a different 
 enabled: true
 entry_point: "nodes_node_lxc_vmid_move_volume.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   bwlimit:
     description: "Override I/O bandwidth limit (in KiB/s)."
     type: number

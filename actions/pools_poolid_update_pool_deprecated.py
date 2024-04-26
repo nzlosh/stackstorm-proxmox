@@ -1,0 +1,44 @@
+import json
+from packlib.base import ProxmoxAction
+
+
+class PoolsPoolidUpdatePoolDeprecatedAction(ProxmoxAction):
+    """
+    Update pool data (deprecated, no support for nested pools - use 'PUT /pools/?poolid={poolid}' instead).
+    """
+
+    def run(
+        self,
+        poolid,
+        allow_move=None,
+        comment=None,
+        delete=None,
+        storage=None,
+        vms=None,
+        profile_name=None,
+        api_timeout=5,
+    ):
+        super().run(profile_name, api_timeout=api_timeout)
+
+        # Only include non None arguments to pass through to proxmox api.
+        proxmox_kwargs = {}
+        for api_arg in [
+            ["allow-move", allow_move, "boolean"],
+            ["comment", comment, "string"],
+            ["delete", delete, "boolean"],
+            ["poolid", poolid, "string"],
+            ["storage", storage, "string"],
+            ["vms", vms, "string"],
+        ]:
+            if api_arg[1] is None:
+                continue
+            if "[n]" in api_arg[0]:
+                unit_list = json.loads(api_arg[1])
+                for i, v in enumerate(unit_list):
+                    proxmox_kwargs[api_arg[0].replace("[n]", str(i))] = v
+            else:
+                if api_arg[2] == "boolean":
+                    api_arg[1] = int(api_arg[1])
+                proxmox_kwargs[api_arg[0]] = api_arg[1]
+
+        return self.proxmox.put(f"pools/{poolid}", **proxmox_kwargs)

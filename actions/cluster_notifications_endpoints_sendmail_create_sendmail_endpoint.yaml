@@ -1,0 +1,44 @@
+name: cluster_notifications_endpoints_sendmail_create_sendmail_endpoint
+pack: proxmox
+runner_type: python-script
+description: "Create a new sendmail endpoint"
+enabled: true
+entry_point: "cluster_notifications_endpoints_sendmail_create_sendmail_endpoint.py"
+parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
+  author:
+    description: "Author of the mail"
+    type: string
+    required: false
+  comment:
+    description: "Comment"
+    type: string
+    required: false
+  disable:
+    description: "Disable this target"
+    type: boolean
+    required: false
+  from_address:
+    description: "`From` address for the mail"
+    type: string
+    required: false
+  mailto:
+    description: "List of email recipients"
+    type: array
+    required: false
+  mailto_user:
+    description: "List of users"
+    type: array
+    required: false
+  name:
+    description: "The name of the endpoint."
+    type: string
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

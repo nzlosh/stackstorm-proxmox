@@ -1,0 +1,52 @@
+name: cluster_notifications_matchers_create_matcher
+pack: proxmox
+runner_type: python-script
+description: "Create a new matcher"
+enabled: true
+entry_point: "cluster_notifications_matchers_create_matcher.py"
+parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
+  comment:
+    description: "Comment"
+    type: string
+    required: false
+  disable:
+    description: "Disable this matcher"
+    type: boolean
+    required: false
+  invert_match:
+    description: "Invert match of the whole matcher"
+    type: boolean
+    required: false
+  match_calendar:
+    description: "Match notification timestamp"
+    type: array
+    required: false
+  match_field:
+    description: "Metadata fields to match (regex or exact match). Must be in the form (regex|exact):<field>=<value>"
+    type: array
+    required: false
+  match_severity:
+    description: "Notification severities to match"
+    type: array
+    required: false
+  mode:
+    description: "Choose between 'all' and 'any' for when multiple properties are specified"
+    type: string
+    required: false
+  name:
+    description: "Name of the matcher."
+    type: string
+    required: true
+  target:
+    description: "Targets to notify on match"
+    type: array
+    required: false
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

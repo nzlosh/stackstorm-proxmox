@@ -1,10 +1,15 @@
-name: pools_poolid_delete_pool
+name: pools_delete_pool
 pack: proxmox
 runner_type: python-script
 description: "Delete pool."
 enabled: true
-entry_point: "pools_poolid_delete_pool.py"
+entry_point: "pools_delete_pool.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   poolid:
     description: "Description unavailable."
     type: string

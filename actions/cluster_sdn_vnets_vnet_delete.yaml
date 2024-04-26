@@ -5,6 +5,11 @@ description: "Delete sdn vnet object configuration."
 enabled: true
 entry_point: "cluster_sdn_vnets_vnet_delete.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   vnet:
     description: "The SDN vnet object identifier."
     type: string

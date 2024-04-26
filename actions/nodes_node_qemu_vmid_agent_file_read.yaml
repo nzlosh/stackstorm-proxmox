@@ -5,6 +5,11 @@ description: "Reads the given file via guest agent. Is limited to 16777216 bytes
 enabled: true
 entry_point: "nodes_node_qemu_vmid_agent_file_read.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   file:
     description: "The path to the file"
     type: string

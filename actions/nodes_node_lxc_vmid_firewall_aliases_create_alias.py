@@ -7,8 +7,8 @@ class NodesNodeLxcVmidFirewallAliasesCreateAliasAction(ProxmoxAction):
     Create IP or Network Alias.
     """
 
-    def run(self, cidr, name, node, vmid, comment=None, profile_name=None):
-        super().run(profile_name)
+    def run(self, cidr, name, node, vmid, comment=None, profile_name=None, api_timeout=5):
+        super().run(profile_name, api_timeout=api_timeout)
 
         # Only include non None arguments to pass through to proxmox api.
         proxmox_kwargs = {}
@@ -18,11 +18,10 @@ class NodesNodeLxcVmidFirewallAliasesCreateAliasAction(ProxmoxAction):
             ["name", name, "string"],
             ["node", node, "string"],
             ["vmid", vmid, "integer"],
-            
         ]:
             if api_arg[1] is None:
                 continue
-            if '[n]' in api_arg[0]:
+            if "[n]" in api_arg[0]:
                 unit_list = json.loads(api_arg[1])
                 for i, v in enumerate(unit_list):
                     proxmox_kwargs[api_arg[0].replace("[n]", str(i))] = v
@@ -31,8 +30,4 @@ class NodesNodeLxcVmidFirewallAliasesCreateAliasAction(ProxmoxAction):
                     api_arg[1] = int(api_arg[1])
                 proxmox_kwargs[api_arg[0]] = api_arg[1]
 
-        return self.proxmox.post(
-            f"nodes/{node}/lxc/{vmid}/firewall/aliases",
-            **proxmox_kwargs
-        )
-        
+        return self.proxmox.post(f"nodes/{node}/lxc/{vmid}/firewall/aliases", **proxmox_kwargs)

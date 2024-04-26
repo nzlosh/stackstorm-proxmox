@@ -5,6 +5,11 @@ description: "Create new pool."
 enabled: true
 entry_point: "pools_create_pool.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   comment:
     description: "Description unavailable."
     type: string

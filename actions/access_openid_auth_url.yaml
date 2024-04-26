@@ -5,6 +5,11 @@ description: "Get the OpenId Authorization Url for the specified realm."
 enabled: true
 entry_point: "access_openid_auth_url.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   realm:
     description: "Authentication domain ID"
     type: string

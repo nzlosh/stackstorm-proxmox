@@ -5,6 +5,11 @@ description: "ACME plugin index."
 enabled: true
 entry_point: "cluster_acme_plugins_index.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   prox_type:
     description: "Only list ACME plugins of a specific type"
     type: string

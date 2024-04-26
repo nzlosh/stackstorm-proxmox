@@ -5,6 +5,11 @@ description: "Set/Unset multiple ceph flags at once."
 enabled: true
 entry_point: "cluster_ceph_flags_set_flags.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   nobackfill:
     description: "Backfilling of PGs is suspended."
     type: boolean

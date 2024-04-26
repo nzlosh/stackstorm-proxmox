@@ -5,6 +5,11 @@ description: "Add an authentication server."
 enabled: true
 entry_point: "access_domains_create.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
   acr_values:
     description: "Specifies the Authentication Context Class Reference values that theAuthorization Server is being requested to use for the Auth Request."
     type: string
@@ -36,6 +41,10 @@ parameters:
   certkey:
     description: "Path to the client certificate key"
     type: string
+    required: false
+  check_connection:
+    description: "Check bind connection to the server."
+    type: boolean
     required: false
   client_id:
     description: "OpenID Client ID"

@@ -5,6 +5,19 @@ description: "Create a new sdn subnet object."
 enabled: true
 entry_point: "cluster_sdn_vnets_vnet_subnets_create.py"
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
+  dhcp_dns_server:
+    description: "IP address for the DNS server"
+    type: string
+    required: false
+  dhcp_range:
+    description: "A list of DHCP ranges for this subnet"
+    type: array
+    required: false
   dnszoneprefix:
     description: "dns domain zone prefix  ex: 'adm' -> <hostname>.adm.mydomain.com"
     type: string
