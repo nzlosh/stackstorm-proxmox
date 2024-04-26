@@ -153,6 +153,11 @@ enabled: true
 entry_point: "{{ action_name }}.py"
 {% if "properties" in parameters -%}
 parameters:
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
 {% for param, p in parameters.properties.items() -%}
   {{ "  " ~ p["safe_param"] }}:
     description: {{ p.description | default('"Description unavailable."') }}
@@ -194,9 +199,9 @@ class {{ class_name }}Action(ProxmoxAction):
 {% endif -%}
 {% endif -%}
 {% endfor -%}
-    {% set args = args + opts %}
+    {% set args = args + opts + ["api_timeout=5"] %}
     def run({{ args | join(", ") }}):
-        super().run(profile_name)
+        super().run(profile_name, api_timeout=api_timeout)
 
         # Only include non None arguments to pass through to proxmox api.
         proxmox_kwargs = {}
