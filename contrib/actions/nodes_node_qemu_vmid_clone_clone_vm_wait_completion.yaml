@@ -1,0 +1,69 @@
+name: nodes_node_qemu_vmid_clone_clone_vm_wait_completion
+pack: proxmox
+runner_type: python-script
+description: "Create a copy of virtual machine/template and wait for the clone task to complete."
+enabled: true
+entry_point: "nodes_node_qemu_vmid_clone_clone_vm_wait_completion.py"
+parameters:
+  clone_timeout:
+    description: "Time in seconds to wait for the clone task to complete. (Default: 120)"
+    type: integer
+    required: false
+    default: 120
+  api_timeout:
+    description: "Time in seconds to wait for API response. (Default: 5)"
+    type: integer
+    required: false
+    default: 5
+  bwlimit:
+    description: "Override I/O bandwidth limit (in KiB/s)."
+    type: integer
+    required: false
+  description:
+    description: "Description for the new VM."
+    type: string
+    required: false
+  prox_format:
+    description: "Target format for file storage. Only valid for full clone."
+    type: string
+    required: false
+  full:
+    description: "Create a full copy of all disks. This is always done when you clone a normal VM. For VM templates, we try to create a linked clone by default."
+    type: boolean
+    required: false
+  name:
+    description: "Set a name for the new VM."
+    type: string
+    required: false
+  newid:
+    description: "VMID for the clone."
+    type: integer
+    required: true
+  node:
+    description: "The cluster node name."
+    type: string
+    required: true
+  pool:
+    description: "Add the new VM to the specified pool."
+    type: string
+    required: false
+  snapname:
+    description: "The name of the snapshot."
+    type: string
+    required: false
+  storage:
+    description: "Target storage for full clone."
+    type: string
+    required: false
+  target:
+    description: "Target node. Only allowed if the original VM is on shared storage."
+    type: string
+    required: false
+  vmid:
+    description: "The (unique) ID of the VM."
+    type: integer
+    required: true
+  profile_name:
+    description: "The profile to use to run the action."
+    type: string
+    required: false

@@ -1,5 +1,15 @@
 # Change Log
 
+## [1.2.0] 30 April 2024
+
+ - Add custom action nodes_node_qemu_vmid_clone_clone_vm_wait_completion
+
+## [1.1.0] 26 April 2024
+
+### Added
+
+ - Add api_timeout parameter to all actions.
+
 ## [1.0.1] 22 September 2023
 
 ### Added

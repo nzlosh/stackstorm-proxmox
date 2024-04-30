@@ -238,6 +238,26 @@ _Change POOL settings_
 | `target_size` | string | False | default | _The estimated target size of the pool for the PG autoscaler._ |
 | `target_size_ratio` | number | False | default | _The estimated target ratio of the pool for the PG autoscaler._ |
 | `profile_name` | string | False | default | _The profile to use to run the action._ |
+### nodes_node_qemu_vmid_clone_clone_vm_wait_completion
+_Create a copy of virtual machine/template and wait for the clone task to complete._
+
+| Parameter | Type | Required | Secret | Description |
+|---|---|---|---|---|
+| `clone_timeout` | integer | False | default | _Time in seconds to wait for the clone task to complete. (Default: 120)_ |
+| `api_timeout` | integer | False | default | _Time in seconds to wait for API response. (Default: 5)_ |
+| `bwlimit` | integer | False | default | _Override I/O bandwidth limit (in KiB/s)._ |
+| `description` | string | False | default | _Description for the new VM._ |
+| `prox_format` | string | False | default | _Target format for file storage. Only valid for full clone._ |
+| `full` | boolean | False | default | _Create a full copy of all disks. This is always done when you clone a normal VM. For VM templates, we try to create a linked clone by default._ |
+| `name` | string | False | default | _Set a name for the new VM._ |
+| `newid` | integer | True | default | _VMID for the clone._ |
+| `node` | string | True | default | _The cluster node name._ |
+| `pool` | string | False | default | _Add the new VM to the specified pool._ |
+| `snapname` | string | False | default | _The name of the snapshot._ |
+| `storage` | string | False | default | _Target storage for full clone._ |
+| `target` | string | False | default | _Target node. Only allowed if the original VM is on shared storage._ |
+| `vmid` | integer | True | default | _The (unique) ID of the VM._ |
+| `profile_name` | string | False | default | _The profile to use to run the action._ |
 ### cluster_sdn_vnets_vnet_read
 _Read sdn vnet configuration._
 
